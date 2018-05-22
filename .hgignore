@@ -30,3 +30,5 @@ _ReSharper*
 ._*
 .vs
 src/packages/*
+**/Sitecore.*.dll
+**/Sitecore.*.xml
