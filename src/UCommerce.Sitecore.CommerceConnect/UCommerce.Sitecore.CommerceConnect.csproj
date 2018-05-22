@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A1699955-8F49-4A99-A82C-083DD62CDA2E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UCommerce.Sitecore.CommerceConnect</RootNamespace>
+    <AssemblyName>UCommerce.Sitecore.CommerceConnect</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\UCommerce.Sitecore.CommerceConnect.XML</DocumentationFile>
+    <NoWarn>CS1591</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\UCommerce.Sitecore.CommerceConnect.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="paypal_base, Version=5.6.64.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.7.16.2.18137\lib\net45\paypal_base.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Analytics">
+      <HintPath>..\..\lib\Sitecore\8.0\Sitecore.Analytics.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Sitecore.Analytics.Automation">
+      <HintPath>..\..\lib\Sitecore\8.0\Sitecore.Analytics.Automation.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Analytics.DataAccess">
+      <HintPath>..\..\lib\Sitecore\8.0\Sitecore.Analytics.DataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Analytics.Model">
+      <HintPath>..\..\lib\Sitecore\8.0\Sitecore.Analytics.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Commerce, Version=7.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\SiteCore CommerceConnect\Sitecore.Commerce.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Sitecore.Kernel, Version=7.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Sitecore\8.0\Sitecore.Kernel.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UCommerce, Version=7.16.2.18137, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.7.16.2.18137\lib\net45\UCommerce.dll</HintPath>
+    </Reference>
+    <Reference Include="UCommerce.Admin, Version=7.16.2.18137, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.7.16.2.18137\lib\net45\UCommerce.Admin.dll</HintPath>
+    </Reference>
+    <Reference Include="UCommerce.Infrastructure, Version=7.16.2.18137, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.7.16.2.18137\lib\net45\UCommerce.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="UCommerce.Installer, Version=7.16.2.18137, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.7.16.2.18137\lib\net45\UCommerce.Installer.dll</HintPath>
+    </Reference>
+    <Reference Include="UCommerce.NHibernate, Version=7.16.2.18137, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.7.16.2.18137\lib\net45\UCommerce.NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="UCommerce.Pipelines, Version=7.16.2.18137, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.7.16.2.18137\lib\net45\UCommerce.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="UCommerce.Presentation, Version=7.16.2.18137, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.7.16.2.18137\lib\net45\UCommerce.Presentation.dll</HintPath>
+    </Reference>
+    <Reference Include="UCommerce.SystemHttp, Version=7.16.2.18137, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.7.16.2.18137\lib\net45\UCommerce.SystemHttp.dll</HintPath>
+    </Reference>
+    <Reference Include="UCommerce.Transactions.Payments, Version=7.16.2.18137, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.7.16.2.18137\lib\net45\UCommerce.Transactions.Payments.dll</HintPath>
+    </Reference>
+    <Reference Include="UCommerce.Web.Api, Version=7.16.2.18137, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.7.16.2.18137\lib\net45\UCommerce.Web.Api.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Mapping\ISetOrderLineNumbersService.cs" />
+    <Compile Include="Mapping\IMapValues.cs" />
+    <Compile Include="Mapping\MappingLibrary.cs" />
+    <Compile Include="Mapping\MappingLibraryInternal.cs" />
+    <Compile Include="Mapping\SetOrderLineNumbersService.cs" />
+    <Compile Include="Mapping\ToCommerceConnect\Customer\AddressToCustomerParty.cs" />
+    <Compile Include="Mapping\ToCommerceConnect\Customer\CustomerToCommerceCustomer.cs" />
+    <Compile Include="Mapping\ToCommerceConnect\Customer\AddressToParty.cs" />
+    <Compile Include="Mapping\ToCommerceConnect\Customer\SetCustomerPartyValuesFromAddress.cs" />
+    <Compile Include="Mapping\ToCommerceConnect\Customer\SetPartyValuesFromAddress.cs" />
+    <Compile Include="Mapping\ToCommerceConnect\OrderLineToAdjustments.cs" />
+    <Compile Include="Mapping\ToCommerceConnect\OrderLineToTaxTotal.cs" />
+    <Compile Include="Mapping\ToCommerceConnect\PaymentMethodToPaymentMethod.cs" />
+    <Compile Include="Mapping\ToCommerceConnect\PaymentToAdjustment.cs" />
+    <Compile Include="Mapping\ToCommerceConnect\PurchaseOrderToCartBase.cs" />
+    <Compile Include="Mapping\ToCommerceConnect\PurchaseOrderToAdjustments.cs" />
+    <Compile Include="Mapping\ToCommerceConnect\DiscountToAdjustment.cs" />
+    <Compile Include="Mapping\IMapping.cs" />
+    <Compile Include="Mapping\ToCommerceConnect\OrderAddressesToParties.cs" />
+    <Compile Include="Mapping\ToCommerceConnect\OrderAddressToParty.cs" />
+    <Compile Include="Mapping\ToCommerceConnect\OrderLinesToCartLines.cs" />
+    <Compile Include="Mapping\ToCommerceConnect\OrderLineToCartLine.cs" />
+    <Compile Include="Mapping\ToCommerceConnect\OrderLineToPrice.cs" />
+    <Compile Include="Mapping\ToCommerceConnect\OrderLineToProduct.cs" />
+    <Compile Include="Mapping\ToCommerceConnect\OrderLineToTotal.cs" />
+    <Compile Include="Mapping\ToCommerceConnect\PaymentsToPaymentInfos.cs" />
+    <Compile Include="Mapping\ToCommerceConnect\PaymentToPaymentInfo.cs" />
+    <Compile Include="Mapping\ToCommerceConnect\PurchaseOrderToCart.cs" />
+    <Compile Include="Mapping\ToCommerceConnect\PurchaseOrderToOrder.cs" />
+    <Compile Include="Mapping\ToCommerceConnect\PurchaseOrderToTaxTotal.cs" />
+    <Compile Include="Mapping\ToCommerceConnect\PurchaseOrderToTotal.cs" />
+    <Compile Include="Mapping\ToCommerceConnect\SetCartAdjustmentsValuesFromDiscounts.cs" />
+    <Compile Include="Mapping\ToCommerceConnect\SetCartAdjustmentsValuesFromPayments.cs" />
+    <Compile Include="Mapping\ToCommerceConnect\SetCartAdjustmentsValuesFromShipments.cs" />
+    <Compile Include="Mapping\ToCommerceConnect\SetCartAdjustmentValuesFromDiscount.cs" />
+    <Compile Include="Mapping\ToCommerceConnect\SetCartAdjustmentValuesFromPayment.cs" />
+    <Compile Include="Mapping\ToCommerceConnect\SetCartAdjustmentValuesFromShipment.cs" />
+    <Compile Include="Mapping\ToCommerceConnect\SetCartBaseValuesFromPurchaseOrder.cs" />
+    <Compile Include="Mapping\ToCommerceConnect\SetCartLineValuesFromOrderLine.cs" />
+    <Compile Include="Mapping\ToCommerceConnect\SetCartValuesFromPurchaseOrder.cs" />
+    <Compile Include="Mapping\ToCommerceConnect\SetLinesValuesFromOrderLines.cs" />
+    <Compile Include="Mapping\ToCommerceConnect\SetOrderFromPurchaseOrder.cs" />
+    <Compile Include="Mapping\ToCommerceConnect\SetPartiesValuesFromOrderAddresses.cs" />
+    <Compile Include="Mapping\ToCommerceConnect\SetPartyValuesFromOrderAddress.cs" />
+    <Compile Include="Mapping\ToCommerceConnect\SetPaymentInfoValuesFromPayment.cs" />
+    <Compile Include="Mapping\ToCommerceConnect\SetPaymentInfosValuesFromPayments.cs" />
+    <Compile Include="Mapping\ToCommerceConnect\SetPriceValuesFromOrderLine.cs" />
+    <Compile Include="Mapping\ToCommerceConnect\SetCartProductValuesFromOrderLine.cs" />
+    <Compile Include="Mapping\ToCommerceConnect\SetShippingInfosValuesFromShipments.cs" />
+    <Compile Include="Mapping\ToCommerceConnect\SetShippingInfoValuesFromShipment.cs" />
+    <Compile Include="Mapping\ToCommerceConnect\SetTaxTotalValuesFromOrderLine.cs" />
+    <Compile Include="Mapping\ToCommerceConnect\SetTaxTotalValuesFromPurchaseOrder.cs" />
+    <Compile Include="Mapping\ToCommerceConnect\SetTotalValuesFromPurchaseOrder.cs" />
+    <Compile Include="Mapping\ToCommerceConnect\SetTotalValuesFromOrderLine.cs" />
+    <Compile Include="Mapping\ToCommerceConnect\ShipmentsToShipping.cs" />
+    <Compile Include="Mapping\ToCommerceConnect\ShipmentToAdjustment.cs" />
+    <Compile Include="Mapping\ToCommerceConnect\ShipmentToShippingInfo.cs" />
+    <Compile Include="Mapping\ToCommerceConnect\ShippingMethodToShippingMethod.cs" />
+    <Compile Include="Mapping\ToUCommerce\AdjustMentsToDiscounts.cs" />
+    <Compile Include="Mapping\ToUCommerce\CartAdjustmentToDiscount.cs" />
+    <Compile Include="Mapping\ToUCommerce\CartLineToOrderLine.cs" />
+    <Compile Include="Mapping\ToUCommerce\CartProductToProduct.cs" />
+    <Compile Include="Mapping\ToUCommerce\SetDiscountsValuesFromAdjustments.cs" />
+    <Compile Include="Mapping\ToUCommerce\SetDiscountValuesFromCartAdjustment.cs" />
+    <Compile Include="Mapping\ToUCommerce\SetOrderLineValuesFromCartLine.cs" />
+    <Compile Include="Mapping\ToUCommerce\SetProductValuesFromCartProduct.cs" />
+    <Compile Include="Entities\Carts\PaymentInfoWithAmount.cs" />
+    <Compile Include="Pipelines\Carts\AddParties\AddPartiesToCart.cs" />
+    <Compile Include="Pipelines\Carts\AddPaymentInfo\AddPaymentInfoToCart.cs" />
+    <Compile Include="Pipelines\Carts\AddShippingInfo\AddShippingInfoToCart.cs" />
+    <Compile Include="Pipelines\Carts\CartService.cs" />
+    <Compile Include="Pipelines\Carts\CreateCart\CreateCart.cs" />
+    <Compile Include="Pipelines\Carts\GetCarts\GetCarts.cs" />
+    <Compile Include="Pipelines\Carts\ICartService.cs" />
+    <Compile Include="Pipelines\Carts\LoadCart\LoadCart.cs" />
+    <Compile Include="Pipelines\Carts\RemoveCartLines\RemoveCartLineItem.cs" />
+    <Compile Include="Pipelines\Carts\CalculateResult.cs" />
+    <Compile Include="Pipelines\Carts\RemoveParties\RemovePartiesFromCart.cs" />
+    <Compile Include="Pipelines\Carts\RemovePaymentInfo\RemovePaymentInfoFromCart.cs" />
+    <Compile Include="Pipelines\Carts\RemoveShippingInfo\RemoveShippingInfoFromCart.cs" />
+    <Compile Include="Pipelines\Carts\SaveCart\SaveCart.cs" />
+    <Compile Include="Pipelines\Carts\UpdateCartLines\RunAddCartLines.cs" />
+    <Compile Include="Pipelines\Carts\UpdateCartLines\UpdateLinesOnCart.cs" />
+    <Compile Include="Pipelines\Carts\UpdateParties\UpdatePartiesOnCart.cs" />
+    <Compile Include="Pipelines\Customers\CreateUser\CreateUCommerceMember.cs" />
+    <Compile Include="Pipelines\Carts\AddCartLines\AddCartLinesToCart.cs" />
+    <Compile Include="Pipelines\Orders\BasketService.cs" />
+    <Compile Include="Pipelines\Orders\IBasketService.cs" />
+    <Compile Include="Pipelines\Payments\GetPaymentMethods\GetPaymentMethods.cs" />
+    <Compile Include="Pipelines\Payments\GetPaymentOptions\GetPaymentOptions.cs" />
+    <Compile Include="Pipelines\Payments\GetPaymentServiceActionResult\GetPaymentServiceActionResult.cs" />
+    <Compile Include="Pipelines\Payments\GetPaymentServiceUrl\GetPaymentServiceUrl.cs" />
+    <Compile Include="Pipelines\Payments\GetPricesForPayments\GetPricesForPayments.cs" />
+    <Compile Include="Pipelines\ServicePipelineProcessor.cs" />
+    <Compile Include="Pipelines\Shipping\GetPricesForShipments\GetPricesForShipments.cs" />
+    <Compile Include="Pipelines\Shipping\GetShippingMethods\GetShippingMethods.cs" />
+    <Compile Include="Pipelines\Shipping\GetShippingMethod\GetShippingMethod.cs" />
+    <Compile Include="Pipelines\Shipping\GetShippingOptions\GetShippingOptions.cs" />
+    <Compile Include="Pipelines\UCommerce\BasketPipeline\AssignEmailAddressToContact.cs" />
+    <Compile Include="Pipelines\UCommerce\RunSitecoreCommerceAddAddressOrUpdateAddress\RunSitecoreCommerceAddAddressOrUpdateAddress.cs" />
+    <Compile Include="Pipelines\UCommerce\RunSitecoreCommerceAddShippingInfo\RunSitecoreCommerceAddShippingInfo.cs" />
+    <Compile Include="Pipelines\UCommerce\RunSitecoreCommerceCreateOrResumeCartFromGetBasket\RunSitecoreCommerceCreateOrResumeCart.cs" />
+    <Compile Include="Pipelines\UCommerce\RunSitecoreCommerceCreateOrResumeCartFromCreateBasket\RunSitecoreCommerceCreateOrResumeCart.cs" />
+    <Compile Include="Pipelines\Orders\SubmitVisitorOrder\CartToOrderUCommerce.cs" />
+    <Compile Include="Pipelines\UCommerce\RunSitecoreCommerceAddCartLines\RunSitecoreCommerceAddCartLines.cs" />
+    <Compile Include="Pipelines\UCommerce\RunSitecoreCommerceCreateUser\RunSitecoreCommerceCreateUser.cs" />
+    <Compile Include="Pipelines\UCommerce\RunSitecoreCommerceRemoveCartLines\RunSitecoreCommerceRemoveCartLines.cs" />
+    <Compile Include="Pipelines\Customers\CreateCustomer\CreateCustomer.cs" />
+    <Compile Include="Pipelines\UCommerce\RunSitecoreCommerceRemoveShippingInfo\RunSitecoreCommerceRemoveShippingInfo.cs" />
+    <Compile Include="Pipelines\UCommerce\RunSitecoreCommerceSubmitVisitorOrder\RunSitecoreCommerceSubmitVisitorOrder.cs" />
+    <Compile Include="Pipelines\UCommerce\RunSitecoreCommerceUpdateLineItem\RunSitecoreCommerceUpdateLineItem.cs" />
+    <Compile Include="Pipelines\Customers\CreateCustomer\ExecuteCreateCommerceCustomerTask.cs" />
+    <Compile Include="Pipelines\Customers\GetCustomer\GetCustomer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Configuration\Baskets.AddAddress.config.default" />
+    <None Include="Configuration\Baskets.AddToBasket.config.default" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Configuration\Baskets.Basket.config.default" />
+    <None Include="Configuration\Baskets.Checkcout.config.default" />
+    <None Include="Configuration\Baskets.CreateShipment.config.default">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Configuration\Baskets.GetBasket.config.default" />
+    <None Include="Configuration\Baskets.RemoveShipment.config.default">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Configuration\Customers.CreateMember.config.default" />
+    <None Include="Configuration\Customers.CreateCustomer.config.default" />
+    <None Include="Configuration\Baskets.CreateBasket.config.default">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Configuration\CommerceConnect.Mapping.config.default">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Configuration\Baskets.UpdateLineItem.config.default" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

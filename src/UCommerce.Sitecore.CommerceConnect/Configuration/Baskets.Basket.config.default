@@ -1,0 +1,17 @@
+﻿<configuration>
+	<components>
+		<component id="Basket.AssignEmailAddressToContact"
+						 service="UCommerce.Pipelines.IPipelineTask`1[[UCommerce.EntitiesV2.PurchaseOrder, UCommerce]], UCommerce"
+						type="UCommerce.Sitecore.CommerceConnect.Pipelines.UCommerce.BasketPipeline.AssignEmailAddressToContact, UCommerce.Sitecore.CommerceConnect" />
+
+		<partial-component id="Basket">
+			<parameters>
+				<tasks>
+					<array>
+						<value insert="last">${Basket.AssignEmailAddressToContact}</value>
+					</array>
+				</tasks>
+			</parameters>
+		</partial-component>
+	</components>
+</configuration>

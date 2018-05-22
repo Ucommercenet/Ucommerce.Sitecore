@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<configuration xmlns:patch="http://www.sitecore.net/xmlconfig/">
+  <sitecore>
+    <pipelines>
+      <initialize>
+       <processor patch:after="processor[@type='Sitecore.Services.Infrastructure.Sitecore.Pipelines.ServicesWebApiInitializer, Sitecore.Services.Infrastructure.Sitecore']" type="UCommerce.Sitecore.Pipelines.WebApiConfig, UCommerce.Sitecore"  />
+      </initialize>
+    </pipelines>
+  </sitecore>
+</configuration>

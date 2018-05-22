@@ -1,0 +1,17 @@
+﻿<configuration>
+	<components>
+		<component id="CreateBasket.RunSitecoreCommerceCreateOrResumeCart"
+            service="UCommerce.Pipelines.IPipelineTask`1[[UCommerce.Pipelines.IPipelineArgs`2[[UCommerce.Pipelines.CreateBasket.CreateBasketRequest, UCommerce],[UCommerce.Pipelines.CreateBasket.CreateBasketResponse, UCommerce]], UCommerce]], UCommerce"
+            type="UCommerce.Sitecore.CommerceConnect.Pipelines.UCommerce.RunSitecoreCommerceCreateOrResumeCartFromCreateBasket.RunSitecoreCommerceCreateOrResumeCart, UCommerce.Sitecore.CommerceConnect" />
+		
+		<partial-component id="CreateBasket">
+			<parameters>
+				<tasks>
+					<array>
+						<value insert="last">${CreateBasket.RunSitecoreCommerceCreateOrResumeCart}</value>
+					</array>
+				</tasks>
+			</parameters>
+		</partial-component>
+	</components>
+</configuration>

@@ -1,0 +1,17 @@
+﻿<configuration>
+	<components>
+		<component id="AddToBasket.RunSitecoreCommerceAddCartLines"
+           service="UCommerce.Pipelines.IPipelineTask`1[[UCommerce.Pipelines.IPipelineArgs`2[[UCommerce.Pipelines.AddToBasket.AddToBasketRequest, UCommerce],[UCommerce.Pipelines.AddToBasket.AddToBasketResponse, UCommerce]], UCommerce]], UCommerce"
+           type="UCommerce.Sitecore.CommerceConnect.Pipelines.UCommerce.RunSitecoreCommerceAddCartLines.RunSitecoreCommerceAddCartLines, UCommerce.Sitecore.CommerceConnect" />
+
+		<partial-component id="AddToBasket">
+			<parameters>
+				<tasks>
+					<array>
+						<value insert="last">${AddToBasket.RunSitecoreCommerceAddCartLines}</value>
+					</array>
+				</tasks>
+			</parameters>
+		</partial-component>
+	</components>
+</configuration>

@@ -1,0 +1,17 @@
+﻿<configuration>
+	<components>
+		<component id="CreateShipment.RunSitecoreCommerceAddShippingInfo"
+							 service="UCommerce.Pipelines.IPipelineTask`1[[UCommerce.Pipelines.IPipelineArgs`2[[UCommerce.Pipelines.CreateShipment.CreateShipmentRequest, UCommerce],[UCommerce.Pipelines.CreateShipment.CreateShipmentResult, UCommerce]], UCommerce]], UCommerce"
+							 type="UCommerce.Sitecore.CommerceConnect.Pipelines.UCommerce.RunSitecoreCommerceAddShippingInfo.RunSitecoreCommerceAddShippingInfo, UCommerce.Sitecore.CommerceConnect" />
+
+		<partial-component id="CreateShipment">
+			<parameters>
+				<tasks>
+					<array>
+						<value insert="last">${CreateShipment.RunSitecoreCommerceAddShippingInfo}</value>
+					</array>
+				</tasks>
+			</parameters>
+		</partial-component>
+	</components>
+</configuration>

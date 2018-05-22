@@ -1,0 +1,514 @@
+﻿<configuration>
+	<components>
+		<component
+			id="PurchaseOrderToCartBase"
+			service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapping`2[[UCommerce.EntitiesV2.PurchaseOrder, UCommerce], [Sitecore.Commerce.Entities.Carts.CartBase, Sitecore.Commerce]], UCommerce.Sitecore.CommerceConnect"
+			type="UCommerce.Sitecore.CommerceConnect.Mapping.ToCommerceConnect.PurchaseOrderToCartBase, UCommerce.Sitecore.CommerceConnect">
+			<parameters>
+				<setCartBaseValuesFromPurchaseOrder>${SetCartBaseValuesFromPurchaseOrder}</setCartBaseValuesFromPurchaseOrder>
+			</parameters>
+		</component>
+
+		<component
+			id="SetCartBaseValuesFromPurchaseOrder"
+			service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapValues`2[[UCommerce.EntitiesV2.PurchaseOrder, UCommerce], [Sitecore.Commerce.Entities.Carts.CartBase, Sitecore.Commerce]], UCommerce.Sitecore.CommerceConnect"
+			type="UCommerce.Sitecore.CommerceConnect.Mapping.ToCommerceConnect.SetCartBaseValuesFromPurchaseOrder, UCommerce.Sitecore.CommerceConnect"/>
+
+		<component
+			id="PurchaseOrderToCart"
+			service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapping`2[[UCommerce.EntitiesV2.PurchaseOrder, UCommerce], [Sitecore.Commerce.Entities.Carts.Cart, Sitecore.Commerce]], UCommerce.Sitecore.CommerceConnect"
+			type="UCommerce.Sitecore.CommerceConnect.Mapping.ToCommerceConnect.PurchaseOrderToCart, UCommerce.Sitecore.CommerceConnect">
+			<parameters>
+				<setCartBaseValuesFromPurchaseOrder>${SetCartBaseValuesFromPurchaseOrder}</setCartBaseValuesFromPurchaseOrder>
+				<setCartValuesFromPurchaseOrder>${SetCartValuesFromPurchaseOrder}</setCartValuesFromPurchaseOrder>
+			</parameters>
+		</component>
+
+		<component
+			id="SetCartValuesFromPurchaseOrder"
+			service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapValues`2[[UCommerce.EntitiesV2.PurchaseOrder, UCommerce], [Sitecore.Commerce.Entities.Carts.Cart, Sitecore.Commerce]], UCommerce.Sitecore.CommerceConnect"
+			type="UCommerce.Sitecore.CommerceConnect.Mapping.ToCommerceConnect.SetCartValuesFromPurchaseOrder, UCommerce.Sitecore.CommerceConnect">
+			<parameters>
+				<purchaseOrderToAdjustments>${PurchaseOrderToAdjustments}</purchaseOrderToAdjustments>
+				<purchaseOrderToTotal>${PurchaseOrderToTotal}</purchaseOrderToTotal>
+				<orderLinesToCartLines>${OrderLinesToCartLines}</orderLinesToCartLines>
+				<orderAddressesToParties>${OrderAddressesToParties}</orderAddressesToParties>
+				<shipmentsToShipping>${ShipmentsToShipping}</shipmentsToShipping>
+				<paymentsToPayment>${PaymentsToPayment}</paymentsToPayment>
+			</parameters>
+		</component>
+
+		<component
+			id="PurchaseOrderToAdjustments"
+			service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapping`2[[UCommerce.EntitiesV2.PurchaseOrder, UCommerce], [System.Collections.Generic.IList`1[[Sitecore.Commerce.Entities.Carts.CartAdjustment, Sitecore.Commerce]], mscorlib]], UCommerce.Sitecore.CommerceConnect"
+			type="UCommerce.Sitecore.CommerceConnect.Mapping.ToCommerceConnect.PurchaseOrderToAdjustments, UCommerce.Sitecore.CommerceConnect">
+			<parameters>
+				<setCartAdjustmentsValuesFromDiscounts>${SetCartAdjustmentsValuesFromDiscounts}</setCartAdjustmentsValuesFromDiscounts>
+				<setCartAdjustmentsValuesFromShipments>${SetCartAdjustmentsValuesFromShipments}</setCartAdjustmentsValuesFromShipments>
+				<setCartAdjustmentsValuesFromPayments>${SetCartAdjustmentsValuesFromPayments}</setCartAdjustmentsValuesFromPayments>
+			</parameters>
+		</component>
+
+		<component
+			id="SetCartAdjustmentsValuesFromDiscounts"
+			service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapValues`2[[System.Collections.Generic.ICollection`1[[UCommerce.EntitiesV2.Discount, UCommerce]], mscorlib], [System.Collections.Generic.IList`1[[Sitecore.Commerce.Entities.Carts.CartAdjustment, Sitecore.Commerce]], mscorlib]], UCommerce.Sitecore.CommerceConnect"
+			type="UCommerce.Sitecore.CommerceConnect.Mapping.ToCommerceConnect.SetCartAdjustmentsValuesFromDiscounts, UCommerce.Sitecore.CommerceConnect">
+			<parameters>
+				<discountToAdjustment>${DiscountToAdjustment}</discountToAdjustment>
+			</parameters>
+		</component>
+
+		<component
+			id="DiscountToAdjustment"
+			service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapping`2[[UCommerce.EntitiesV2.Discount, UCommerce], [Sitecore.Commerce.Entities.Carts.CartAdjustment, Sitecore.Commerce]], UCommerce.Sitecore.CommerceConnect"
+			type="UCommerce.Sitecore.CommerceConnect.Mapping.ToCommerceConnect.DiscountToAdjustment, UCommerce.Sitecore.CommerceConnect">
+			<parameters>
+				<setCartAdjustmentValuesFromDiscount>${SetCartAdjustmentValuesFromDiscount}</setCartAdjustmentValuesFromDiscount>
+			</parameters>
+		</component>
+
+		<component
+			id="SetCartAdjustmentValuesFromDiscount"
+			service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapValues`2[[UCommerce.EntitiesV2.Discount, UCommerce], [Sitecore.Commerce.Entities.Carts.CartAdjustment, Sitecore.Commerce]], UCommerce.Sitecore.CommerceConnect"
+			type="UCommerce.Sitecore.CommerceConnect.Mapping.ToCommerceConnect.SetCartAdjustmentValuesFromDiscount, UCommerce.Sitecore.CommerceConnect" />
+
+		<component
+			id="SetCartAdjustmentsValuesFromShipments"
+			service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapValues`2[[System.Collections.Generic.ICollection`1[[UCommerce.EntitiesV2.Shipment, UCommerce]], mscorlib], [System.Collections.Generic.IList`1[[Sitecore.Commerce.Entities.Carts.CartAdjustment, Sitecore.Commerce]], mscorlib]], UCommerce.Sitecore.CommerceConnect"
+			type="UCommerce.Sitecore.CommerceConnect.Mapping.ToCommerceConnect.SetCartAdjustmentsValuesFromShipments, UCommerce.Sitecore.CommerceConnect">
+			<parameters>
+				<shipmentToAdjustment>${ShipmentToAdjustment}</shipmentToAdjustment>
+			</parameters>
+		</component>
+
+		<component
+			id="ShipmentToAdjustment"
+			service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapping`2[[UCommerce.EntitiesV2.Shipment, UCommerce], [Sitecore.Commerce.Entities.Carts.CartAdjustment, Sitecore.Commerce]], UCommerce.Sitecore.CommerceConnect"
+			type="UCommerce.Sitecore.CommerceConnect.Mapping.ToCommerceConnect.ShipmentToAdjustment, UCommerce.Sitecore.CommerceConnect">
+			<parameters>
+				<setCartAdjustmentValuesFromShipment>${SetCartAdjustmentValuesFromShipment}</setCartAdjustmentValuesFromShipment>
+			</parameters>
+		</component>
+
+		<component
+			id="SetCartAdjustmentValuesFromShipment"
+			service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapValues`2[[UCommerce.EntitiesV2.Shipment, UCommerce], [Sitecore.Commerce.Entities.Carts.CartAdjustment, Sitecore.Commerce]], UCommerce.Sitecore.CommerceConnect"
+			type="UCommerce.Sitecore.CommerceConnect.Mapping.ToCommerceConnect.SetCartAdjustmentValuesFromShipment, UCommerce.Sitecore.CommerceConnect" />
+
+		<component
+			id="SetCartAdjustmentsValuesFromPayments"
+			service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapValues`2[[System.Collections.Generic.ICollection`1[[UCommerce.EntitiesV2.Payment, UCommerce]], mscorlib], [System.Collections.Generic.IList`1[[Sitecore.Commerce.Entities.Carts.CartAdjustment, Sitecore.Commerce]], mscorlib]], UCommerce.Sitecore.CommerceConnect"
+			type="UCommerce.Sitecore.CommerceConnect.Mapping.ToCommerceConnect.SetCartAdjustmentsValuesFromPayments, UCommerce.Sitecore.CommerceConnect">
+			<parameters>
+				<paymentToAdjustment>${PaymentToAdjustment}</paymentToAdjustment>
+			</parameters>
+		</component>
+
+		<component
+			id="PaymentToAdjustment"
+			service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapping`2[[UCommerce.EntitiesV2.Payment, UCommerce], [Sitecore.Commerce.Entities.Carts.CartAdjustment, Sitecore.Commerce]], UCommerce.Sitecore.CommerceConnect"
+			type="UCommerce.Sitecore.CommerceConnect.Mapping.ToCommerceConnect.PaymentToAdjustment, UCommerce.Sitecore.CommerceConnect">
+			<parameters>
+				<setCartAdjustmentValuesFromPayment>${SetCartAdjustmentValuesFromPayment}</setCartAdjustmentValuesFromPayment>
+			</parameters>
+		</component>
+
+		<component
+			id="SetCartAdjustmentValuesFromPayment"
+			service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapValues`2[[UCommerce.EntitiesV2.Payment, UCommerce], [Sitecore.Commerce.Entities.Carts.CartAdjustment, Sitecore.Commerce]], UCommerce.Sitecore.CommerceConnect"
+			type="UCommerce.Sitecore.CommerceConnect.Mapping.ToCommerceConnect.SetCartAdjustmentValuesFromPayment, UCommerce.Sitecore.CommerceConnect" />
+
+		<component
+			id="PurchaseOrderToTotal"
+			service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapping`2[[UCommerce.EntitiesV2.PurchaseOrder, UCommerce], [Sitecore.Commerce.Entities.Prices.Total, Sitecore.Commerce]], UCommerce.Sitecore.CommerceConnect"
+			type="UCommerce.Sitecore.CommerceConnect.Mapping.ToCommerceConnect.PurchaseOrderToTotal, UCommerce.Sitecore.CommerceConnect">
+			<parameters>
+				<setTotalValuesFromPurchaseOrder>${SetTotalValuesFromPurchaseOrder}</setTotalValuesFromPurchaseOrder>
+			</parameters>
+		</component>
+
+		<component
+			id="SetTotalValuesFromPurchaseOrder"
+			service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapValues`2[[UCommerce.EntitiesV2.PurchaseOrder, UCommerce], [Sitecore.Commerce.Entities.Prices.Total, Sitecore.Commerce]], UCommerce.Sitecore.CommerceConnect"
+			type="UCommerce.Sitecore.CommerceConnect.Mapping.ToCommerceConnect.SetTotalValuesFromPurchaseOrder, UCommerce.Sitecore.CommerceConnect">
+			<parameters>
+				<purchaseOrderToTaxTotal>${PurchaseOrderToTaxTotal}</purchaseOrderToTaxTotal>
+			</parameters>
+		</component>
+
+		<component
+			id="PurchaseOrderToTaxTotal"
+			service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapping`2[[UCommerce.EntitiesV2.PurchaseOrder, UCommerce], [Sitecore.Commerce.Entities.Prices.TaxTotal, Sitecore.Commerce]], UCommerce.Sitecore.CommerceConnect"
+			type="UCommerce.Sitecore.CommerceConnect.Mapping.ToCommerceConnect.PurchaseOrderToTaxTotal, UCommerce.Sitecore.CommerceConnect">
+			<parameters>
+				<setTaxTotalValuesFromPurchaseOrder>${SetTaxTotalValuesFromPurchaseOrder}</setTaxTotalValuesFromPurchaseOrder>
+			</parameters>
+		</component>
+
+		<component
+			id="SetTaxTotalValuesFromPurchaseOrder"
+			service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapValues`2[[UCommerce.EntitiesV2.PurchaseOrder, UCommerce], [Sitecore.Commerce.Entities.Prices.TaxTotal, Sitecore.Commerce]], UCommerce.Sitecore.CommerceConnect"
+			type="UCommerce.Sitecore.CommerceConnect.Mapping.ToCommerceConnect.SetTaxTotalValuesFromPurchaseOrder, UCommerce.Sitecore.CommerceConnect " />
+
+		<component
+			id="OrderLinesToCartLines"
+			service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapping`2[[System.Collections.Generic.ICollection`1[[UCommerce.EntitiesV2.OrderLine, UCommerce]], mscorlib], [System.Collections.Generic.IList`1[[Sitecore.Commerce.Entities.Carts.CartLine, Sitecore.Commerce]], mscorlib]], UCommerce.Sitecore.CommerceConnect"
+			type="UCommerce.Sitecore.CommerceConnect.Mapping.ToCommerceConnect.OrderLinesToCartLines, UCommerce.Sitecore.CommerceConnect">
+			<parameters>
+				<setLinesValuesFromOrderLines>${SetLinesValuesFromOrderLines}</setLinesValuesFromOrderLines>
+				<mappingService>${MappingService}</mappingService>
+			</parameters>
+		</component>
+
+		<component
+			id="SetLinesValuesFromOrderLines"
+			service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapValues`2[[System.Collections.Generic.ICollection`1[[UCommerce.EntitiesV2.OrderLine, UCommerce]], mscorlib], [System.Collections.Generic.IList`1[[Sitecore.Commerce.Entities.Carts.CartLine, Sitecore.Commerce]], mscorlib]], UCommerce.Sitecore.CommerceConnect"
+			type="UCommerce.Sitecore.CommerceConnect.Mapping.ToCommerceConnect.SetLinesValuesFromOrderLines, UCommerce.Sitecore.CommerceConnect">
+			<parameters>
+				<orderLineToCartLine>${OrderLineToCartLine}</orderLineToCartLine>
+			</parameters>
+		</component>
+
+		<component
+			id="MappingService"
+			service="UCommerce.Sitecore.CommerceConnect.Mapping.ISetOrderLineNumbersService, UCommerce.Sitecore.CommerceConnect"
+			type="UCommerce.Sitecore.CommerceConnect.Mapping.SetOrderLineNumbersService, UCommerce.Sitecore.CommerceConnect">
+		</component>
+
+		<component
+			id="OrderLineToCartLine"
+			service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapping`2[[UCommerce.EntitiesV2.OrderLine, UCommerce], [Sitecore.Commerce.Entities.Carts.CartLine, Sitecore.Commerce]], UCommerce.Sitecore.CommerceConnect"
+			type="UCommerce.Sitecore.CommerceConnect.Mapping.ToCommerceConnect.OrderLineToCartLine, UCommerce.Sitecore.CommerceConnect">
+			<parameters>
+				<setCartLineValuesFromOrderLine>${SetCartLineValuesFromOrderLine}</setCartLineValuesFromOrderLine>
+			</parameters>
+		</component>
+
+		<component
+			id="SetCartLineValuesFromOrderLine"
+			service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapValues`2[[UCommerce.EntitiesV2.OrderLine, UCommerce], [Sitecore.Commerce.Entities.Carts.CartLine, Sitecore.Commerce]], UCommerce.Sitecore.CommerceConnect"
+			type="UCommerce.Sitecore.CommerceConnect.Mapping.ToCommerceConnect.SetCartLineValuesFromOrderLine, UCommerce.Sitecore.CommerceConnect ">
+			<parameters>
+				<orderLineToAdjustments>${OrderLineToAdjustments}</orderLineToAdjustments>
+				<orderLineToProduct>${OrderLineToProduct}</orderLineToProduct>
+				<orderLineToTotal>${OrderLineToTotal}</orderLineToTotal>
+			</parameters>
+		</component>
+
+		<component
+			id="OrderLineToAdjustments"
+			service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapping`2[[UCommerce.EntitiesV2.OrderLine, UCommerce], [System.Collections.Generic.IList`1[[Sitecore.Commerce.Entities.Carts.CartAdjustment, Sitecore.Commerce]], mscorlib]], UCommerce.Sitecore.CommerceConnect"
+			type="UCommerce.Sitecore.CommerceConnect.Mapping.ToCommerceConnect.OrderLineToAdjustments, UCommerce.Sitecore.CommerceConnect">
+			<parameters>
+				<setCartAdjustmentsValuesFromDiscounts>${SetCartAdjustmentsValuesFromDiscounts}</setCartAdjustmentsValuesFromDiscounts>
+			</parameters>
+		</component>
+
+		<component
+			id="OrderLineToProduct"
+			service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapping`2[[UCommerce.EntitiesV2.OrderLine, UCommerce], [Sitecore.Commerce.Entities.Carts.CartProduct, Sitecore.Commerce]], UCommerce.Sitecore.CommerceConnect"
+			type="UCommerce.Sitecore.CommerceConnect.Mapping.ToCommerceConnect.OrderLineToProduct, UCommerce.Sitecore.CommerceConnect">
+			<parameters>
+				<setCartProductValuesFromOrderLine>${SetCartProductValuesFromOrderLine}</setCartProductValuesFromOrderLine>
+			</parameters>
+		</component>
+
+		<component
+			id="SetCartProductValuesFromOrderLine"
+			service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapValues`2[[UCommerce.EntitiesV2.OrderLine, UCommerce], [Sitecore.Commerce.Entities.Carts.CartProduct, Sitecore.Commerce]], UCommerce.Sitecore.CommerceConnect"
+			type="UCommerce.Sitecore.CommerceConnect.Mapping.ToCommerceConnect.SetCartProductValuesFromOrderLine, UCommerce.Sitecore.CommerceConnect">
+			<parameters>
+				<orderLineToAdjustments>${OrderLineToAdjustments}</orderLineToAdjustments>
+				<orderLineToPrice>${OrderLineToPrice}</orderLineToPrice>
+			</parameters>
+		</component>
+
+		<component
+			id="OrderLineToPrice"
+			service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapping`2[[UCommerce.EntitiesV2.OrderLine, UCommerce], [Sitecore.Commerce.Entities.Prices.Price, Sitecore.Commerce]], UCommerce.Sitecore.CommerceConnect"
+			type="UCommerce.Sitecore.CommerceConnect.Mapping.ToCommerceConnect.OrderLineToPrice, UCommerce.Sitecore.CommerceConnect">
+			<parameters>
+				<setPriceValuesFromOrderLine>${SetPriceValuesFromOrderLine}</setPriceValuesFromOrderLine>
+			</parameters>
+		</component>
+
+		<component
+			id="SetPriceValuesFromOrderLine"
+			service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapValues`2[[UCommerce.EntitiesV2.OrderLine, UCommerce], [Sitecore.Commerce.Entities.Prices.Price, Sitecore.Commerce]], UCommerce.Sitecore.CommerceConnect"
+			type="UCommerce.Sitecore.CommerceConnect.Mapping.ToCommerceConnect.SetPriceValuesFromOrderLine, UCommerce.Sitecore.CommerceConnect" />
+
+		<component
+			id="OrderLineToTotal"
+			service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapping`2[[UCommerce.EntitiesV2.OrderLine, UCommerce], [Sitecore.Commerce.Entities.Prices.Total, Sitecore.Commerce]], UCommerce.Sitecore.CommerceConnect"
+			type="UCommerce.Sitecore.CommerceConnect.Mapping.ToCommerceConnect.OrderLineToTotal, UCommerce.Sitecore.CommerceConnect">
+			<parameters>
+				<setTotalValuesFromOrderLine>${SetTotalValuesFromOrderLine}</setTotalValuesFromOrderLine>
+			</parameters>
+		</component>
+
+		<component
+			id="SetTotalValuesFromOrderLine"
+			service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapValues`2[[UCommerce.EntitiesV2.OrderLine, UCommerce], [Sitecore.Commerce.Entities.Prices.Total, Sitecore.Commerce]], UCommerce.Sitecore.CommerceConnect"
+			type="UCommerce.Sitecore.CommerceConnect.Mapping.ToCommerceConnect.SetTotalValuesFromOrderLine, UCommerce.Sitecore.CommerceConnect" >
+			<parameters>
+				<orderLineToTaxTotal>${OrderLineToTaxTotal}</orderLineToTaxTotal>
+			</parameters>	
+		</component>
+
+		<component
+			id="OrderLineToTaxTotal"
+			service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapping`2[[UCommerce.EntitiesV2.OrderLine, UCommerce], [Sitecore.Commerce.Entities.Prices.TaxTotal, Sitecore.Commerce]], UCommerce.Sitecore.CommerceConnect"
+			type="UCommerce.Sitecore.CommerceConnect.Mapping.ToCommerceConnect.OrderLineToTaxTotal, UCommerce.Sitecore.CommerceConnect">
+			<parameters>
+				<setTaxTotalValuesFromOrderLine>${SetTaxTotalValuesFromOrderLine}</setTaxTotalValuesFromOrderLine>
+			</parameters>
+		</component>
+
+		<component
+			id="SetTaxTotalValuesFromOrderLine"
+			service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapValues`2[[UCommerce.EntitiesV2.OrderLine, UCommerce], [Sitecore.Commerce.Entities.Prices.TaxTotal, Sitecore.Commerce]], UCommerce.Sitecore.CommerceConnect"
+			type="UCommerce.Sitecore.CommerceConnect.Mapping.ToCommerceConnect.SetTaxTotalValuesFromOrderLine, UCommerce.Sitecore.CommerceConnect" />
+		
+		<component
+			id="OrderAddressesToParties"
+			service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapping`2[[System.Collections.Generic.ICollection`1[[UCommerce.EntitiesV2.OrderAddress, UCommerce]], mscorlib], [System.Collections.Generic.IList`1[[Sitecore.Commerce.Entities.Party, Sitecore.Commerce]], mscorlib]], UCommerce.Sitecore.CommerceConnect"
+			type="UCommerce.Sitecore.CommerceConnect.Mapping.ToCommerceConnect.OrderAddressesToParties, UCommerce.Sitecore.CommerceConnect">
+			<parameters>
+				<setPartiesValuesFromOrderAddresses>${SetPartiesValuesFromOrderAddresses}</setPartiesValuesFromOrderAddresses>
+			</parameters>
+		</component>
+
+		<component
+			id="SetPartiesValuesFromOrderAddresses"
+			service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapValues`2[[System.Collections.Generic.ICollection`1[[UCommerce.EntitiesV2.OrderAddress, UCommerce]], mscorlib], [System.Collections.Generic.IList`1[[Sitecore.Commerce.Entities.Party, Sitecore.Commerce]], mscorlib]], UCommerce.Sitecore.CommerceConnect"
+			type="UCommerce.Sitecore.CommerceConnect.Mapping.ToCommerceConnect.SetPartiesValuesFromOrderAddresses, UCommerce.Sitecore.CommerceConnect">
+			<parameters>
+				<orderAddressToParty>${OrderAddressToParty}</orderAddressToParty>
+			</parameters>
+		</component>
+
+		<component
+			id="OrderAddressToParty"
+			service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapping`2[[UCommerce.EntitiesV2.OrderAddress, UCommerce], [Sitecore.Commerce.Entities.Party, Sitecore.Commerce]], UCommerce.Sitecore.CommerceConnect"
+			type="UCommerce.Sitecore.CommerceConnect.Mapping.ToCommerceConnect.OrderAddressToParty, UCommerce.Sitecore.CommerceConnect">
+			<parameters>
+				<setPartyValuesFromOrderAddress>${SetPartyValuesFromOrderAddress}</setPartyValuesFromOrderAddress>
+			</parameters>
+		</component>
+
+		<component
+			id="SetPartyValuesFromOrderAddress"
+			service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapValues`2[[UCommerce.EntitiesV2.OrderAddress, UCommerce], [Sitecore.Commerce.Entities.Party, Sitecore.Commerce]], UCommerce.Sitecore.CommerceConnect"
+			type="UCommerce.Sitecore.CommerceConnect.Mapping.ToCommerceConnect.SetPartyValuesFromOrderAddress, UCommerce.Sitecore.CommerceConnect" />
+
+		<component
+			id="ShipmentsToShipping"
+			service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapping`2[[System.Collections.Generic.ICollection`1[[UCommerce.EntitiesV2.Shipment, UCommerce]], mscorlib], [System.Collections.Generic.IList`1[[Sitecore.Commerce.Entities.Carts.ShippingInfo, Sitecore.Commerce]], mscorlib]], UCommerce.Sitecore.CommerceConnect"
+			type="UCommerce.Sitecore.CommerceConnect.Mapping.ToCommerceConnect.ShipmentsToShipping, UCommerce.Sitecore.CommerceConnect">
+			<parameters>
+				<setShippingInfosValuesFromShipments>${SetShippingInfosValuesFromShipments}</setShippingInfosValuesFromShipments>
+			</parameters>
+		</component>
+
+		<component
+			id="SetShippingInfosValuesFromShipments"
+			service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapValues`2[[System.Collections.Generic.ICollection`1[[UCommerce.EntitiesV2.Shipment, UCommerce]], mscorlib], [System.Collections.Generic.IList`1[[Sitecore.Commerce.Entities.Carts.ShippingInfo, Sitecore.Commerce]], mscorlib]], UCommerce.Sitecore.CommerceConnect"
+			type="UCommerce.Sitecore.CommerceConnect.Mapping.ToCommerceConnect.SetShippingInfosValuesFromShipments, UCommerce.Sitecore.CommerceConnect">
+			<parameters>
+				<shipmentToShippingInfo>${ShipmentToShippingInfo}</shipmentToShippingInfo>
+			</parameters>
+		</component>
+
+		<component
+			id="ShipmentToShippingInfo"
+			service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapping`2[[UCommerce.EntitiesV2.Shipment, UCommerce], [Sitecore.Commerce.Entities.Carts.ShippingInfo, Sitecore.Commerce]], UCommerce.Sitecore.CommerceConnect"
+			type="UCommerce.Sitecore.CommerceConnect.Mapping.ToCommerceConnect.ShipmentToShippingInfo, UCommerce.Sitecore.CommerceConnect">
+			<parameters>
+				<setShippingInfoValuesFromShipment>${SetShippingInfoValuesFromShipment}</setShippingInfoValuesFromShipment>
+			</parameters>
+		</component>
+
+		<component
+			id="SetShippingInfoValuesFromShipment"
+			service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapValues`2[[UCommerce.EntitiesV2.Shipment, UCommerce], [Sitecore.Commerce.Entities.Carts.ShippingInfo, Sitecore.Commerce]], UCommerce.Sitecore.CommerceConnect"
+			type="UCommerce.Sitecore.CommerceConnect.Mapping.ToCommerceConnect.SetShippingInfoValuesFromShipment, UCommerce.Sitecore.CommerceConnect" />
+
+		<component
+			id="PaymentsToPayment"
+			service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapping`2[[System.Collections.Generic.ICollection`1[[UCommerce.EntitiesV2.Payment, UCommerce]], mscorlib], [System.Collections.Generic.IList`1[[Sitecore.Commerce.Entities.Carts.PaymentInfo, Sitecore.Commerce]], mscorlib]], UCommerce.Sitecore.CommerceConnect"
+			type="UCommerce.Sitecore.CommerceConnect.Mapping.ToCommerceConnect.PaymentsToPayment, UCommerce.Sitecore.CommerceConnect">
+			<parameters>
+				<setPaymentInfosValuesFromPayments>${setPaymentInfosValuesFromPayments}</setPaymentInfosValuesFromPayments>
+			</parameters>
+		</component>
+
+		<component
+			id="setPaymentInfosValuesFromPayments"
+			service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapValues`2[[System.Collections.Generic.ICollection`1[[UCommerce.EntitiesV2.Payment, UCommerce]], mscorlib], [System.Collections.Generic.IList`1[[Sitecore.Commerce.Entities.Carts.PaymentInfo, Sitecore.Commerce]], mscorlib]], UCommerce.Sitecore.CommerceConnect"
+			type="UCommerce.Sitecore.CommerceConnect.Mapping.ToCommerceConnect.SetPaymentInfosValuesFromPayments, UCommerce.Sitecore.CommerceConnect">
+			<parameters>
+				<paymentToPaymentInfo>${PaymentToPaymentInfo}</paymentToPaymentInfo>
+			</parameters>
+		</component>
+
+		<component
+			id="PaymentToPaymentInfo"
+			service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapping`2[[UCommerce.EntitiesV2.Payment, UCommerce], [UCommerce.Sitecore.CommerceConnect.Entities.Carts.PaymentInfoWithAmount, UCommerce.Sitecore.CommerceConnect]], UCommerce.Sitecore.CommerceConnect"
+			type="UCommerce.Sitecore.CommerceConnect.Mapping.ToCommerceConnect.PaymentToPaymentInfo, UCommerce.Sitecore.CommerceConnect">
+			<parameters>
+				<setPaymentInfoValuesFromPayment>${SetPaymentInfoValuesFromPayment}</setPaymentInfoValuesFromPayment>
+			</parameters>
+		</component>
+
+		<component
+			id="SetPaymentInfoValuesFromPayment"
+			service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapValues`2[[UCommerce.EntitiesV2.Payment, UCommerce], [UCommerce.Sitecore.CommerceConnect.Entities.Carts.PaymentInfoWithAmount, UCommerce.Sitecore.CommerceConnect]], UCommerce.Sitecore.CommerceConnect"
+			type="UCommerce.Sitecore.CommerceConnect.Mapping.ToCommerceConnect.SetPaymentInfoValuesFromPayment, UCommerce.Sitecore.CommerceConnect">
+			<parameters>
+				<orderAddressToParty>${OrderAddressToParty}</orderAddressToParty>
+			</parameters>
+		</component>
+
+		<component
+			id="PurchaseOrderToOrder"
+			service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapping`2[[UCommerce.EntitiesV2.PurchaseOrder, UCommerce], [Sitecore.Commerce.Entities.Orders.Order, Sitecore.Commerce]], UCommerce.Sitecore.CommerceConnect"
+			type="UCommerce.Sitecore.CommerceConnect.Mapping.ToCommerceConnect.PurchaseOrderToOrder, UCommerce.Sitecore.CommerceConnect">
+			<parameters>
+				<setOrderFromPurchaseOrder>${SetOrderFromPurchaseOrder}</setOrderFromPurchaseOrder>
+			</parameters>
+		</component>
+
+		<component
+			id="SetOrderFromPurchaseOrder"
+			service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapValues`2[[UCommerce.EntitiesV2.PurchaseOrder, UCommerce], [Sitecore.Commerce.Entities.Orders.Order, Sitecore.Commerce]], UCommerce.Sitecore.CommerceConnect"
+			type="UCommerce.Sitecore.CommerceConnect.Mapping.ToCommerceConnect.SetOrderFromPurchaseOrder, UCommerce.Sitecore.CommerceConnect" />
+
+    <component
+      id="SetPartyValuesFromAddress"
+      service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapValues`2[[UCommerce.EntitiesV2.IAddress, UCommerce], [Sitecore.Commerce.Entities.Party, Sitecore.Commerce]], UCommerce.Sitecore.CommerceConnect"
+      type="UCommerce.Sitecore.CommerceConnect.Mapping.ToCommerceConnect.Customer.SetPartyValuesFromAddress, UCommerce.Sitecore.CommerceConnect">
+    </component>
+    
+    <component
+			id="SetCustomerPartyValuesFromAddress"
+			service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapValues`2[[UCommerce.EntitiesV2.IAddress, UCommerce], [Sitecore.Commerce.Entities.Customers.CustomerParty, Sitecore.Commerce]], UCommerce.Sitecore.CommerceConnect"
+			type="UCommerce.Sitecore.CommerceConnect.Mapping.ToCommerceConnect.Customer.SetCustomerPartyValuesFromAddress, UCommerce.Sitecore.CommerceConnect">
+    </component>
+    
+    <component
+      id="AddressToParty"
+      service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapping`2[[UCommerce.EntitiesV2.IAddress, UCommerce], [Sitecore.Commerce.Entities.Party, Sitecore.Commerce]], UCommerce.Sitecore.CommerceConnect"
+      type="UCommerce.Sitecore.CommerceConnect.Mapping.ToCommerceConnect.Customer.AddressToParty, UCommerce.Sitecore.CommerceConnect">
+      <parameters>
+        <setPartyValuesFromAddress>${SetPartyValuesFromAddress}</setPartyValuesFromAddress>
+      </parameters>
+    </component>
+
+    <component
+      id="AddressToCustomerParty"
+      service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapping`2[[UCommerce.EntitiesV2.IAddress, UCommerce], [Sitecore.Commerce.Entities.Customers.CustomerParty, Sitecore.Commerce]], UCommerce.Sitecore.CommerceConnect"
+      type="UCommerce.Sitecore.CommerceConnect.Mapping.ToCommerceConnect.Customer.AddressToCustomerParty, UCommerce.Sitecore.CommerceConnect">
+      <parameters>
+        <setCustomerPartyValuesFromAddress>${SetCustomerPartyValuesFromAddress}</setCustomerPartyValuesFromAddress>
+      </parameters>
+    </component>
+
+    <component
+      id="CustomerToCommerceCustomer"
+      service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapping`2[[UCommerce.EntitiesV2.Customer, UCommerce], [Sitecore.Commerce.Entities.Customers.CommerceCustomer, Sitecore.Commerce]], UCommerce.Sitecore.CommerceConnect"
+      type="UCommerce.Sitecore.CommerceConnect.Mapping.ToCommerceConnect.Customer.CustomerToCommerceCustomer, UCommerce.Sitecore.CommerceConnect">
+      <parameters>
+        <addressToCustomerParty>${AddressToCustomerParty}</addressToCustomerParty>
+      </parameters>
+    </component>
+
+		<component
+			id="MappingLibraryInternal"
+			service="UCommerce.Sitecore.CommerceConnect.Mapping.MappingLibraryInternal, UCommerce.Sitecore.CommerceConnect"
+			type="UCommerce.Sitecore.CommerceConnect.Mapping.MappingLibraryInternal, UCommerce.Sitecore.CommerceConnect">
+			<parameters>
+				<mapPurchaseOrderToCart>${PurchaseOrderToCart}</mapPurchaseOrderToCart>
+				<mapCartProductToProduct>${CartProductToProduct}</mapCartProductToProduct>
+			</parameters>
+			<interceptors>
+				<interceptor>${ExceptionLoggingInterceptor}</interceptor>
+			</interceptors>
+		</component>
+
+		<component
+			id="ShippingMethodToShippingMethod"
+			service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapping`2[[UCommerce.EntitiesV2.ShippingMethod, UCommerce], [Sitecore.Commerce.Entities.Shipping.ShippingMethod, Sitecore.Commerce]], UCommerce.Sitecore.CommerceConnect"
+			type="UCommerce.Sitecore.CommerceConnect.Mapping.ToCommerceConnect.ShippingMethodToShippingMethod, UCommerce.Sitecore.CommerceConnect" />
+
+    <component
+			id="PaymentMethodToPaymentMethod"
+			service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapping`2[[UCommerce.EntitiesV2.PaymentMethod, UCommerce], [Sitecore.Commerce.Entities.Payments.PaymentMethod, Sitecore.Commerce]], UCommerce.Sitecore.CommerceConnect"
+			type="UCommerce.Sitecore.CommerceConnect.Mapping.ToCommerceConnect.PaymentMethodToPaymentMethod, UCommerce.Sitecore.CommerceConnect" />
+
+    <!--From Commerce Connect to uCommerce-->
+		<component
+      id="CartLineToOrderLine"
+      service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapping`2[[Sitecore.Commerce.Entities.Carts.CartLine, Sitecore.Commerce], [UCommerce.EntitiesV2.OrderLine, UCommerce]], UCommerce.Sitecore.CommerceConnect"
+      type="UCommerce.Sitecore.CommerceConnect.Mapping.ToUCommerce.CartLineToOrderLine, UCommerce.Sitecore.CommerceConnect">
+			<parameters>
+				<setOrderLineValuesFromCartLine>${SetOrderLineValuesFromCartLine}</setOrderLineValuesFromCartLine>
+			</parameters>
+		</component>
+		
+		<component
+      id="CartProductToProduct"
+      service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapping`2[[Sitecore.Commerce.Entities.Carts.CartProduct, Sitecore.Commerce], [UCommerce.EntitiesV2.Product, UCommerce]], UCommerce.Sitecore.CommerceConnect"
+      type="UCommerce.Sitecore.CommerceConnect.Mapping.ToUCommerce.CartProductToProduct, UCommerce.Sitecore.CommerceConnect">
+			<parameters>
+				<setProductValuesFromCartProduct>${SetProductValuesFromCartProduct}</setProductValuesFromCartProduct>
+			</parameters>
+		</component>
+
+		<component
+      id="SetOrderLineValuesFromCartLine"
+      service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapValues`2[[Sitecore.Commerce.Entities.Carts.CartLine, Sitecore.Commerce], [UCommerce.EntitiesV2.OrderLine, UCommerce]], UCommerce.Sitecore.CommerceConnect"
+      type="UCommerce.Sitecore.CommerceConnect.Mapping.ToUCommerce.SetOrderLineValuesFromCartLine, UCommerce.Sitecore.CommerceConnect">
+			<parameters>
+				<adjustMentsToDiscounts>${AdjustMentsToDiscounts}</adjustMentsToDiscounts>
+			</parameters>
+		</component>
+
+		<component
+      id="AdjustMentsToDiscounts"
+     	service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapping`2[[System.Collections.Generic.IList`1[[Sitecore.Commerce.Entities.Carts.CartAdjustment, Sitecore.Commerce]], mscorlib], [System.Collections.Generic.IList`1[[UCommerce.EntitiesV2.Discount, UCommerce]], mscorlib]], UCommerce.Sitecore.CommerceConnect"
+			type="UCommerce.Sitecore.CommerceConnect.Mapping.ToUCommerce.AdjustMentsToDiscounts, UCommerce.Sitecore.CommerceConnect">
+			<parameters>
+				<setDiscountsValuesFromAdjustments>${SetDiscountsValuesFromAdjustments}</setDiscountsValuesFromAdjustments>
+			</parameters>
+		</component>
+
+		<component
+      id="SetDiscountsValuesFromAdjustments"
+      service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapValues`2[[System.Collections.Generic.IList`1[[Sitecore.Commerce.Entities.Carts.CartAdjustment, Sitecore.Commerce]], mscorlib], [System.Collections.Generic.IList`1[[UCommerce.EntitiesV2.Discount, UCommerce]], mscorlib]], UCommerce.Sitecore.CommerceConnect"
+      type="UCommerce.Sitecore.CommerceConnect.Mapping.ToUCommerce.SetDiscountsValuesFromAdjustments, UCommerce.Sitecore.CommerceConnect">
+			<parameters>
+				<cartAdjustmentToDiscount>${CartAdjustmentToDiscount}</cartAdjustmentToDiscount>
+			</parameters>
+		</component>
+
+		<component
+      id="CartAdjustmentToDiscount"
+      service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapping`2[[Sitecore.Commerce.Entities.Carts.CartAdjustment, Sitecore.Commerce], [UCommerce.EntitiesV2.Discount, UCommerce]], UCommerce.Sitecore.CommerceConnect"
+      type="UCommerce.Sitecore.CommerceConnect.Mapping.ToUCommerce.CartAdjustmentToDiscount, UCommerce.Sitecore.CommerceConnect">
+			<parameters>
+				<setDiscountValuesFromCartAdjustment>${SetDiscountValuesFromCartAdjustment}</setDiscountValuesFromCartAdjustment>
+			</parameters>
+		</component>
+
+		<component
+      id="SetDiscountValuesFromCartAdjustment"
+      service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapValues`2[[Sitecore.Commerce.Entities.Carts.CartAdjustment, Sitecore.Commerce], [UCommerce.EntitiesV2.Discount, UCommerce]], UCommerce.Sitecore.CommerceConnect"
+      type="UCommerce.Sitecore.CommerceConnect.Mapping.ToUCommerce.SetDiscountValuesFromCartAdjustment, UCommerce.Sitecore.CommerceConnect" />
+
+		<component
+      id="SetProductValuesFromCartProduct"
+      service="UCommerce.Sitecore.CommerceConnect.Mapping.IMapValues`2[[Sitecore.Commerce.Entities.Carts.CartProduct, Sitecore.Commerce], [UCommerce.EntitiesV2.Product, UCommerce]], UCommerce.Sitecore.CommerceConnect"
+      type="UCommerce.Sitecore.CommerceConnect.Mapping.ToUCommerce.SetProductValuesFromCartProduct, UCommerce.Sitecore.CommerceConnect" />
+		
+	</components>
+</configuration>

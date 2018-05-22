@@ -1,0 +1,17 @@
+﻿<configuration>
+	<components>
+		<component id="CreateCustomer.ExecuteCreateCommerceCustomerTask"
+      service="UCommerce.Pipelines.IPipelineTask`1[[UCommerce.Pipelines.IPipelineArgs`2[[UCommerce.Pipelines.CreateCustomer.CreateCustomerRequest, UCommerce],[UCommerce.Pipelines.CreateCustomer.CreateCustomerResponse, UCommerce]], UCommerce]], UCommerce"
+      type="UCommerce.Sitecore.CommerceConnect.Pipelines.Customers.CreateCustomer.ExecuteCreateCommerceCustomerTask, UCommerce.Sitecore.CommerceConnect" />
+
+		<partial-component id="CreateCustomer">
+			<parameters>
+				<tasks>
+					<array>
+						<value insert="last">${CreateCustomer.ExecuteCreateCommerceCustomerTask}</value>
+					</array>
+				</tasks>
+			</parameters>
+		</partial-component>
+	</components>
+</configuration>

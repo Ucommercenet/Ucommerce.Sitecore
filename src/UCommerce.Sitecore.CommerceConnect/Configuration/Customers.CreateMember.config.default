@@ -1,0 +1,17 @@
+﻿<configuration>
+	<components>
+		<component id="CreateMember.RunSitecoreCommerceCreateUser"
+			service="UCommerce.Pipelines.IPipelineTask`1[[UCommerce.Pipelines.IPipelineArgs`2[[UCommerce.Pipelines.CreateMember.CreateMemberRequest, UCommerce],[UCommerce.Pipelines.CreateMember.CreateMemberResponse, UCommerce]], UCommerce]], UCommerce"
+			type="UCommerce.Sitecore.CommerceConnect.Pipelines.UCommerce.RunSitecoreCommerceCreateUser.RunSitecoreCommerceCreateUser, UCommerce.Sitecore.CommerceConnect" />
+		
+		<partial-component id="CreateMember">
+			<parameters>
+				<tasks>
+					<array>
+						<value insert="last">${CreateMember.RunSitecoreCommerceCreateUser}</value>
+					</array>
+				</tasks>
+			</parameters>
+		</partial-component>
+	</components>
+</configuration>

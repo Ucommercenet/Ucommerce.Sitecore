@@ -1,0 +1,22 @@
+﻿<configuration>
+  <components>
+    <component id="UpdateLineItem.RunSitecoreCommerceUpdateLineItem"
+							 service="UCommerce.Pipelines.IPipelineTask`1[[UCommerce.Pipelines.IPipelineArgs`2[[UCommerce.Pipelines.UpdateLineItem.UpdateLineItemRequest, UCommerce],[UCommerce.Pipelines.UpdateLineItem.UpdateLineItemResponse, UCommerce]], UCommerce]], UCommerce"
+							 type="UCommerce.Sitecore.CommerceConnect.Pipelines.UCommerce.RunSitecoreCommerceUpdateLineItem.RunSitecoreCommerceUpdateLineItem, UCommerce.Sitecore.CommerceConnect" />
+
+    <component id="UpdateLineItem.RunSitecoreCommerceRemoveCartLines"
+							 service="UCommerce.Pipelines.IPipelineTask`1[[UCommerce.Pipelines.IPipelineArgs`2[[UCommerce.Pipelines.UpdateLineItem.UpdateLineItemRequest, UCommerce],[UCommerce.Pipelines.UpdateLineItem.UpdateLineItemResponse, UCommerce]], UCommerce]], UCommerce"
+							 type="UCommerce.Sitecore.CommerceConnect.Pipelines.UCommerce.RunSitecoreCommerceRemoveCartLines.RunSitecoreCommerceRemoveCartLines, UCommerce.Sitecore.CommerceConnect" />
+
+    <partial-component id="UpdateLineItem">
+      <parameters>
+        <tasks>
+          <array>
+						<value insert="last">${UpdateLineItem.RunSitecoreCommerceUpdateLineItem}</value>
+            <value insert="last">${UpdateLineItem.RunSitecoreCommerceRemoveCartLines}</value>
+          </array>
+        </tasks>
+      </parameters>
+    </partial-component>
+  </components>
+</configuration>

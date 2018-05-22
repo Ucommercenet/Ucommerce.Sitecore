@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7CD73861-41CF-4627-85A7-F58F4536EA15}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UCommerce.Sitecore</RootNamespace>
+    <AssemblyName>UCommerce.Sitecore</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <DocumentationFile>bin\Debug\UCommerce.Sitecore.XML</DocumentationFile>
+    <NoWarn>CS1591</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <DocumentationFile>bin\Release\UCommerce.Sitecore.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ClientDependency.Core, Version=1.5.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\ClientDependency\1.8.2.1\ClientDependency.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentNHibernate, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentNHibernate.2.0.1.0\lib\net40\FluentNHibernate.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Iesi.Collections.4.0.1.4000\lib\net40\Iesi.Collections.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NHibernate, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\NHibernate.4.0.0.4000\lib\net40\NHibernate.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="paypal_base, Version=5.6.64.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.7.16.2.18137\lib\net45\paypal_base.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Analytics">
+      <HintPath>..\..\lib\Sitecore\7.5\Sitecore.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Analytics.Model">
+      <HintPath>..\..\lib\Sitecore\7.5\Sitecore.Analytics.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Buckets">
+      <HintPath>..\..\lib\Sitecore\7.0\Sitecore.Buckets.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.ContentSearch">
+      <HintPath>..\..\lib\Sitecore\7.0\Sitecore.ContentSearch.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Kernel">
+      <HintPath>..\..\lib\Sitecore\7.0\Sitecore.Kernel.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Sitecore.Logging, Version=1.2.0.30715, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Sitecore\7.0\Sitecore.Logging.dll</HintPath>
+      <Aliases>global,sitecoreext</Aliases>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Sitecore.Services.Core">
+      <HintPath>..\..\lib\Sitecore\7.5\Sitecore.Services.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Services.Infrastructure">
+      <HintPath>..\..\lib\Sitecore\7.5\Sitecore.Services.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UCommerce, Version=7.16.2.18137, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.7.16.2.18137\lib\net45\UCommerce.dll</HintPath>
+    </Reference>
+    <Reference Include="UCommerce.Admin, Version=7.16.2.18137, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.7.16.2.18137\lib\net45\UCommerce.Admin.dll</HintPath>
+    </Reference>
+    <Reference Include="UCommerce.Infrastructure, Version=7.16.2.18137, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.7.16.2.18137\lib\net45\UCommerce.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="UCommerce.Installer, Version=7.16.2.18137, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.7.16.2.18137\lib\net45\UCommerce.Installer.dll</HintPath>
+    </Reference>
+    <Reference Include="UCommerce.NHibernate, Version=7.16.2.18137, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.7.16.2.18137\lib\net45\UCommerce.NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="UCommerce.Pipelines, Version=7.16.2.18137, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.7.16.2.18137\lib\net45\UCommerce.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="UCommerce.Presentation, Version=7.16.2.18137, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.7.16.2.18137\lib\net45\UCommerce.Presentation.dll</HintPath>
+    </Reference>
+    <Reference Include="UCommerce.SystemHttp, Version=7.16.2.18137, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.7.16.2.18137\lib\net45\UCommerce.SystemHttp.dll</HintPath>
+    </Reference>
+    <Reference Include="UCommerce.Transactions.Payments, Version=7.16.2.18137, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.7.16.2.18137\lib\net45\UCommerce.Transactions.Payments.dll</HintPath>
+    </Reference>
+    <Reference Include="UCommerce.Web.Api, Version=7.16.2.18137, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.7.16.2.18137\lib\net45\UCommerce.Web.Api.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Content\SitecoreContentNodeConverter.cs" />
+    <Compile Include="Content\SitecoreContentService.cs" />
+    <Compile Include="Content\SitecoreContentTreeService.cs" />
+    <Compile Include="Content\SitecoreDomainService.cs" />
+    <Compile Include="Content\SitecoreImageNodeConverter.cs" />
+    <Compile Include="Content\SitecoreImageService.cs" />
+    <Compile Include="Content\SitecoreImageTreeService.cs" />
+    <Compile Include="Documents\UcItem.cs" />
+    <Compile Include="Entities\MappingAssemblyTag.cs" />
+    <Compile Include="Entities\Maps\SharedFieldMap.cs" />
+    <Compile Include="Entities\Maps\UnversionedFieldMap.cs" />
+    <Compile Include="Entities\Maps\VersionedFieldMap.cs" />
+    <Compile Include="Entities\SharedField.cs" />
+    <Compile Include="Entities\UnversionedField.cs" />
+    <Compile Include="Entities\VersionedField.cs" />
+    <Compile Include="Events\ItemEvent.cs" />
+    <Compile Include="Events\JobEvent.cs" />
+    <Compile Include="Events\UserEvent.cs" />
+    <Compile Include="Extensions\BoolExtensions.cs" />
+    <Compile Include="Extensions\DatabaseExtensions.cs" />
+    <Compile Include="Extensions\DateTimeExtensions.cs" />
+    <Compile Include="Extensions\FieldListExtensions.cs" />
+    <Compile Include="Extensions\IdExtensions.cs" />
+    <Compile Include="Extensions\IPropertyExtensions.cs" />
+    <Compile Include="Logging\Logger.cs" />
+    <Compile Include="Logging\LoggerFactory.cs" />
+    <Compile Include="Pipelines\BreakAxdExtensionProcessor.cs" />
+    <Compile Include="Pipelines\CatalogSavedTask.cs" />
+    <Compile Include="Pipelines\CategorySavedTask.cs" />
+    <Compile Include="Pipelines\CheckSectionAvailabilityUCommerce.cs" />
+    <Compile Include="Pipelines\ClearAccessResultCacheForUserGroupTask.cs" />
+    <Compile Include="Pipelines\ClearAccessResultCacheForUserTask.cs" />
+    <Compile Include="Pipelines\DataProviderReinitializeTask.cs" />
+    <Compile Include="Pipelines\DataTypeSavedTask.cs" />
+    <Compile Include="Pipelines\DefinitionFieldSavedTask.cs" />
+    <Compile Include="Pipelines\DefinitionSavedTask.cs" />
+    <Compile Include="Pipelines\InformDataProviderThatPermissionsHaveChangedTask.cs" />
+    <Compile Include="Pipelines\LanguageSavedTask.cs" />
+    <Compile Include="Events\PermissionsChangedTask.cs" />
+    <Compile Include="Pipelines\PickTemplatesFromEngine.cs" />
+    <Compile Include="Pipelines\ProductDefinitionFieldSavedTask.cs" />
+    <Compile Include="Pipelines\ProductDefinitionSavedTask.cs" />
+    <Compile Include="Pipelines\ItemResolver.cs" />
+    <Compile Include="Pipelines\ProductDeletedTask.cs" />
+    <Compile Include="Pipelines\ProductSavedTask.cs" />
+    <Compile Include="Pipelines\RestoreSitecoreLanguageContextTask.cs" />
+    <Compile Include="Pipelines\SetCurrentThreadCultureToCurrentLanguage.cs" />
+    <Compile Include="Pipelines\StoreSavedTask.cs" />
+    <Compile Include="Pipelines\WebApiConfig.cs" />
+    <Compile Include="Security\ISecurityFieldValueBuilder.cs" />
+    <Compile Include="Security\SecurityFieldValueBuilder.cs" />
+    <Compile Include="Sitecore75Compatability\UpdateTrackerInformation.cs" />
+    <Compile Include="Pipelines\UpdateTrackerInformationTask.cs" />
+    <Compile Include="Pipelines\VariantDeletedTask.cs" />
+    <Compile Include="Security\FullAccessSecurityService.cs" />
+    <Compile Include="Security\SecurityExtensions.cs" />
+    <Compile Include="Security\SitecoreUserGroupService.cs" />
+    <Compile Include="Settings\DataProviderSettings.cs" />
+    <Compile Include="SitecoreDataProvider\DataProviderAllDatabases.cs" />
+    <Compile Include="SitecoreDataProvider\DataProviderCoreDatabase.cs" />
+    <Compile Include="SitecoreDataProvider\ICategoryIdToCategoryDefinitionIdMapperService.cs" />
+    <Compile Include="SitecoreDataProvider\IDetectFullCategoryScan.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\CategoriesTreelist.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\CategoryIdToCategoryDefinitionIdMapperService.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\DetectFullCategoryScan.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\IdTableProvider.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\IndexingAndPublishingEventsHandler.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\ItemFieldsCache.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\ProductsMultilistWithSearch.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\SitecoreItems\Content\CacheStatistics.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\SitecoreItems\Content\CatalogSitecoreItem.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\SitecoreItems\Content\CategorySitecoreItem.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\SitecoreItems\Content\ClonedProductNodeSitecoreItem.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\SitecoreItems\Content\ContentNodeSitecoreItem.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\SitecoreItems\Content\FieldListCache.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\SitecoreItems\Content\ProductNodeSitecoreItemFactory.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\SitecoreItems\Content\SimpleSitecoreItem.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\SitecoreItems\DataProviderAggregator.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\SitecoreItems\ProductsDataProvider.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\SitecoreItems\Templates\BucketFolderItem.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\SitecoreItems\Templates\ItemDefinitionFactory.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\SitecoreItems\Templates\SitecoreItemWithValidName.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\TemplateBuilders\CommonProductsAndVariantsTemplatesBuilder.cs" />
+    <Compile Include="SitecoreDataProvider\IProductDefinitionIdMapperService.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\ProductDefinitionIdMapperService.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\StandardTemplateFields\StandardTemplateFieldValueConfiguration.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\TemplateBuilders\BaseTemplates\TemplateFieldHelper.cs" />
+    <Compile Include="SitecoreDataProvider\ISitecoreFieldValuePersistor.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\StandardTemplateFields\StandardFieldValuePersistor.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\StandardTemplateFields\StandardTemplateFieldValueProvider.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\SitecoreItems\SystemDataProvider.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\SitecoreItems\SystemData\SystemItem.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\SitecoreItems\SystemData\SystemNodeItem.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\SitecoreItems\Templates\FolderItem.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\SitecoreItems\Templates\StandardValuesItem.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\SystemNodesContentProvider.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\TemplateBuilders\BaseTemplates\TemplateBuilderExtentions\TemplateBuilderExtentions.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\TemplateBuilders\ProductCatalogTemplateBuilder.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\TemplateBuilders\BaseTemplates\BaseProductCatalogGroupTemplate.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\TemplateBuilders\ProductCatalogGroupTemplateBuilder.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\TemplateBuilders\StoresTemplateBuilder.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\TemplateBuilders\uCommerceTemplateBuilder.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\TemplateItemToStaticTemplateConverter.cs" />
+    <Compile Include="SitecoreDataProvider\ISitecoreDataProviderForTemplates.cs" />
+    <Compile Include="SitecoreDataProvider\ISitecoreStandardTemplateFieldValueConfiguration.cs" />
+    <Compile Include="SitecoreDataProvider\ISitecoreStandardTemplateFieldValueProvider.cs" />
+    <Compile Include="SitecoreDataProvider\ITemplateFieldValueProvider.cs" />
+    <Compile Include="SitecoreDataProvider\FieldIds.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\TemplateBuilders\BaseTemplates\BaseVariantTemplate.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\SitecoreItems\ContentNodeDataProvider.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\TemplateBuilders\BaseTemplates\DynamicVariantTemplate.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\SitecoreItems\Content\ContentNodeSitecoreItemFactory.cs" />
+    <Compile Include="SitecoreDataProvider\ISitecoreDataProvider.cs" />
+    <Compile Include="SitecoreDataProvider\ISitecoreItem.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\TemplateBuilders\DynamicCategoryTemplate.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\TemplateBuilders\ProductVariantTemplatesBuilder.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\SitecoreItems\TemplateDataProvider.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\SitecoreItems\Templates\FieldItem.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\SitecoreItems\Templates\SectionItem.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\SitecoreItems\Templates\TemplateItem.cs" />
+    <Compile Include="SitecoreDataProvider\ITemplateBuilder.cs" />
+    <Compile Include="SitecoreDataProvider\ITemplateProvider.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\TemplateBuilders\BaseTemplates\BaseProductTemplate.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\TemplateBuilders\BaseTemplates\DynamicProductTemplate.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\TemplateBuilders\ProductCategoryTemplateBuilder.cs" />
+    <Compile Include="ISitecoreContext.cs" />
+    <Compile Include="SitecoreContext.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\TemplateBuilders\ProductTemplatesBuilder.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\SitecoreTreeNodeTypeToUrlConverter.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\TemplateBuilders\TemplateBuilder.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\TemplateProvider.cs" />
+    <Compile Include="SitecoreDataProvider\DataProviderMasterDatabase.cs" />
+    <Compile Include="Logging\LoggingService.cs" />
+    <Compile Include="Pipelines\BreakHttpProcessor.cs" />
+    <Compile Include="Security\AuthenticationService.cs" />
+    <Compile Include="Security\MemberService.cs" />
+    <Compile Include="Security\SitecoreUserService.cs" />
+    <Compile Include="SitecoreConstants.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SitecoreDataProvider\Impl\UCommerceId.cs" />
+    <Compile Include="SitecoreLanguageService.cs" />
+    <Compile Include="Tree\Impl\Providers\SitecoreCatalogSectionProvider.cs" />
+    <Compile Include="Tree\Impl\Providers\SitecoreProductSectionProvider.cs" />
+    <Compile Include="UI\JavascriptFactory.cs" />
+    <Compile Include="UI\Resources\ISitecoreVersionResolver.cs" />
+    <Compile Include="UI\Resources\ResourcesDependencyLoader.cs" />
+    <Compile Include="UI\Resources\ResourcesIncludeListSelecter.cs" />
+    <Compile Include="UI\Resources\ResourcesIncludeListShellSelecter.cs" />
+    <Compile Include="UI\Resources\Version7\ResourcesIncludeListSitecore.cs" />
+    <Compile Include="UI\Resources\Version8\ResourcesIncludeListSitecore.cs" />
+    <Compile Include="UI\Resources\Version7\ResourcesIncludeListSitecoreShell.cs" />
+    <Compile Include="UI\Resources\Version82\ResourcesIncludeListSitecore.cs" />
+    <Compile Include="UI\Resources\Version82\ResourcesIncludeListSitecoreShell.cs" />
+    <Compile Include="UI\Resources\Version82\ResourcesIncludeListSitecoreSpeakShell.cs" />
+    <Compile Include="UI\Resources\Version8\ResourcesIncludeListSitecoreShell.cs" />
+    <Compile Include="UI\Resources\Version8\ResourcesIncludeListSitecoreSpeakShell.cs" />
+    <Compile Include="UI\Resources\Version8\ResourcesIncludeListSitecoreSpeak.cs" />
+    <Compile Include="UI\Resources\SitecoreVersionResolver.cs" />
+    <Compile Include="Web\BackendLocalizationService.cs" />
+    <Compile Include="Web\SessionHandlerDecorator.cs" />
+    <Compile Include="Web\SitecoreWrappedControllerSelector.cs" />
+    <Compile Include="Web\WebPath.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Configuration\Baskets.Checkout.config.default" />
+    <None Include="packages.config" />
+    <None Include="Sitecore.UCommerce.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

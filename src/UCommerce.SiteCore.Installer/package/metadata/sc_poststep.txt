@@ -1,0 +1,1 @@
+UCommerce.Sitecore.Installer.PostInstallationStep,UCommerce.Sitecore.Installer.dll
