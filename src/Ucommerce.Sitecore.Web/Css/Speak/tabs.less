@@ -1,0 +1,404 @@
+﻿#sectionGroup {
+	display: flex;
+	-ms-display: flex;
+	-webkit-display: flex;
+	flex-flow: column;
+	-ms-flex-flow: column;
+	-webkit-flex-flow: column;
+	height: 100%;
+}
+
+#sectionGroup div.sectionGroupHeader {
+	flex: 0 0 150px;
+	-ms-flex: 0 0 150px;
+	-webkit-flex: 0 0 150px;
+	box-sizing: border-box;
+	display: block !important;
+}
+
+#sectionGroup #sectionGroupTabs {
+	flex: 0 0 54px;
+	-ms-flex: 0 0 52px;
+	-webkit-flex: 0 0 54px;
+	box-sizing: border-box;
+}
+
+#sectionGroup .section.ui-tabs-panel {
+	flex: 1 1 auto;
+	-ms-flex: 1 1 auto;
+	-webkit-flex: 1 1 auto;
+	display: flex;
+	flex-direction: column;
+	-ms-flex-direction: column;
+	-webkit-flex-direction: column;
+	min-height: 1px;
+}
+
+#sectionGroup.singleTab #sectionGroupTabs {
+	display: none !important;
+}
+
+#sectionGroup .section.ui-tabs-panel {
+	padding: 0px 15px;
+}
+
+#sectionGroup .section.ui-tabs-panel .menubar {
+	flex: 0 0 39px;
+	-ms-flex: 0 0 25px;
+	-webkit-flex: 0 0 39px;
+	box-sizing: border-box;
+	padding-top: 15px;
+	background: rgb(247, 247, 247);
+    padding: 7px 15px;
+	border-bottom: none;
+	background: #F0F0F0;
+	height: auto;
+}
+
+#sectionGroup .section.ui-tabs-panel .scrollable {
+	flex: 1 1 auto;
+	-ms-flex: 1 1 auto;
+	-webkit-flex: 1 1 auto;
+	margin-right: 0;
+}
+
+.scrollable {
+	border: none !important;
+	padding: 0 !important;
+}
+
+.sectionGroupHeader {
+	background: url("/sitecore/shell/client/Speak/Assets/img/Speak/Layouts/breadcrumb_red_bg.png");
+	background-repeat-y: no-repeat;
+	background-repeat: repeat-x;
+	background-color: #e3e3e3 !important;
+	padding-bottom: 4px !important;
+	padding-top: 10px !important;
+	padding-left: 15px !important;
+}
+
+.sectionGroupHeader #uc-headline {
+	font-size: 24px;
+	font-weight: 400;
+	font-family: Arial, sans-serif;
+}
+
+#sectionGroupTabs {
+	background-color: #F0F0F0 !important;
+	border-bottom: 2px solid #474747;
+	height: auto;
+	margin: 30px 15px 0px 15px;
+}
+
+#sectionGroupTabs li {
+	height: auto;
+	margin: 0px;
+	position: inherit !important;
+}
+
+#sectionGroupTabs li a {
+	color: #474747;
+	background-color: #ffffff;
+	border: 1px solid #cccccc;
+	font-size: 12px;
+}
+
+#sectionGroupTabs li.ui-tabs-selected a {
+	color: #ffffff;
+	background-color: #474747;
+	border: 1px solid #474747;
+}
+
+#sectionGroupTabs li.ui-tabs-active a {
+	color: #ffffff;
+	background-color: #474747;
+	border: 1px solid #474747;
+}
+
+#sectionGroupTabs li a {
+	padding: 10px 15px;
+}
+
+.sectionGroupHeader::after {
+	position: absolute;
+	right: 0;
+	top: 0px;
+	display: block;
+	background: url("/sitecore/shell/client/Speak/Assets/img/Speak/Layouts/logo_spiral.png") center right;
+	background-repeat: no-repeat;
+	width: 113px;
+	height: 90px;
+	content: " ";
+}
+
+#sectionGroupTabs li:only-child {
+	visibility: hidden;
+}
+
+.ui-tabs-panel .menubar .save-button-wrapper {
+	display: inline;
+}
+
+.save-button-wrapper input[type=image] {
+	display: none;
+}
+
+.save-button-label {
+	display: inline-block !important;
+	color: white;
+	font-family: Arial, sans-serif;
+	font-size: 12px;
+	border: 1px solid #175973;
+	padding-bottom: 8px;
+	padding-left: 12px;
+	padding-right: 12px;
+	padding-top: 8px;
+	background-color: #289bc8;
+	box-sizing: border-box;
+	border-radius: 6px;
+	cursor: pointer;
+	text-align: center;
+	width: 80px;
+	background-image: -webkit-linear-gradient(top, #d9d9d9 0%, #d9d9d9 100%);
+	background-image: -o-linear-gradient(top, #d9d9d9 0%, #d9d9d9 100%);
+	background-image: linear-gradient(to bottom, #d9d9d9 0%, #d9d9d9 100%);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffd9d9d9', endColorstr='#ffd9d9d9', GradientType=0);
+	-webkit-box-shadow: inset 0 3px 3px #c9c9c9;
+	box-shadow: inset 0 3px 3px #c9c9c9;
+	border-color: #bdbdbd;
+	background-image: -webkit-linear-gradient(top, #289bc8 0%, #1d7395 100%);
+	background-image: -o-linear-gradient(top, #289bc8 0%, #1d7395 100%);
+	background-image: linear-gradient(to bottom, #289bc8 0%, #1d7395 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff289bc8', endColorstr='#ff1d7395', GradientType=0);
+	border-color: #1c6d8d;
+	background-image: -webkit-linear-gradient(top, #289bc8 0%, #207da2 100%);
+	background-image: -o-linear-gradient(top, #289bc8 0%, #207da2 100%);
+	background-image: linear-gradient(to bottom, #289bc8 0%, #207da2 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff289bc8', endColorstr='#ff207da2', GradientType=0);
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+	background-repeat: repeat-x;
+	border-color: #175973;
+	-webkit-box-shadow: inset 0 1px #5dbadf;
+	box-shadow: inset 0 1px #5dbadf;
+	position: absolute;
+	right: 15px;
+	top: 102px;
+	height: 36px;
+	line-height: 18px;
+}
+
+.menubar label.save-button-label:hover,
+.menubar label.save-button-label:focus {
+	background-color: #1d7395;
+}
+
+.menubar label.save-button-label:active,
+.menubar label.save-button-label.active {
+	background-color: #1d7395;
+	border-color: #1c6d8d;
+}
+
+.menubar label.save-button-label:hover,
+.menubar label.save-button-label:focus {
+	background-color: #1d7395;
+}
+
+.menubar label.save-button-label:active,
+.menubar label.save-button-label.active {
+	background-color: #1d7395;
+	border-color: #1c6d8d;
+}
+
+.menubar label.save-button-label:disabled,
+.menubar label.save-button-label[disabled] {
+	background-color: #1d7395;
+	background-image: none;
+}
+
+.menubar label.save-button-label.disabled {
+	border-color: #175973;
+}
+
+.menubar label.save-button-label:hover {
+	background-image: -webkit-linear-gradient(top, #289bc8 0%, #289bc8 100%);
+	background-image: -o-linear-gradient(top, #289bc8 0%, #289bc8 100%);
+	background-image: linear-gradient(to bottom, #289bc8 0%, #289bc8 100%);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff289bc8', endColorstr='#ff289bc8', GradientType=0);
+	border-color: #175973;
+}
+
+.menubar label.save-button-label:focus {
+	border-color: #175973;
+}
+
+.menubar label.save-button-label:active,
+.menubar label.save-button-label.active {
+	background-image: -webkit-linear-gradient(top, #207da2 0%, #207da2 100%);
+	background-image: -o-linear-gradient(top, #207da2 0%, #207da2 100%);
+	background-image: linear-gradient(to bottom, #207da2 0%, #207da2 100%);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff207da2', endColorstr='#ff207da2', GradientType=0);
+	-webkit-box-shadow: inset 0 3px 3px #13485e;
+	box-shadow: inset 0 3px 3px #13485e;
+	background-image: none;
+	border-color: #175973;
+}
+
+.menubar > div {
+	padding: 0px;
+}
+
+#back-button {
+	display: block !important;
+	text-decoration: none;
+	text-shadow: none;
+	position: absolute;
+	outline: none;
+	border: none;
+	background-image: none;
+	background: none;
+	color: #ffffff;
+	box-shadow: none;
+	left: 15px;
+	display: inline-block;
+	top: 102px;
+	margin-bottom: 0;
+	font-weight: normal;
+	vertical-align: middle;
+	cursor: pointer;
+	white-space: nowrap;
+	padding: 8px 12px;
+	font-size: 12px;
+	line-height: 1.42857143;
+	border-radius: 6px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+}
+
+#back-button:before {
+	width: 19px;
+	height: 36px;
+	background: url("/sitecore/shell/client/Speak/Assets/img/Speak/BackButton/back_button.png") no-repeat;
+	background-position: 0 0;
+	display: block;
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+#back-button:hover:before {
+	background-position: 0 -144px;
+}
+
+#back-button:after {
+	width: 7px;
+	height: 36px;
+	background: url("/sitecore/shell/client/Speak/Assets/img/Speak/BackButton/back_button.png") no-repeat;
+	background-position: -19px 0;
+	display: block;
+	content: "";
+	position: absolute;
+	right: 5px;
+	top: 0;
+}
+
+#back-button:hover:after {
+	background-position: -19px -144px;
+}
+
+#back-button .back-button {
+	background: url("/sitecore/shell/client/Speak/Assets/img/Speak/BackButton/back_button.png") repeat-x;
+	background-position: 0 -36px;
+	min-width: 54px;
+	height: 36px;
+	display: block;
+	margin-left: 7px;
+	margin-top: -8px;
+	line-height: 36px;
+	box-sizing: border-box;
+	width: 54px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#back-button:hover .back-button {
+	background-position: 0 -180px;
+}
+
+.notifications.bottom-right {
+	width: 100%;
+	font-weight: bold;
+	font-size: 12px;
+	bottom: initial;
+}
+
+.notifications.bottom-right h4 {
+	display: none;
+}
+
+	.notifications .alert.alert-success .notification-image-container, .notifications .alert.alert-success .notification-text-container, .notifications .alert.alert-success .notification-button-container {
+		display: inline;
+	}
+
+.alert.alert-success {
+	color: #2694c0;
+	background-color: #d0ebf6;
+	padding: 10px 35px 10px 45px;
+	line-height: 20px;
+	margin-bottom: 0;
+	font-family: Arial, sans-serif;
+	border: none;
+}
+
+.alert .alert-ico {
+	background: transparent url("/sitecore/shell/client/Speak/Assets/img/Speak/MessageBar/sc-message-bar-icons.png") no-repeat;
+	display: inline-block;
+	vertical-align: top;
+	width: 24px;
+	height: 24px;
+	background-position: 0 -25px;
+	margin-left: -30px;
+}
+
+.alert span {
+	vertical-align: bottom;
+	margin-left: 5px;
+}
+
+.alert .close {
+	top: 3px;
+	font-size: 18px;
+}
+
+.speak-notification {
+	display: none;
+}
+
+@-moz-document url-prefix() { 
+	#back-button .back-button {		
+		margin-left: 4px;
+		margin-top: -9px;	
+	}
+
+	#back-button::after {
+		right: 8px;
+	}
+}
+
+.ui-widget textarea {
+	font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.scrollable .imagePicker span {
+	padding-bottom: 10px;
+}
+
+.scrollable .propertyPane.propertyPaneUCommerce {
+	padding: 15px !important;
+	margin: 0;
+}

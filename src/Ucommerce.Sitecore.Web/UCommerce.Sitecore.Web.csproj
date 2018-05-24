@@ -1,0 +1,210 @@
+﻿<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6267B533-B0AD-419A-90E6-B24041A1384D}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UCommerce.Sitecore.Web</RootNamespace>
+    <AssemblyName>UCommerce.Sitecore.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Css\Sitecore8\UI.css.orig" />
+    <Content Include="Css\Sitecore\sitecore.less" />
+    <Content Include="Css\Speak\common.less" />
+    <Content Include="Css\Speak\dataTypes.less" />
+    <Content Include="Css\Speak\dialogs.less" />
+    <Content Include="Css\Speak\marketing.less" />
+    <Content Include="Css\Speak\orders.less" />
+    <Content Include="Css\Speak\Products.less" />
+    <Content Include="Css\Speak\Speak.less" />
+    <Content Include="Css\Speak\Stores.less" />
+    <Content Include="Css\Speak\tables.less" />
+    <Content Include="Css\Speak\tabs.less" />
+    <Content Include="Css\Speak\tree.less" />
+    <Content Include="Css\Speak\Widget.less" />
+    <None Include="packages.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Css\Sitecore8.2\Sitecore.css" />
+    <Content Include="Css\Sitecore8.2\SitecoreShell.css" />
+    <Content Include="Css\Sitecore8\bootstrap-modal.css" />
+    <Content Include="Css\Sitecore8\bootstrap-multiselect.css" />
+    <Content Include="Css\Sitecore8\bootstrap.min.css" />
+    <Content Include="Css\Sitecore8\Common.css" />
+    <Content Include="Css\Sitecore8\images\sort_asc.png" />
+    <Content Include="Css\Sitecore8\images\sort_both.png" />
+    <Content Include="Css\Sitecore8\images\sort_desc.png" />
+    <Content Include="Css\Sitecore8\images\Speak\Catalog manager.png" />
+    <Content Include="Css\Sitecore8\images\Speak\commerce-settings.png" />
+    <Content Include="Css\Sitecore8\images\Speak\Order Manager.png" />
+    <Content Include="Css\Sitecore8\images\Speak\Promotion Manager.png" />
+    <Content Include="Css\Sitecore8\images\transparent.gif" />
+    <Content Include="Css\Sitecore8\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Css\Sitecore8\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Css\Sitecore8\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Css\Sitecore8\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Css\Sitecore8\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Css\Sitecore8\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Css\Sitecore8\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Css\Sitecore8\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Css\Sitecore8\images\ui-bg_inset-soft_95_fef1ec_1x100.png" />
+    <Content Include="Css\Sitecore8\images\ui-icons_222222_256x240.png" />
+    <Content Include="Css\Sitecore8\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Css\Sitecore8\images\ui-icons_454545_256x240.png" />
+    <Content Include="Css\Sitecore8\images\ui-icons_888888_256x240.png" />
+    <Content Include="Css\Sitecore8\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Css\Sitecore8\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Css\Sitecore8\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Css\Sitecore8\jquery-ui-1.8.16.custom.css" />
+    <Content Include="Css\Sitecore8\launcher.css" />
+    <Content Include="Css\Sitecore8\Lists.css" />
+    <Content Include="Css\Sitecore8\PropertyPane.css" />
+    <Content Include="Css\Sitecore8\ScrollingMenu.css" />
+    <Content Include="Css\Sitecore8\shell.css" />
+    <Content Include="Css\Sitecore8\TabView.css" />
+    <Content Include="Css\Sitecore8\ucommerce-sitecore8.css" />
+    <Content Include="Css\Sitecore8\UI.css" />
+    <Content Include="Css\Sitecore8\Widget.css" />
+    <Content Include="Css\Sitecore\bootstrap-modal.css" />
+    <Content Include="Css\Sitecore\bootstrap-multiselect.css" />
+    <Content Include="Css\Sitecore\bootstrap.min.css" />
+    <Content Include="Css\Sitecore\Common.css" />
+    <Content Include="Css\Sitecore\images\arrow.png" />
+    <Content Include="Css\Sitecore\images\transparent.gif" />
+    <Content Include="Css\Sitecore\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Css\Sitecore\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Css\Sitecore\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Css\Sitecore\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Css\Sitecore\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Css\Sitecore\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Css\Sitecore\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="Css\Sitecore\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Css\Sitecore\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Css\Sitecore\images\ui-bg_inset-soft_95_fef1ec_1x100.png" />
+    <Content Include="Css\Sitecore\images\ui-icons_222222_256x240.png" />
+    <Content Include="Css\Sitecore\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Css\Sitecore\images\ui-icons_454545_256x240.png" />
+    <Content Include="Css\Sitecore\images\ui-icons_888888_256x240.png" />
+    <Content Include="Css\Sitecore\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Css\Sitecore\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Css\Sitecore\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Css\Sitecore\jquery-ui-1.8.16.custom.css" />
+    <Content Include="Css\Sitecore\Lists.css" />
+    <Content Include="Css\Sitecore\PropertyPane.css" />
+    <Content Include="Css\Sitecore\ScrollingMenu.css" />
+    <Content Include="Css\Sitecore\sitecore.css" />
+    <Content Include="Css\Sitecore\sitecore.min.css" />
+    <Content Include="Css\Sitecore\TabView.css" />
+    <Content Include="Css\Sitecore\ucommerce-sitecore.css" />
+    <Content Include="Css\Sitecore\UI.css" />
+    <Content Include="Css\Sitecore\Widget.css" />
+    <Content Include="Css\Speak\ucommerce-speak.css" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>18751</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:18751/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

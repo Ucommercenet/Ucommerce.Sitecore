@@ -1,0 +1,124 @@
+.propertypane
+{
+	_width: 95%;
+	position: relative;
+	display: block;
+	line-height: 1.1;
+	padding: 5px;
+	margin: 7px 7px 7px 7px;
+	border: 10px solid #d9d7d7;
+	text-align: left;
+	clear: both;
+	float: none;
+}
+
+.propertypane th
+{
+	vertical-align: top;
+	text-align: left;
+	font-weight: bold;
+	font-size: 12px;
+	width: 16%;
+}
+
+div.inline {
+    display: inline-block;
+}
+
+.propertypane, .propertypane td
+{
+	font-size: 12px;
+}
+
+.propertypane small
+{
+	font-weight: normal;
+	color: #666;
+}
+
+.propertyItem
+{
+    border-left: 4px solid #cccccc;
+	padding-bottom: 5px;
+	clear: both;
+	font-size: 12px !important;
+    padding-left: 10px;
+    margin-bottom: 5px;
+	background: #f0f1f2;
+}
+
+.propertyName {
+	font-weight: bold;
+}
+
+.propertyItemHeader
+{
+	padding-right: 1%;
+	margin-bottom: 5px;
+	/*float: left;*/
+	clear: both;
+	font-weight: bold;
+}
+
+.propertyItemHeader:after {
+    content: ":";
+}
+
+.propertyItemDropDown {
+	width: 204px;
+}
+
+.propertyItemContent input[type="text"], .propertyItemContent textarea
+{
+	width: 218px;
+	margin: 0px;
+	padding: 1px;
+}
+
+.propertyItemContent select
+{
+	width: 222px;
+	margin: 0px;
+	padding: 1px;
+}
+
+.propertyItemContent
+{
+	/*float: left;*/
+	display: inline-block;
+	clear: left;
+	width: 82%;
+}
+
+h2.propertyPaneTitel
+{
+	font-size: 14px;
+	color: #999;
+	padding-bottom: 0px;
+	line-height: 14px;
+}
+
+div.propertyPaneFooter
+{
+	clear: both;
+	height: 1px;
+	overflow: hidden;
+	color: #fff;
+}
+
+div.propertyPane.dialog-actions {
+	background-image: none;
+	background: none;
+	border: none;
+	padding-left: 0;
+	padding-right: 0;
+	margin: 10px;
+}
+
+.propertyPaneTitel {
+	display: none;
+}
+
+.shippingPane .propertyPaneTitel,.shippingPane .propertyPaneTitel {
+	display: inherit;
+}

@@ -1,0 +1,262 @@
+﻿.boxbody {
+    display: flex;
+    -ms-display: flex;
+    -webkit-display: flex;
+    flex-direction: column;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+}
+.boxbody .dialog-header {
+    flex: 0 0 68px;
+    -ms-flex: 0 0 38px;
+    -webkit-flex: 0 0 68px;
+}
+
+.boxbody .dialog-header h3 {
+    text-transform: uppercase;
+}
+
+.boxbody .propertyPane.contentPane {
+    flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    -webkit-flex: 1 1 auto;
+	padding: 0px;
+    margin: 0px;
+    height: auto;
+    overflow-y: auto;
+    min-height: 1px;
+}
+
+.boxbody .propertyPane.contentPaneOne {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: auto;
+    flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    -webkit-flex: 1 1 auto;
+    min-height: 1px;
+    overflow-y: auto;
+}
+
+.boxbody .propertyPane.contentPaneOne.addOrderContent {
+	overflow-y: hidden;
+}
+
+.boxbody .dialog-actions {
+    flex: 0 0 56px;
+    -ms-flex: 0 0 38px;
+    -webkit-flex: 0 0 56px;
+}
+
+a.modal-close {
+    background: url("/sitecore/shell/client/Speak/Assets/img/Speak/DialogWindow/close_button_sprite.png") no-repeat 0 0;
+    height: 16px;
+    width: 16px;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    margin-top: -8px;
+    opacity: 1;
+    cursor: pointer;
+    -webkit-appearance: none;
+}
+
+.modalTabView a.modal-close { 
+    z-index: 10;
+    top: 34px;
+}
+
+a.modal-close:hover {
+    background-position: 0 -16px;
+}
+
+a.modal-close:before {
+    pointer-events: none;
+    content: "";
+    display: block;
+    float: left;
+    width: 0;
+    border-left: 1px solid #969696;
+    position: absolute;
+    height: 18px;
+    right: 31px;
+    top: -1px;
+}
+
+.modalTabView #back-button {
+    display: none !important;
+}
+
+.modalTabView .sectionGroupHeader::after {
+    content: "";
+    display: none;
+}
+
+.modalTabView #sectionGroup div.sectionGroupHeader {
+    flex: 0 0 68px;
+    -ms-flex: 0 0 68px;
+    -webkit-flex: 0 0 68px;
+    padding: 16px 0 15px 15px !important;
+}
+
+.modalTabView #sectionGroup div.sectionGroupHeader #uc-headline {
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: normal;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.modalTabView #sectionGroup .section .scrollable, .modalTabView #sectionGroup .section .scrollable {
+    background-color: #F0F0F0;
+}
+
+.modalTabView #sectionGroup .section {
+    margin-bottom: 57px;
+}
+
+.modalTabView .button-modal-close.dialog-cancelButton {
+    position: absolute;
+    bottom: 9px;
+    right: 15px;
+    z-index: 10;
+    max-width: 80px;
+    overflow: hidden;
+}
+
+.modalTabView label.save-button-label {
+    top: initial;
+    bottom: 9px;
+    right: 99px;
+}
+
+.modal.fade {
+    top: 10% !important;
+}
+
+.propertyPane.contentPane.create-product-relation {
+    overflow: hidden;
+}
+
+.create-product-relation .propertyItems {
+    overflow: hidden;
+}
+
+.create-product-relation .propertyItems .multipicker-container .contentTree.multiPicker .multiPickerAction > div {
+    height: 138px;
+}
+
+.add-product-on-order .propertyItems .multipicker-container .contentTree.multiPicker .multiPickerAction > div {
+    height: 215px;
+}
+
+.footerOkCancel {
+    margin-top: 0px;
+}
+
+.imagePicker .imagePickerContainer.propertyPane {
+    height: 100% !important;          
+	box-sizing: border-box;
+	flex: 1 1 auto;
+	-ms-flex: 1 1 auto;
+	-webkit-flex: 1 1 auto;
+	overflow: hidden;
+}
+
+.boxbody .contentPaneTwo {
+    margin: 0;
+    padding: 15px;
+}
+
+.boxbody .dialog-actions.dialog-actions {
+    flex: 0 0 56px;
+    -ms-flex: 0 0 38px;
+    -webkit-flex: 0 0 56px;
+    box-sizing: border-box;
+}
+
+div.voucher td fieldset {
+	border: 1px solid rgb(227, 227, 227);	
+}
+
+div.voucher td.voucherBottomRow fieldset {
+	margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+	padding-bottom: 0;
+}
+
+div.voucher .voucherBottomRow fieldset div {
+	height: 100% !important;
+}
+
+div.voucher .voucherBottomRow .dataList tbody tr td {
+	border-bottom: 0;
+}
+
+.propertyPane div.voucher .voucherBottomRow table.dataList {
+	width: 100% !important;
+	margin-left: 0;
+	margin-bottom: 0;
+}
+
+#editor .boxbody .propertyPane.contentPane {
+	height: 100%;
+}
+
+#editor .boxbody .propertyPane .propertyPaneFooter {
+	height: 0;
+}
+
+#editor .boxbody .propertyItems {
+	padding: 0;
+}
+
+.boxbody .imagePicker .imagePickerContainer .imagePickerContainerBody {
+	width: 100% !important;
+}
+
+.imagePicker .imagePickerContainer .imagePickerContainerBody .imagePickerContainerTreeContainer {
+	width: 40% !important;
+	padding: 0;
+}
+
+.imagePicker .imagePickerContainer .imagePickerContainerBody .imagePickerContainerPreview {
+	width: 60%;
+	position: relative;
+    box-sizing: border-box;
+}
+
+.imagePicker .imagePickerContainer .imagePickerContainerBody .imagePickerContainerPreview #selectedImagePreview {
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	max-width: calc(~"100% - 15px");
+	position: absolute;
+	padding-left: 15px;
+}
+
+#editor .boxbody .propertyPane .propertyContainer{
+	padding: 15px;
+}
+
+.multiPickerContainer-CreateProductRelation {
+    padding: 0;
+    margin: 0;
+	height: initial;
+}
+
+.TreeViewWrapper table tbody tr td a:hover {
+   text-decoration: none;
+}
+
+.TreeViewWrapper table tbody tr td a {
+   color:black;
+}
+
+#ContentArea_CategorySelector td span .notSelectable, #ContentArea_CategorySelector td span .treeNodeName{
+    opacity: 0.5;
+}

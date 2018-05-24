@@ -1,0 +1,50 @@
+﻿.gridster span.gs-resize-handle.gs-resize-handle-both {
+	background-image: url('/sitecore modules/shell/ucommerce/css/common/arrow.png');
+}
+
+.ucommerce-dashboard {
+	padding: 0;
+}
+
+.searchInput i {
+    padding: 10px 0px 0px 7px;
+}
+
+.widget .propertyItem {
+    border-bottom: 1px solid #f8f8f8 !important;
+	margin-top: 10px;
+	margin-bottom: 5px;
+    padding-top: 8px !important;
+    padding-bottom: 20px !important;
+}
+
+li.widget .widgetContent .widgetEditing .propertyPane .propertyItem .propertyItemHeader {
+    padding-top: 10px;
+}
+
+.propertyItemHeader:after {
+    content: "";
+}
+
+div.catalogSearch.catalogSearchResult {
+    margin-bottom: -70px !important;
+}
+
+.fixedHeader .fa-chevron-up {
+	margin-left: -12px;
+}
+.fixedHeader .fa-chevron-up {
+	margin-left: -15.8px\9;
+	margin-left: -15.8px\0/;
+}
+
+.OrderList-content .dataList {
+	margin: 0 -1px !important;
+}
+table.dataList th.rightAligned {
+    padding-right: 10px !important;
+}
+
+.ui-widget-content .scrollable {
+    padding: 10px 0px 0px 0px;
+}
