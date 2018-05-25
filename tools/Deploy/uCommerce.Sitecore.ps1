@@ -27,8 +27,14 @@ task CopySitecoreFiles -description "Copy all the sitecore files needs for a dep
 	&robocopy "$src\Ucommerce.SiteCore.Installer\package\installer" "$working_dir\installer" /is /it /e /NFL /NDL
 	&robocopy "$src\Ucommerce.SiteCore.Installer\package\metadata" "$working_dir\metadata" /is /it /e /NFL /NDL
 	&robocopy "$src\Ucommerce.SiteCore.Installer\package\Files" "$working_dir\Files" /is /it /e /NFL /NDL
+	&robocopy "$src\Ucommerce.SiteCore.Installer\SpeakSerialization" "$working_dir\Files\Sitecore modules\shell\ucommerce\install\SpeakSerialization" /is /it /e /NFL /NDL
 
-	# First copy client resources
+	# Copy binaries needed for the actual bootstrapping
+	Copy-Item "$src\UCommerce.SiteCore.Installer\bin\$configuration\UCommerce.Installer.dll" "$working_dir\files\bin\UCommerce.Installer.dll" -Force
+	Copy-Item "$src\UCommerce.SiteCore.Installer\bin\$configuration\UCommerce.Sitecore.Installer.dll" "$working_dir\files\bin\UCommerce.Sitecore.Installer.dll" -Force
+	Copy-Item "$src\..\lib\XmlTransform\Microsoft.Web.XmlTransform.dll" "$working_dir\files\bin\Microsoft.Web.XmlTransform.dll" -Force
+
+	# copy client resources
 	&robocopy "$src\UCommerce.Sitecore.Web\ucommerce" "$working_dir\files\sitecore modules\Shell\ucommerce" /is /it /e /NFL /NDL
 
 	# Start overriding CMS specific things to the package
@@ -43,6 +49,9 @@ task CopySitecoreFiles -description "Copy all the sitecore files needs for a dep
 	#Configuration specific
 	&robocopy "$src\UCommerce.Sitecore.Web\Apps\Speak" "$working_dir\files\sitecore modules\Shell\ucommerce\Apps\Speak" /is /it /e /NFL /NDL
 	Copy-Item "$src\UCommerce.Sitecore.Web\Configuration\Shell.config.default" "$working_dir\files\sitecore modules\Shell\ucommerce\Configuration\Shell.config.default" -Force
+
+	#Copy sql scripts to install folder
+	&robocopy "$src\..\database" "$working_dir\files\sitecore modules\Shell\ucommerce\install" *.sql /NFL /NDL
 }
 
 task CleanSitecoreWorkingDirectory -description "Cleans the sitecore working directory. This should NOT be used when using Deploy.To.Local" -depends SetSitecoreVars{
