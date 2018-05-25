@@ -16,6 +16,18 @@ properties {
     $CreatePackage = $True
 }
 
+function GetZipFilename {
+    $newFileName = [string]::Format($zipDestinationFolder + "\" + $zipFileName, $target, $script:version)
+
+    # Make sure to delete the file else 7Zip will append files to the zip.
+    if(Test-Path $newFileName)
+    {
+        Remove-Item $newFileName -Force
+    }
+
+    return $newFileName;
+}
+
 function IsVersionNumber($thisVersion){
     return [System.Text.RegularExpressions.Regex]::IsMatch($thisVersion, "^[0-9]{1,5}(\.[0-9]{1,5}){2}$")
 }
@@ -82,29 +94,7 @@ task CopyUCommerceFiles -description "Copies all the necessary UCommerce files t
     $bin_dir = $script:hash["bin_dir"]
     $files_root = $script:hash["files_root_dir"]
     
-    $source = "$src\UCommerceWeb\UCommerce"
-    $destination = "$ucommerce_dir"
 
-    $sourceBin = "$src\UCommerceWeb\bin"
-    $destinationBin = "$bin_dir\ucommerce"
-    
-    & robocopy $source $destination /S /XF *.cs /xf *.user /xf *.old /xf *.vspscc /xf xsltExtensions.config /xf uCommerce.key /xf *.tmp /xf *.less /xd _Resharper* /xd .svn /xd _svn /xf *.orig /E /NFL /NDL
-    if($CreatePackage)
-    {
-        & robocopy $sourceBin $destinationBin /S /XF *.pdb /XF *.xml /XF *.dll.config /XF *.test.dll /XF HibernatingRhinos.* /XF UCommerce.Sitecore.* /XF UCommerce.Umbraco.* /XF UCommerce.Umbraco7.* /xf *.orig /NFL /NDL
-    }
-    else
-    {
-        & robocopy $sourceBin $destinationBin /S /XF *.xml /XF *.test.dll /XF HibernatingRhinos.*  /XF UCommerce.Sitecore.* /XF UCommerce.Umbraco.* /XF UCommerce.Umbraco7.* /xf *.orig /NFL /NDL
-    }
-
-    if(!(Test-Path "$ucommerce_dir\install"))
-    {
-        New-Item "$ucommerce_dir\install" -ItemType Directory -Force
-    }
-
-    Copy-Item "$src\UCommerce.Installer\ConfigurationTransformations\*.config" "$ucommerce_dir\install" -Force
-    & robocopy "$src\UCommerce.RavenDB\Configuration" "$ucommerce_dir\Apps\RavenDB" /E /NFL /NDL
 }
 
 task CleanSolution -description "Cleans the complete solution" {
@@ -117,7 +107,7 @@ task CleanUcommerceWebBinDirectory -description "Cleans the UCommerceWeb bin dir
 	Push-Location "$src"
 	if (Test-Path $src\UCommerceWeb\bin)
 	{
-		Remove-Item -Recurse "$src\UCommerceWeb\bin\*" -Force
+		Remove-Item -Recurse "$src\UCommerce.Sitecore.Web\bin\*" -Force
 	}
 	Pop-Location
 }
@@ -134,7 +124,7 @@ task Compile -description "Compiles the complete solution" -depends UpdateAssemb
     Pop-Location
 }
 
-task UpdateAssemblyInfo -description "Updates the AssemblyInfo.cs file if there is a valid version string supplied" -precondition { return IsVersionNumber $version } -depends UpdateUmbracoPackageInfo, UpdateUmbraco7PackageInfo, UpdateUmbraco7PackageActionWithNewVersion, UpdateSitecorePackageInfo{
+task UpdateAssemblyInfo -description "Updates the AssemblyInfo.cs file if there is a valid version string supplied" -precondition { return IsVersionNumber $version } -depends UpdateSitecorePackageInfo{
     if ($UpdateAssemblyInfo -eq "True") {
         Push-Location $src
 
@@ -165,38 +155,6 @@ task UpdateAssemblyInfo -description "Updates the AssemblyInfo.cs file if there 
 
         $clientDependencyVersionPattern = 'version="[0-9]+"';
 		$clientDependencyVersion = 'version="' + $script:versionDateNumberPart + '"';
-		
-        Get-FolderItem -Path $src -filter ClientDependency.config | ForEach-Object {
-            $filename = $_.FullName
-            $filename + ' -> ' + $script:version
-            (Get-Content $filename) | ForEach-Object {
-                % {$_ -replace $clientDependencyVersionPattern, $clientDependencyVersion } |
-                % {$_ -replace $fileVersionPattern, $fileVersion }
-            } | Set-Content $filename
-        }
-		
-		Get-FolderItem -Path $src -filter ClientDependency.Umbraco.config | ForEach-Object {
-            $filename = $_.FullName
-            $filename + ' -> ' + $script:version
-            (Get-Content $filename) | ForEach-Object {
-                % {$_ -replace $clientDependencyVersionPattern, $clientDependencyVersion } |
-                % {$_ -replace $fileVersionPattern, $fileVersion }
-            } | Set-Content $filename
-        }
-
-        Pop-Location
-
-        $coreAssemblyLocation = "$src\UCommerce.Model\Properties";
-
-        Push-Location $coreAssemblyLocation
-
-       Get-FolderItem -Path $coreAssemblyLocation -filter AssemblyInfo.cs | ForEach-Object {
-            $filename = $_.FullName
-            $filename + ' -> ' + $script:version
-            (Get-Content $filename) | ForEach-Object {
-                #% {$_ -replace $cmsVersionPattern, $cmsVersion }
-            } | Set-Content $filename
-        }
         
         Pop-Location
     }

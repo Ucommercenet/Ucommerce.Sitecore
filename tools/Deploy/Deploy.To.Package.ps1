@@ -20,7 +20,6 @@ function Get-ScriptDirectory {
 function Run-It () {
     try {  
         $scriptPath = Get-ScriptDirectory
-        . "$scriptPath\Deploy.Common.ps1"
     
         $src = Resolve-Path "$scriptPath\..\..\src";
         $base_dir = Resolve-Path "$scriptPath\..\.."
@@ -34,7 +33,6 @@ function Run-It () {
                 "base_dir"="$base_dir";
                 "src"=$src;
                 "working_dir"="$env:TEMP\uCommerceTmp\8e0acd5c-f842-49db-933d-cc9e61fcff53";
-                "DeploymentDirectories" = GetDeploymentDirectories;
             };
 
 	Invoke-PSake "$scriptPath\uCommerce.build.ps1" "CreateSitecorePackage" -properties $properties

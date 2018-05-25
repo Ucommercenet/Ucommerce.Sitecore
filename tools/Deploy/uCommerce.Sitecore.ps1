@@ -17,7 +17,7 @@ task SetSitecoreVars -description "Since path are different from Deploy.To.Local
     }
 }
 
-task CopySitecoreFiles -description "Copy all the sitecore files needs for a deployment" -depends CopyUCommerceFiles,MoveSitecoreDependenciesToRootBin,RemoveUmbraco7CssFilesAndResources,RemoveUmbraco6CssFilesAndResources,RemoveKentico10CssFilesAndResources {
+task CopySitecoreFiles -description "Copy all the sitecore files needs for a deployment" -depends CopyUCommerceFiles {
 
 }
 
@@ -38,20 +38,6 @@ task CleanSitecoreWorkingDirectory -description "Cleans the sitecore working dir
     New-Item "$working_dir\files\sitecore modules\Shell\uCommerce\shell" -Force -ItemType Directory
     New-Item "$working_dir\installer" -Force -ItemType Directory
     New-Item "$working_dir\metadata" -Force -ItemType Directory
-}
-
-task MoveSitecoreDependenciesToRootBin -description "Since all the assemblies is deployed with Sitecore, we can safely move ServiceStack here and it's not possible to have different versions of SS." {
-    $dependenciesToMove = @(
-        "ServiceStack.Common.dll";
-        "ServiceStack.dll",
-        "ServiceStack.Interfaces.dll",
-        "ServiceStack.ServiceInterface.dll",
-        "ServiceStack.Text.dll"
-    );
-
-    $files_root = $script:hash["files_root_dir"]
-
-    MoveFiles "$files_root\bin\uCommerce" "$files_root\bin" $dependenciesToMove
 }
 
 task CreateSitecoreZipFile -description "Creates the Sitecore Zip fil" {
