@@ -23,7 +23,21 @@ task CopySitecoreFiles -description "Copy all the sitecore files needs for a dep
     $bin_dir = $script:hash["bin_dir"]
     $files_root = $script:hash["files_root_dir"]
 
+	# First copy client resources
 	&robocopy "$src\UCommerce.Sitecore.Web\ucommerce" "$working_dir\files\sitecore modules\Shell\ucommerce" /is /it /e /NFL /NDL
+
+	# Start overriding CMS specific things to the package
+	##Shell specific
+	Copy-Item "$src\UCommerce.Sitecore.Web\Shell\CatalogManager.aspx" "$working_dir\files\sitecore modules\Shell\ucommerce\shell\CatalogManager.aspx" -Force
+	Copy-Item "$src\UCommerce.Sitecore.Web\Shell\OrderManager.aspx" "$working_dir\files\sitecore modules\Shell\ucommerce\shell\OrderManager.aspx" -Force
+	Copy-Item "$src\UCommerce.Sitecore.Web\Shell\PromotionManager.aspx" "$working_dir\files\sitecore modules\Shell\ucommerce\shell\PromotionManager.aspx" -Force
+	Copy-Item "$src\UCommerce.Sitecore.Web\Shell\SettingsManager.aspx" "$working_dir\files\sitecore modules\Shell\ucommerce\shell\SettingsManager.aspx" -Force
+
+	Copy-Item "$src\UCommerce.Sitecore.Web\Shell\Scripts\Sitecore.js" "$working_dir\files\sitecore modules\Shell\ucommerce\shell\app\constants.js" -Force
+
+	#Configuration specific
+	&robocopy "$src\UCommerce.Sitecore.Web\Apps\Speak" "$working_dir\files\sitecore modules\Shell\ucommerce\Apps\Speak" /is /it /e /NFL /NDL
+	Copy-Item "$src\UCommerce.Sitecore.Web\Configuration\Shell.config.default" "$working_dir\files\sitecore modules\Shell\ucommerce\Configuration\Shell.config.default" -Force
 }
 
 task CleanSitecoreWorkingDirectory -description "Cleans the sitecore working directory. This should NOT be used when using Deploy.To.Local" -depends SetSitecoreVars{
