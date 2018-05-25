@@ -65,6 +65,12 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="UCommerce.Admin, Version=8.0.1.18145, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Client.8.0.1.18145\lib\net45\UCommerce.Admin.dll</HintPath>
+    </Reference>
+    <Reference Include="UCommerce.Web.Shell, Version=8.0.1.18145, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Client.8.0.1.18145\lib\net45\UCommerce.Web.Shell.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Css\Sitecore8\UI.css.orig" />
