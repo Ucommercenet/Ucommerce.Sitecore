@@ -23,6 +23,11 @@ task CopySitecoreFiles -description "Copy all the sitecore files needs for a dep
     $bin_dir = $script:hash["bin_dir"]
     $files_root = $script:hash["files_root_dir"]
 
+	# First let's copy the package data for the zip
+	&robocopy "$src\Ucommerce.SiteCore.Installer\package\installer" "$working_dir\installer" /is /it /e /NFL /NDL
+	&robocopy "$src\Ucommerce.SiteCore.Installer\package\metadata" "$working_dir\metadata" /is /it /e /NFL /NDL
+	&robocopy "$src\Ucommerce.SiteCore.Installer\package\Files" "$working_dir\Files" /is /it /e /NFL /NDL
+
 	# First copy client resources
 	&robocopy "$src\UCommerce.Sitecore.Web\ucommerce" "$working_dir\files\sitecore modules\Shell\ucommerce" /is /it /e /NFL /NDL
 
