@@ -5,7 +5,7 @@ task CreateSitecorePackage -depends ValidateSetup,CleanSitecoreWorkingDirectory,
 task SetSitecoreVars -description "Since path are different from Deploy.To.Local or Deploy.To.Package, we need to set them differently." {
     if($CreatePackage)
     {
-        $script:hash.ucommerce_dir = "$working_dir\files\sitecore modules\Shell\uCommerce"
+        $script:hash.ucommerce_dir = "$working_dir\files\sitecore modules\Shell\Ucommerce"
         $script:hash.bin_dir = "$working_dir\files\bin"
         $script:hash.files_root_dir = "$working_dir\files"
     }
@@ -17,8 +17,13 @@ task SetSitecoreVars -description "Since path are different from Deploy.To.Local
     }
 }
 
-task CopySitecoreFiles -description "Copy all the sitecore files needs for a deployment" -depends CopyUCommerceFiles {
+task CopySitecoreFiles -description "Copy all the sitecore files needs for a deployment" {
+	$ucommerce_dir = $script:hash["ucommerce_dir"]
+	$base_dir = $script:hash["base_dir"]
+    $bin_dir = $script:hash["bin_dir"]
+    $files_root = $script:hash["files_root_dir"]
 
+	&robocopy "$src\UCommerce.Sitecore.Web\ucommerce" "$working_dir\files\sitecore modules\Shell\ucommerce" /is /it /e /NFL /NDL
 }
 
 task CleanSitecoreWorkingDirectory -description "Cleans the sitecore working directory. This should NOT be used when using Deploy.To.Local" -depends SetSitecoreVars{
@@ -33,9 +38,7 @@ task CleanSitecoreWorkingDirectory -description "Cleans the sitecore working dir
     }
 
     New-Item "$working_dir\files\bin\uCommerce" -Force -ItemType Directory
-    New-Item "$working_dir\files\sitecore modules\Shell\uCommerce\install" -Force -ItemType Directory
-    New-Item "$working_dir\files\sitecore modules\Shell\uCommerce\install\configInclude" -Force -ItemType Directory
-    New-Item "$working_dir\files\sitecore modules\Shell\uCommerce\shell" -Force -ItemType Directory
+	New-Item "$working_dir\files\sitecore modules\Shell\" -Force -ItemType Directory
     New-Item "$working_dir\installer" -Force -ItemType Directory
     New-Item "$working_dir\metadata" -Force -ItemType Directory
 }

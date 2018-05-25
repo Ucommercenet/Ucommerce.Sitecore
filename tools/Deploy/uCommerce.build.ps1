@@ -3,7 +3,7 @@ Framework "4.6"
 properties {
     $configuration = 'Debug'
     $src = "."
-    $zipFileName = "uCommerce-for-{0}-{1}.zip"
+    $zipFileName = "uCommerce-for-Sitecore-{1}.zip"
     $zipDestinationFolder = "C:\tmp"
     $solution_file = "uCommerce.Sitecore.sln"
     $working_dir = $null
@@ -87,14 +87,6 @@ task ValidateSetup -description "Validates the setup prerequirement" {
     }
 
     Assert($base_dir -ne $null) "base_dir should never be null. This should be specifed in the call powershell script file."
-}
-
-task CopyUCommerceFiles -description "Copies all the necessary UCommerce files that are common for all CMS" {
-    $ucommerce_dir = $script:hash["ucommerce_dir"]
-    $bin_dir = $script:hash["bin_dir"]
-    $files_root = $script:hash["files_root_dir"]
-    
-
 }
 
 task CleanSolution -description "Cleans the complete solution" {
