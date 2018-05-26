@@ -43,15 +43,28 @@ task CopySitecoreFiles -description "Copy all the sitecore files needs for a dep
 	Copy-Item "$src\UCommerce.Sitecore.Web\Shell\OrderManager.aspx" "$working_dir\files\sitecore modules\Shell\ucommerce\shell\OrderManager.aspx" -Force
 	Copy-Item "$src\UCommerce.Sitecore.Web\Shell\PromotionManager.aspx" "$working_dir\files\sitecore modules\Shell\ucommerce\shell\PromotionManager.aspx" -Force
 	Copy-Item "$src\UCommerce.Sitecore.Web\Shell\SettingsManager.aspx" "$working_dir\files\sitecore modules\Shell\ucommerce\shell\SettingsManager.aspx" -Force
-
 	Copy-Item "$src\UCommerce.Sitecore.Web\Shell\Scripts\Sitecore.js" "$working_dir\files\sitecore modules\Shell\ucommerce\shell\app\constants.js" -Force
 
 	#Configuration specific
 	&robocopy "$src\UCommerce.Sitecore.Web\Apps\Speak" "$working_dir\files\sitecore modules\Shell\ucommerce\Apps\Speak" /is /it /e /NFL /NDL
 	Copy-Item "$src\UCommerce.Sitecore.Web\Configuration\Shell.config.default" "$working_dir\files\sitecore modules\Shell\ucommerce\Configuration\Shell.config.default" -Force
 
+	New-Item "$working_dir\Files\Sitecore modules\shell\ucommerce\install\configinclude" -ItemType Directory
+	&robocopy "$src\UCommerce.SiteCore.Installer\ConfigurationTransformations\ConfigIncludes" "$working_dir\Files\Sitecore modules\shell\ucommerce\install\configinclude" * /NFL /NDL
+
 	#Copy sql scripts to install folder
 	&robocopy "$src\..\database" "$working_dir\files\sitecore modules\Shell\ucommerce\install" *.sql /NFL /NDL
+
+	#css
+	&robocopy "$src\UCommerce.Sitecore.Web\Css" "$working_dir\files\sitecore modules\Shell\ucommerce\Css" * /is /it /e /NFL /NDL
+
+	#binaries
+	&robocopy "$src\UCommerce.Sitecore\bin\$configuration" "$working_dir\files\sitecore modules\Shell\ucommerce\install\binaries" UCommerce.* /is /it /e /NFL /NDL
+
+	# Commerce Connect app
+	New-Item "$working_dir\Files\Sitecore modules\shell\ucommerce\apps\sitecore commerce connect.disabled" -ItemType Directory
+	&robocopy "$src\UCommerce.Sitecore.CommerceConnect\Configuration" "$working_dir\Files\Sitecore modules\shell\ucommerce\apps\sitecore commerce connect.disabled" * /NFL /NDL
+
 }
 
 task CleanSitecoreWorkingDirectory -description "Cleans the sitecore working directory. This should NOT be used when using Deploy.To.Local" -depends SetSitecoreVars{
