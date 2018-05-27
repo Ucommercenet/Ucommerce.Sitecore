@@ -1,0 +1,42 @@
+﻿<configuration>
+	<components>
+		<!-- Pipeline Instance -->
+		<component id="SaveUserRoles"
+				  service="UCommerce.Pipelines.IPipeline`1[[UCommerce.Pipelines.IPipelineArgs`2[[UCommerce.Pipelines.SaveUserRoles.SaveUserRolesRequest, UCommerce],[UCommerce.Pipelines.SaveUserRoles.SaveUserRolesResponse, UCommerce]], UCommerce]], UCommerce"
+					type="UCommerce.Pipelines.Settings.Security.SaveUserRolesPipeline, UCommerce.Pipelines">
+			<parameters>
+				<tasks>
+					<array>
+						<value>${SaveUserRoles.ClearAllRolesForUser}</value>
+						<value>${SaveUserRoles.AddUserToRoles}</value>
+						<value>${SaveUserRoles.SaveUser}</value>
+            <value>${SaveUserRoles.InformDataProvider}</value>
+            <value>${SaveUserRoles.ClearAccessResultCacheForUser}</value>
+					</array>
+				</tasks>
+			</parameters>
+		</component>
+
+		<!-- Pipeline Tasks-->
+		<component id="SaveUserRoles.ClearAllRolesForUser"
+								 service="UCommerce.Pipelines.IPipelineTask`1[[UCommerce.Pipelines.IPipelineArgs`2[[UCommerce.Pipelines.SaveUserRoles.SaveUserRolesRequest, UCommerce],[UCommerce.Pipelines.SaveUserRoles.SaveUserRolesResponse, UCommerce]], UCommerce]], UCommerce"
+								 type="UCommerce.Pipelines.Settings.Security.ClearAllRolesForUserTask, UCommerce.Pipelines" />
+
+		<component id="SaveUserRoles.AddUserToRoles"
+								 service="UCommerce.Pipelines.IPipelineTask`1[[UCommerce.Pipelines.IPipelineArgs`2[[UCommerce.Pipelines.SaveUserRoles.SaveUserRolesRequest, UCommerce],[UCommerce.Pipelines.SaveUserRoles.SaveUserRolesResponse, UCommerce]], UCommerce]], UCommerce"
+								 type="UCommerce.Pipelines.Settings.Security.AddUserToRolesTask, UCommerce.Pipelines" />
+
+		<component id="SaveUserRoles.SaveUser"
+								 service="UCommerce.Pipelines.IPipelineTask`1[[UCommerce.Pipelines.IPipelineArgs`2[[UCommerce.Pipelines.SaveUserRoles.SaveUserRolesRequest, UCommerce],[UCommerce.Pipelines.SaveUserRoles.SaveUserRolesResponse, UCommerce]], UCommerce]], UCommerce"
+								 type="UCommerce.Pipelines.Settings.Security.SaveUserTask, UCommerce.Pipelines" />
+
+    <component id="SaveUserRoles.InformDataProvider"
+                  service="UCommerce.Pipelines.IPipelineTask`1[[UCommerce.Pipelines.IPipelineArgs`2[[UCommerce.Pipelines.SaveUserRoles.SaveUserRolesRequest, UCommerce],[UCommerce.Pipelines.SaveUserRoles.SaveUserRolesResponse, UCommerce]], UCommerce]], UCommerce"
+                  type="UCommerce.Sitecore.Pipelines.InformDataProviderThatPermissionsHaveChangedTask, UCommerce.Sitecore" />
+
+    <component id="SaveUserRoles.ClearAccessResultCacheForUser"
+								 service="UCommerce.Pipelines.IPipelineTask`1[[UCommerce.Pipelines.IPipelineArgs`2[[UCommerce.Pipelines.SaveUserRoles.SaveUserRolesRequest, UCommerce],[UCommerce.Pipelines.SaveUserRoles.SaveUserRolesResponse, UCommerce]], UCommerce]], UCommerce"
+								 type="UCommerce.Sitecore.Pipelines.ClearAccessResultCacheForUserTask, UCommerce.Sitecore" />
+		
+	</components>
+</configuration>
