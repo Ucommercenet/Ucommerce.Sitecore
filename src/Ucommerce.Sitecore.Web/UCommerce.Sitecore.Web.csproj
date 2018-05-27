@@ -92,6 +92,7 @@
     <Content Include="Apps\Speak\OrdersApplication.config.default" />
     <Content Include="Apps\Speak\SettingsApplication.config.default" />
     <Content Include="Configuration\Shell.config.default" />
+    <Content Include="Apps\Sitecore\Baskets.Checkout.config.default" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

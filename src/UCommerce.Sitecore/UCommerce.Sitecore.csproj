@@ -346,7 +346,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Configuration\Baskets.Checkout.config.default" />
     <None Include="packages.config" />
     <None Include="Sitecore.UCommerce.config">
       <SubType>Designer</SubType>
