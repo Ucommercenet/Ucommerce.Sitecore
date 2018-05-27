@@ -46,7 +46,7 @@ task CopySitecoreFiles -description "Copy all the sitecore files needs for a dep
 	Copy-Item "$src\UCommerce.Sitecore.Web\Shell\Scripts\Sitecore.js" "$working_dir\files\sitecore modules\Shell\ucommerce\shell\app\constants.js" -Force
 
 	#Configuration specific
-	&robocopy "$src\UCommerce.Sitecore.Web\Apps\Speak" "$working_dir\files\sitecore modules\Shell\ucommerce\Apps\Speak" /is /it /e /NFL /NDL
+	&robocopy "$src\UCommerce.Sitecore.Web\Apps" "$working_dir\files\sitecore modules\Shell\ucommerce\Apps" /is /it /e /NFL /NDL
 	Copy-Item "$src\UCommerce.Sitecore.Web\Configuration\Shell.config.default" "$working_dir\files\sitecore modules\Shell\ucommerce\Configuration\Shell.config.default" -Force
 
 	New-Item "$working_dir\Files\Sitecore modules\shell\ucommerce\install\configinclude" -ItemType Directory
@@ -60,6 +60,9 @@ task CopySitecoreFiles -description "Copy all the sitecore files needs for a dep
 
 	#binaries
 	&robocopy "$src\UCommerce.Sitecore\bin\$configuration" "$working_dir\files\sitecore modules\Shell\ucommerce\install\binaries" UCommerce.* /is /it /e /NFL /NDL
+	
+    $dependencies = @("authorizenet.dll", "braintree-2.22.0.dll", "castle.core.dll", "castle.windsor.dll", "clientdependency.core.dll", "csvhelper.dll", "epplus.dll", "fluentnhibernate.dll", "iesi.collections.dll", "infralution.licensing.dll", "log4net.dll", "lucene.net.dll", "microsoft.web.xmltransform.dll". "newtonsoft.json.dll", "nhibernate.caches.syscache.dll", "nhibernate.dll", "paypal_base.dll", "system.net.http.formatting.dll", "system.web.http.dll", "system.web.http.webhost.dll")
+	CopyFiles "$src\UCommerce.Sitecore\bin\$configuration" "$working_dir\files\sitecore modules\Shell\ucommerce\install\binaries" $dependencies
 
 	# Commerce Connect app
 	New-Item "$working_dir\Files\Sitecore modules\shell\ucommerce\apps\sitecore commerce connect.disabled" -ItemType Directory
@@ -78,7 +81,7 @@ task CopySitecoreFiles -description "Copy all the sitecore files needs for a dep
 	Remove-Item "$working_dir\Files\Sitecore modules\shell\ucommerce\css\Umbraco6" -Force -Recurse
 	Remove-Item "$working_dir\Files\Sitecore modules\shell\ucommerce\css\Umbraco7" -Force -Recurse
 
-
+	&robocopy "$src\UCommerce.Sitecore.Web\Pipelines" "$working_dir\Files\Sitecore modules\shell\ucommerce\Pipelines" * /is /it /e /NFL /NDL
 }
 
 task CleanSitecoreWorkingDirectory -description "Cleans the sitecore working directory. This should NOT be used when using Deploy.To.Local" -depends SetSitecoreVars{

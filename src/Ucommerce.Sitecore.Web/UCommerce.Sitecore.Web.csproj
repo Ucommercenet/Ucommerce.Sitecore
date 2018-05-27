@@ -207,6 +207,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Pipelines\Admin\" />
     <Folder Include="Scripts\" />
     <Folder Include="Shell\Css\" />
   </ItemGroup>
