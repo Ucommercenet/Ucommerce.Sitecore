@@ -65,6 +65,20 @@ task CopySitecoreFiles -description "Copy all the sitecore files needs for a dep
 	New-Item "$working_dir\Files\Sitecore modules\shell\ucommerce\apps\sitecore commerce connect.disabled" -ItemType Directory
 	&robocopy "$src\UCommerce.Sitecore.CommerceConnect\Configuration" "$working_dir\Files\Sitecore modules\shell\ucommerce\apps\sitecore commerce connect.disabled" * /NFL /NDL
 
+	Move-Item "$working_dir\Files\Sitecore modules\shell\ucommerce\configuration\settings\settings.sitecore.config.default" "$working_dir\Files\Sitecore modules\shell\ucommerce\configuration\settings\settings.config.default" -Force
+	Remove-Item "$working_dir\Files\Sitecore modules\shell\ucommerce\configuration\settings\settings.Kentico.config.default" -Force
+	Remove-Item "$working_dir\Files\Sitecore modules\shell\ucommerce\configuration\settings\settings.Umbraco6.config.default" -Force
+	Remove-Item "$working_dir\Files\Sitecore modules\shell\ucommerce\configuration\settings\settings.Umbraco7.config.default" -Force
+
+	# Raven Lucene.net assembly not used in Sitecore and can make weired errors. Don't copy it over.
+	Remove-Item "$working_dir\Files\Sitecore modules\shell\ucommerce\apps\RavenDB25.disabled\bin\Lucene.net.dll" -Force
+	
+	Remove-Item "$working_dir\Files\Sitecore modules\shell\ucommerce\css\Kentico" -Force -Recurse
+	Remove-Item "$working_dir\Files\Sitecore modules\shell\ucommerce\css\Umbraco5" -Force -Recurse
+	Remove-Item "$working_dir\Files\Sitecore modules\shell\ucommerce\css\Umbraco6" -Force -Recurse
+	Remove-Item "$working_dir\Files\Sitecore modules\shell\ucommerce\css\Umbraco7" -Force -Recurse
+
+
 }
 
 task CleanSitecoreWorkingDirectory -description "Cleans the sitecore working directory. This should NOT be used when using Deploy.To.Local" -depends SetSitecoreVars{
