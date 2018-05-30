@@ -1,5 +1,11 @@
-task CreateSitecorePackage -depends ValidateSetup,CleanSitecoreWorkingDirectory,Rebuild,CopySitecoreFiles, CreateSitecoreZipFile {
+task CreateSitecorePackage -depends ValidateSetup,CleanSitecoreWorkingDirectory,NuGetRestore, Rebuild,CopySitecoreFiles, CreateSitecoreZipFile {
 
+}
+
+task NuGetRestore {
+	Push-Location "$src\..\tools\Nuget"
+	.\nuget restore ..\..\src
+	Pop-Location
 }
 
 task SetSitecoreVars -description "Since path are different from Deploy.To.Local or Deploy.To.Package, we need to set them differently." {
@@ -98,11 +104,22 @@ task CopySitecoreFiles -description "Copy all the sitecore files needs for a dep
 	Remove-Item "$working_dir\Files\Sitecore modules\shell\ucommerce\pipelines\baskets.addaddress.sitecore.config.default" -Force
 	Remove-Item "$working_dir\Files\Sitecore modules\shell\ucommerce\shell\settingsmanager.aspx" -Force
 	Remove-Item "$working_dir\Files\Sitecore modules\shell\ucommerce\css\sitecore\sitecore.less" -Force
+	Remove-Item "$working_dir\Files\Sitecore modules\shell\ucommerce\install\binaries\ucommerce.sitecore.dll.config" -Force
+	Remove-Item "$working_dir\*.orig" -Force -Recurse
 
 	if ($configuration -eq "Release") {
 		Remove-Item "$working_dir\Files\Sitecore modules\shell\ucommerce\install\binaries\*.pdb" -Force
 		Remove-Item "$working_dir\Files\Sitecore modules\shell\ucommerce\install\binaries\*.xml" -Force
 	}
+
+	##### ServiceStack ######
+	Copy-Item "$src\..\lib\ServiceStack\3.9.55\ServiceStack.Common.3.9.55\lib\net35\ServiceStack.Common.dll" "$working_dir\files\bin\ServiceStack.Common.dll" -Force
+	Copy-Item "$src\..\lib\ServiceStack\3.9.55\ServiceStack.Common.3.9.55\lib\net35\ServiceStack.interfaces.dll" "$working_dir\files\bin\ServiceStack.interfaces.dll" -Force
+	Copy-Item "$src\..\lib\ServiceStack\3.9.55\ServiceStack.3.9.55\lib\net35\ServiceStack.dll" "$working_dir\files\bin\ServiceStack.dll" -Force
+	Copy-Item "$src\..\lib\ServiceStack\3.9.55\ServiceStack.3.9.55\lib\net35\ServiceStack.ServiceInterface.dll" "$working_dir\files\bin\ServiceStack.ServiceInterface.dll" -Force
+	Copy-Item "$src\..\lib\ServiceStack\3.9.55\ServiceStack.Text.3.9.55\lib\net35\ServiceStack.Text.dll" "$working_dir\files\bin\ServiceStack.Text.dll" -Force
+
+	Rename-Item -Path "$working_dir\files\sitecore modules\Shell\Ucommerce\Apps\Acquire%20and%20Cancel%20Payments.disabled" -NewName "Acquire and Cancel Payments.disabled" -Force
 }
 
 task CleanSitecoreWorkingDirectory -description "Cleans the sitecore working directory. This should NOT be used when using Deploy.To.Local" -depends SetSitecoreVars{
