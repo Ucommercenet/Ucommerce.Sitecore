@@ -34,6 +34,9 @@ task CopySitecoreFiles -description "Copy all the sitecore files needs for a dep
 	Copy-Item "$src\UCommerce.SiteCore.Installer\bin\$configuration\UCommerce.Sitecore.Installer.dll" "$working_dir\files\bin\UCommerce.Sitecore.Installer.dll" -Force
 	Copy-Item "$src\..\lib\XmlTransform\Microsoft.Web.XmlTransform.dll" "$working_dir\files\bin\Microsoft.Web.XmlTransform.dll" -Force
 
+	# Binaries for the site to run
+	Copy-Item "$src\UCommerce.Sitecore.CommerceConnect\bin\$configuration\UCommerce.Sitecore.CommerceConnect.dll" "$working_dir\Files\Sitecore modules\shell\ucommerce\install\binaries" -Force
+
 	# copy client resources
 	&robocopy "$src\UCommerce.Sitecore.Web\ucommerce" "$working_dir\files\sitecore modules\Shell\ucommerce" /is /it /e /NFL /NDL
 
@@ -51,6 +54,7 @@ task CopySitecoreFiles -description "Copy all the sitecore files needs for a dep
 
 	New-Item "$working_dir\Files\Sitecore modules\shell\ucommerce\install\configinclude" -ItemType Directory
 	&robocopy "$src\UCommerce.SiteCore.Installer\ConfigurationTransformations\ConfigIncludes" "$working_dir\Files\Sitecore modules\shell\ucommerce\install\configinclude" * /NFL /NDL
+	&robocopy "$src\UCommerce.SiteCore.Installer\ConfigurationTransformations" "$working_dir\Files\Sitecore modules\shell\ucommerce\install" *.config /NFL /NDL
 
 	#Copy sql scripts to install folder
 	&robocopy "$src\..\database" "$working_dir\files\sitecore modules\Shell\ucommerce\install" *.sql /NFL /NDL
@@ -61,7 +65,7 @@ task CopySitecoreFiles -description "Copy all the sitecore files needs for a dep
 	#binaries
 	&robocopy "$src\UCommerce.Sitecore\bin\$configuration" "$working_dir\files\sitecore modules\Shell\ucommerce\install\binaries" UCommerce.* /is /it /e /NFL /NDL
 	
-    $dependencies = @("authorizenet.dll", "braintree-2.22.0.dll", "castle.core.dll", "castle.windsor.dll", "clientdependency.core.dll", "csvhelper.dll", "epplus.dll", "fluentnhibernate.dll", "iesi.collections.dll", "infralution.licensing.dll", "log4net.dll", "lucene.net.dll", "microsoft.web.xmltransform.dll". "newtonsoft.json.dll", "nhibernate.caches.syscache.dll", "nhibernate.dll", "paypal_base.dll", "system.net.http.formatting.dll", "system.web.http.dll", "system.web.http.webhost.dll")
+    $dependencies = @("AuthorizeNet.dll", "braintree-2.22.0.dll", "castle.core.dll", "castle.windsor.dll", "clientdependency.core.dll", "csvhelper.dll", "epplus.dll", "fluentnhibernate.dll", "iesi.collections.dll", "infralution.licensing.dll", "log4net.dll", "lucene.net.dll", "microsoft.web.xmltransform.dll". "newtonsoft.json.dll", "nhibernate.caches.syscache.dll", "nhibernate.dll", "paypal_base.dll", "system.net.http.formatting.dll", "system.web.http.dll", "system.web.http.webhost.dll")
 	CopyFiles "$src\UCommerce.Sitecore\bin\$configuration" "$working_dir\files\sitecore modules\Shell\ucommerce\install\binaries" $dependencies
 
 	# Commerce Connect app
@@ -73,7 +77,6 @@ task CopySitecoreFiles -description "Copy all the sitecore files needs for a dep
 	Remove-Item "$working_dir\Files\Sitecore modules\shell\ucommerce\configuration\settings\settings.Umbraco6.config.default" -Force
 	Remove-Item "$working_dir\Files\Sitecore modules\shell\ucommerce\configuration\settings\settings.Umbraco7.config.default" -Force
 	Remove-Item "$working_dir\Files\Sitecore modules\shell\ucommerce\shell\app\constants" -Force -Recurse
-
 
 	# Raven Lucene.net assembly not used in Sitecore and can make weired errors. Don't copy it over.
 	Remove-Item "$working_dir\Files\Sitecore modules\shell\ucommerce\apps\RavenDB25.disabled\bin\Lucene.net.dll" -Force
@@ -89,6 +92,17 @@ task CopySitecoreFiles -description "Copy all the sitecore files needs for a dep
 	Remove-Item "$working_dir\Files\Sitecore modules\shell\ucommerce\configuration\shell.umbraco7.config.default" -Force
 
 	&robocopy "$src\UCommerce.Sitecore.Web\Pipelines" "$working_dir\Files\Sitecore modules\shell\ucommerce\Pipelines" * /is /it /e /NFL /NDL
+
+	# Other files that are part of the client package that should not be there
+	Remove-Item "$working_dir\Files\Sitecore modules\shell\ucommerce\scripts\ucommerce6.js" -Force
+	Remove-Item "$working_dir\Files\Sitecore modules\shell\ucommerce\pipelines\baskets.addaddress.sitecore.config.default" -Force
+	Remove-Item "$working_dir\Files\Sitecore modules\shell\ucommerce\shell\settingsmanager.aspx" -Force
+	Remove-Item "$working_dir\Files\Sitecore modules\shell\ucommerce\css\sitecore\sitecore.less" -Force
+
+	if ($configuration -eq "Release") {
+		Remove-Item "$working_dir\Files\Sitecore modules\shell\ucommerce\install\binaries\*.pdb" -Force
+		Remove-Item "$working_dir\Files\Sitecore modules\shell\ucommerce\install\binaries\*.xml" -Force
+	}
 }
 
 task CleanSitecoreWorkingDirectory -description "Cleans the sitecore working directory. This should NOT be used when using Deploy.To.Local" -depends SetSitecoreVars{
@@ -103,8 +117,11 @@ task CleanSitecoreWorkingDirectory -description "Cleans the sitecore working dir
     }
 
     New-Item "$working_dir\files\bin\uCommerce" -Force -ItemType Directory
-	New-Item "$working_dir\files\sitecore modules\Shell\" -Force -ItemType Directory
-    New-Item "$working_dir\installer" -Force -ItemType Directory
+	New-Item "$working_dir\files\sitecore modules\Shell" -Force -ItemType Directory
+	New-Item "$working_dir\files\sitecore modules\Shell\Ucommerce" -Force -ItemType Directory
+	New-Item "$working_dir\files\sitecore modules\Shell\Ucommerce\Install" -Force -ItemType Directory
+	New-Item "$working_dir\files\sitecore modules\Shell\Ucommerce\Install\Binaries" -Force -ItemType Directory
+	New-Item "$working_dir\installer" -Force -ItemType Directory
     New-Item "$working_dir\metadata" -Force -ItemType Directory
 }
 
