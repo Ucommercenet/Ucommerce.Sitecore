@@ -1,4 +1,4 @@
-task CreateSitecorePackage -depends ValidateSetup,CleanSitecoreWorkingDirectory,NuGetRestore, Rebuild,CopySitecoreFiles, CreateSitecoreZipFile {
+task CreateSitecorePackage -depends ValidateSetup,CleanSitecoreWorkingDirectory,NuGetRestore, Rebuild,CopySitecoreFiles, CleanPackageForOtherCmsDependencies, CreateSitecoreZipFile {
 
 }
 
@@ -21,6 +21,20 @@ task SetSitecoreVars -description "Since path are different from Deploy.To.Local
         $script:hash.bin_dir = "$working_dir\bin"
         $script:hash.files_root_dir = "$working_dir"
     }
+}
+
+task CleanPackageForOtherCmsDependencies {
+	$items = Get-ChildItem $working_dir -Recurse | Where-Object { $_.FullName.ToLower().Contains("umbraco") -or $_.FullName.ToLower().Contains("sitefinity") -or $_.FullName.ToLower().Contains("kentico")} 
+
+	foreach($item in $items) {
+		if (Test-Path $item.FullName) {
+			Write-Host "Removing " + $item.FullName
+			Remove-Item $item.FullName -Force -Recurse
+		}
+        else {
+            Write-Host "test-path failed for " + $item.FullName
+        }
+	}
 }
 
 task CopySitecoreFiles -description "Copy all the sitecore files needs for a deployment" {
