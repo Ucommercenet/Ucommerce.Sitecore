@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UCommerce.SiteCore.Installer", "UCommerce.SiteCore.Installer\UCommerce.SiteCore.Installer.csproj", "{1A45A6DD-D898-48E8-869C-7C72891921A8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UCommerce.Sitecore.Installer", "UCommerce.SiteCore.Installer\UCommerce.Sitecore.Installer.csproj", "{1A45A6DD-D898-48E8-869C-7C72891921A8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UCommerce.Sitecore.CommerceConnect", "UCommerce.Sitecore.CommerceConnect\UCommerce.Sitecore.CommerceConnect.csproj", "{A1699955-8F49-4A99-A82C-083DD62CDA2E}"
 EndProject
@@ -15,8 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Deploy", "Deploy", "{C5D04B
 	ProjectSection(SolutionItems) = preProject
 		..\tools\Deploy\Deploy.To.Package.ps1 = ..\tools\Deploy\Deploy.To.Package.ps1
 		..\tools\Deploy\Get-FolderItem.ps1 = ..\tools\Deploy\Get-FolderItem.ps1
-		..\tools\Deploy\uCommerce.build.ps1 = ..\tools\Deploy\uCommerce.build.ps1
-		..\tools\Deploy\uCommerce.Sitecore.ps1 = ..\tools\Deploy\uCommerce.Sitecore.ps1
+		..\tools\Deploy\UCommerce.build.ps1 = ..\tools\Deploy\UCommerce.build.ps1
+		..\tools\Deploy\UCommerce.Sitecore.ps1 = ..\tools\Deploy\UCommerce.Sitecore.ps1
 	EndProjectSection
 EndProject
 Global
