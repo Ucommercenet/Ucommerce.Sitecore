@@ -1,5 +1,17 @@
-task CreateSitecorePackage -depends ValidateSetup,CleanSitecoreWorkingDirectory,NuGetRestore, Rebuild,CopySitecoreFiles, CleanPackageForOtherCmsDependencies, CreateSitecoreZipFile {
+task CreateSitecorePackage -depends SetVersionNumberFromClientNugetPackage,ValidateSetup,CleanSitecoreWorkingDirectory,NuGetRestore, Rebuild,CopySitecoreFiles, CleanPackageForOtherCmsDependencies, CreateSitecoreZipFile {
 
+}
+
+task SetVersionNumberFromClientNugetPackage {
+	Push-Location "$src\packages"
+
+	$folderItem = Get-ChildItem uCommerce.client.* 
+
+	Push-Location "$folderItem\lib\net45"
+
+	$info = Get-ChildItem -Filter UCommerce.Admin.dll -Recurse | Select-Object -ExpandProperty VersionInfo
+
+	$script:version = $info.FileVersion
 }
 
 task NuGetRestore {

@@ -76,17 +76,8 @@ task PostDeployMoveBinFiles -description "used to move all uCommerce bin files t
 }
 
 task ValidateSetup -description "Validates the setup prerequirement" {
-    $script:versionDateNumberPart = (Get-Date).Year.ToString().Substring(2) + "" + (Get-Date).DayOfYear.ToString("000");
-    if((IsVersionNumber $version) -or "Current" -eq $version)
-    {
-        $script:version = "$version." + $script:versionDateNumberPart
-    }
-    else
-    {
-        throw "Version '$version' is not a valid string. Format needs to be like x.x.x, eg. 5.1.0"
-    }
-
     Assert($base_dir -ne $null) "base_dir should never be null. This should be specifed in the call powershell script file."
+	Write-Host "$script:version"
 }
 
 task CleanSolution -description "Cleans the complete solution" {

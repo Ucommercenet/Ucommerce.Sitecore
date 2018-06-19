@@ -7,10 +7,7 @@ Param(
 
     [Parameter(Mandatory=$False)]
     [ValidateSet("Debug", "Release")]
-    [string]$Configuration = "Debug",
-    
-    [Parameter(Mandatory=$True)]
-    [string]$Version
+    [string]$Configuration = "Debug"
 )
 
 function Get-ScriptDirectory { 
