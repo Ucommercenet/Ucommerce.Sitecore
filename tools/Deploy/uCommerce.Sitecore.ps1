@@ -12,6 +12,8 @@ task SetVersionNumberFromClientNugetPackage {
 	$info = Get-ChildItem -Filter UCommerce.Admin.dll -Recurse | Select-Object -ExpandProperty VersionInfo
 
 	$script:version = $info.FileVersion
+
+	Pop-Location
 }
 
 task NuGetRestore {
