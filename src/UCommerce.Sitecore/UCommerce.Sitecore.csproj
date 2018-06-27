@@ -150,37 +150,48 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Xml" />
     <Reference Include="UCommerce, Version=8.1.0.18151, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.8.1.0.18151\lib\net45\UCommerce.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\uCommerce.Core.7.18.0.18178\lib\net45\UCommerce.dll</HintPath>
     </Reference>
     <Reference Include="UCommerce.Admin, Version=8.1.0.18151, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.8.1.0.18151\lib\net45\UCommerce.Admin.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\uCommerce.Core.7.18.0.18178\lib\net45\UCommerce.Admin.dll</HintPath>
     </Reference>
     <Reference Include="UCommerce.Infrastructure, Version=8.1.0.18151, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.8.1.0.18151\lib\net45\UCommerce.Infrastructure.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\uCommerce.Core.7.18.0.18178\lib\net45\UCommerce.Infrastructure.dll</HintPath>
     </Reference>
     <Reference Include="UCommerce.Installer, Version=8.1.0.18151, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.8.1.0.18151\lib\net45\UCommerce.Installer.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\uCommerce.Core.7.18.0.18178\lib\net45\UCommerce.Installer.dll</HintPath>
     </Reference>
     <Reference Include="UCommerce.NHibernate, Version=8.1.0.18151, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.8.1.0.18151\lib\net45\UCommerce.NHibernate.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\uCommerce.Core.7.18.0.18178\lib\net45\UCommerce.NHibernate.dll</HintPath>
     </Reference>
     <Reference Include="UCommerce.Pipelines, Version=8.1.0.18151, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.8.1.0.18151\lib\net45\UCommerce.Pipelines.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\uCommerce.Core.7.18.0.18178\lib\net45\UCommerce.Pipelines.dll</HintPath>
     </Reference>
     <Reference Include="UCommerce.Presentation, Version=8.1.0.18151, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.8.1.0.18151\lib\net45\UCommerce.Presentation.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\uCommerce.Core.7.18.0.18178\lib\net45\UCommerce.Presentation.dll</HintPath>
     </Reference>
     <Reference Include="UCommerce.SystemHttp, Version=8.1.0.18151, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.8.1.0.18151\lib\net45\UCommerce.SystemHttp.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\uCommerce.Core.7.18.0.18178\lib\net45\UCommerce.SystemHttp.dll</HintPath>
     </Reference>
     <Reference Include="UCommerce.Transactions.Payments, Version=8.1.0.18151, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.8.1.0.18151\lib\net45\UCommerce.Transactions.Payments.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\uCommerce.Core.7.18.0.18178\lib\net45\UCommerce.Transactions.Payments.dll</HintPath>
     </Reference>
     <Reference Include="UCommerce.Web.Api, Version=8.1.0.18151, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.8.1.0.18151\lib\net45\UCommerce.Web.Api.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\uCommerce.Core.7.18.0.18178\lib\net45\UCommerce.Web.Api.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\ConnectionStringLocator.cs" />
     <Compile Include="Content\SitecoreContentNodeConverter.cs" />
     <Compile Include="Content\SitecoreContentService.cs" />
     <Compile Include="Content\SitecoreContentTreeService.cs" />

@@ -12,13 +12,13 @@ namespace UCommerce.Sitecore.Installer.Steps
 	{
 		public void Run(ITaskOutput output, NameValueCollection metaData)
 		{
-			var connectionStringLocator = new SitecoreConnectionStringLocator();
-			
-			var sitecoreInstallerLoggingService = new SitecoreInstallerLoggingService();
+		    var connectionStringLocator = new SitecoreInstallationConnectionStringLocator();
+
+            var sitecoreInstallerLoggingService = new SitecoreInstallerLoggingService();
 			
 			var steps = new List<IPrerequisitStep>()
 				{
-					new CanCreateTables(connectionStringLocator.Locate(), sitecoreInstallerLoggingService),
+					new CanCreateTables(connectionStringLocator.LocateConnectionString(), sitecoreInstallerLoggingService),
 					new CanModifyFiles(sitecoreInstallerLoggingService,FileUtil.MapPath("/"))
 				};
 

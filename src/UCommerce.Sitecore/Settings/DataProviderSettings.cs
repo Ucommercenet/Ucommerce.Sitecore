@@ -19,5 +19,7 @@
         /// Override this to false, to exclude the product data items in Sitecore.
         /// </summary>
         public bool IncludeProductData { get; set; }
+
+        public bool EnforceUniquenessOfCategoryNames { get; set; }
     }
 }

@@ -1,11 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
-using UCommerce.Installer;
-using UCommerce.Installer.Extensions;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace UCommerce.Sitecore.Installer
+namespace UCommerce.Sitecore.Configuration
 {
-    public class SitecoreInstallationConnectionStringLocator : InstallationConnectionStringLocator
+    public class ConnectionStringLocator : UCommerce.Infrastructure.Configuration.ConnectionStringLocator
     {
         public override string LocateConnectionString()
         {
