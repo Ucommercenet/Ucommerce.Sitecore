@@ -125,10 +125,6 @@
 			service="UCommerce.Infrastructure.Globalization.ILanguageService, UCommerce.Infrastructure"
 			type="UCommerce.Sitecore.SitecoreLanguageService, UCommerce.Sitecore" />
 
-		<component id="CommerceConfigurationProvider"
-			service="UCommerce.Infrastructure.Configuration.CommerceConfigurationProvider, UCommerce.Infrastructure"
-			type="UCommerce.Infrastructure.Configuration.CommerceConfigurationProvider, UCommerce.Infrastructure" />
-
 		<component id="UrlResolver"
 			service="UCommerce.Presentation.Web.IUrlResolver, UCommerce.Presentation"
 			type="UCommerce.Sitecore.Web.WebPath, UCommerce.Sitecore" />
