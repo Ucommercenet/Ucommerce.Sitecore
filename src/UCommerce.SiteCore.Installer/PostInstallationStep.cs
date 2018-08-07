@@ -37,6 +37,11 @@ namespace UCommerce.Sitecore.Installer
         /// </remarks>
         public PostInstallationStep()
         {
+            var sitefinityInstallerLoggingService = new SitecoreInstallerLoggingService();
+            IDatabaseAvailabilityService sitefinityDatabaseAvailabilityService = new SitecoreDatabaseAvailabilityService();
+            var installationConnectionStringLocator = new SitecoreInstallationConnectionStringLocator();
+            var runtimeVersionChecker = new RuntimeVersionChecker(installationConnectionStringLocator, sitefinityInstallerLoggingService);
+            var updateService = new UpdateService(installationConnectionStringLocator, runtimeVersionChecker, sitefinityDatabaseAvailabilityService);
             var sitecoreVersionChecker = new SitecoreVersionChecker();
 
             _postInstallationSteps = new List<IPostStep>();
@@ -45,6 +50,8 @@ namespace UCommerce.Sitecore.Installer
             _postInstallationSteps.Add(new InitializeObjectFactory());
             _postInstallationSteps.Add(new InstallDatabase("~/sitecore modules/Shell/ucommerce/install"));
             _postInstallationSteps.Add(new InstallDatabaseSitecore("~/sitecore modules/Shell/ucommerce/install"));
+            _postInstallationSteps.Add(new UpdateUCommerceAssemblyVersionInDatabase(updateService, runtimeVersionChecker, sitefinityInstallerLoggingService));
+
             _postInstallationSteps.Add(new CopyFile(sourceVirtualPath: "~/web.config", targetVirtualPath: "~/web.config.{DateTime.Now.Ticks}.backup"));
             _postInstallationSteps.Add(new SitecoreWebconfigMerger(sitecoreVersionChecker));
             _postInstallationSteps.Add(new SeperateConfigSectionInNewFile("configuration/sitecore/settings", "~/web.config", "~/App_Config/Include/.Sitecore.Settings.config"));

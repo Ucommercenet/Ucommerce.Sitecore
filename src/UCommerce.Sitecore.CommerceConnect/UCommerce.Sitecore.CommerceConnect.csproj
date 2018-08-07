@@ -34,9 +34,6 @@
     <DocumentationFile>bin\Release\UCommerce.Sitecore.CommerceConnect.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="paypal_base, Version=5.6.64.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.8.1.0.18151\lib\net45\paypal_base.dll</HintPath>
-    </Reference>
     <Reference Include="Sitecore.Analytics">
       <HintPath>..\..\lib\Sitecore\8.0\Sitecore.Analytics.dll</HintPath>
       <Private>False</Private>
@@ -61,40 +58,15 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="UCommerce, Version=8.1.0.18151, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.8.1.0.18151\lib\net45\UCommerce.dll</HintPath>
-    </Reference>
-    <Reference Include="UCommerce.Admin, Version=8.1.0.18151, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.8.1.0.18151\lib\net45\UCommerce.Admin.dll</HintPath>
-    </Reference>
-    <Reference Include="UCommerce.Infrastructure, Version=8.1.0.18151, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.8.1.0.18151\lib\net45\UCommerce.Infrastructure.dll</HintPath>
-    </Reference>
-    <Reference Include="UCommerce.Installer, Version=8.1.0.18151, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.8.1.0.18151\lib\net45\UCommerce.Installer.dll</HintPath>
-    </Reference>
-    <Reference Include="UCommerce.NHibernate, Version=8.1.0.18151, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.8.1.0.18151\lib\net45\UCommerce.NHibernate.dll</HintPath>
-    </Reference>
-    <Reference Include="UCommerce.Pipelines, Version=8.1.0.18151, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.8.1.0.18151\lib\net45\UCommerce.Pipelines.dll</HintPath>
-    </Reference>
-    <Reference Include="UCommerce.Presentation, Version=8.1.0.18151, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.8.1.0.18151\lib\net45\UCommerce.Presentation.dll</HintPath>
-    </Reference>
-    <Reference Include="UCommerce.SystemHttp, Version=8.1.0.18151, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.8.1.0.18151\lib\net45\UCommerce.SystemHttp.dll</HintPath>
-    </Reference>
-    <Reference Include="UCommerce.Transactions.Payments, Version=8.1.0.18151, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.8.1.0.18151\lib\net45\UCommerce.Transactions.Payments.dll</HintPath>
-    </Reference>
-    <Reference Include="UCommerce.Web.Api, Version=8.1.0.18151, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.8.1.0.18151\lib\net45\UCommerce.Web.Api.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Mapping\ISetOrderLineNumbersService.cs" />
@@ -215,7 +187,20 @@
   <ItemGroup>
     <None Include="Configuration\Baskets.AddAddress.config.default" />
     <None Include="Configuration\Baskets.AddToBasket.config.default" />
-    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UCommerce.Infrastructure\UCommerce.Infrastructure.csproj">
+      <Project>{890c80a7-f1dd-45e3-a784-34d8b7d0d8f0}</Project>
+      <Name>UCommerce.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UCommerce.Model\UCommerce.csproj">
+      <Project>{40063813-4f14-4aaa-9098-b501d3fe5aa1}</Project>
+      <Name>UCommerce</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UCommerce.Pipelines\UCommerce.Pipelines.csproj">
+      <Project>{F9BC619C-C4F6-49E5-8A7F-5C581F9B48D2}</Project>
+      <Name>UCommerce.Pipelines</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Configuration\Baskets.Basket.config.default" />

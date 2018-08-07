@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Sitecore.Install.Framework;
 
 namespace UCommerce.Sitecore.Installer.Steps
@@ -42,6 +38,11 @@ namespace UCommerce.Sitecore.Installer.Steps
             _postInstallationSteps.Add(new MoveFile(
                 "~/bin/ucommerce/UCommerce.SystemHttp.dll",
                 "~/bin/UCommerce.SystemHttp.dll",
+                backupTarget: false));
+
+            _postInstallationSteps.Add(new MoveFile(
+                "~/bin/ucommerce/UCommerce.SystemWeb.dll",
+                "~/bin/UCommerce.SystemWeb.dll",
                 backupTarget: false));
 
             _postInstallationSteps.Add(new MoveFile(

@@ -5,6 +5,7 @@ using Sitecore.Install.Framework;
 using Sitecore.Install.Utils;
 using UCommerce.Installer.Prerequisites;
 using UCommerce.Installer.Prerequisites.impl;
+using UCommerce.Sitecore.Installer.Steps.PreRequisitesSteps;
 
 namespace UCommerce.Sitecore.Installer.Steps
 {
@@ -12,14 +13,15 @@ namespace UCommerce.Sitecore.Installer.Steps
 	{
 		public void Run(ITaskOutput output, NameValueCollection metaData)
 		{
-		    var connectionStringLocator = new SitecoreInstallationConnectionStringLocator();
-
-            var sitecoreInstallerLoggingService = new SitecoreInstallerLoggingService();
+			var connectionStringLocator = new SitecoreInstallationConnectionStringLocator();
+			
+			var sitecoreInstallerLoggingService = new SitecoreInstallerLoggingService();
 			
 			var steps = new List<IPrerequisitStep>()
 				{
 					new CanCreateTables(connectionStringLocator.LocateConnectionString(), sitecoreInstallerLoggingService),
-					new CanModifyFiles(sitecoreInstallerLoggingService,FileUtil.MapPath("/"))
+					new CanModifyFiles(sitecoreInstallerLoggingService,FileUtil.MapPath("/")),
+					new NoConflictingAppHost()
 				};
 
 			var checker = new PrerequisitesChecker(steps,new SitecoreInstallerLoggingService());
