@@ -24,6 +24,11 @@ namespace UCommerce.Sitecore.Installer.Steps
                 "~/bin/UCommerce.Sitecore.dll",
                 backupTarget: false));
 
+            _postInstallationSteps.Add(new MoveFile(
+                "~/bin/ucommerce/UCommerce.Sitecore.Installer.dll",
+                "~/bin/UCommerce.Sitecore.Installer.dll",
+                backupTarget: false));
+
             // Move the Commerce Connect dependend files to the Commerce Connect app location.
             _postInstallationSteps.Add(new MoveFile(
                 "~/bin/ucommerce/UCommerce.Sitecore.CommerceConnect.dll",
@@ -41,8 +46,8 @@ namespace UCommerce.Sitecore.Installer.Steps
                 backupTarget: false));
 
             _postInstallationSteps.Add(new MoveFile(
-                "~/bin/ucommerce/UCommerce.SystemWeb.dll",
-                "~/bin/UCommerce.SystemWeb.dll",
+                "~/bin/ucommerce/UCommerce.NHibernate.dll",
+                "~/bin/UCommerce.NHibernate.dll",
                 backupTarget: false));
 
             _postInstallationSteps.Add(new MoveFile(
@@ -78,6 +83,11 @@ namespace UCommerce.Sitecore.Installer.Steps
             _postInstallationSteps.Add(new CopyFile(
                 "~/bin/ucommerce/ServiceStack.dll",
                 "~/bin/ServiceStack.dll"));
+
+            _postInstallationSteps.Add(new MoveFile(
+                "~/bin/ucommerce/UCommerce.SystemWeb.dll",
+                "~/bin/UCommerce.SystemWeb.dll",
+                backupTarget: false));
 
 
             foreach (var postInstallationStep in _postInstallationSteps)
