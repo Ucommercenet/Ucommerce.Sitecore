@@ -1,7 +1,25 @@
 ﻿<configuration>
 	<!-- Configuration for SiteCore specific implementations -->
-	<components>
-		<!-- Data access -->
+
+ 
+  <components>
+
+    <component
+      id="ConnectionStringLocator"
+      service="UCommerce.Infrastructure.Configuration.IConnectionStringLocator, UCommerce.Infrastructure"
+      type="UCommerce.Sitecore.Configuration.ConnectionStringLocator, UCommerce.Sitecore">
+      <parameters>
+        <connectionString>#{connectionString}</connectionString>
+      </parameters>
+    </component>
+
+    <component
+      id="InstallationConnectionStringLocator"
+      service="UCommerce.Installer.IInstallationConnectionStringLocator, UCommerce.Installer"
+      type="UCommerce.Sitecore.Installer.SitecoreInstallationConnectionStringLocator, UCommerce.Sitecore.Installer">
+    </component>
+    
+    <!-- Data access -->
 		<component
 			id="UCommerce.Sitecore.Tag"
 			service="UCommerce.EntitiesV2.IContainsNHibernateMappingsTag, UCommerce"
