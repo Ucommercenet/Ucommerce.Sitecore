@@ -104,10 +104,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\UCommerce.Installer\UCommerce.Installer.csproj">
-      <Project>{ac908723-5958-4324-8c4a-3d49b86991af}</Project>
-      <Name>UCommerce.Installer</Name>
-    </ProjectReference>
+    <Reference Include="UCommerce.Installer, Version=7.19.0.18227, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\uCommerce.Core.7.19.0.18227\lib\net45\UCommerce.Installer.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ConfigurationTransformations\sitecore.config">

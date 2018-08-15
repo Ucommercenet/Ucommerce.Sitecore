@@ -63,7 +63,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Infralution.Licensing, Version=4.7.1.0, Culture=neutral, PublicKeyToken=3e7e8e3744a5c13f, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.8.1.0.18151\lib\net45\Infralution.Licensing.dll</HintPath>
+      <HintPath>..\packages\uCommerce.7.19.0.18227\lib\net45\Infralution.Licensing.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CompilerServices.AsyncTargetingPack.Net45, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CompilerServices.AsyncTargetingPack.1.0.1\lib\net45\Microsoft.CompilerServices.AsyncTargetingPack.Net45.dll</HintPath>
@@ -76,7 +76,7 @@
       <HintPath>..\packages\NHibernate.Caches.SysCache.4.0.0.4000\lib\net40\NHibernate.Caches.SysCache.dll</HintPath>
     </Reference>
     <Reference Include="paypal_base, Version=5.6.64.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.8.1.0.18151\lib\net45\paypal_base.dll</HintPath>
+      <HintPath>..\packages\uCommerce.7.19.0.18227\lib\net45\paypal_base.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack, Version=3.9.55.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ServiceStack.3.9.55\lib\net35\ServiceStack.dll</HintPath>
@@ -149,45 +149,48 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Xml" />
-    <Reference Include="UCommerce, Version=8.1.0.18151, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="UCommerce, Version=7.19.0.18227, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\uCommerce.Core.7.18.0.18178\lib\net45\UCommerce.dll</HintPath>
+      <HintPath>..\packages\uCommerce.Core.7.19.0.18227\lib\net45\UCommerce.dll</HintPath>
     </Reference>
-    <Reference Include="UCommerce.Admin, Version=8.1.0.18151, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="UCommerce.Admin, Version=7.19.0.18227, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\uCommerce.Core.7.18.0.18178\lib\net45\UCommerce.Admin.dll</HintPath>
+      <HintPath>..\packages\uCommerce.Core.7.19.0.18227\lib\net45\UCommerce.Admin.dll</HintPath>
     </Reference>
-    <Reference Include="UCommerce.Infrastructure, Version=8.1.0.18151, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="UCommerce.Infrastructure, Version=7.19.0.18227, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\uCommerce.Core.7.18.0.18178\lib\net45\UCommerce.Infrastructure.dll</HintPath>
+      <HintPath>..\packages\uCommerce.Core.7.19.0.18227\lib\net45\UCommerce.Infrastructure.dll</HintPath>
     </Reference>
-    <Reference Include="UCommerce.Installer, Version=8.1.0.18151, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="UCommerce.Installer, Version=7.19.0.18227, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\uCommerce.Core.7.18.0.18178\lib\net45\UCommerce.Installer.dll</HintPath>
+      <HintPath>..\packages\uCommerce.Core.7.19.0.18227\lib\net45\UCommerce.Installer.dll</HintPath>
     </Reference>
-    <Reference Include="UCommerce.NHibernate, Version=8.1.0.18151, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="UCommerce.NHibernate, Version=7.19.0.18227, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\uCommerce.Core.7.18.0.18178\lib\net45\UCommerce.NHibernate.dll</HintPath>
+      <HintPath>..\packages\uCommerce.Core.7.19.0.18227\lib\net45\UCommerce.NHibernate.dll</HintPath>
     </Reference>
-    <Reference Include="UCommerce.Pipelines, Version=8.1.0.18151, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="UCommerce.Pipelines, Version=7.19.0.18227, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\uCommerce.Core.7.18.0.18178\lib\net45\UCommerce.Pipelines.dll</HintPath>
+      <HintPath>..\packages\uCommerce.Core.7.19.0.18227\lib\net45\UCommerce.Pipelines.dll</HintPath>
     </Reference>
-    <Reference Include="UCommerce.Presentation, Version=8.1.0.18151, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="UCommerce.Presentation, Version=7.19.0.18227, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\uCommerce.Core.7.18.0.18178\lib\net45\UCommerce.Presentation.dll</HintPath>
+      <HintPath>..\packages\uCommerce.Core.7.19.0.18227\lib\net45\UCommerce.Presentation.dll</HintPath>
     </Reference>
-    <Reference Include="UCommerce.SystemHttp, Version=8.1.0.18151, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="UCommerce.SystemHttp, Version=7.19.0.18227, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\uCommerce.Core.7.18.0.18178\lib\net45\UCommerce.SystemHttp.dll</HintPath>
+      <HintPath>..\packages\uCommerce.Core.7.19.0.18227\lib\net45\UCommerce.SystemHttp.dll</HintPath>
     </Reference>
-    <Reference Include="UCommerce.Transactions.Payments, Version=8.1.0.18151, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\uCommerce.Core.7.18.0.18178\lib\net45\UCommerce.Transactions.Payments.dll</HintPath>
+    <Reference Include="UCommerce.SystemWeb">
+      <HintPath>..\packages\uCommerce.Core.7.19.0.18227\lib\net45\UCommerce.SystemWeb.dll</HintPath>
     </Reference>
-    <Reference Include="UCommerce.Web.Api, Version=8.1.0.18151, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="UCommerce.Transactions.Payments, Version=7.19.0.18227, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\uCommerce.Core.7.18.0.18178\lib\net45\UCommerce.Web.Api.dll</HintPath>
+      <HintPath>..\packages\uCommerce.Core.7.19.0.18227\lib\net45\UCommerce.Transactions.Payments.dll</HintPath>
+    </Reference>
+    <Reference Include="UCommerce.Web.Api, Version=7.19.0.18227, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\uCommerce.Core.7.19.0.18227\lib\net45\UCommerce.Web.Api.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
