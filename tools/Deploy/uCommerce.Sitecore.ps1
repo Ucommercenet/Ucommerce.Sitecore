@@ -69,10 +69,14 @@ task CopySitecoreFiles -description "Copy all the sitecore files needs for a dep
 	Copy-Item "$src\..\lib\XmlTransform\Microsoft.Web.XmlTransform.dll" "$working_dir\files\bin\Microsoft.Web.XmlTransform.dll" -Force
 
 	# Binaries for the site to run
-	Copy-Item "$src\UCommerce.Sitecore.CommerceConnect\bin\$configuration\UCommerce.Sitecore.CommerceConnect.dll" "$working_dir\Files\Sitecore modules\shell\ucommerce\install\binaries" -Force
+	
+	# Only copy commerce connect if exists (exluded from sln per default).
+	if (Test-Path "$src\UCommerce.Sitecore.CommerceConnect\bin\$configuration\UCommerce.Sitecore.CommerceConnect.dll") {
+		Copy-Item "$src\UCommerce.Sitecore.CommerceConnect\bin\$configuration\UCommerce.Sitecore.CommerceConnect.dll" "$working_dir\Files\Sitecore modules\shell\ucommerce\install\binaries" -Force
+	}
+	
 	Copy-Item "$src\Ucommerce.Sitecore.Web\bin\UCommerce.Sitecore.Web.dll" "$working_dir\Files\Sitecore modules\shell\ucommerce\install\binaries" -Force
-
-
+	
 	#Lets delete the Ucommerce folder that Client nuget package copies over - we'll just grab from the package location
 	if (Test-Path "$src\Ucommerce.Sitecore.Web\ucommerce") {
 		Remove-Item "$src\Ucommerce.Sitecore.Web\ucommerce" -Force -Recurse
