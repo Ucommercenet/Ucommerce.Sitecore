@@ -11,6 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UCommerce.Sitecore.Web", "U
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Deploy", "Deploy", "{C5D04B48-39CF-42C9-B2CF-25599227F71E}"
 	ProjectSection(SolutionItems) = preProject
+		..\tools\Deploy\Deploy.To.Local.ps1 = ..\tools\Deploy\Deploy.To.Local.ps1
 		..\tools\Deploy\Deploy.To.Package.ps1 = ..\tools\Deploy\Deploy.To.Package.ps1
 		..\tools\Deploy\Get-FolderItem.ps1 = ..\tools\Deploy\Get-FolderItem.ps1
 		..\tools\Deploy\UCommerce.build.ps1 = ..\tools\Deploy\UCommerce.build.ps1
