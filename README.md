@@ -15,6 +15,17 @@ Just follow theese few simple steps below:
 	The package will be located under "c:\tmp"
 4. Install the package through the sitecore package installer UI.
 
+### Deploying local changes for debug ###
+
+Once the package is installed you can debug the integration by building the VS solution and afterwards attaching a debugger. 
+There's a powershell script that runs after building the solution. To build to the right location, find the file called "Deploy.To.Local.ps1". It can be found under the deploy folder in the visual studio solution.
+
+Modify the first line in the file, where there's a variable called $website_root
+
+$website_root = "C:\inetpub\sc8\Website"
+
+The value needs to match the website root of your Sitecore instance where Ucommerce is installed.
+
 ### Commerce Connect ###
 
 Per default the Ucommerce.CommerceConnect project is not loaded. If you want to build a version for Sitecore 8 with commerce connect, simply include the project and run the commands above. Then it will automatically be included in the package. 
