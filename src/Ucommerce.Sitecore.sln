@@ -18,6 +18,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Deploy", "Deploy", "{C5D04B
 		..\tools\Deploy\UCommerce.Sitecore.ps1 = ..\tools\Deploy\UCommerce.Sitecore.ps1
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UCommerce.Sitecore.CommerceConnect", "UCommerce.Sitecore.CommerceConnect\UCommerce.Sitecore.CommerceConnect.csproj", "{A1699955-8F49-4A99-A82C-083DD62CDA2E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +38,10 @@ Global
 		{6267B533-B0AD-419A-90E6-B24041A1384D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6267B533-B0AD-419A-90E6-B24041A1384D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6267B533-B0AD-419A-90E6-B24041A1384D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1699955-8F49-4A99-A82C-083DD62CDA2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1699955-8F49-4A99-A82C-083DD62CDA2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1699955-8F49-4A99-A82C-083DD62CDA2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1699955-8F49-4A99-A82C-083DD62CDA2E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

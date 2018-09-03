@@ -9,11 +9,10 @@ namespace UCommerce.Sitecore.Installer.Steps
         public void Run(ITaskOutput output, NameValueCollection metaData)
         {
             var _postInstallationSteps = new List<IPostStep>();
-            
+
             // Move the Commerce Connect dependend files to the Commerce Connect app location.
             // Therefor any older version located in the bin folder needs to be removed.
             _postInstallationSteps.Add(new DeleteFile("~/bin/UCommerce.Sitecore.CommerceConnect.dll"));
-            _postInstallationSteps.Add(new DeleteFile("~/bin/ucommerce/UCommerce.Installer.dll"));
 
             _postInstallationSteps.Add(new MoveFile(
                 "~/bin/ucommerce/UCommerce.Infrastructure.dll",
@@ -23,11 +22,6 @@ namespace UCommerce.Sitecore.Installer.Steps
             _postInstallationSteps.Add(new MoveFile(
                 "~/bin/ucommerce/UCommerce.Sitecore.dll",
                 "~/bin/UCommerce.Sitecore.dll",
-                backupTarget: false));
-
-            _postInstallationSteps.Add(new MoveFile(
-                "~/bin/ucommerce/UCommerce.Sitecore.Installer.dll",
-                "~/bin/UCommerce.Sitecore.Installer.dll",
                 backupTarget: false));
 
             // Move the Commerce Connect dependend files to the Commerce Connect app location.
@@ -47,8 +41,8 @@ namespace UCommerce.Sitecore.Installer.Steps
                 backupTarget: false));
 
             _postInstallationSteps.Add(new MoveFile(
-                "~/bin/ucommerce/UCommerce.NHibernate.dll",
-                "~/bin/UCommerce.NHibernate.dll",
+                "~/bin/ucommerce/UCommerce.SystemWeb.dll",
+                "~/bin/UCommerce.SystemWeb.dll",
                 backupTarget: false));
 
             _postInstallationSteps.Add(new MoveFile(
@@ -76,24 +70,9 @@ namespace UCommerce.Sitecore.Installer.Steps
                 "~/bin/UCommerce.Presentation.dll",
                 backupTarget: false));
 
-            _postInstallationSteps.Add(new MoveFile(
-                "~/bin/ucommerce/UCommerce.Transactions.Payments.dll",
-                "~/bin/UCommerce.Transactions.Payments.dll",
-                backupTarget: false));
-
             _postInstallationSteps.Add(new CopyFile(
                 "~/bin/ucommerce/ServiceStack.dll",
                 "~/bin/ServiceStack.dll"));
-
-            _postInstallationSteps.Add(new MoveFile(
-                "~/bin/ucommerce/UCommerce.SystemWeb.dll",
-                "~/bin/UCommerce.SystemWeb.dll",
-                backupTarget: false));
-
-            _postInstallationSteps.Add(new MoveFile(
-                "~/bin/ucommerce/UCommerce.Sitecore.Web.dll",
-                "~/bin/UCommerce.Sitecore.Web.dll",
-                backupTarget: false));
 
 
             foreach (var postInstallationStep in _postInstallationSteps)
