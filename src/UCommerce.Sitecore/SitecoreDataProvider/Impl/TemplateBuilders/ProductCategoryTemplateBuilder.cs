@@ -37,10 +37,11 @@ namespace UCommerce.Sitecore.SitecoreDataProvider.Impl.TemplateBuilders
 			_loggingService = loggingService;
 		    _dataProviderSettings = ObjectFactory.Instance.Resolve<DataProviderSettings>();
 
-			EnforceUniquenessOfCategoryNames = CommerceConfiguration.Catalog.EnforceCategoryNameUniquenessWithinCatalogs;
-		}
+		    EnforceUniquenessOfCategoryNames = _dataProviderSettings.EnforceUniquenessOfCategoryNames;
 
-		public IEnumerable<ISitecoreItem> BuildTemplates()
+        }
+
+        public IEnumerable<ISitecoreItem> BuildTemplates()
 		{
 			var templateData = new List<ISitecoreItem>();
 

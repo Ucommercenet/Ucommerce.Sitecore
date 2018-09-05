@@ -1,0 +1,46 @@
+﻿.gridster span.gs-resize-handle.gs-resize-handle-both {
+	background-image: url('/sitecore modules/shell/ucommerce/css/common/arrow.png');
+
+}
+
+.fixedHeader .fa-chevron-up {
+	margin-left: -12px;
+	margin-left: -15.8px\9;
+	margin-left: -15.8px\0/;
+}
+
+li.widget .widgetContent .widgetEditing .propertyPane {
+    padding-top: 5px;
+	border: none;
+}
+
+.fixedHeader thead th span {
+    padding: 5px 0 0 0;
+}
+
+.searchInput i {
+    padding: 0px 0px 0px 5px;
+}
+
+.searchInput input {
+	box-sizing: border-box;
+}
+
+div.catalogSearch.catalogSearchResult {
+    padding-bottom: 55px !important;
+    margin-bottom: -52px !important;
+}
+
+.widgetEditing {
+	background-color: rgb(240, 241, 242);
+}
+
+.OrderList table tr td {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+ul.dataList li {
+    font-size: inherit;
+	line-height: inherit;
+}

@@ -30,5 +30,7 @@ _ReSharper*
 ._*
 .vs
 src/packages/*
-**/Sitecore.*.dll
-**/Sitecore.*.xml
+src/Ucommerce.Sitecore.Web/ucommerce/*
+lib/*Sitecore*.dll
+lib/Sitecore*
+lib/*SiteCore*

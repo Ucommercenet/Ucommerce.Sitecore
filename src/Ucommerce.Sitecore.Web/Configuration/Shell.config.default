@@ -1,0 +1,380 @@
+﻿<configuration>
+	<!-- Configuration for SiteCore specific implementations -->
+
+ 
+  <components>
+
+    <component
+      id="ConnectionStringLocator"
+      service="UCommerce.Infrastructure.Configuration.IConnectionStringLocator, UCommerce.Infrastructure"
+      type="UCommerce.Sitecore.Configuration.ConnectionStringLocator, UCommerce.Sitecore">
+      <parameters>
+        <connectionString>#{connectionString}</connectionString>
+      </parameters>
+    </component>
+
+    <component
+      id="InstallationConnectionStringLocator"
+      service="UCommerce.Installer.IInstallationConnectionStringLocator, UCommerce.Installer"
+      type="UCommerce.Sitecore.Installer.SitecoreInstallationConnectionStringLocator, UCommerce.Sitecore.Installer">
+    </component>
+    
+    <!-- Data access -->
+		<component
+			id="UCommerce.Sitecore.Tag"
+			service="UCommerce.EntitiesV2.IContainsNHibernateMappingsTag, UCommerce"
+			type="UCommerce.Sitecore.Entities.MappingAssemblyTag, UCommerce.Sitecore"/>
+
+		<!-- Data Provider Configuration -->
+		<component id="dataProviderConfiguration"
+				service="UCommerce.Sitecore.SitecoreDataProvider.ISitecoreStandardTemplateFieldValueConfiguration, UCommerce.Sitecore"
+				type="UCommerce.Sitecore.SitecoreDataProvider.Impl.StandardTemplateFields.StandardTemplateFieldValueConfiguration, UCommerce.Sitecore">
+			<parameters>
+				<whiteListTemplates>
+					<list>
+						<!-- Advanced -->
+						<item>{646F4B34-708C-41C2-9F4B-2661849777F3}</item>
+						<!-- Appearance -->
+						<item>{F5BC7AE4-F62D-47CD-9AFB-2C9F85D8313B}</item>
+						<!-- Help -->
+						<item>{18420296-D8FC-4D93-A79E-2A2B0367A92C}</item>
+						<!-- Indexing -->
+						<item>{38A2F441-DB17-4039-90E2-6A32F7A81706}</item>
+						<!-- Insert Options -->
+						<item>{823ECF5F-AE72-40B5-BC87-CB425FE7E5F6}</item>
+						<!-- Item Buckets -->
+						<item>{AF530C7B-8B87-458B-80CE-239D1E1B9E60}</item>
+						<!-- Layout -->
+						<item>{4D30906D-0B49-4FA7-969D-BF90157357EA}</item>
+						<!-- Lifetime -->
+						<item>{6EF07334-7FBA-4845-BF0A-CD5B2000C75A}</item>
+						<!-- Publishing -->
+						<item>{6495CF23-DE9C-48B7-9D3C-05E2418B3CAE}</item>
+						<!-- Tagging -->
+						<item>{0AA6D3F8-C9D0-401F-83AA-A41433C24767}</item>
+						<!-- Tasks -->
+						<item>{93F3A8FA-9E5A-4848-A5AD-42AAD11A4871}</item>
+						<!-- Validators -->
+						<item>{2491819E-0C61-4F5A-903C-E10FCD9D302A}</item>
+						<!-- Workflow -->
+						<item>{06F366E6-A7E6-470B-9EC9-CD29A4F6C8E8}</item>
+						<!-- Template field. Used primarily for Search Results -->
+						<item>{455a3e98-a627-4b40-8035-e683a0331ac7}</item>
+					</list>
+				</whiteListTemplates>
+				<blackListFields>
+					<list>
+						<!-- Context Menu -->
+						<item>{D3AE7222-425D-4B77-95D8-EE33AC2B6730}</item>
+					</list>
+				</blackListFields>
+			</parameters>
+		</component>
+
+		<component id="ProductDefinitionIdMapperService"
+			service="UCommerce.Sitecore.SitecoreDataProvider.IProductDefinitionIdMapperService, UCommerce.Sitecore"
+			type="UCommerce.Sitecore.SitecoreDataProvider.Impl.ProductDefinitionIdMapperService, UCommerce.Sitecore" />
+
+		<component id="CategoryDefinitionIdMapperService"
+			service="UCommerce.Sitecore.SitecoreDataProvider.ICategoryIdToCategoryDefinitionIdMapperService, UCommerce.Sitecore"
+			type="UCommerce.Sitecore.SitecoreDataProvider.Impl.CategoryIdToCategoryDefinitionIdMapperService, UCommerce.Sitecore" />
+
+		<component id="DetectFullCatalogScan"
+			service="UCommerce.Sitecore.SitecoreDataProvider.IDetectFullCategoryScan, UCommerce.Sitecore"
+			type="UCommerce.Sitecore.SitecoreDataProvider.Impl.DetectFullCategoryScan, UCommerce.Sitecore" >
+			<parameters>
+				<activated>true</activated>
+			</parameters>
+		</component>
+
+    <component id="SecurityFieldValueBuilder"
+			service="UCommerce.Sitecore.Security.ISecurityFieldValueBuilder, UCommerce.Sitecore"
+			type="UCommerce.Sitecore.Security.SecurityFieldValueBuilder, UCommerce.Sitecore" />
+
+    <!-- Services -->
+		<component id="SitecoreContext"
+			service="UCommerce.Sitecore.ISitecoreContext, UCommerce.Sitecore"
+			type="UCommerce.Sitecore.SitecoreContext, UCommerce.Sitecore">
+			<parameters>
+				<backEndDomainName>sitecore</backEndDomainName>
+				<nameOfContentDatabase>master</nameOfContentDatabase>
+				<shouldPullTemplatesFromSitecore>false</shouldPullTemplatesFromSitecore>
+			</parameters>
+		</component>
+
+		<component id="AuthenticationService"
+			service="UCommerce.Security.IAuthenticationService, UCommerce"
+			type="UCommerce.Sitecore.Security.AuthenticationService, UCommerce.Sitecore" />
+
+		<component id="BackendLocalizationService"
+			service="UCommerce.Presentation.Web.Pages.IBackendLocalizationService, UCommerce.Presentation"
+			type="UCommerce.Sitecore.Web.BackendLocalizationService, UCommerce.Sitecore" />
+
+		<component id="DomainService"
+			service="UCommerce.Content.IDomainService, UCommerce"
+			type="UCommerce.Sitecore.Content.SitecoreDomainService, UCommerce.Sitecore" />
+
+		<component id="ImageService"
+			service="UCommerce.Content.IImageService, UCommerce"
+			type="UCommerce.Sitecore.Content.SitecoreImageService, UCommerce.Sitecore" />
+
+		<component id="ContentService"
+			service="UCommerce.Content.IContentService, UCommerce"
+			type="UCommerce.Sitecore.Content.SitecoreContentService, UCommerce.Sitecore" />
+
+		<component id="LoggingService"
+			service="UCommerce.Infrastructure.Logging.ILoggingService, UCommerce.Infrastructure"
+			type="UCommerce.Sitecore.Logging.LoggingService, UCommerce.Sitecore" />
+
+		<component id="MemberService"
+			service="UCommerce.Security.IMemberService, UCommerce"
+			type="UCommerce.Sitecore.Security.MemberService, UCommerce.Sitecore" />
+		
+		<component id="UserGroupService"
+			service="UCommerce.Security.IUserGroupService, UCommerce"
+			type="UCommerce.Sitecore.Security.SitecoreUserGroupService, UCommerce.Sitecore" />
+
+		<component id="UserService"
+			service="UCommerce.Security.IUserService, UCommerce"
+			type="UCommerce.Sitecore.Security.SitecoreUserService, UCommerce.Sitecore">
+		</component>
+
+		<component id="LanguageService"
+			service="UCommerce.Infrastructure.Globalization.ILanguageService, UCommerce.Infrastructure"
+			type="UCommerce.Sitecore.SitecoreLanguageService, UCommerce.Sitecore" />
+
+		<component id="UrlResolver"
+			service="UCommerce.Presentation.Web.IUrlResolver, UCommerce.Presentation"
+			type="UCommerce.Sitecore.Web.WebPath, UCommerce.Sitecore" />
+
+		<!-- Factories -->
+		<component id="JavaScriptFactory"
+			service="UCommerce.Presentation.UI.IJavaScriptFactory, UCommerce.Presentation"
+			type="UCommerce.Sitecore.UI.JavaScriptFactory, UCommerce.Sitecore" />
+
+		<component
+			id="MediaControlFactory"
+			service="UCommerce.Presentation.Web.Controls.IControlFactory, UCommerce.Presentation"
+			type="UCommerce.Presentation.Web.Controls.Factories.ImagePickerControlFactory, UCommerce.Presentation"/>
+
+		<component
+			id="ContentControlFactory"
+			service="UCommerce.Presentation.Web.Controls.IControlFactory, UCommerce.Presentation"
+			type="UCommerce.Presentation.Web.Controls.Factories.ContentPickerControlFactory, UCommerce.Presentation"/>
+
+		<component
+			id="ImagePickerControlAdapter"
+			service="UCommerce.Presentation.Web.Controls.IControlAdapter, UCommerce.Presentation"
+			type="UCommerce.Presentation.Web.Controls.Adapters.ImagePickerControlAdapter, UCommerce.Presentation" />
+
+		<component
+			id="ContentPickerControlAdapter"
+			service="UCommerce.Presentation.Web.Controls.IControlAdapter, UCommerce.Presentation"
+			type="UCommerce.Presentation.Web.Controls.Adapters.ContentPickerControlAdapter, UCommerce.Presentation" />
+
+		<!-- Tree Service -->
+		<component
+				id="TreeServiceContentPicker"
+				service="UCommerce.Tree.ITreeContentService, UCommerce"
+				type="UCommerce.Sitecore.Content.SitecoreContentTreeService, UCommerce.Sitecore" />
+
+		<component
+				id="TreeServiceImagePicker"
+				service="UCommerce.Tree.ITreeContentService, UCommerce"
+				type="UCommerce.Sitecore.Content.SitecoreImageTreeService, UCommerce.Sitecore" />
+
+		<component
+				id="TreeServiceContentNodeConverter"
+				service="UCommerce.Web.ITreeNodeContentToTreeNodeConverter, UCommerce"
+				type="UCommerce.Sitecore.Content.SitecoreContentNodeConverter, UCommerce.Sitecore" />
+
+		<component
+				id="TreeServiceImageNodeConverter"
+				service="UCommerce.Web.ITreeNodeContentToTreeNodeConverter, UCommerce"
+				type="UCommerce.Sitecore.Content.SitecoreImageNodeConverter, UCommerce.Sitecore" />
+
+		<component 
+      id="ContentNodeService" 
+      service="UCommerce.Web.ITreeNodeService, UCommerce" 
+      type="UCommerce.Web.Impl.ContentNodeService, UCommerce">
+			<parameters>
+				<serviceType>Content</serviceType>
+				<treeNodeContentToTreeNodeConverter>${TreeServiceContentNodeConverter}</treeNodeContentToTreeNodeConverter>
+				<treeContentService>${TreeServiceContentPicker}</treeContentService>
+			</parameters>
+		</component>
+
+		<component 
+      id="ImageNodeService" 
+      service="UCommerce.Web.ITreeNodeService, UCommerce" 
+      type="UCommerce.Web.Impl.ContentNodeService, UCommerce">
+			<parameters>
+				<serviceType>Image</serviceType>
+				<treeNodeContentToTreeNodeConverter>${TreeServiceImageNodeConverter}</treeNodeContentToTreeNodeConverter>
+				<treeContentService>${TreeServiceImagePicker}</treeContentService>
+			</parameters>
+		</component>
+
+		<component
+			id="SitecoreProductSectionProvider"
+			service="UCommerce.Tree.ITreeContentProvider, UCommerce"
+			type="UCommerce.Sitecore.Tree.Impl.Providers.SitecoreProductSectionProvider, UCommerce.Sitecore" />
+		
+		<component
+			id="SitecoreCatalogSectionProvider"
+			service="UCommerce.Tree.ITreeContentProvider, UCommerce"
+			type="UCommerce.Sitecore.Tree.Impl.Providers.SitecoreCatalogSectionProvider, UCommerce.Sitecore">
+			<parameters>
+				<securityService>${FullAccessSecurityService}</securityService>
+				<considerProductsAsChildren>false</considerProductsAsChildren>
+			</parameters>
+		</component>
+
+		<component
+			id="TreeServiceContentEditor"
+			service="UCommerce.Tree.ITreeContentService, UCommerce"
+			type="UCommerce.Tree.Impl.TreeContentService, UCommerce">
+			<parameters>
+				<RootNodeType>root</RootNodeType>
+				<RootNodeHasAutoLoad>true</RootNodeHasAutoLoad>
+				<RootNodeHasChildren>true</RootNodeHasChildren>
+				<RootNodeName>uCommerce</RootNodeName>
+				<RootNodeIcon>ucommerce-logo-icon.png</RootNodeIcon>
+				<RootNodeItemGuid>3806A967-DD30-421F-A835-7D8DE80054B9</RootNodeItemGuid>
+				<RootNodeId>-1</RootNodeId>
+				<RootNodeParentId>10</RootNodeParentId>
+				<contentProviders>
+					<list type="UCommerce.Tree.ITreeContentProvider, UCommerce">
+						<item>${SitecoreCatalogSectionProvider}</item>
+						<item>${SitecoreProductSectionProvider}</item>
+					</list>
+				</contentProviders>
+			</parameters>
+		</component>
+		
+		<component id="FullAccessSecurityService"
+			service="UCommerce.Security.ISecurityService, UCommerce"
+			type="UCommerce.Sitecore.Security.FullAccessSecurityService, UCommerce.Sitecore" /> 
+
+		<!-- Resources -->
+		<component id="ResourcesDependencyLoader"
+			service="ClientDependency.Core.Controls.ClientDependencyLoader, ClientDependency.Core, Version=1.8.2.1"
+			type="UCommerce.Sitecore.UI.Resources.ResourcesDependencyLoader, UCommerce.Sitecore" />
+
+		<component id="ResourcesIncludeShellList"
+				service="UCommerce.Presentation.UI.Resources.IResourcesIncludeList, UCommerce.Presentation"
+				type="UCommerce.Sitecore.UI.Resources.ResourcesIncludeListShellSelecter, UCommerce.Sitecore" />
+
+		<component id="controls.shell"
+				service="UCommerce.Presentation.UI.Resources.IResourcesControls, UCommerce.Presentation"
+				type="UCommerce.Presentation.UI.Resources.Impl.ResourcesControls, UCommerce.Presentation" >
+			<parameters>
+				<resouresIncludeLists>
+					<array>
+						<item>${ResourcesIncludeShellList}</item>
+					</array>
+				</resouresIncludeLists>
+			</parameters>
+		</component>
+
+		<component id="JavascriptResourcesIncludeList"
+				service="UCommerce.Presentation.UI.Resources.IResourcesIncludeList, UCommerce.Presentation"
+				type="UCommerce.Presentation.UI.Resources.Impl.JavascriptResourceIncludeList, UCommerce.Presentation" />
+
+		<component id="ResourcesIncludeList"
+				service="UCommerce.Presentation.UI.Resources.IResourcesIncludeList, UCommerce.Presentation"
+				type="UCommerce.Sitecore.UI.Resources.ResourcesIncludeListSelecter, UCommerce.Sitecore" />
+
+		<component id="ApplicationBootStrapper"
+		service="UCommerce.Presentation.UI.Resources.IResourcesIncludeList, UCommerce.Presentation"
+		type="UCommerce.Presentation.UI.Resources.Impl.ApplicationBootStrapper, UCommerce.Presentation" />
+
+		<component id="WidgetResourcesIncludeList"
+		service="UCommerce.Presentation.UI.Resources.IResourcesIncludeList, UCommerce.Presentation"
+		type="UCommerce.Presentation.UI.Resources.Impl.WidgetResourcesIncludeList, UCommerce.Presentation" />
+
+		<component id="controls.ucommerceMain"
+				service="UCommerce.Presentation.UI.Resources.IResourcesControls, UCommerce.Presentation"
+				type="UCommerce.Presentation.UI.Resources.Impl.ResourcesControls, UCommerce.Presentation" >
+			<parameters>
+				<resouresIncludeLists>
+					<array>
+						<item>${JavascriptResourcesIncludeList}</item>
+						<item>${ResourcesIncludeList}</item>
+						<item>${WidgetResourcesIncludeList}</item>
+						<item>${ApplicationBootStrapper}</item>
+					</array>
+				</resouresIncludeLists>
+			</parameters>
+		</component>
+
+    <component id="SitecoreVersionResolver"
+		service="UCommerce.Sitecore.UI.Resources.ISitecoreVersionResolver, UCommerce.Sitecore"
+		type="UCommerce.Sitecore.UI.Resources.SitecoreVersionResolver, UCommerce.Sitecore" />    
+
+		<!-- Pipeline tasks -->
+		<component id="Language.InformDataProvider"
+				service="UCommerce.Pipelines.IPipelineTask`1[[UCommerce.Infrastructure.Globalization.Language, UCommerce.Infrastructure]], UCommerce"
+				type="UCommerce.Sitecore.Pipelines.DataProviderReinitializeTask`1[[UCommerce.Infrastructure.Globalization.Language, UCommerce.Infrastructure]], UCommerce.Sitecore" />
+
+		<component id="Definition.InformDataProvider"
+		  service="UCommerce.Pipelines.IPipelineTask`1[[UCommerce.EntitiesV2.Definitions.IDefinition, UCommerce]], UCommerce"
+		  type="UCommerce.Sitecore.Pipelines.DataProviderReinitializeTask`1[[UCommerce.EntitiesV2.Definitions.IDefinition, UCommerce]], UCommerce.Sitecore" />
+
+		<component id="DefinitionField.InformDataProvider"
+				service="UCommerce.Pipelines.IPipelineTask`1[[UCommerce.EntitiesV2.Definitions.IDefinitionField, UCommerce]], UCommerce"
+		  type="UCommerce.Sitecore.Pipelines.DataProviderReinitializeTask`1[[UCommerce.EntitiesV2.Definitions.IDefinitionField, UCommerce]], UCommerce.Sitecore" />
+
+		<component id="ProductDefinitionField.InformDataProvider"
+				service="UCommerce.Pipelines.IPipelineTask`1[[UCommerce.EntitiesV2.ProductDefinitionField, UCommerce]], UCommerce"
+				type="UCommerce.Sitecore.Pipelines.DataProviderReinitializeTask`1[[UCommerce.EntitiesV2.ProductDefinitionField, UCommerce]], UCommerce.Sitecore" />
+
+		<!-- Inform DataProvider of saved objects -->
+		<component id="Sitecore.Product.Save"
+		   service="UCommerce.Pipelines.IPipelineTask`1[[UCommerce.EntitiesV2.Product, UCommerce]], UCommerce"
+		   type="UCommerce.Sitecore.Pipelines.ProductSavedTask, UCommerce.Sitecore" />
+
+		<component id="Sitecore.Product.Delete"
+		   service="UCommerce.Pipelines.IPipelineTask`1[[UCommerce.EntitiesV2.Product, UCommerce]], UCommerce"
+		   type="UCommerce.Sitecore.Pipelines.ProductDeletedTask, UCommerce.Sitecore" />
+
+		<component id="Sitecore.Variant.Delete"
+		   service="UCommerce.Pipelines.IPipelineTask`1[[UCommerce.EntitiesV2.Product, UCommerce]], UCommerce"
+		   type="UCommerce.Sitecore.Pipelines.VariantDeletedTask, UCommerce.Sitecore" />
+
+		<component id="Sitecore.Category.Save"
+		   service="UCommerce.Pipelines.IPipelineTask`1[[UCommerce.EntitiesV2.Category, UCommerce]], UCommerce"
+		   type="UCommerce.Sitecore.Pipelines.CategorySavedTask, UCommerce.Sitecore" />
+
+		<component id="Sitecore.Catalog.Save"
+		   service="UCommerce.Pipelines.IPipelineTask`1[[UCommerce.EntitiesV2.ProductCatalog, UCommerce]], UCommerce"
+		   type="UCommerce.Sitecore.Pipelines.CatalogSavedTask, UCommerce.Sitecore" />
+
+		<component id="Sitecore.Store.Save"
+		   service="UCommerce.Pipelines.IPipelineTask`1[[UCommerce.EntitiesV2.ProductCatalogGroup, UCommerce]], UCommerce"
+		   type="UCommerce.Sitecore.Pipelines.StoreSavedTask, UCommerce.Sitecore" />
+
+		<component id="Sitecore.ProductDefinitionField.Save"
+				   service="UCommerce.Pipelines.IPipelineTask`1[[UCommerce.EntitiesV2.ProductDefinitionField, UCommerce]], UCommerce"
+				   type="UCommerce.Sitecore.Pipelines.ProductDefinitionFieldSavedTask, UCommerce.Sitecore" />
+
+		<component id="Sitecore.Definition.Save"
+				   service="UCommerce.Pipelines.IPipelineTask`1[[UCommerce.EntitiesV2.Definitions.IDefinition, UCommerce]], UCommerce"
+				   type="UCommerce.Sitecore.Pipelines.DefinitionSavedTask, UCommerce.Sitecore" />
+
+		<component id="Sitecore.DefinitionField.Save"
+			   service="UCommerce.Pipelines.IPipelineTask`1[[UCommerce.EntitiesV2.Definitions.IDefinitionField, UCommerce]], UCommerce"
+			   type="UCommerce.Sitecore.Pipelines.DefinitionFieldSavedTask, UCommerce.Sitecore" />
+
+		<component id="Sitecore.Language.Save"
+				   service="UCommerce.Pipelines.IPipelineTask`1[[UCommerce.Infrastructure.Globalization.Language, UCommerce.Infrastructure]], UCommerce"
+				   type="UCommerce.Sitecore.Pipelines.LanguageSavedTask, UCommerce.Sitecore" />
+
+		<component id="Sitecore.DataType.Save"
+			   service="UCommerce.Pipelines.IPipelineTask`1[[UCommerce.EntitiesV2.DataType, UCommerce]], UCommerce"
+			   type="UCommerce.Sitecore.Pipelines.DataTypeSavedTask, UCommerce.Sitecore" />
+		
+		<!-- -->
+		
+	</components>
+</configuration>

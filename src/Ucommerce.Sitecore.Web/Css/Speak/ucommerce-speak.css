@@ -1,0 +1,2040 @@
+/* Place common operators in here like float-left classes and standard-margin stuff*/
+/* line 3, UCommerce\Css\Speak\common.less */
+.margin-buttom-15 {
+  margin-bottom: 15px !important;
+}
+/* line 7, UCommerce\Css\Speak\common.less */
+.width100 {
+  width: 100% !important;
+}
+/* line 1, UCommerce\Css\Speak\tree.less */
+.article-tree {
+  border-color: #474747;
+  padding: 0;
+  background: url("/sitecore/shell/client/Speak/Assets/img/Speak/Layouts/menu-bg.png") bottom center;
+  background-repeat: no-repeat;
+  background-color: #474747;
+  border-right: 2px solid transparent;
+}
+/* line 11, UCommerce\Css\Speak\tree.less */
+.article-tree .tree-wrapper {
+  background: rgba(0, 0, 0, 0) !important;
+}
+/* line 15, UCommerce\Css\Speak\tree.less */
+.article-tree .ucommerce-navigation-tree * {
+  background: rgba(0, 0, 0, 0);
+}
+/* line 19, UCommerce\Css\Speak\tree.less */
+.article-tree #ucommerceTree {
+  background: rgba(0, 0, 0, 0);
+}
+/* line 23, UCommerce\Css\Speak\tree.less */
+.article-tree .ucommerce-navigation-tree {
+  background: rgba(0, 0, 0, 0);
+}
+/* line 27, UCommerce\Css\Speak\tree.less */
+.article-tree .ucommerce-navigation-tree ul {
+  background: rgba(0, 0, 0, 0);
+}
+/* line 31, UCommerce\Css\Speak\tree.less */
+.article-tree div.tree-wrapper-content {
+  background: rgba(0, 0, 0, 0);
+}
+/* line 35, UCommerce\Css\Speak\tree.less */
+.article-tree #ucommerceMainNavigation {
+  background: rgba(0, 0, 0, 0);
+}
+/* line 39, UCommerce\Css\Speak\tree.less */
+.article-tree .contentTree .treeNodeIcon {
+  padding-left: 16px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 13px;
+  display: block;
+  padding: 0 0;
+  transition: all 0.15s;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border: 0;
+  outline: none;
+  height: 30px;
+}
+/* line 55, UCommerce\Css\Speak\tree.less */
+.article-tree .contentTree .treeNodeIcon .nodeName span {
+  color: white;
+  font-size: 13px;
+  line-height: 30px;
+}
+/* line 61, UCommerce\Css\Speak\tree.less */
+.article-tree .contentTree .treeNodeIcon .nodeName span:hover {
+  text-decoration: underline;
+}
+/* line 65, UCommerce\Css\Speak\tree.less */
+.article-tree .selected {
+  background-image: url("/sitecore/shell/client/Speak/Assets/img/Speak/Menu/menu_selectedarrow.png");
+}
+/* line 69, UCommerce\Css\Speak\tree.less */
+.article-tree .contentTree .nodeSelectedStyle .nodeName {
+  background: none;
+}
+/* line 73, UCommerce\Css\Speak\tree.less */
+.article-tree ul .treeNodeIcon {
+  background: none !important;
+}
+/* line 77, UCommerce\Css\Speak\tree.less */
+.article-tree .tree {
+  width: 100%;
+}
+/* line 81, UCommerce\Css\Speak\tree.less */
+.article-tree .contentTree .treeItemExpandContainer a.treeItemOpen span {
+  background-image: url("/sitecore/shell/client/Speak/Assets/img/Speak/Menu/arr1.png");
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  transform: rotate(135deg);
+  background-repeat: no-repeat;
+}
+/* line 90, UCommerce\Css\Speak\tree.less */
+.article-tree .contentTree .treeItemExpandContainer {
+  display: inline-block;
+  margin-top: 7px;
+}
+/* line 95, UCommerce\Css\Speak\tree.less */
+.article-tree .contentTree .treeItemExpandContainer a.treeItemClosed span {
+  background-image: url("/sitecore/shell/client/Speak/Assets/img/Speak/Menu/arr1.png");
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+  background-repeat: no-repeat;
+  background-position: 2px 0px;
+}
+/* line 105, UCommerce\Css\Speak\tree.less */
+.article-tree .ucommerce-navigation-tree {
+  margin-top: 0px;
+}
+/* line 109, UCommerce\Css\Speak\tree.less */
+.article-tree .ucommerce-navigation-tree .tree > .treeItemExpandContainer {
+  display: none;
+}
+/* line 113, UCommerce\Css\Speak\tree.less */
+.article-tree .ucommerce-navigation-tree .tree > .treeLink {
+  vertical-align: top;
+  cursor: pointer;
+  display: block;
+  background-image: url("/sitecore/shell/client/Speak/Assets/img/Speak/Menu/menu_toplevel.png") !important;
+  height: 42px;
+  margin-bottom: 10px;
+}
+/* line 122, UCommerce\Css\Speak\tree.less */
+.article-tree .ucommerce-navigation-tree .tree > .treeLink.nodeSelected.nodeSelectedStyle {
+  background: url("/sitecore/shell/client/Speak/Assets/img/Speak/Menu/menu_highlighted.png") !important;
+}
+/* line 126, UCommerce\Css\Speak\tree.less */
+.article-tree .ucommerce-navigation-tree .tree > .treeLink span {
+  font-size: 15px;
+  line-height: 42px;
+  height: 42px;
+  padding-left: 11px;
+  margin-left: 14px;
+  background-position: 0px 9px;
+  background-position-y: 9px;
+  background-size: 24px;
+  background-repeat: no-repeat;
+}
+/* line 138, UCommerce\Css\Speak\tree.less */
+.article-tree .ucommerce-navigation-tree .tree > .treeLink .nodeName span {
+  padding-left: 0px;
+  margin-left: 7px;
+}
+/* line 143, UCommerce\Css\Speak\tree.less */
+.article-tree .contentTree ul li {
+  margin-top: 0px;
+}
+/* line 147, UCommerce\Css\Speak\tree.less */
+.article-tree .contentTree .treeTop {
+  display: block;
+  min-height: 30px;
+  white-space: nowrap;
+}
+/* line 153, UCommerce\Css\Speak\tree.less */
+.article-tree .contentTree .treeTop .treeTop.selectedChild {
+  background-image: url("/sitecore/shell/client/Speak/Assets/img/Speak/Menu/menu_highlighted.png");
+  background-repeat: no-repeat;
+  background-size: 100% 30px;
+}
+/* line 159, UCommerce\Css\Speak\tree.less */
+.article-tree .treeTop .treeTop .treeLink {
+  display: block;
+}
+/* line 163, UCommerce\Css\Speak\tree.less */
+.article-tree ::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+/* line 168, UCommerce\Css\Speak\tree.less */
+.article-tree ::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  background: #969696;
+  -webkit-box-shadow: none;
+}
+/* line 175, UCommerce\Css\Speak\tree.less */
+.article-tree ::-webkit-scrollbar-thumb:hover {
+  background-color: #cccccc;
+  cursor: pointer;
+}
+/* line 180, UCommerce\Css\Speak\tree.less */
+.article-tree ::-webkit-scrollbar-thumb:active {
+  background-color: #969696;
+}
+/* line 184, UCommerce\Css\Speak\tree.less */
+.article-tree ::-webkit-scrollbar-track {
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-box-shadow: none;
+}
+/* line 190, UCommerce\Css\Speak\tree.less */
+.article-tree .contentTree div.treeContextMenu > ul {
+  left: 50px;
+}
+/* line 194, UCommerce\Css\Speak\tree.less */
+.article-tree .treeItemExpandContainer.speak {
+  padding-left: 11px;
+  float: left;
+}
+/* line 199, UCommerce\Css\Speak\tree.less */
+.article-tree i.fa {
+  position: absolute;
+  color: white;
+  font-size: 20px;
+  top: 12px;
+  left: 16px;
+}
+/* line 206, UCommerce\Css\Speak\tree.less */
+.article-tree .contentTree .treeNodeIcon .nodeName {
+  padding-left: 23px;
+  white-space: nowrap;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* line 1, UCommerce\Css\Speak\tabs.less */
+#sectionGroup {
+  display: flex;
+  -ms-display: flex;
+  -webkit-display: flex;
+  flex-flow: column;
+  -ms-flex-flow: column;
+  -webkit-flex-flow: column;
+  height: 100%;
+}
+/* line 11, UCommerce\Css\Speak\tabs.less */
+#sectionGroup div.sectionGroupHeader {
+  flex: 0 0 150px;
+  -ms-flex: 0 0 150px;
+  -webkit-flex: 0 0 150px;
+  box-sizing: border-box;
+  display: block !important;
+}
+/* line 19, UCommerce\Css\Speak\tabs.less */
+#sectionGroup #sectionGroupTabs {
+  flex: 0 0 54px;
+  -ms-flex: 0 0 52px;
+  -webkit-flex: 0 0 54px;
+  box-sizing: border-box;
+}
+/* line 26, UCommerce\Css\Speak\tabs.less */
+#sectionGroup .section.ui-tabs-panel {
+  flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  -webkit-flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
+  min-height: 1px;
+}
+/* line 37, UCommerce\Css\Speak\tabs.less */
+#sectionGroup.singleTab #sectionGroupTabs {
+  display: none !important;
+}
+/* line 41, UCommerce\Css\Speak\tabs.less */
+#sectionGroup .section.ui-tabs-panel {
+  padding: 0px 15px;
+}
+/* line 45, UCommerce\Css\Speak\tabs.less */
+#sectionGroup .section.ui-tabs-panel .menubar {
+  flex: 0 0 39px;
+  -ms-flex: 0 0 25px;
+  -webkit-flex: 0 0 39px;
+  box-sizing: border-box;
+  padding-top: 15px;
+  background: #f7f7f7;
+  padding: 7px 15px;
+  border-bottom: none;
+  background: #F0F0F0;
+  height: auto;
+}
+/* line 58, UCommerce\Css\Speak\tabs.less */
+#sectionGroup .section.ui-tabs-panel .scrollable {
+  flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  -webkit-flex: 1 1 auto;
+  margin-right: 0;
+}
+/* line 65, UCommerce\Css\Speak\tabs.less */
+.scrollable {
+  border: none !important;
+  padding: 0 !important;
+}
+/* line 70, UCommerce\Css\Speak\tabs.less */
+.sectionGroupHeader {
+  background: url("/sitecore/shell/client/Speak/Assets/img/Speak/Layouts/breadcrumb_red_bg.png");
+  background-repeat-y: no-repeat;
+  background-repeat: repeat-x;
+  background-color: #e3e3e3 !important;
+  padding-bottom: 4px !important;
+  padding-top: 10px !important;
+  padding-left: 15px !important;
+}
+/* line 80, UCommerce\Css\Speak\tabs.less */
+.sectionGroupHeader #uc-headline {
+  font-size: 24px;
+  font-weight: 400;
+  font-family: Arial, sans-serif;
+}
+/* line 86, UCommerce\Css\Speak\tabs.less */
+#sectionGroupTabs {
+  background-color: #F0F0F0 !important;
+  border-bottom: 2px solid #474747;
+  height: auto;
+  margin: 30px 15px 0px 15px;
+}
+/* line 93, UCommerce\Css\Speak\tabs.less */
+#sectionGroupTabs li {
+  height: auto;
+  margin: 0px;
+  position: inherit !important;
+}
+/* line 99, UCommerce\Css\Speak\tabs.less */
+#sectionGroupTabs li a {
+  color: #474747;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  font-size: 12px;
+}
+/* line 106, UCommerce\Css\Speak\tabs.less */
+#sectionGroupTabs li.ui-tabs-selected a {
+  color: #ffffff;
+  background-color: #474747;
+  border: 1px solid #474747;
+}
+#sectionGroupTabs li.ui-tabs-active a {
+  color: #ffffff;
+  background-color: #474747;
+  border: 1px solid #474747;
+}
+/* line 112, UCommerce\Css\Speak\tabs.less */
+#sectionGroupTabs li a {
+  padding: 10px 15px;
+}
+/* line 116, UCommerce\Css\Speak\tabs.less */
+.sectionGroupHeader::after {
+  position: absolute;
+  right: 0;
+  top: 0px;
+  display: block;
+  background: url("/sitecore/shell/client/Speak/Assets/img/Speak/Layouts/logo_spiral.png") center right;
+  background-repeat: no-repeat;
+  width: 113px;
+  height: 90px;
+  content: " ";
+}
+/* line 128, UCommerce\Css\Speak\tabs.less */
+#sectionGroupTabs li:only-child {
+  visibility: hidden;
+}
+/* line 132, UCommerce\Css\Speak\tabs.less */
+.ui-tabs-panel .menubar .save-button-wrapper {
+  display: inline;
+}
+/* line 136, UCommerce\Css\Speak\tabs.less */
+.save-button-wrapper input[type=image] {
+  display: none;
+}
+/* line 140, UCommerce\Css\Speak\tabs.less */
+.save-button-label {
+  display: inline-block !important;
+  color: white;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  border: 1px solid #175973;
+  padding-bottom: 8px;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 8px;
+  background-color: #289bc8;
+  box-sizing: border-box;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: center;
+  width: 80px;
+  background-image: -webkit-linear-gradient(top, #d9d9d9 0%, #d9d9d9 100%);
+  background-image: -o-linear-gradient(top, #d9d9d9 0%, #d9d9d9 100%);
+  background-image: linear-gradient(to bottom, #d9d9d9 0%, #d9d9d9 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffd9d9d9', endColorstr='#ffd9d9d9', GradientType=0);
+  -webkit-box-shadow: inset 0 3px 3px #c9c9c9;
+  box-shadow: inset 0 3px 3px #c9c9c9;
+  border-color: #bdbdbd;
+  background-image: -webkit-linear-gradient(top, #289bc8 0%, #1d7395 100%);
+  background-image: -o-linear-gradient(top, #289bc8 0%, #1d7395 100%);
+  background-image: linear-gradient(to bottom, #289bc8 0%, #1d7395 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff289bc8', endColorstr='#ff1d7395', GradientType=0);
+  border-color: #1c6d8d;
+  background-image: -webkit-linear-gradient(top, #289bc8 0%, #207da2 100%);
+  background-image: -o-linear-gradient(top, #289bc8 0%, #207da2 100%);
+  background-image: linear-gradient(to bottom, #289bc8 0%, #207da2 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff289bc8', endColorstr='#ff207da2', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  background-repeat: repeat-x;
+  border-color: #175973;
+  -webkit-box-shadow: inset 0 1px #5dbadf;
+  box-shadow: inset 0 1px #5dbadf;
+  position: absolute;
+  right: 15px;
+  top: 102px;
+  height: 36px;
+  line-height: 18px;
+}
+/* line 185, UCommerce\Css\Speak\tabs.less */
+.menubar label.save-button-label:hover,
+.menubar label.save-button-label:focus {
+  background-color: #1d7395;
+}
+/* line 190, UCommerce\Css\Speak\tabs.less */
+.menubar label.save-button-label:active,
+.menubar label.save-button-label.active {
+  background-color: #1d7395;
+  border-color: #1c6d8d;
+}
+/* line 196, UCommerce\Css\Speak\tabs.less */
+.menubar label.save-button-label:hover,
+.menubar label.save-button-label:focus {
+  background-color: #1d7395;
+}
+/* line 201, UCommerce\Css\Speak\tabs.less */
+.menubar label.save-button-label:active,
+.menubar label.save-button-label.active {
+  background-color: #1d7395;
+  border-color: #1c6d8d;
+}
+/* line 207, UCommerce\Css\Speak\tabs.less */
+.menubar label.save-button-label:disabled,
+.menubar label.save-button-label[disabled] {
+  background-color: #1d7395;
+  background-image: none;
+}
+/* line 213, UCommerce\Css\Speak\tabs.less */
+.menubar label.save-button-label.disabled {
+  border-color: #175973;
+}
+/* line 217, UCommerce\Css\Speak\tabs.less */
+.menubar label.save-button-label:hover {
+  background-image: -webkit-linear-gradient(top, #289bc8 0%, #289bc8 100%);
+  background-image: -o-linear-gradient(top, #289bc8 0%, #289bc8 100%);
+  background-image: linear-gradient(to bottom, #289bc8 0%, #289bc8 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff289bc8', endColorstr='#ff289bc8', GradientType=0);
+  border-color: #175973;
+}
+/* line 226, UCommerce\Css\Speak\tabs.less */
+.menubar label.save-button-label:focus {
+  border-color: #175973;
+}
+/* line 230, UCommerce\Css\Speak\tabs.less */
+.menubar label.save-button-label:active,
+.menubar label.save-button-label.active {
+  background-image: -webkit-linear-gradient(top, #207da2 0%, #207da2 100%);
+  background-image: -o-linear-gradient(top, #207da2 0%, #207da2 100%);
+  background-image: linear-gradient(to bottom, #207da2 0%, #207da2 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff207da2', endColorstr='#ff207da2', GradientType=0);
+  -webkit-box-shadow: inset 0 3px 3px #13485e;
+  box-shadow: inset 0 3px 3px #13485e;
+  background-image: none;
+  border-color: #175973;
+}
+/* line 243, UCommerce\Css\Speak\tabs.less */
+.menubar > div {
+  padding: 0px;
+}
+/* line 247, UCommerce\Css\Speak\tabs.less */
+#back-button {
+  display: block !important;
+  text-decoration: none;
+  text-shadow: none;
+  position: absolute;
+  outline: none;
+  border: none;
+  background-image: none;
+  background: none;
+  color: #ffffff;
+  box-shadow: none;
+  left: 15px;
+  display: inline-block;
+  top: 102px;
+  margin-bottom: 0;
+  font-weight: normal;
+  vertical-align: middle;
+  cursor: pointer;
+  white-space: nowrap;
+  padding: 8px 12px;
+  font-size: 12px;
+  line-height: 1.42857143;
+  border-radius: 6px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+/* line 275, UCommerce\Css\Speak\tabs.less */
+#back-button:before {
+  width: 19px;
+  height: 36px;
+  background: url("/sitecore/shell/client/Speak/Assets/img/Speak/BackButton/back_button.png") no-repeat;
+  background-position: 0 0;
+  display: block;
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+/* line 287, UCommerce\Css\Speak\tabs.less */
+#back-button:hover:before {
+  background-position: 0 -144px;
+}
+/* line 291, UCommerce\Css\Speak\tabs.less */
+#back-button:after {
+  width: 7px;
+  height: 36px;
+  background: url("/sitecore/shell/client/Speak/Assets/img/Speak/BackButton/back_button.png") no-repeat;
+  background-position: -19px 0;
+  display: block;
+  content: "";
+  position: absolute;
+  right: 5px;
+  top: 0;
+}
+/* line 303, UCommerce\Css\Speak\tabs.less */
+#back-button:hover:after {
+  background-position: -19px -144px;
+}
+/* line 307, UCommerce\Css\Speak\tabs.less */
+#back-button .back-button {
+  background: url("/sitecore/shell/client/Speak/Assets/img/Speak/BackButton/back_button.png") repeat-x;
+  background-position: 0 -36px;
+  min-width: 54px;
+  height: 36px;
+  display: block;
+  margin-left: 7px;
+  margin-top: -8px;
+  line-height: 36px;
+  box-sizing: border-box;
+  width: 54px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+/* line 322, UCommerce\Css\Speak\tabs.less */
+#back-button:hover .back-button {
+  background-position: 0 -180px;
+}
+/* line 326, UCommerce\Css\Speak\tabs.less */
+.notifications.bottom-right {
+  width: 100%;
+  font-weight: bold;
+  font-size: 12px;
+  bottom: initial;
+}
+/* line 333, UCommerce\Css\Speak\tabs.less */
+.notifications.bottom-right h4 {
+  display: none;
+}
+/* line 337, UCommerce\Css\Speak\tabs.less */
+.notifications .alert.alert-success .notification-image-container,
+.notifications .alert.alert-success .notification-text-container,
+.notifications .alert.alert-success .notification-button-container {
+  display: inline;
+}
+/* line 341, UCommerce\Css\Speak\tabs.less */
+.alert.alert-success {
+  color: #2694c0;
+  background-color: #d0ebf6;
+  padding: 10px 35px 10px 45px;
+  line-height: 20px;
+  margin-bottom: 0;
+  font-family: Arial, sans-serif;
+  border: none;
+}
+/* line 351, UCommerce\Css\Speak\tabs.less */
+.alert .alert-ico {
+  background: transparent url("/sitecore/shell/client/Speak/Assets/img/Speak/MessageBar/sc-message-bar-icons.png") no-repeat;
+  display: inline-block;
+  vertical-align: top;
+  width: 24px;
+  height: 24px;
+  background-position: 0 -25px;
+  margin-left: -30px;
+}
+/* line 361, UCommerce\Css\Speak\tabs.less */
+.alert span {
+  vertical-align: bottom;
+  margin-left: 5px;
+}
+/* line 366, UCommerce\Css\Speak\tabs.less */
+.alert .close {
+  top: 3px;
+  font-size: 18px;
+}
+/* line 371, UCommerce\Css\Speak\tabs.less */
+.speak-notification {
+  display: none;
+}
+@-moz-document url-prefix() {
+  /* line 376, UCommerce\Css\Speak\tabs.less */
+  #back-button .back-button {
+    margin-left: 4px;
+    margin-top: -9px;
+  }
+  /* line 381, UCommerce\Css\Speak\tabs.less */
+  #back-button::after {
+    right: 8px;
+  }
+}
+/* line 386, UCommerce\Css\Speak\tabs.less */
+.ui-widget textarea {
+  font-size: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+/* line 391, UCommerce\Css\Speak\tabs.less */
+.scrollable .imagePicker span {
+  padding-bottom: 10px;
+}
+/* line 395, UCommerce\Css\Speak\tabs.less */
+.scrollable .propertyPane.propertyPaneUCommerce {
+  padding: 15px !important;
+  margin: 0;
+}
+/* line 1, UCommerce\Css\Speak\dataTypes.less */
+.propertyPane {
+  background: white;
+  padding: 15px;
+  border: 1px solid #cccccc;
+}
+/* line 7, UCommerce\Css\Speak\dataTypes.less */
+.scrollable .propertyPane {
+  margin-bottom: 15px;
+}
+/* line 11, UCommerce\Css\Speak\dataTypes.less */
+.propertyPane .propertyPaneTitel {
+  margin-top: -15px;
+  border-left: 5px solid #DC271E;
+  margin-left: -15px;
+  padding-right: 25px;
+  margin-right: -15px;
+  margin-bottom: 15px;
+  background-color: #474747;
+  color: white;
+  font-size: 15px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 10px;
+  display: block;
+}
+/* line 27, UCommerce\Css\Speak\dataTypes.less */
+.propertyPane .propertyItem .propertyItemHeader {
+  box-sizing: border-box;
+  max-width: 100%;
+  float: left;
+  clear: none;
+  padding-top: 2px;
+  padding-right: 20px;
+  display: inline-block;
+  min-width: 120px !important;
+}
+/* line 38, UCommerce\Css\Speak\dataTypes.less */
+.propertyPane .propertyItem .propertyItemHeader span {
+  word-wrap: break-word;
+  word-break: break-all;
+}
+/* line 43, UCommerce\Css\Speak\dataTypes.less */
+.propertyPane .propertyItem .propertyItemContent {
+  vertical-align: middle;
+  float: none;
+  clear: none;
+  line-height: normal;
+  display: inline-block;
+  margin-left: 0;
+}
+@-moz-document url-prefix() {
+  /* line 52, UCommerce\Css\Speak\dataTypes.less */
+  .propertyPane .propertyItem .propertyItemContent select {
+    padding: 8px;
+  }
+}
+/* line 56, UCommerce\Css\Speak\dataTypes.less */
+.propertyPane .propertyItem .propertyItemContent input[type=text] {
+  padding-left: 14px;
+}
+/* line 60, UCommerce\Css\Speak\dataTypes.less */
+.propertyPane .propertyItem .propertyItemContent select {
+  padding-left: 10px;
+}
+/*
+    Datepicker
+*/
+/* line 68, UCommerce\Css\Speak\dataTypes.less */
+#ui-datepicker-div.ui-datepicker.ui-widget.ui-widget-content.ui-helper-clearfix.ui-corner-all {
+  width: auto;
+}
+/* line 72, UCommerce\Css\Speak\dataTypes.less */
+.ui-datepicker .ui-datepicker-title {
+  margin: 0px;
+}
+/* line 75, UCommerce\Css\Speak\dataTypes.less */
+.ui-datepicker-prev.ui-corner-all {
+  background-image: url("/sitecore/shell/client/Speak/Assets/img/Speak/DatePicker/date_picker_arrows.png");
+  background-position: 0px;
+  background-repeat: no-repeat;
+  width: 8px;
+  height: 12px;
+  background-position-x: initial;
+  background-position-y: initial;
+  background-size: initial;
+  background-repeat-x: initial;
+  background-repeat-y: initial;
+  background-attachment: initial;
+  background-origin: initial;
+  background-clip: initial;
+  background-color: initial;
+  position: absolute;
+  top: 6px;
+}
+/* line 94, UCommerce\Css\Speak\dataTypes.less */
+.ui-datepicker-next.ui-corner-all {
+  background-image: url("/sitecore/shell/client/Speak/Assets/img/Speak/DatePicker/date_picker_arrows.png");
+  background-position: 0px;
+  background-repeat: no-repeat;
+  width: 8px;
+  height: 12px;
+  background-position-x: initial;
+  background-position-y: initial;
+  background-size: initial;
+  background-repeat-x: initial;
+  background-repeat-y: initial;
+  background-attachment: initial;
+  background-origin: initial;
+  background-clip: initial;
+  background-color: initial;
+  background-position-x: 8px;
+  background-position: 8px 0px;
+  position: absolute;
+  top: 6px;
+}
+/* line 115, UCommerce\Css\Speak\dataTypes.less */
+#ui-datepicker-div .ui-widget-header a.ui-datepicker-prev.ui-corner-all.ui-state-hover {
+  background: url("/sitecore/shell/client/Speak/Assets/img/Speak/DatePicker/date_picker_arrows.png");
+  cursor: pointer;
+  border: none;
+}
+/* line 121, UCommerce\Css\Speak\dataTypes.less */
+#ui-datepicker-div .ui-widget-header a.ui-datepicker-next.ui-corner-all.ui-state-hover {
+  background: url("/sitecore/shell/client/Speak/Assets/img/Speak/DatePicker/date_picker_arrows.png");
+  cursor: pointer;
+  border: none;
+}
+/* line 127, UCommerce\Css\Speak\dataTypes.less */
+.ui-datepicker-prev.ui-corner-all:hover {
+  background-position: 0px -13px !important;
+}
+/* line 131, UCommerce\Css\Speak\dataTypes.less */
+.ui-datepicker-next.ui-corner-all:hover {
+  background-position: 8px 12px !important;
+}
+/* line 136, UCommerce\Css\Speak\dataTypes.less */
+.ui-datepicker-prev.ui-corner-all span {
+  background-image: none;
+}
+/* line 140, UCommerce\Css\Speak\dataTypes.less */
+.ui-datepicker-next.ui-corner-all span {
+  background-image: none;
+}
+/* line 144, UCommerce\Css\Speak\dataTypes.less */
+#ui-datepicker-div table.ui-datepicker-calendar {
+  margin-top: 15px !important;
+  margin-bottom: 0px !important;
+}
+/* line 149, UCommerce\Css\Speak\dataTypes.less */
+#ui-datepicker-div table.ui-datepicker-calendar th {
+  padding: 0px;
+}
+/* line 153, UCommerce\Css\Speak\dataTypes.less */
+#ui-datepicker-div table.ui-datepicker-calendar tr td {
+  padding: 0px !important;
+}
+/* line 157, UCommerce\Css\Speak\dataTypes.less */
+#ui-datepicker-div table.ui-datepicker-calendar th span {
+  text-transform: uppercase;
+  color: #969696;
+  font-size: 0.833em;
+}
+/* line 163, UCommerce\Css\Speak\dataTypes.less */
+#ui-datepicker-div table.ui-datepicker-calendar .ui-state-default.ui-state-default.ui-state-default {
+  border: none;
+  font-size: 12px;
+  font-weight: normal;
+  color: #222222;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: none;
+  text-align: center;
+  line-height: 30px;
+  padding: 5px;
+  width: 35px;
+  height: 37px;
+  box-sizing: border-box;
+}
+/* line 178, UCommerce\Css\Speak\dataTypes.less */
+#ui-datepicker-div table.ui-datepicker-calendar a:hover {
+  background: #f0f0f0 !important;
+}
+/* line 182, UCommerce\Css\Speak\dataTypes.less */
+.ui-datepicker td a.ui-state-active {
+  background: #aadbee !important;
+  color: #131313 !important;
+}
+/* line 187, UCommerce\Css\Speak\dataTypes.less */
+.ui-datepicker-today {
+  background: #f0f0f0;
+}
+/* line 191, UCommerce\Css\Speak\dataTypes.less */
+.datePickerContainer:after {
+  content: "";
+  width: 38px;
+  background: white;
+  display: block;
+  z-index: 2;
+  left: 100%;
+  top: -35px;
+  background-image: url("http://sc8/sitecore/shell/client/Speak/Assets/img/Speak/DatePicker/date_picker_bg.png");
+  background-repeat: no-repeat;
+  position: relative;
+  height: 33px;
+  top: -34px;
+  background-position: 15px;
+  left: -moz-calc(100% - 39px) !important;
+  left: -webkit-calc(100% - 39px) !important;
+  left: calc(100% - 39px) !important;
+}
+/* line 211, UCommerce\Css\Speak\dataTypes.less */
+.multiCheckBoxList {
+  margin-left: -3px;
+}
+/* line 215, UCommerce\Css\Speak\dataTypes.less */
+.imagePicker {
+  background: white;
+  height: 100%;
+  display: flex;
+  -ms-display: flex;
+  -webkit-display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
+}
+/* line 227, UCommerce\Css\Speak\dataTypes.less */
+.imagePicker .sectionGroupHeader {
+  background: #2b2b2b !important;
+  flex: 0 0 68px;
+  -ms-flex: 0 0 54px;
+  -webkit-flex: 0 0 68px;
+  box-sizing: border-box;
+}
+/* line 235, UCommerce\Css\Speak\dataTypes.less */
+.imagePicker .sectionGroupHeader:after {
+  display: none;
+}
+/* line 239, UCommerce\Css\Speak\dataTypes.less */
+.imagePicker .footerOkCancel .dialog-saveButton {
+  margin-right: 5px;
+}
+/* line 243, UCommerce\Css\Speak\dataTypes.less */
+.imagePicker a.modal-close {
+  top: 31px;
+}
+/* line 247, UCommerce\Css\Speak\dataTypes.less */
+.imagePicker #uc-headline {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: normal;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+}
+/* line 257, UCommerce\Css\Speak\dataTypes.less */
+.multipicker-container .contentTree.multiPicker .multiPickerAction > div {
+  vertical-align: top;
+}
+/* line 261, UCommerce\Css\Speak\dataTypes.less */
+.set-category-products .multipicker-container .contentTree.multiPicker .multiPickerAction > div {
+  vertical-align: top;
+  height: 275px;
+}
+/* line 266, UCommerce\Css\Speak\dataTypes.less */
+.checkbox-list label {
+  margin-left: 6px;
+}
+/* line 270, UCommerce\Css\Speak\dataTypes.less */
+#tinymce {
+  font-size: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+/* line 1, UCommerce\Css\Speak\tables.less */
+.dataList thead tr th:first-child span:before {
+  display: none;
+}
+/* line 5, UCommerce\Css\Speak\tables.less */
+.dataList thead tr th input {
+  margin-left: 19px !important;
+}
+/* line 9, UCommerce\Css\Speak\tables.less */
+.dataList tbody tr:nth-child(even) {
+  background-color: #f7f7f7 !important;
+}
+/* line 13, UCommerce\Css\Speak\tables.less */
+table.dataTable tr.even td.sorting_1 {
+  background-color: #f7f7f7 !important;
+}
+/* line 17, UCommerce\Css\Speak\tables.less */
+table.dataTable tr.odd td.sorting_1 {
+  background-color: white !important;
+}
+/* line 21, UCommerce\Css\Speak\tables.less */
+.propertyPane table.dataList,
+.propertyPane table.dataTable {
+  margin-top: 0px;
+  margin-left: -15px;
+  width: -moz-calc(100% + 30px) !important;
+  width: -webkit-calc(100% + 30px) !important;
+  width: calc(100% + 30px) !important;
+}
+/* line 29, UCommerce\Css\Speak\tables.less */
+.dataTables_info {
+  display: none !important;
+}
+/* line 33, UCommerce\Css\Speak\tables.less */
+.dataTables_filter {
+  margin: 15px 0px;
+}
+/* line 37, UCommerce\Css\Speak\tables.less */
+.dataTables_filter label {
+  color: white;
+  font-size: 0px;
+}
+/* line 42, UCommerce\Css\Speak\tables.less */
+.dataTables_filter label input {
+  width: -moz-calc(100% - 42px) !important;
+  width: -webkit-calc(100% - 42px) !important;
+  width: calc(100% - 42px) !important;
+}
+/* line 49, UCommerce\Css\Speak\tables.less */
+.dataTables_filter label:after {
+  font: normal normal normal 14px/1 FontAwesome;
+  content: "\f002";
+  font-family: normal normal normal 14px FontAwesome;
+  font-size: 18px;
+  border: 1px solid #bdbdbd;
+  display: inline-block;
+  margin-left: -1px;
+  padding: 8px 12px 7px 12px;
+  position: relative;
+  color: black;
+  top: 3px;
+  border-bottom-right-radius: 6px;
+  border-top-right-radius: 6px;
+  background-image: -webkit-linear-gradient(top, #f0f0f0 0%, #d1d1d1 100%);
+  background-image: -o-linear-gradient(top, #f0f0f0 0%, #d1d1d1 100%);
+  background-image: linear-gradient(to bottom, #f0f0f0 0%, #d1d1d1 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff0f0f0', endColorstr='#ffd1d1d1', GradientType=0);
+  border-color: #cccccc;
+  background-image: -webkit-linear-gradient(top, #f0f0f0 0%, #d9d9d9 100%);
+  background-image: -o-linear-gradient(top, #f0f0f0 0%, #d9d9d9 100%);
+  background-image: linear-gradient(to bottom, #f0f0f0 0%, #d9d9d9 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff0f0f0', endColorstr='#ffd9d9d9', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  background-repeat: repeat-x;
+  -webkit-box-shadow: inset 0 1px #ffffff;
+  box-shadow: inset 0 1px #ffffff;
+}
+/* line 78, UCommerce\Css\Speak\tables.less */
+.dataTables_filter label:hover:after {
+  background-image: -webkit-linear-gradient(top, #f0f0f0 0%, #f0f0f0 100%);
+  background-image: -o-linear-gradient(top, #f0f0f0 0%, #f0f0f0 100%);
+  background-image: linear-gradient(to bottom, #f0f0f0 0%, #f0f0f0 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff0f0f0', endColorstr='#fff0f0f0', GradientType=0);
+  border-color: #bdbdbd;
+  cursor: pointer;
+}
+/* line 88, UCommerce\Css\Speak\tables.less */
+.propertyPane table tr td:first-child {
+  border-left: none;
+}
+/* line 92, UCommerce\Css\Speak\tables.less */
+.propertyPane table tr td:last-child {
+  border-right: none;
+}
+/* line 1, UCommerce\Css\Speak\Widget.less */
+ul li.widget {
+  list-style: none;
+  overflow: visible;
+  border: none;
+}
+/* line 7, UCommerce\Css\Speak\Widget.less */
+ul li.widget:hover {
+  z-index: 6;
+}
+/* line 11, UCommerce\Css\Speak\Widget.less */
+.addWidgetToDashboard:hover {
+  z-index: 10;
+}
+/* line 15, UCommerce\Css\Speak\Widget.less */
+.widget {
+  background: white;
+  border: 1px solid #CAC9C9;
+  overflow: hidden;
+  position: absolute;
+}
+/* line 22, UCommerce\Css\Speak\Widget.less */
+.widgetContent .widgetViewContent {
+  width: 100%;
+  height: 100%;
+}
+/* line 27, UCommerce\Css\Speak\Widget.less */
+.widgetContent .editMode {
+  display: none;
+}
+/* line 31, UCommerce\Css\Speak\Widget.less */
+.widgetEditing {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.75);
+  cursor: move;
+  overflow-y: auto;
+}
+/* line 39, UCommerce\Css\Speak\Widget.less */
+.widgetEditing:active {
+  cursor: grabbing;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
+}
+/* line 45, UCommerce\Css\Speak\Widget.less */
+.widgetHeader {
+  height: 25px;
+  width: 100%;
+  background-color: rgba(244, 244, 244, 0.75);
+  overflow: hidden;
+  cursor: pointer;
+  border-bottom: 1px solid #f0f0f0;
+  z-index: 20;
+  -webkit-transition: height 0.4s;
+  -moz-transition: height 0.4s;
+  transition: height 0.4s;
+}
+/* line 58, UCommerce\Css\Speak\Widget.less */
+.widgetHeader i {
+  margin: 0;
+  cursor: pointer;
+  font-size: 1.5em;
+  font-weight: normal;
+  color: #474747;
+  line-height: 46px;
+  position: absolute;
+  right: 0;
+  padding-left: 14px;
+  padding-right: 14px;
+}
+/* line 71, UCommerce\Css\Speak\Widget.less */
+.widgetHeader i:hover {
+  background: #E3E3E3;
+}
+/* line 75, UCommerce\Css\Speak\Widget.less */
+.widgetHeader span {
+  display: inline-block;
+  color: #474747;
+  margin: 0px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: block;
+  white-space: nowrap;
+  padding-left: 15px;
+  font-size: 18px;
+  font-family: Arial, sans-serif;
+  line-height: 46px;
+}
+/* line 89, UCommerce\Css\Speak\Widget.less */
+i.fa.fa-times.remove-widget {
+  font-weight: 100;
+  color: white;
+  cursor: pointer;
+  font-size: 17px;
+  padding: 8px;
+  border: 1px solid;
+  border-radius: 37px;
+  border-color: #CAC9C9;
+  background-color: red;
+  position: absolute;
+  right: -15px;
+  top: -16px;
+  line-height: 13px;
+  z-index: 5;
+}
+/* line 106, UCommerce\Css\Speak\Widget.less */
+.widgetHeader img {
+  vertical-align: top;
+  height: 10px;
+  float: right;
+  margin-right: 3px;
+  margin-top: 2px;
+}
+/* line 114, UCommerce\Css\Speak\Widget.less */
+.editDashBoard .editButton {
+  color: white;
+  background-color: #23bbad;
+  border-radius: 54px;
+  padding: 18px;
+  line-height: 26px;
+  margin-right: -6px;
+  float: right;
+  margin-top: -30px;
+  font-size: 30px;
+  position: relative;
+  z-index: 100000000;
+}
+/* line 128, UCommerce\Css\Speak\Widget.less */
+.gridster .preview-holder {
+  background-color: #f0f0f0;
+  list-style: none;
+}
+/* line 133, UCommerce\Css\Speak\Widget.less */
+.widgetContent {
+  height: 100%;
+  overflow: hidden;
+  margin-top: -46px;
+  padding-top: 46px;
+  box-sizing: border-box;
+}
+/* line 141, UCommerce\Css\Speak\Widget.less */
+.widgetLoading {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  color: rgba(35, 34, 34, 0.29);
+  display: table;
+  position: absolute;
+  padding-top: 26px;
+}
+/* line 153, UCommerce\Css\Speak\Widget.less */
+.widgetLoading i {
+  z-index: 38;
+  position: relative;
+  transform: translateY(-50%);
+}
+/* line 159, UCommerce\Css\Speak\Widget.less */
+.widget .ui-resizable-se {
+  height: 14px;
+  width: 14px;
+  float: right;
+  display: inline-block;
+  cursor: nwse-resize;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  opacity: 0.4;
+  background-image: url("/orcinus/images/ui-icons.png");
+  background-position: -64px -224px;
+}
+/* line 173, UCommerce\Css\Speak\Widget.less */
+.gridster {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin-top: -3px;
+}
+/* line 180, UCommerce\Css\Speak\Widget.less */
+.gridster ul {
+  width: 100%;
+  height: 100%;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+/* line 187, UCommerce\Css\Speak\Widget.less */
+.editDashBoard {
+  height: 40px;
+  position: absolute;
+  right: 20px;
+  bottom: 0px;
+}
+/* line 194, UCommerce\Css\Speak\Widget.less */
+.editDashBoard i {
+  cursor: pointer;
+  color: white;
+  font-size: 50px;
+}
+/* line 203, UCommerce\Css\Speak\Widget.less */
+.btn-remove {
+  color: white;
+  background: red !important;
+}
+/* line 208, UCommerce\Css\Speak\Widget.less */
+.gridster li.preview-holder {
+  background-color: #f0f0f0;
+  list-style: none;
+}
+/* line 213, UCommerce\Css\Speak\Widget.less */
+.widgetEditing h1 {
+  background-color: white;
+}
+/* line 217, UCommerce\Css\Speak\Widget.less */
+.addWidgetToDashboard {
+  display: inline-block;
+  width: 100%;
+  margin-left: 25px;
+  margin-right: -100px;
+}
+/* line 224, UCommerce\Css\Speak\Widget.less */
+.gridsterPanel {
+  margin-top: -40px;
+  padding-top: 52px;
+  box-sizing: border-box;
+  height: 100%;
+}
+/* line 231, UCommerce\Css\Speak\Widget.less */
+.addWidgetToDashboard {
+  width: 260px;
+  float: right;
+  margin-right: -77px;
+  margin-top: 0px;
+  position: relative;
+  z-index: 4;
+}
+/* line 240, UCommerce\Css\Speak\Widget.less */
+.addWidgetToDashboard ul {
+  opacity: 0;
+  background: white;
+  max-height: 600px;
+  padding: 0;
+  overflow: auto;
+  background: rgba(255, 255, 255, 0);
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out;
+  -ms-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+}
+/* line 254, UCommerce\Css\Speak\Widget.less */
+.addWidgetToDashboard li {
+  width: 226px;
+  list-style: none;
+  cursor: pointer;
+  margin: 20px 0px 0px 3px;
+  display: inline-block;
+  padding: 5px 0px 0px 5px;
+  background: white;
+  border-radius: 4px;
+  font-size: 18px;
+  font-family: Arial, sans-serif;
+  -webkit-box-shadow: 0 1px 2px 1px rgba(0, 5, 1, 0.3);
+  -moz-box-shadow: 0 1px 2px 1px rgba(0, 5, 1, 0.3);
+  box-shadow: 0 1px 2px 1px rgba(0, 5, 1, 0.3);
+}
+/* line 270, UCommerce\Css\Speak\Widget.less */
+.addWidgetToDashboard li:first-child {
+  margin-top: 1px;
+}
+/* line 274, UCommerce\Css\Speak\Widget.less */
+.addWidgetToDashboard li:last-child {
+  margin-bottom: 3px;
+}
+/* line 278, UCommerce\Css\Speak\Widget.less */
+.widgetName {
+  display: table-cell;
+  width: 200px;
+  word-break: break-all;
+  word-break: break-word;
+}
+/* line 285, UCommerce\Css\Speak\Widget.less */
+i.checked.fa.fa-check {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 26px;
+  line-height: 26px;
+  margin-left: 10px;
+  color: #E0E0E0;
+  position: relative;
+  top: -2px;
+  right: 3px;
+}
+/* line 297, UCommerce\Css\Speak\Widget.less */
+.gridster span.gs-resize-handle.gs-resize-handle-both {
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+  background: none;
+  right: 0px;
+  bottom: 0px;
+  background-image: url('../../css/common/arrow.png');
+}
+/* line 306, UCommerce\Css\Speak\Widget.less */
+.rotateY {
+  animation: rotateY 2.5s linear infinite;
+}
+@-webkit-keyframes rotateY {
+  /* line 311, UCommerce\Css\Speak\Widget.less */
+  0% {
+    transform: rotatey(0deg);
+    -moz-transform: rotatey(0deg);
+  }
+  /* line 316, UCommerce\Css\Speak\Widget.less */
+  100% {
+    transform: rotatey(360deg);
+    -moz-transform: rotatey(360deg);
+  }
+}
+@keyframes rotateY {
+  /* line 323, UCommerce\Css\Speak\Widget.less */
+  0% {
+    transform: rotatey(0deg);
+    -moz-transform: rotatey(0deg);
+  }
+  /* line 328, UCommerce\Css\Speak\Widget.less */
+  100% {
+    transform: rotatey(360deg);
+    -moz-transform: rotatey(360deg);
+  }
+}
+/* line 334, UCommerce\Css\Speak\Widget.less */
+.widgetPropertiesEdititng {
+  padding: 0% 1%;
+}
+/* line 338, UCommerce\Css\Speak\Widget.less */
+.widgetEditing .multiSelect label {
+  display: block;
+}
+/* line 342, UCommerce\Css\Speak\Widget.less */
+.widgetProperty input[type=text] {
+  width: 100%;
+}
+/* line 346, UCommerce\Css\Speak\Widget.less */
+.widgetProperty label {
+  display: block;
+}
+/* line 350, UCommerce\Css\Speak\Widget.less */
+.widgetProperty select {
+  width: 100%;
+}
+/* line 354, UCommerce\Css\Speak\Widget.less */
+.widgetLoaderIndication {
+  width: 100%;
+  height: 100%;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+/* line 365, UCommerce\Css\Speak\Widget.less */
+li.widget .widgetContent .widgetEditing .propertyPane {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  border: none;
+}
+/* line 373, UCommerce\Css\Speak\Widget.less */
+li.widget .widgetContent .widgetEditing .propertyPane .propertyItem .propertyItemHeader {
+  width: 25%;
+  max-width: 20000px;
+  float: left;
+  clear: none;
+  padding-top: 2px;
+}
+/* line 381, UCommerce\Css\Speak\Widget.less */
+li.widget .widgetContent .widgetEditing .propertyPane .propertyItem .propertyItemHeader span {
+  word-wrap: break-word;
+  word-break: break-all;
+}
+/* line 386, UCommerce\Css\Speak\Widget.less */
+li.widget .widgetContent .widgetEditing .propertyPane .propertyItem .propertyItemContent {
+  width: 75%;
+  vertical-align: middle;
+  float: none;
+  clear: none;
+  line-height: normal;
+  display: inline-block;
+  margin-left: 0;
+}
+/* line 396, UCommerce\Css\Speak\Widget.less */
+li.widget .resizableArea {
+  height: 100%;
+}
+/* line 400, UCommerce\Css\Speak\Widget.less */
+li.widget .textArea {
+  text-align: center;
+  display: inline-block;
+}
+/* line 405, UCommerce\Css\Speak\Widget.less */
+ul.dataList {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+/* line 410, UCommerce\Css\Speak\Widget.less */
+ul.dataList li {
+  font-size: 14px;
+  border-top: 1px solid #dbdbdb;
+  padding: 8px;
+  line-height: 20px;
+}
+/* line 417, UCommerce\Css\Speak\Widget.less */
+ul.dataList li:nth-child(even) {
+  background-color: white;
+}
+/* line 421, UCommerce\Css\Speak\Widget.less */
+ul.dataList li:nth-child(odd) {
+  background-color: #F5F5F5;
+}
+/* line 425, UCommerce\Css\Speak\Widget.less */
+ul.dataList li:last-child {
+  border-bottom: 1px solid #dbdbdb;
+}
+/* line 429, UCommerce\Css\Speak\Widget.less */
+ul.tags {
+  width: 100%;
+  height: auto;
+}
+/* line 434, UCommerce\Css\Speak\Widget.less */
+ul.tags li {
+  display: inline;
+  margin: 5px;
+  display: inline-block;
+  border: 1px solid #CAC9C9;
+  border-radius: 3px;
+  padding: 5px;
+  background-color: #F8F8F8;
+  cursor: pointer;
+}
+/* line 445, UCommerce\Css\Speak\Widget.less */
+ul.tags li span {
+  line-height: 18px;
+  vertical-align: top;
+  margin: 0 5px;
+}
+/* line 451, UCommerce\Css\Speak\Widget.less */
+.searchInput {
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+/* line 456, UCommerce\Css\Speak\Widget.less */
+.searchInput i {
+  color: #d9d9d9;
+  font-size: 14px;
+  padding: 7px 0px 0px 7px;
+  position: absolute;
+}
+/* line 463, UCommerce\Css\Speak\Widget.less */
+.searchInput input[type=text] {
+  border: none !important;
+  margin: 0;
+  width: 100%;
+  padding-left: 30px;
+}
+/* line 470, UCommerce\Css\Speak\Widget.less */
+.no-margin {
+  margin: 0 !important;
+}
+/* line 474, UCommerce\Css\Speak\Widget.less */
+.height100 {
+  height: 100% !important;
+}
+/* line 478, UCommerce\Css\Speak\Widget.less */
+.fixedHeader th span {
+  display: flex;
+  -ms-display: flex;
+  -webkit-display: flex;
+  white-space: nowrap;
+}
+/* line 485, UCommerce\Css\Speak\Widget.less */
+.fixedHeader tbody {
+  display: block;
+  overflow-x: hidden;
+}
+/* line 490, UCommerce\Css\Speak\Widget.less */
+.fixedHeader tr {
+  display: table;
+  width: 100%;
+}
+/* line 495, UCommerce\Css\Speak\Widget.less */
+.fixedHeader thead,
+.fixedHeader tbody {
+  display: block;
+  width: 100%;
+}
+/* line 500, UCommerce\Css\Speak\Widget.less */
+.fixedHeader i {
+  color: #CAC9C9;
+}
+/* line 504, UCommerce\Css\Speak\Widget.less */
+.fixedHeader i.checked {
+  color: black;
+}
+/* line 508, UCommerce\Css\Speak\Widget.less */
+.fixedHeader thead th span {
+  padding: 0;
+}
+/* line 512, UCommerce\Css\Speak\Widget.less */
+li.widget .vis.timeline.root {
+  border: 0;
+}
+/* line 516, UCommerce\Css\Speak\Widget.less */
+li.widget .propertyItem {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+/* line 521, UCommerce\Css\Speak\Widget.less */
+li.widget .propertyItemContent input[type="text"] {
+  width: 100% !important;
+}
+/* line 525, UCommerce\Css\Speak\Widget.less */
+.propertyItemContent select {
+  width: 100%;
+}
+/* line 529, UCommerce\Css\Speak\Widget.less */
+.fixedHeader thead tr {
+  cursor: pointer;
+}
+/* line 533, UCommerce\Css\Speak\Widget.less */
+.oneLineText {
+  display: block;
+  white-space: nowrap;
+  width: inherit;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+/* line 541, UCommerce\Css\Speak\Widget.less */
+.catalogSearch.catalogSearchResult li span.icon {
+  float: left;
+}
+/* line 548, UCommerce\Css\Speak\Widget.less */
+div.dataList {
+  height: 100%;
+  width: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+/* line 556, UCommerce\Css\Speak\Widget.less */
+div.dataList span {
+  font-size: 20px;
+}
+/* line 560, UCommerce\Css\Speak\Widget.less */
+div.dataList > div > div {
+  display: inline-block;
+  overflow: hidden;
+  height: 30px;
+}
+/* line 566, UCommerce\Css\Speak\Widget.less */
+div.dataList > div div:nth-child(1) {
+  width: 79%;
+}
+/* line 570, UCommerce\Css\Speak\Widget.less */
+div.dataList > div div:nth-child(2) {
+  width: 20%;
+  text-align: right;
+}
+/* line 575, UCommerce\Css\Speak\Widget.less */
+.no-padding {
+  padding: 0px !important;
+}
+/* line 579, UCommerce\Css\Speak\Widget.less */
+.vertical-centered {
+  height: 100%;
+  width: 100%;
+  display: table;
+}
+/* line 585, UCommerce\Css\Speak\Widget.less */
+.vertical-centered > div {
+  display: table-cell;
+  vertical-align: middle;
+}
+/* line 590, UCommerce\Css\Speak\Widget.less */
+.large-text {
+  font-size: 20px;
+}
+/* line 594, UCommerce\Css\Speak\Widget.less */
+.sm-padding {
+  padding: 5px;
+}
+/* line 598, UCommerce\Css\Speak\Widget.less */
+.widget .float-right {
+  float: right;
+}
+/* line 602, UCommerce\Css\Speak\Widget.less */
+.widgetHeader {
+  height: 46px;
+  background: white;
+}
+/* line 607, UCommerce\Css\Speak\Widget.less */
+.widgetHeader span {
+  width: 100%;
+  margin-right: -30px;
+  padding-right: 30px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+/* line 617, UCommerce\Css\Speak\Widget.less */
+.widgetContent .widgetViewContent {
+  overflow: auto;
+}
+/* line 621, UCommerce\Css\Speak\Widget.less */
+.marketingTimeLineWidget {
+  margin-top: -46px;
+  padding-top: 46px;
+}
+/* line 626, UCommerce\Css\Speak\Widget.less */
+div.catalogSearch.catalogSearchResult {
+  margin-top: -57px !important;
+  padding-top: 57px !important;
+}
+/* line 1, UCommerce\Css\Speak\orders.less */
+.orderShipment-even,
+.orderShipment-odd {
+  background: none !important;
+  padding: 0px !important;
+}
+/* line 6, UCommerce\Css\Speak\orders.less */
+.orderPayment-odd,
+.orderPayment-even {
+  padding: 0px !important;
+  background: none !important;
+}
+/* line 11, UCommerce\Css\Speak\orders.less */
+.orderPayment-odd .propertyPaneTitel {
+  margin-bottom: 15px;
+}
+/* line 15, UCommerce\Css\Speak\orders.less */
+.orderPayment-even .propertyPaneTitel {
+  margin-bottom: 15px;
+}
+/* line 19, UCommerce\Css\Speak\orders.less */
+table.editShipmentMethod th:after {
+  content: "" !important;
+}
+/* line 23, UCommerce\Css\Speak\orders.less */
+.orderShipment-even .propertyPaneTitel {
+  margin-bottom: 15px;
+}
+/* line 27, UCommerce\Css\Speak\orders.less */
+.orderShipment-odd .propertyPaneTitel {
+  margin-bottom: 15px;
+}
+/* line 31, UCommerce\Css\Speak\orders.less */
+.order-overview .propertyPaneTitel {
+  margin-bottom: 15px;
+}
+/* line 35, UCommerce\Css\Speak\orders.less */
+.propertyPane .propertyPaneTitel.orderLinesTitel {
+  margin-bottom: 0px;
+}
+/* line 39, UCommerce\Css\Speak\orders.less */
+.propertyPane .propertyPaneTitel.orderDiscountsTitel {
+  margin-bottom: 0px;
+}
+/* line 43, UCommerce\Css\Speak\orders.less */
+.customFilter {
+  display: flex;
+  -ms-display: flex;
+  -webkit-display: flex;
+}
+/* line 52, UCommerce\Css\Speak\orders.less */
+.customFilter .datePickerContainer {
+  flex: 0 0 240px;
+  -ms-flex: 0 0 240px;
+  -webkit-flex: 0 0 240px;
+}
+/* line 58, UCommerce\Css\Speak\orders.less */
+.customFilter .datePickerContainer:after {
+  left: -moz-calc(100% - 49px) !important;
+  left: -webkit-calc(100% - 49px) !important;
+  left: calc(100% - 49px) !important;
+}
+/* line 64, UCommerce\Css\Speak\orders.less */
+.orders-filter-panel {
+  display: flex;
+  -ms-display: flex;
+  -webkit-display: flex;
+}
+/* line 70, UCommerce\Css\Speak\orders.less */
+.orders-filter-panel select {
+  flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  -webkit-flex: 0 0 auto;
+  height: 30px;
+}
+/* line 77, UCommerce\Css\Speak\orders.less */
+.orders-filter-panel .customFilter {
+  margin-bottom: 0px;
+}
+/* line 81, UCommerce\Css\Speak\orders.less */
+.orders-filter-panel .customFilter .datePickerContainer {
+  height: 35px;
+}
+/* line 85, UCommerce\Css\Speak\orders.less */
+.discountList .imageButton {
+  width: 15px;
+  border-left: none;
+}
+/* line 90, UCommerce\Css\Speak\orders.less */
+.discountList td.imageButton:first-child {
+  border-right: none;
+}
+/* line 94, UCommerce\Css\Speak\orders.less */
+.discountList.dataList thead tr th:nth-child(2) span:before {
+  height: 0px;
+}
+/* line 1, UCommerce\Css\Speak\dialogs.less */
+.boxbody {
+  display: flex;
+  -ms-display: flex;
+  -webkit-display: flex;
+  flex-direction: column;
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
+}
+/* line 9, UCommerce\Css\Speak\dialogs.less */
+.boxbody .dialog-header {
+  flex: 0 0 68px;
+  -ms-flex: 0 0 38px;
+  -webkit-flex: 0 0 68px;
+}
+/* line 15, UCommerce\Css\Speak\dialogs.less */
+.boxbody .dialog-header h3 {
+  text-transform: uppercase;
+}
+/* line 19, UCommerce\Css\Speak\dialogs.less */
+.boxbody .propertyPane.contentPane {
+  flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  -webkit-flex: 1 1 auto;
+  padding: 0px;
+  margin: 0px;
+  height: auto;
+  overflow-y: auto;
+  min-height: 1px;
+}
+/* line 30, UCommerce\Css\Speak\dialogs.less */
+.boxbody .propertyPane.contentPaneOne {
+  margin: 0 !important;
+  padding: 0 !important;
+  height: auto;
+  flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  -webkit-flex: 1 1 auto;
+  min-height: 1px;
+  overflow-y: auto;
+}
+/* line 41, UCommerce\Css\Speak\dialogs.less */
+.boxbody .propertyPane.contentPaneOne.addOrderContent {
+  overflow-y: hidden;
+}
+/* line 45, UCommerce\Css\Speak\dialogs.less */
+.boxbody .dialog-actions {
+  flex: 0 0 56px;
+  -ms-flex: 0 0 38px;
+  -webkit-flex: 0 0 56px;
+}
+/* line 51, UCommerce\Css\Speak\dialogs.less */
+a.modal-close {
+  background: url("/sitecore/shell/client/Speak/Assets/img/Speak/DialogWindow/close_button_sprite.png") no-repeat 0 0;
+  height: 16px;
+  width: 16px;
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  margin-top: -8px;
+  opacity: 1;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+/* line 64, UCommerce\Css\Speak\dialogs.less */
+.modalTabView a.modal-close {
+  z-index: 10;
+  top: 34px;
+}
+/* line 69, UCommerce\Css\Speak\dialogs.less */
+a.modal-close:hover {
+  background-position: 0 -16px;
+}
+/* line 73, UCommerce\Css\Speak\dialogs.less */
+a.modal-close:before {
+  pointer-events: none;
+  content: "";
+  display: block;
+  float: left;
+  width: 0;
+  border-left: 1px solid #969696;
+  position: absolute;
+  height: 18px;
+  right: 31px;
+  top: -1px;
+}
+/* line 86, UCommerce\Css\Speak\dialogs.less */
+.modalTabView #back-button {
+  display: none !important;
+}
+/* line 90, UCommerce\Css\Speak\dialogs.less */
+.modalTabView .sectionGroupHeader::after {
+  content: "";
+  display: none;
+}
+/* line 95, UCommerce\Css\Speak\dialogs.less */
+.modalTabView #sectionGroup div.sectionGroupHeader {
+  flex: 0 0 68px;
+  -ms-flex: 0 0 68px;
+  -webkit-flex: 0 0 68px;
+  padding: 16px 0 15px 15px !important;
+}
+/* line 102, UCommerce\Css\Speak\dialogs.less */
+.modalTabView #sectionGroup div.sectionGroupHeader #uc-headline {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: normal;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+}
+/* line 112, UCommerce\Css\Speak\dialogs.less */
+.modalTabView #sectionGroup .section .scrollable,
+.modalTabView #sectionGroup .section .scrollable {
+  background-color: #F0F0F0;
+}
+/* line 116, UCommerce\Css\Speak\dialogs.less */
+.modalTabView #sectionGroup .section {
+  margin-bottom: 57px;
+}
+/* line 120, UCommerce\Css\Speak\dialogs.less */
+.modalTabView .button-modal-close.dialog-cancelButton {
+  position: absolute;
+  bottom: 9px;
+  right: 15px;
+  z-index: 10;
+  max-width: 80px;
+  overflow: hidden;
+}
+/* line 129, UCommerce\Css\Speak\dialogs.less */
+.modalTabView label.save-button-label {
+  top: initial;
+  bottom: 9px;
+  right: 99px;
+}
+/* line 135, UCommerce\Css\Speak\dialogs.less */
+.modal.fade {
+  top: 10% !important;
+}
+/* line 139, UCommerce\Css\Speak\dialogs.less */
+.propertyPane.contentPane.create-product-relation {
+  overflow: hidden;
+}
+/* line 143, UCommerce\Css\Speak\dialogs.less */
+.create-product-relation .propertyItems {
+  overflow: hidden;
+}
+/* line 147, UCommerce\Css\Speak\dialogs.less */
+.create-product-relation .propertyItems .multipicker-container .contentTree.multiPicker .multiPickerAction > div {
+  height: 138px;
+}
+/* line 151, UCommerce\Css\Speak\dialogs.less */
+.add-product-on-order .propertyItems .multipicker-container .contentTree.multiPicker .multiPickerAction > div {
+  height: 215px;
+}
+/* line 155, UCommerce\Css\Speak\dialogs.less */
+.footerOkCancel {
+  margin-top: 0px;
+}
+/* line 159, UCommerce\Css\Speak\dialogs.less */
+.imagePicker .imagePickerContainer.propertyPane {
+  height: 100% !important;
+  box-sizing: border-box;
+  flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  -webkit-flex: 1 1 auto;
+  overflow: hidden;
+}
+/* line 168, UCommerce\Css\Speak\dialogs.less */
+.boxbody .contentPaneTwo {
+  margin: 0;
+  padding: 15px;
+}
+/* line 173, UCommerce\Css\Speak\dialogs.less */
+.boxbody .dialog-actions.dialog-actions {
+  flex: 0 0 56px;
+  -ms-flex: 0 0 38px;
+  -webkit-flex: 0 0 56px;
+  box-sizing: border-box;
+}
+/* line 180, UCommerce\Css\Speak\dialogs.less */
+div.voucher td fieldset {
+  border: 1px solid #e3e3e3;
+}
+/* line 184, UCommerce\Css\Speak\dialogs.less */
+div.voucher td.voucherBottomRow fieldset {
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+}
+/* line 192, UCommerce\Css\Speak\dialogs.less */
+div.voucher .voucherBottomRow fieldset div {
+  height: 100% !important;
+}
+/* line 196, UCommerce\Css\Speak\dialogs.less */
+div.voucher .voucherBottomRow .dataList tbody tr td {
+  border-bottom: 0;
+}
+/* line 200, UCommerce\Css\Speak\dialogs.less */
+.propertyPane div.voucher .voucherBottomRow table.dataList {
+  width: 100% !important;
+  margin-left: 0;
+  margin-bottom: 0;
+}
+/* line 206, UCommerce\Css\Speak\dialogs.less */
+#editor .boxbody .propertyPane.contentPane {
+  height: 100%;
+}
+/* line 210, UCommerce\Css\Speak\dialogs.less */
+#editor .boxbody .propertyPane .propertyPaneFooter {
+  height: 0;
+}
+/* line 214, UCommerce\Css\Speak\dialogs.less */
+#editor .boxbody .propertyItems {
+  padding: 0;
+}
+/* line 218, UCommerce\Css\Speak\dialogs.less */
+.boxbody .imagePicker .imagePickerContainer .imagePickerContainerBody {
+  width: 100% !important;
+}
+/* line 222, UCommerce\Css\Speak\dialogs.less */
+.imagePicker .imagePickerContainer .imagePickerContainerBody .imagePickerContainerTreeContainer {
+  width: 40% !important;
+  padding: 0;
+}
+/* line 227, UCommerce\Css\Speak\dialogs.less */
+.imagePicker .imagePickerContainer .imagePickerContainerBody .imagePickerContainerPreview {
+  width: 60%;
+  position: relative;
+  box-sizing: border-box;
+}
+/* line 233, UCommerce\Css\Speak\dialogs.less */
+.imagePicker .imagePickerContainer .imagePickerContainerBody .imagePickerContainerPreview #selectedImagePreview {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: calc(100% - 15px);
+  position: absolute;
+  padding-left: 15px;
+}
+/* line 242, UCommerce\Css\Speak\dialogs.less */
+#editor .boxbody .propertyPane .propertyContainer {
+  padding: 15px;
+}
+/* line 246, UCommerce\Css\Speak\dialogs.less */
+.multiPickerContainer-CreateProductRelation {
+  padding: 0;
+  margin: 0;
+  height: initial;
+}
+/* line 252, UCommerce\Css\Speak\dialogs.less */
+.TreeViewWrapper table tbody tr td a:hover {
+  text-decoration: none;
+}
+/* line 256, UCommerce\Css\Speak\dialogs.less */
+.TreeViewWrapper table tbody tr td a {
+  color: black;
+}
+/* line 260, UCommerce\Css\Speak\dialogs.less */
+#ContentArea_CategorySelector td span .notSelectable,
+#ContentArea_CategorySelector td span .treeNodeName {
+  opacity: 0.5;
+}
+/* line 1, UCommerce\Css\Speak\products.less */
+.propertyPane .propertyPane.pricing {
+  margin: 0;
+  padding-top: 0;
+}
+/* line 6, UCommerce\Css\Speak\products.less */
+.propertyPane .propertyPane.pricing .propertyPaneTitel {
+  display: none;
+}
+/* line 10, UCommerce\Css\Speak\products.less */
+.propertyPane.leftAligned.categoriesForProducts {
+  overflow: hidden;
+}
+/* line 14, UCommerce\Css\Speak\products.less */
+.propertyPane.leftAligned.categoriesForProducts {
+  min-height: 25%;
+  height: auto;
+}
+/* line 18, UCommerce\Css\Speak\products.less */
+.multiPicker .selectedNodes,
+.multiPicker .multiPickerTree {
+  padding: 10px 5px 10px 10px;
+  min-height: 61px;
+}
+/* line 23, UCommerce\Css\Speak\products.less */
+.categoriesForProducts .multiPickerTree,
+.categoriesForProducts .selectedNodes {
+  min-height: 200px;
+}
+/* line 1, UCommerce\Css\Speak\Stores.less */
+.pending-reviews h3.view-product-name:nth-child(1) {
+  border-left: 5px solid #DC271E;
+  padding-right: 25px;
+  background-color: #474747;
+  color: white;
+  font-size: 15px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 10px;
+  display: block;
+  margin: -8px;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+/* line 16, UCommerce\Css\Speak\Stores.less */
+.propertyPane .pending-reviews {
+  margin: 0;
+  border: none;
+}
+/* line 1, UCommerce\Css\Speak\marketing.less */
+.targetAwardContainer .priceGroupDropDown {
+  width: 100%;
+}
+/* line 5, UCommerce\Css\Speak\marketing.less */
+.editDiscountSpecificOrderline input.AmountTextBox {
+  width: 50px;
+  margin-bottom: 5px !important;
+}
+/* line 10, UCommerce\Css\Speak\marketing.less */
+.targetAwardContainer td span {
+  display: inline-block;
+}

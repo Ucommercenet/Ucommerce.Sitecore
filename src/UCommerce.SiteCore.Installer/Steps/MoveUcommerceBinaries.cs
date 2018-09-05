@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Sitecore.Install.Framework;
 
 namespace UCommerce.Sitecore.Installer.Steps
@@ -13,7 +9,7 @@ namespace UCommerce.Sitecore.Installer.Steps
         public void Run(ITaskOutput output, NameValueCollection metaData)
         {
             var _postInstallationSteps = new List<IPostStep>();
-            
+
             // Move the Commerce Connect dependend files to the Commerce Connect app location.
             // Therefor any older version located in the bin folder needs to be removed.
             _postInstallationSteps.Add(new DeleteFile("~/bin/UCommerce.Sitecore.CommerceConnect.dll"));
@@ -45,6 +41,11 @@ namespace UCommerce.Sitecore.Installer.Steps
                 backupTarget: false));
 
             _postInstallationSteps.Add(new MoveFile(
+                "~/bin/ucommerce/UCommerce.SystemWeb.dll",
+                "~/bin/UCommerce.SystemWeb.dll",
+                backupTarget: false));
+
+            _postInstallationSteps.Add(new MoveFile(
                 "~/bin/ucommerce/UCommerce.Web.Shell.dll",
                 "~/bin/UCommerce.Web.Shell.dll",
                 backupTarget: false));
@@ -67,11 +68,6 @@ namespace UCommerce.Sitecore.Installer.Steps
             _postInstallationSteps.Add(new MoveFile(
                 "~/bin/ucommerce/UCommerce.Presentation.dll",
                 "~/bin/UCommerce.Presentation.dll",
-                backupTarget: false));
-
-            _postInstallationSteps.Add(new MoveFile(
-                "~/bin/ucommerce/UCommerce.Transactions.Payments.dll",
-                "~/bin/UCommerce.Transactions.Payments.dll",
                 backupTarget: false));
 
             _postInstallationSteps.Add(new CopyFile(

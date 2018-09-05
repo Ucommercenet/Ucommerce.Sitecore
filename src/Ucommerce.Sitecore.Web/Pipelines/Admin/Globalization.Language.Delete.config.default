@@ -1,0 +1,17 @@
+﻿<configuration>
+	<components>
+		<!-- Pipeline Instance -->
+		<component id="DeleteLanguage"
+				   service="UCommerce.Pipelines.IPipeline`1[[UCommerce.Infrastructure.Globalization.Language, UCommerce.Infrastructure]], UCommerce"
+				   type="UCommerce.Pipelines.Globalization.LanguagePipeline, UCommerce.Pipelines">
+			<parameters>
+				<tasks>
+					<array>
+						<value>${Sitecore.Language.Save}</value>
+					</array>
+				</tasks>
+			</parameters>
+		</component>
+
+	</components>
+</configuration>

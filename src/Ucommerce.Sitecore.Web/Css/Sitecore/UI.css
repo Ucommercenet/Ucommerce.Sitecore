@@ -1,0 +1,1927 @@
+html {
+	height: 100%;
+}
+/*SITECORE TRANSPARENT LOOK AND FEEL*/
+.modalTabView .ui-tabs-nav.ui-helper-reset.ui-helper-clearfix.ui-widget-header.ui-corner-all {
+	background: #4E4E4E url(/sitecore/shell/themes/standard/gradients/gray1.gif) 50% 0 repeat-y !important;
+	background-color: #4E4E4E !important;
+}
+
+body {
+	font-family: tahoma !important;
+	font-size: 12px;
+	font-weight: normal;
+	margin: 0px;
+	height: 100%;
+}
+
+	body * {
+		outline: none;
+	}
+
+/* Content picker style including dialog and tree style. */
+.imagePicker span {
+	display: block;
+}
+
+.imagePicker .imagePickerContainer .imagePickerContainerBody div {
+	vertical-align: top;
+}
+.multiPickerTree.false {
+	width: 100%!important;
+}
+
+.imagePicker .imagePickerContainer {
+	background: #f0f1f2;
+	height: 100%;
+}
+
+	.imagePicker .imagePickerContainer .imagePickerContainerRibbon {
+		background: #e0eced url("/sitecore/shell/themes/standard/images/RibbonToolbarStrip.png") repeat-x;
+		height: 33px;
+		border-bottom: 1px solid #BABABA;
+	}
+
+	.imagePicker .imagePickerContainer .imagePickerContainerHeader {
+		padding: 1px;
+		height: 20px;
+		background: #4E4E4E url(/sitecore/shell/themes/standard/gradients/gray1.gif) 50% 0 repeat-y;
+	}
+
+		.imagePicker .imagePickerContainer .imagePickerContainerHeader .imagePickerContainerClose {
+			float: right;
+			height: 13px;
+			width: 38px;
+			background: url(/sitecore/shell/themes/standard/Images/Window%20Management/Close_red.png);
+		}
+
+	.imagePicker .imagePickerContainer .imagePickerContainerRibbon .imagePickerContainerSave {
+		width: 24px;
+		height: 24px;
+		display: inline-block;
+		background: url("/sitecore%20modules/Shell/ucommerce/images/save.gif");
+		background-repeat: no-repeat;
+		background-size: 20px;
+		margin: 7px;
+		cursor: pointer;
+	}
+
+.imagePicker span p {
+	cursor: pointer;
+	margin-right: 10px;
+	display: inline;
+	text-decoration: underline;
+}
+
+	.imagePicker span p.choosePicture {
+		color: black;
+	}
+
+	.imagePicker span p.removePicture {
+		color: red;
+	}
+
+.imagePicker img#selectedImage {
+  max-width: 350px;
+  max-height: 350px;
+}
+
+.imagePreview {
+	max-height: 350px;
+	max-width: 300px;
+}
+
+.imagePicker .imagePickerContainer .imagePickerContainerBody {
+    display: inline-block;
+    height: 100%;
+    width: 67%;
+    vertical-align: top;
+}
+
+.imagePicker .preselectedValues.multiPicker {
+    width: 28%;
+    display: inline-block;
+}
+.imagePicker .preselectedValues.multiPicker .selectedNodes {
+    width: 100%;
+} 
+.imagePicker .imagePickerContainer .imagePickerContainerBody .imagePickerContainerTreeContainer {
+	overflow: auto;
+	display: inline-block;
+	width: 55%;
+	height: 95%;
+}
+
+.imagePicker .imagePickerContainer .imagePickerContainerBody .imagePickerContainerPreview {
+	display: inline-block;
+	width: 44%;
+	height: 100%;
+}
+
+.imagePicker .imagePickerContainer.propertyPane {
+	height: 350px !important;
+}
+
+
+/*CREATE DIALOG */
+.dialog-head {
+	background: url("../images/panel_boxhead_bg.gif") no-repeat scroll left top transparent;
+	height: 19px;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.createDescription {
+	padding: 25px 0 0 0;
+	height: 170px;
+}
+
+	.createDescription img {
+		height: 128px;
+		float: left;
+		margin: 0 10px 10px 0;
+	}
+
+.bigInput {
+	font-size: 1.8em;
+	width: 400px;
+}
+
+select.bigInput {
+	width: 404px;
+}
+
+.bigInput label {
+	font-size: 1.8em;
+}
+
+a {
+	color: #1541a9;
+}
+
+	a:hover {
+		text-decoration: underline;
+	}
+
+img {
+	border: none;
+}
+
+div .sorterContainer #sectionGroup {
+	overflow-y: auto;
+}
+
+.feedbackCreate {
+	margin: 5px;
+	padding: 5px 5px 3px 36px;
+	background: url(../images/okLayerBackground.gif);
+	display: block;
+	font-size: 12px;
+	font-weight: bold;
+	color: White;
+}
+
+.feedbackDelete {
+	margin: 5px;
+	padding: 5px 5px 3px 36px;
+	background: url(../images/errorLayerBackground.gif);
+	display: block;
+	font-size: 12px;
+	font-weight: bold;
+	color: White;
+}
+
+.loginHeader {
+	width: 242px;
+	height: 24px;
+	background-image: url(../images/loginHeader.gif);
+	font-size: medium;
+	font-weight: bold;
+	color: #666;
+}
+
+.nolink {
+	text-decoration: none;
+	color: Black;
+}
+
+.clickImg {
+	border: none;
+}
+
+h3 {
+	padding: 0px;
+	margin-left: 0px;
+	margin-bottom: -5px;
+	margin-top: 10px;
+}
+
+/* deprecated down */
+.propertyuicontrols .Pane, .propertyPane {
+	background-color: #f0f1f2;
+	border-color: #BABABA;
+	border-style: solid;
+	border-width: 0 0 1px 0;
+	margin: 0 0 0 0;
+	display: block;
+	padding: 10px;
+}
+
+tr.propertyHeader td, td.propertyHeader {
+	font-weight: bold;
+	vertical-align: top;
+	padding: 7px;
+	/* border-bottom: 1px solid #DBDBDF; */
+}
+
+tr.propertyContent td, td.propertyContent {
+	vertical-align: top;
+	padding: 7px;
+	/*	border-bottom: 1px solid #DBDBDF; */
+}
+/* deprecated up */
+
+div.propertyDiv {
+	border: 1px solid #BABABA;
+	background-image: url(../images/PropertyPane/propertyBackground.gif);
+	display: block;
+	padding: 7px;
+	margin-bottom: 10px;
+}
+
+.guiDialogHeader {
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.guiDialogMedium {
+	font-size: 14px;
+	font-weight: bold;
+	padding: 10px;
+}
+
+td, .guiDialogNormal {
+	font-size: 12px;
+	font-weight: normal;
+}
+
+th {
+	font-size: 12px;
+	font-weight: bold;
+	text-align: left;
+	vertical-align: top;
+}
+
+.guiDialogDisabled {
+	font-size: 12px;
+	font-weight: normal;
+	color: #CCCCCC;
+}
+
+.guiDialogForm {
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.guiDialogTiny {
+	font-size: 10px !Important;
+	color: #A8A8A3;
+}
+
+.guiDialogTinyMark {
+	font-size: 10px !Important;
+	color: #606057;
+}
+
+.guiDialogTinyTop {
+	font-size: 10px;
+	font-weight: bold;
+	color: #378080;
+}
+
+.guiInputCode, .codepress {
+	font-family: Consolas, courier;
+	line-height: 1.6em;
+	font-size: 1em;
+	background: #F6F6F9;
+	border: 1px solid #CCCCCC;
+	margin: 0px !Important;
+}
+
+.umbEditorTextField {
+	width: 400px;
+	font-size: 12px;
+}
+
+.umbEditorTextFieldMultiple {
+	width: 400px;
+	height: 150px;
+	font-size: 12px;
+}
+
+.guiDialogBox {
+	background-color: #e0eced;
+	border: 1px dotted #3399CC;
+}
+
+.guiInputText {
+	font-size: 12px;
+	color: #333333;
+	padding: 2px 2px 2px 2px;
+}
+
+.guiInputTextStandard {
+	font-size: 12px;
+	width: 70%;
+	color: #333333;
+	padding: 2px 2px 2px 2px;
+}
+
+.guiInputMediumSize {
+	width: 70%;
+}
+
+.guiInputLargeSize {
+	width: 90%;
+}
+
+.guiInputStandardSize {
+	width: 250px;
+}
+
+.guiInputDisabled {
+	font-size: 12px;
+	color: #999999;
+	border: 0px solid;
+	padding: 4px 4px 4px 4px;
+}
+
+.guiInputTextTiny, input, select {
+	font-size: 11px;
+	color: #333333;
+}
+
+.guiInputButton {
+	font-size: 10px;
+	color: #333333;
+	font-weight: bolder;
+}
+
+.umbracoEditorBagground {
+	background-color: white;
+}
+
+.editorArrowOver {
+	cursor: hand;
+	background-color: #DEDFFD;
+}
+
+.editorIconDisabled {
+	Filter: Alpha(Opacity=30);
+}
+
+.editorDropDown {
+	font-family: verdana, arial;
+	font-size: 10px;
+	width: 80px;
+	color: #666699;
+}
+
+.mceToolbarExternal {
+	position: absolute;
+	z-index: 100;
+	top: -2px;
+	left: 90px;
+}
+
+.guiTab {
+	padding: 3px 0px 0px 0px;
+	font-size: 10px;
+}
+
+.guiLine {
+	background-color: #A2A2A0;
+}
+
+.guiLineSelected {
+	background-color: #F5F5F5;
+}
+
+guiEditor {
+	background-color: #FFFFFF;
+	width: 100%;
+	height: 100%;
+}
+
+.datePicker {
+	border: 1px solid WindowText;
+	background: Window;
+	width: 170px;
+	padding: 0px;
+	cursor: default;
+	-moz-user-focus: normal;
+}
+
+
+	.datePicker td {
+		font: smallcaption;
+		font: small-caption;
+		text-align: center;
+		color: WindowText;
+		cursor: default;
+		font-weight: normal !important;
+		-moz-user-select: none;
+		padding: 0;
+	}
+
+		.datePicker td.red {
+			color: red;
+		}
+
+	.datePicker .header {
+		background: ActiveCaption;
+		padding: 3px;
+		border-bottom: 1px solid WindowText;
+	}
+
+	.datePicker .headerTable {
+		width: 100%;
+	}
+
+	.datePicker .footer {
+		padding: 3px;
+	}
+
+	.datePicker .footerTable {
+		width: 100%;
+	}
+
+	.datePicker .grid {
+		padding: 3px;
+	}
+
+	.datePicker .gridTable {
+		width: 100%;
+	}
+
+		.datePicker .gridTable td {
+			width: 14.3%;
+		}
+
+		.datePicker .gridTable .daysRow td {
+			font-weight: bold !important;
+			border-bottom: 1px solid ThreeDDarkShadow;
+		}
+
+	.datePicker .grid .gridTable .upperLine {
+		width: 100%;
+		height: 2px;
+		overflow: hidden;
+		background: transparent;
+	}
+
+	.datePicker td.today {
+		font-weight: bold !important;
+	}
+
+	.datePicker td.selected {
+		background: Highlight;
+		color: HighlightText !important;
+	}
+
+	.datePicker td.labelContainer {
+		width: 100%;
+	}
+
+	.datePicker td .topLabel {
+		color: CaptionText;
+		display: block;
+		font-weight: bold !important;
+		width: 100%;
+		text-decoration: none;
+	}
+
+	.datePicker td.filler {
+		width: 100%;
+	}
+
+	.datePicker button {
+		border-width: 1px;
+		font: Caption;
+		font-weight: normal !important;
+		display: block;
+	}
+
+	.datePicker .previousButton {
+		background: buttonface url("../images/arrow.left.png") no-repeat center center;
+	}
+
+	.datePicker .nextButton {
+		background: buttonface url("../images/arrow.right.png") no-repeat center center;
+	}
+
+	.datePicker .previousButton,
+	.datePicker .nextButton {
+		width: 14px;
+		height: 14px;
+	}
+
+	.datePicker .todayButton,
+	.datePicker .noneButton {
+		width: 50px;
+	}
+
+	.datePicker .labelPopup {
+		position: absolute;
+		min-width: 130px;
+		background: Window;
+		border: 1px solid WindowText;
+		padding: 1px;
+	}
+
+		.datePicker .labelPopup a {
+			width: 100%;
+			display: block;
+			color: WindowText;
+			text-decoration: none;
+			white-space: nowrap;
+		}
+
+			.datePicker .labelPopup a:hover {
+				background: Highlight;
+				color: HighlightText;
+			}
+
+			.datePicker .labelPopup a.selected {
+				font-weight: bold;
+			}
+
+.umbMacroHolder {
+	margin: 5px;
+	padding: 5px;
+	border: 2px dotted orange;
+	display: inline;
+}
+
+.umbTagElement {
+	float: left;
+	margin-left: 10px;
+	padding: 0;
+}
+
+.umbTagDelete {
+	color: Red;
+}
+
+.umbTagContainer {
+	width: 300px;
+	margin: 5px 0;
+	display: block;
+}
+
+.umbIconDropdownList option.spriteBackground {
+	background-repeat: no-repeat;
+	padding: 1px;
+	padding-left: 25px;
+	margin-left: 2px;
+	display: block !important;
+}
+
+.umbIconDropdownList option.deprecatedImage {
+	background-repeat: no-repeat;
+	background-position: 4px 1px;
+	padding: 1px;
+	padding-left: 25px;
+}
+
+#auditTrailList span {
+	margin-left: 22px;
+}
+
+.umbNitroList input {
+	float: left;
+	display: block;
+}
+
+.umbNitroList tr td {
+	border-bottom: 1px solid #ccc;
+	padding: 10px;
+}
+
+.umbNitroList div {
+	float: left;
+	padding-left: 15px;
+	display: block;
+	width: 550px;
+}
+
+	.umbNitroList div h3 {
+		margin: 0px;
+	}
+
+/* Generel error / success / notice classes, as seen in the umbraco installer. */
+.error, .notice, .success {
+	padding: .8em;
+	padding-top: 0em;
+	padding-bottom: 0em;
+	margin-bottom: .5em;
+	border: 2px solid #ddd;
+}
+
+.error {
+	background: #FBE3E4;
+	color: #8a1f11;
+	border-color: #FBC2C4;
+}
+
+.notice {
+	background: #FFF6BF;
+	color: #514721;
+	border-color: #FFD324;
+}
+
+.success {
+	background: #E6EFC2;
+	color: #264409;
+	border-color: #C6D880;
+}
+
+.error a {
+	color: #8a1f11;
+}
+
+.notice a {
+	color: #514721;
+}
+
+.success a {
+	color: #264409;
+}
+
+.sprTree {
+	/*background-color: #fff;*/
+	background-image: url(../images/sprites.png);
+	display: inline;
+	padding-bottom: 2px;
+}
+
+	.sprTree img {
+		width: 16px;
+		height: 18px;
+		padding-right: 7px;
+	}
+
+.treeContainer {
+	padding: 5px;
+	background-color: White;
+}
+
+/* DASHBOARD */
+
+.dashboardWrapper {
+	padding: 5px 5px 5px 5px;
+	overflow: hidden;
+	color: #333;
+}
+
+	.dashboardWrapper p {
+		font-size: 1.1em;
+		margin-top: 0;
+	}
+
+	.dashboardWrapper h2 {
+		margin-top: 0;
+		padding-bottom: 10px;
+		border-bottom: 1px solid #ccc;
+		padding-left: 37px;
+		line-height: 32px;
+	}
+
+	.dashboardWrapper h3 {
+		margin-bottom: 10px;
+	}
+
+.dashboardIcon {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}
+
+.dashboardColWrapper {
+	position: relative;
+	overflow: hidden;
+}
+
+	.dashboardColWrapper h3 {
+		margin-bottom: 0;
+	}
+
+	.dashboardColWrapper ul {
+		margin-left: 1.5em;
+		margin-right: 1.5em;
+		padding: 0;
+		list-style-image: url(/umbraco/images/listitemorange.gif);
+	}
+
+	.dashboardColWrapper li {
+		line-height: 1.2em;
+		font-size: 1.1em;
+		padding-bottom: .5em;
+	}
+
+.dashboardCol {
+	position: relative;
+	padding: 10px 1%;
+	background: url(../images/PropertyPane/propertyBackground.gif) repeat-x scroll center top #FFFFFF;
+}
+
+.third {
+	width: 30.33%;
+	float: left;
+	margin-right: 1%;
+}
+
+.dashboardCols .last {
+	margin-right: 0;
+}
+
+.dashboardCols h3 {
+	margin-top: 0;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #ccc;
+}
+
+.dashboardHideLink {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	text-decoration: none;
+	color: #666;
+	border: none;
+	font-size: .9em;
+	font-weight: bold;
+	padding: 5px;
+	margin: 0;
+	border-radius: 3px;
+	border: 1px solid #ccc;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	background-color: #ddd;
+	background: -moz-linear-gradient(100% 100% 90deg, #ddd, #fefefe);
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fefefe), to(#ddd));
+}
+
+	.dashboardHideLink:hover {
+		text-decoration: none;
+		background-color: #fefefe;
+		background: -moz-linear-gradient(100% 100% 90deg, #fefefe, #ddd);
+		background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ddd), to(#fefefe));
+		cursor: pointer;
+	}
+
+.tinymceMenuBar table {
+	margin: 1px 0 0 6px;
+	_margin-top: 2px;
+}
+
+.editorIcon {
+	height: 19px;
+	margin: 0px;
+	padding: 3px;
+	width: 18px;
+}
+
+.editorIconOver {
+	background-image: url("../../images/MenuIcon/buttonbg.gif");
+	border: 1px solid #CAC9C9 !Important;
+	cursor: hand;
+	height: 19px;
+	margin: 0px;
+	padding: 2px;
+	width: 18px;
+}
+
+.editorIconDown {
+	background-image: url("../../images/MenuIcon/buttonbg.gif");
+	border: 1px solid #CAC9C9 !Important;
+	cursor: hand;
+	height: 19px;
+	margin: 0px;
+	padding: 2px;
+	width: 18px;
+}
+
+.editorIconDisabled {
+	/*
+	IE ONLY !!!
+	*/
+	Filter: Alpha(Opacity=30);
+}
+
+.menubar .save-button-wrapper, .menubar .secondary-button-wrapper { 
+    display: inline;
+}
+
+.menubar label.save-button-label, .menubar label.secondary-button-label {
+	display: none;
+}
+
+.editorDropDown {
+	font-family: verdana, arial;
+	font-size: 10px;
+	width: 80px;
+	color: #666699;
+}
+
+.TreeViewWrapper {
+	margin: 10px;
+}
+
+.sectionGroupHeader {
+	padding-left: 12px;
+	background-color: rgba(255,255,255,0);
+}
+
+.uc-headline {
+	border: 0;
+	margin: 0;
+	padding: 0;
+	color: white;
+}
+
+#uc-headline {
+	font-size: 26px;
+	font-weight: bold;
+	font-family: tahoma;
+	border: 1px solid transparent;
+	background: transparent;
+	width: 50%;
+}
+
+	#uc-headline.editable:hover {
+		background: -moz-linear-gradient(top, rgba(252,234,187,0.7) 0%, rgba(252,233,183,0.8) 1%, rgba(248,181,0,0.75) 50%, rgba(248,181,0,0.75) 51%, rgba(251,223,147,0.7) 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,234,187,0.7)), color-stop(1%,rgba(252,233,183,0.8)), color-stop(50%,rgba(248,181,0,0.75)), color-stop(51%,rgba(248,181,0,0.75)), color-stop(100%,rgba(251,223,147,0.7))); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top, rgba(252,234,187,0.7) 0%,rgba(252,233,183,0.8) 1%,rgba(248,181,0,0.75) 50%,rgba(248,181,0,0.75) 51%,rgba(251,223,147,0.7) 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top, rgba(252,234,187,0.7) 0%,rgba(252,233,183,0.8) 1%,rgba(248,181,0,0.75) 50%,rgba(248,181,0,0.75) 51%,rgba(251,223,147,0.7) 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top, rgba(252,234,187,0.7) 0%,rgba(252,233,183,0.8) 1%,rgba(248,181,0,0.75) 50%,rgba(248,181,0,0.75) 51%,rgba(251,223,147,0.7) 100%); /* IE10+ */
+		background: linear-gradient(to bottom, rgba(252,234,187,0.7) 0%,rgba(252,233,183,0.8) 1%,rgba(248,181,0,0.75) 50%,rgba(248,181,0,0.75) 51%,rgba(251,223,147,0.7) 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3fceabb', endColorstr='#b3fbdf93',GradientType=0 ); /* IE6-9 */
+	}
+
+.CatalogItemsListBox, .SelectedCatalogItemListBox {
+	width: 250px;
+	height: 100%;
+	min-height: 230px;
+}
+
+table.CatalogItemSelectorTable {
+	width: 100%;
+	height: 100%;
+}
+
+.contentTree ul {
+	padding: 0px;
+	padding-left: 17px;
+	margin: 0px;
+}
+
+	.contentTree ul li {
+		margin-top: 5px;
+	}
+
+.contentTree .treeItemExpandContainer {
+	position: relative;
+	left: -16px;
+	height: 0px;
+}
+
+	.contentTree .treeItemExpandContainer .treeItemExpand {
+		cursor: pointer;
+	}
+
+	.contentTree .treeItemExpandContainer a span {
+		width: 15px;
+		height: 15px;
+		display: inline-block;
+	}
+
+	.contentTree .treeItemExpandContainer a.treeItemOpen span {
+		background-image: url("/sitecore modules/shell/ucommerce/css/images/collapse.gif");
+	}
+
+	.contentTree .treeItemExpandContainer a.treeItemClosed span {
+		background-image: url("/sitecore modules/shell/ucommerce/css/images/expand.gif");
+	}
+
+.contentTree .treeNodeIcon {
+	width: auto;
+	display: table;
+	cursor: pointer;
+	height: 16px;
+	background-repeat: no-repeat;
+	padding-left: 20px;
+	background-size: 16px;
+}
+
+	.contentTree .treeNodeIcon input[type=checkbox] {
+		display: table-cell;
+	}
+
+	.contentTree .treeNodeIcon .nodeName {
+		width: auto;
+		display: table-cell;
+		font-size: 12px;
+		font-family: Arial,Lucida Grande;
+		vertical-align: bottom;
+	}
+
+	.contentTree .treeNodeIcon span {
+		white-space: nowrap;
+		line-height: 17px;
+	}
+
+.contentTree .nodeSelectedStyle .nodeName {
+	background: #D5EFFC;
+}
+
+.contentTree div.treeContextMenu > ul {
+	z-index: 100;
+	background: white url('../Images/contextMenuBg-sitecore.gif') repeat-y left;
+	border: 1px solid #868686;
+	padding-left: 3px;
+	padding-right: 0;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	width: auto;
+	-moz-min-width: 200px;
+	-ms-min-width: 200px;
+	-o-min-width: 200px;
+	-webkit-min-width: 200px;
+	min-width: 140px;
+	margin: 0;
+	display: block;
+	list-style-type: none;
+	position: absolute;
+}
+
+	.contentTree div.treeContextMenu > ul > li {
+		margin: 0;
+		height: 22px;
+		font-size: 11px;
+		line-height: 20px;
+		white-space: nowrap;
+	}
+
+		.contentTree div.treeContextMenu > ul > li > a {
+			background-size: 16px;
+			background-position: 2px 4px;
+			background-repeat: no-repeat;
+			text-indent: 30px;
+			color: #080864;
+			display: block;
+			height: 20px;
+			padding-top: 1px;
+			padding-left: 1px;
+			padding-right: 5px;
+			margin-right: 2px;
+			text-decoration: none;
+		}
+
+			.contentTree div.treeContextMenu > ul > li > a:hover {
+				text-decoration: none;
+				background-color: #DCECF3 !important;
+				border: 1px solid #A8D8EB;
+				margin-right: 2px;
+				padding-top: 0;
+				padding-left: 0;
+				padding-right: 4px;
+				background-position: 1px 3px;
+			}
+
+		.contentTree div.treeContextMenu > ul > li.separator {
+			font-size: 1px;
+			border-top: 1px solid #868686;
+			line-height: 1px;
+			height: 1px;
+			margin-top: 2px;
+			margin-bottom: 1px;
+			margin-left: 29px;
+			margin-right: 0px;
+			min-height: 1px;
+			display: block;
+		}
+
+			.contentTree div.treeContextMenu > ul > li.separator > a {
+				height: 0;
+				text-decoration: none;
+			}
+
+				.contentTree div.treeContextMenu > ul > li.separator > a:hover {
+					border: none;
+				}
+
+
+
+
+
+.product-price-list tr:first-child td:first-child {
+	padding-right: 100px;
+}
+
+.maxWidth {
+	width: 100% !important;
+}
+
+.border-collapse {
+	border-collapse: collapse;
+}
+
+.imagePicker .sectionGroupHeader {
+	background: white;
+}
+
+.shippingMethodPrices.dataList tbody tr:nth-child(odd),
+.paymentMethodPrices.dataList tbody tr:nth-child(odd) {
+	background: none;
+}
+
+.shippingMethodPrices.dataList tbody tr th,
+.paymentMethodPrices.dataList tbody tr th {
+	border: none;
+}
+
+.CatalogItemSelectorTreeView.TreeViewWrapper {
+	max-height: 240px;
+	max-width: 250px;
+	overflow: auto;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+textarea {
+	border: 1px solid rgb(169, 169, 169);
+	padding: 1px;
+}
+
+.mediumButton[disabled="disabled"] {
+	color: gray !important;
+}
+
+.ui-datepicker-trigger {
+	position: relative;
+	top: 3px;
+	left: -16px;
+	width: 14px;
+}
+
+.productTarget {
+	margin-bottom: 8px;
+}
+
+.multiPicker .treeHeaderText {
+	width: 50.5%;
+}
+
+.multiPicker .multiPickerHeaderText {
+	font-weight: bold;
+	display: inline-block;
+	margin-bottom: 15px;
+}
+
+.multiPicker .multiPickerTree {
+	display: inline-block;
+	width: 50%;
+	height: 289px;
+	overflow: auto;
+}
+
+.multiPicker .selectedNodes {
+	display: inline-block;
+	vertical-align: top;
+	width: 48%;
+	height: 289px;
+	overflow: auto;
+}
+
+	.multiPicker .selectedNodes .selectedNode {
+		display: table;
+		cursor: pointer;
+	}
+
+		.multiPicker .selectedNodes .selectedNode .removeIcon {
+			display: table-cell;
+			cursor: pointer;
+			padding-right: 15px;
+		}
+
+		.multiPicker .selectedNodes .selectedNode .node {
+			display: table-cell;
+			vertical-align: top;
+			padding-top: 5px;
+		}
+
+		.multiPicker .selectedNodes .selectedNode .selectedNodeIcon {
+			display: inline-block;
+			width: 16px;
+			height: 17px;
+			padding-left: 20px;
+			background-repeat: no-repeat;
+		}
+
+		.multiPicker .selectedNodes .selectedNode .selectedNodeName {
+			padding-left: 20px;
+			white-space: nowrap;
+			background-repeat: no-repeat;
+			height: 20px;
+			padding-left: 20px;
+			background-repeat: no-repeat;
+		}
+
+/* Override width and height for multi picker tree on categories picker on product editor */
+.categoriesForProducts .multiPicker .multiPickerTree {
+	width: 30%;
+	height: 97% !important;
+	overflow: auto;
+}
+
+.categoriesForProducts .multiPicker .selectedNodes {
+	height: 97% !important;
+	overflow: auto;
+}
+
+.categoriesForProducts .multiPicker .treeHeaderText {
+	width: 30%;
+}
+
+.propertyPane.leftAligned.categoriesForProducts {
+	height: 97%;
+}
+
+.categoriesForProducts .propertyItem {
+	margin: 0px !important;
+	padding: 0px !important;
+	height: 100%;
+	padding-left: 4px !important;
+}
+
+	.categoriesForProducts .propertyItem .propertyItemContent {
+		height: 97%;
+	}
+
+
+.categoriesForProducts .contentTree.multiPicker {
+	height: 100%;
+}
+
+.categoriesForProducts .propertyItem .propertyItemContent > div > div {
+	height: 100%;
+}
+
+.categoriesForProducts .contentTree.multiPicker {
+	height: 100%;
+}
+
+.definitionsGraph {
+	height: 100%;
+}
+
+	.definitionsGraph #container {
+		display: inline-block;
+		width: 100%;
+		height: 100%;
+		vertical-align: top;
+	}
+
+	.definitionsGraph .selectedNodeInformation {
+		display: inline-block;
+		vertical-align: top;
+	}
+
+	.definitionsGraph canvas {
+	}
+
+	.definitionsGraph .network-manipulationDiv {
+		border: 1px solid rgb(184, 184, 184);
+	}
+
+	.definitionsGraph .selectedDefinitionLabel {
+		font-weight: bold;
+	}
+
+.tableLayout {
+	display: table;
+	width: 100%;
+}
+
+.tableCellLayout {
+	display: table-cell;
+}
+
+.definitionsGraph .tableLayout .tableCellLayout {
+	padding: 10px;
+}
+
+	.definitionsGraph .tableLayout .tableCellLayout:nth-child(1) {
+		width: 50%;
+		min-width: 166px;
+		display: table-cell;
+	}
+
+.definitionsGraph .tableLayout {
+}
+
+.definitionsGraph .selectedNodeInformation .tableLayout:nth-child(odd) {
+	background: rgba(247, 247, 247, 0.56);
+}
+
+.definitionsGraph .selectedNodeInformation .tableLayout:nth-child(even) {
+}
+
+.definitionsGraph .network-manipulationUI.add {
+	display: none;
+}
+
+.definitionsGraph.nodeSelected .network-manipulationUI.delete {
+	display: none;
+}
+
+.definitionsGraph .network-manipulationUI.edit {
+	/*display: none;*/
+}
+
+.network-manipulationDiv .network-manipulationUI.edit {
+	display: none;
+}
+
+.definitionsGraph .network-seperatorLine {
+	visibility: hidden;
+}
+
+.mce-statusbar {
+	display: none !important;
+}
+
+.propertyList .tab-section-header {
+	margin-top: 0px;
+}
+
+ul.multiselect-container {
+	border: 1px solid rgba(0,0,0,.15);
+	float: left;
+	background-clip: padding-box;
+	background-color: #fff;
+	display: none;
+	border-color: darkgrey;
+}
+
+.multiselect-container > li > a {
+	color: #333;
+	line-height: 1.485;
+	display: block;
+	white-space: nowrap;
+	clear: both;
+	background-clip: border-box;
+	background-size: auto;
+	background-repeat: repeat;
+	background-color: transparent;
+	text-decoration: none;
+}
+
+.multiselect-container > li.active {
+	color: #fff;
+	text-decoration: none;
+	outline-width: 0px;
+	outline-style: none;
+	outline-color: invert;
+	background-color: #2E8AEA;
+}
+
+.multiselect-container > li > a > label.checkbox {
+	display: block;
+	position: relative;
+	min-height: 16px;
+	font-size: 11px;
+	padding: 0px 20px 0px 25px;
+}
+
+.multiselect-container > li > a > label > input[type=checkbox] {
+	margin-top: 4px;
+	margin-left: -20px;
+	position: absolute;
+	padding: 0;
+	box-sizing: border-box;
+	margin-top: 2px;
+}
+
+.btn-group {
+	width: 222px;
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	white-space: normal;
+}
+
+.multiselect:focus {
+	border: 1px solid #ccc;
+}
+
+button.multiselect.dropdown-toggle.btn.btn-default {
+	padding: 0px 0px 0px 6px;
+	min-height: 18px;
+	line-height: 16px;
+	font-size: 11px;
+	background-image: none;
+	-webkit-box-shadow: none;
+	-ms-box-shadow: none;
+	box-shadow: none;
+	border-radius: 2px;
+	background-color: #fff;
+	border-color: darkgrey;
+	white-space: normal;
+}
+
+button.multiselect {
+	background-color: #fff;
+	border: 1px solid #ccc;
+	color: #555;
+	-ms-border-radius: 2px;
+	text-align: left;
+	width: 100%;
+	padding: 0px 12px 0 4px;
+}
+
+.open > .dropdown-menu {
+	display: block;
+	width: 220px;
+	border-top: none;
+}
+
+
+.multiselect-container li.active {
+	background-color: #2E8AEA;
+}
+
+	.multiselect-container li.active a label {
+		color: #fff;
+	}
+
+.multiselect-container li:hover {
+	background-color: #2E8AEA;
+}
+
+@media all and (-ms-high-contrast: none) {
+	.multiselect-container > li.active {
+		background-color: rgb(38,160,218);
+	}
+
+	.multiselect-container > li:hover {
+		background-color: rgb(38,160,218);
+	}
+}
+
+.multiselect-container li:hover a label {
+	color: #fff;
+}
+
+ul.multiselect-container.dropdown-menu {
+	height: auto;
+	max-height: 340px;
+	overflow: auto;
+	margin: 0;
+	list-style: none;
+	padding-left: 0px;
+	z-index: 1;
+}
+
+.boxbody .dialog-header {
+	background-color: #fff;
+}
+
+	.boxbody .dialog-header h3, .boxbody .dialog-header p, .sectionGroupHeader p {
+		color: #000000;
+	}
+
+.modalTabView .sectionGroupHeader, .modalTabView #sectionGroupTabs {
+	background: #4E4E4E url("/sitecore/shell/themes/standard/gradients/gray1.gif") 50% 0 repeat-y !important;
+}
+
+.scrollable .propertyPane .propertyItem .propertyItemContent {
+	width: 100%;
+}
+
+.boxbody .propertyItem .pricing {
+	border-width: 0 0 0 0;
+}
+
+.propertyPane ucommerce-multi-picker .contentTree {
+	height: 310px;
+}
+
+
+#editor .boxbody .sorterContainer #sectionGroup .propertyPane {
+	background-color: #fff;
+}
+
+.caret select {
+	width: auto !important;
+	border: none;
+	float: right;
+}
+
+/*For FireFox only*/
+@-moz-document url-prefix() {
+	.boxbody .propertyPane .contentTree {
+		height: 298px;
+	}
+
+	.multiPicker .multiPickerTree {
+		height: 278px;
+	}
+
+	.boxbody .propertyPane .propertyItem {
+		height: 244px;
+	}
+}
+/*For IE only*/
+@media all and (-ms-high-contrast: none) {
+	.boxbody .propertyPane .contentTree {
+		height: 300px;
+	}
+
+	.caret {
+		overflow: hidden;
+		float: right;
+		margin: 0 !important;
+	}
+
+		.caret select:focus {
+			border: none;
+		}
+
+	select::-ms-expand {
+		border: none;
+		background-color: #fff;
+		padding: 0;
+		margin: 0;
+	}
+
+	.caret select {
+		height: 14px;
+		*height: 16px;
+		height: 16px\0/;
+		height: 16px\9 /;
+		border: none;
+		width: auto;
+	}
+
+	@-moz-document url-prefix() {
+		.caret select {
+			-moz-appearance: none;
+			text-indent: 0.01px;
+			text-overflow: '';
+			background: url(../images/firefox_select_arrow.png) no-repeat 81% 55%;
+		}
+
+		.multiselect-container li.active {
+			background-color: rgb(51,153,255);
+		}
+
+		.multiselect-container li:hover {
+			background-color: rgb(51,153,255);
+		}
+		.boxbody .propertyPane .propertyItem {
+			height: 42px;
+		}
+	}
+
+	.btn-group.btn-group {
+		white-space: normal;
+	}
+
+	.multiPicker .multiPickerTree {
+		height: 278px;
+	}
+
+	.boxbody .propertyPane .propertyItem {
+		height: 244px;
+		*height: 42px;
+		height: 42px\0/;
+		height: 42px\9 /;
+	}
+}
+
+.propertyItemContent table tbody tr td input[type="checkbox"] {
+	margin: 0 3px 0 3px;
+}
+
+.propertyItemContent table tbody tr td label {
+	vertical-align: bottom;
+	line-height: 12px;
+}
+
+.TreeViewWrapper table tbody tr td {
+	vertical-align: middle;
+	line-height: 14px;
+}
+
+	.TreeViewWrapper table tbody tr td a {
+		vertical-align: top;
+	}
+
+
+.variantContainer tbody tr td .inline {
+	display: flex;
+	box-sizing: border-box;
+}
+
+.variantContainer tbody tr td img.ui-datepicker-trigger {
+	top: 1px;
+	height: 14px;
+}
+
+.voucherTopLeftCell {
+	  vertical-align: top;
+	  height: 245px;
+}
+.voucherFieldset {
+	height: 100%;
+}
+
+.customFilter {
+	display: inline;
+}
+
+.customFilterDivider {
+	margin-left: -2px;
+}
+
+.customFilter input[type="submit"] {
+	margin-left: -5px;
+}
+
+.customFilter .hasDatepicker {
+	margin-left: 10px;
+}
+
+a.propertyLink {
+	margin-left: 3px;
+}
+
+.multiPickerTree.false {
+	width: 100%!important;
+}
+
+.app-preview .details-info {
+	background-color: transparent;
+	border-bottom: none;
+	position: relative;
+	white-space: nowrap;
+	min-height: 170px;
+	margin-left: 0;
+	margin-bottom: 15px;
+	box-shadow: none !important;
+}
+
+.app-preview .icon-container {
+	margin-right: 25px;
+	display: inline-block;
+	white-space: nowrap;
+	padding: 0;
+	border: 0;
+	padding-bottom: 25px;
+}
+
+.app-preview .img-container {
+	width: 200px;
+    height: 200px;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px #919890;
+}
+
+.app-preview .appThumbInDetailedView {
+	width: 200px;
+	box-shadow: none;
+	vertical-align: middle;
+	background-color: #FFF;
+}
+
+.app-preview .info-box-top {
+	box-sizing: border-box;
+	min-height: 180px;
+	padding-bottom: 40px;
+	vertical-align: top;
+	display: inline-block;
+	white-space: normal;
+	position: relative;
+	width: 100%;
+    margin-left: -229px;
+    padding-left: 229px;
+}
+
+.app-preview .appTitleInDetailedView {
+	font-size: 30px;
+	margin: 15px 30px 10px 0;
+	font-weight: 300;
+	line-height: 29px;
+	white-space: normal;
+	display: block;
+	color: #777777;
+	overflow-wrap: break-word;
+}
+
+.app-preview .createdBy {
+	display: block;
+	overflow-wrap: break-word;
+}
+
+.app-preview .createdBy p{
+	    margin: 0 0 15px 0;
+}
+
+.app-preview small, .small {
+	font-size: 13.8px;
+	padding: 0;
+}
+
+.app-preview .supportLink, .app-preview .documentationLink{
+	margin-left: -3px;
+	cursor: pointer;
+	overflow-x: hidden;
+}
+
+.app-preview .supportSpan, .app-preview .documentationSpan {
+	display: block;
+	color: #25bbad;
+	font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 13.8px;
+	font-weight: 200;
+}
+
+.app-preview .supportImg, .app-preview .documentationImg {
+	width: 20px;
+	height: 20px;
+	margin-bottom: 5px;
+	vertical-align: middle;
+}
+
+.app-preview #installButton {
+	width: 150px;
+	margin: 42px 0 0 0;
+	position: relative;
+	display: block;
+	padding: 0;
+	margin-right: 0;
+	overflow: hidden;
+	border-width: 0;
+	outline: none;
+	border-radius: 2px;
+	box-shadow: 0 2px 4px #919890;
+	background-color: #25BBad;
+	color: #ffffff;
+	float: right;
+	transition: background-color .3s, border-color .3s;
+    background-image: none;
+	border-bottom: 1px solid #25BBad;
+}
+
+	.app-preview #installButton:hover, .app-preview #installButton:focus {
+		background-color: #14635C;
+		color: #ffffff;
+		text-decoration: none;
+		border-bottom: 1px solid #14635C;
+	}
+
+	.app-preview #installButton span, .app-preview #succeedButton span {
+		text-align: center;
+		display: block;
+		padding: 9px 9px;
+		font-size: 13px;
+	}
+
+.app-preview .descriptionHeader, .app-preview .changelogHeader {
+	color: #777777;
+	font-size: 22px;
+}
+
+.app-preview .appDescriptionInDetailedView {
+	color: #777777;
+	overflow-wrap: break-word;
+	white-space: pre;
+	word-wrap: break-word;
+	-ms-word-break: break-all;
+	word-break: break-word;
+	-ms-hyphens: auto;
+	-moz-hyphens: auto;
+	-webkit-hyphens: auto;
+	hyphens: auto;
+	font-size: 15px;
+}
+
+.info-box-top a {
+    color: #34739b;
+    text-decoration: none;
+}
+
+.loading i {
+	font-size: 350px;
+	    z-index: 38;
+    position: relative;
+    transform: translateY(-50%);
+}
+
+.loaderIndication {
+    width: 100%;
+    height: 100%;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+.loading {
+	z-index: 10;
+	height: 100%;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    color: rgba(35, 34, 34, 0.29);
+    display: table;
+    position: absolute;
+}
+.appInstall {
+	position: relative;
+	height: 100%;
+}
+
+.appError {
+	color: red;
+	height: 15px;
+	display: block;
+}
+
+.upload label {
+	margin-right: 20px;
+	display: inline-block;
+	    float: left;
+}
+
+.upload .upload-container {
+	display: block;    
+	margin-left: 130px;
+}
+
+.upload .upload-container,  .upload button {
+	display: block;
+}
+
+.app-preview {
+	    width: 70%;
+}
+
+.app-preview .changeLogHeader {
+    color: #777777;
+    font-size: 22px;
+}
+
+.app-preview .changeLogNotes {
+    font-size: 15px;
+	color: #777777;
+}
+
+
+.upload-container button {
+    margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.masterCustomIcon {
+    display: block;
+    width: 90%;
+    min-height: 95px;
+    margin: auto;
+    vertical-align: middle;
+}
+
+.thumbnail .caption {
+    color: #777777;
+    width: 90%;
+    min-height: 95px;
+    margin: auto;
+    padding-top: 10px;
+}
+
+.appTitle {
+    margin-top: -5px;
+    margin-bottom: 0;
+    height: 1.2em;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    white-space: nowrap;
+	font-size: 17px;
+	    font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 300;
+    line-height: 1.1;
+    color: #444444;
+}
+
+.appAuthor {
+    font-size: 13px;
+    margin-bottom: 15px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    white-space: nowrap;
+    margin-top: -5px;
+}
+
+.thumbnail:hover {
+    transform: scale(1.05);
+    -o-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+}
+
+ .manifestContent a .thumbnail {
+    display: block;
+    padding: 0;
+    margin: 0 0 20px 0;
+    line-height: 1.42857143;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    -webkit-transition: border .2s ease-in-out;
+    -o-transition: border .2s ease-in-out;
+    transition: border .2s ease-in-out;
+    width: 150px;
+    width: 150px;
+	-webkit-box-shadow: 0 10px 6px -6px #919890;
+    -moz-box-shadow: 0 10px 6px -6px #919890;
+    box-shadow: 0 2px 4px #919890;
+    height: 210px;
+	cursor: pointer;
+}
+
+ .manifestContent {
+    padding: 20px 0px 0px 20px;
+    height: 220px;
+    width: 160px;
+    float: left;
+}
+
+ .manifestContent a {
+    text-decoration: none;
+}
+
+.orderAudit .propertyPaneTitel {
+    display: none;
+}
+
+.propertyPaneTitel.orderOverViewTitel {
+	display: none;
+}
+
+.propertyPaneTitel.orderLinesTitel {
+	display: none;
+}
+
+.propertyPaneTitel.orderDiscountsTitel {
+	display: none;
+}
+
+#editor #newCategorySelector {
+	height: 331px;
+}
+
+.imagePicker.Image #uc-headline {
+	color: #333333;
+	font-size: 17px;
+	margin-top: 10px;
+}
+
+.imagePicker.Image .guiDialogTiny {
+	margin-top: 0;
+}
+
+input.contentPickerSearchInput {
+    width: 100%;
+    margin-bottom: 10px!important;
+}
+
+.contentPickerSearchResults .treeLink {
+    padding: 3px 0 3px 0;
+}

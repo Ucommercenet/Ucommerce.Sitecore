@@ -1,34 +1,19 @@
 ﻿using System;
+using System.Configuration;
 using UCommerce.Installer;
 using UCommerce.Installer.Extensions;
 
 namespace UCommerce.Sitecore.Installer
 {
-	internal class SitecoreConnectionStringLocator : ConnectionStringLocator
-	{
-		protected override string DoLocate()
-		{
-			// try get conventional (or existingOne)
-			string connectionString;
+    public class SitecoreInstallationConnectionStringLocator : InstallationConnectionStringLocator
+    {
+        public override string LocateConnectionString()
+        {
+            var connectionString = LocateConnectionStringInternal("web");
+            if (string.IsNullOrEmpty(connectionString))
+                throw new ConfigurationException("Unable to locate a connection string in connection strings element called 'uCommerce' or 'web' and connection string configured in CommerceConfiguration does not seem to be valid");
 
-			bool set = TryConventionalConnectionString(out connectionString) ||
-				TrySiteCoreConnectionString(out connectionString);
-
-			if (!set) throw new NotSupportedException("Could not find a suitable connection string");
-			
-			return connectionString;
-		}
-
-		private bool TryConventionalConnectionString(out string connectionString)
-		{
-			return "uCommerce".TryGetConnectionString(out connectionString);
-		}
-
-		private bool TrySiteCoreConnectionString(out string connectionString)
-		{
-			return "web".TryGetConnectionString(out connectionString);
-		}
-
-		
-	}
+            return connectionString;
+        }
+    }
 }

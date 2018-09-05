@@ -1,0 +1,277 @@
+﻿.propertyPane {
+    background: white;
+    padding: 15px;
+    border: 1px solid #cccccc;	
+}
+
+.scrollable .propertyPane {
+	margin-bottom: 15px; 
+}
+
+.propertyPane .propertyPaneTitel {
+    margin-top: -15px;
+    border-left: 5px solid #DC271E;
+    margin-left: -15px;
+    padding-right: 25px;
+    margin-right: -15px;
+    margin-bottom: 15px;
+    background-color: #474747;
+    color: white;
+    font-size: 15px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 10px;
+    display: block;
+}
+
+.propertyPane .propertyItem .propertyItemHeader {
+    box-sizing: border-box;
+    max-width: 100%;
+    float: left;
+    clear: none;
+    padding-top: 2px;
+    padding-right: 20px;
+    display: inline-block;
+    min-width: 120px !important;
+}
+
+.propertyPane .propertyItem .propertyItemHeader span {
+	word-wrap: break-word;
+	word-break: break-all;
+}
+
+.propertyPane .propertyItem .propertyItemContent {
+	vertical-align: middle;
+	float: none;
+	clear: none;
+	line-height: normal;
+	display: inline-block;
+	margin-left: 0;
+}
+@-moz-document url-prefix() {
+	.propertyPane .propertyItem .propertyItemContent select {
+		padding: 8px;
+	}
+}
+.propertyPane .propertyItem .propertyItemContent input[type=text] {
+    padding-left: 14px;
+}
+
+.propertyPane .propertyItem .propertyItemContent select {
+    padding-left: 10px;
+}
+
+/*
+    Datepicker
+*/
+
+#ui-datepicker-div.ui-datepicker.ui-widget.ui-widget-content.ui-helper-clearfix.ui-corner-all {
+    width: auto;
+}
+
+.ui-datepicker .ui-datepicker-title { 
+    margin: 0px;
+}
+.ui-datepicker-prev.ui-corner-all {
+    background-image: url("/sitecore/shell/client/Speak/Assets/img/Speak/DatePicker/date_picker_arrows.png");
+    background-position: 0px;
+    background-repeat: no-repeat;
+    width: 8px;
+    height: 12px;
+    background-position-x: initial;
+    background-position-y: initial;
+    background-size: initial;
+    background-repeat-x: initial;
+    background-repeat-y: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: initial;
+    position: absolute;
+    top: 6px;
+}
+
+.ui-datepicker-next.ui-corner-all {
+    background-image: url("/sitecore/shell/client/Speak/Assets/img/Speak/DatePicker/date_picker_arrows.png");
+    background-position: 0px;
+    background-repeat: no-repeat;
+    width: 8px;
+    height: 12px;
+    background-position-x: initial;
+    background-position-y: initial;
+    background-size: initial;
+    background-repeat-x: initial;
+    background-repeat-y: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: initial;
+    background-position-x: 8px;
+    background-position: 8px 0px;
+    position: absolute;
+    top: 6px;
+}
+
+#ui-datepicker-div .ui-widget-header a.ui-datepicker-prev.ui-corner-all.ui-state-hover {
+    background: url("/sitecore/shell/client/Speak/Assets/img/Speak/DatePicker/date_picker_arrows.png");
+    cursor: pointer;
+    border: none;
+}
+
+#ui-datepicker-div .ui-widget-header a.ui-datepicker-next.ui-corner-all.ui-state-hover {
+    background: url("/sitecore/shell/client/Speak/Assets/img/Speak/DatePicker/date_picker_arrows.png");
+    cursor: pointer;
+    border: none;
+}
+
+.ui-datepicker-prev.ui-corner-all:hover {
+    background-position: 0px -13px !important;
+}
+
+.ui-datepicker-next.ui-corner-all:hover {
+    background-position: 8px 12px !important;
+}
+
+
+.ui-datepicker-prev.ui-corner-all span {
+    background-image: none;
+}
+
+.ui-datepicker-next.ui-corner-all span {
+    background-image: none;
+}
+
+#ui-datepicker-div table.ui-datepicker-calendar {
+    margin-top: 15px !important;
+    margin-bottom: 0px !important;
+} 
+
+#ui-datepicker-div table.ui-datepicker-calendar th {
+    padding: 0px;
+}
+
+#ui-datepicker-div table.ui-datepicker-calendar tr td {
+    padding: 0px !important;
+}
+
+#ui-datepicker-div table.ui-datepicker-calendar th span {
+    text-transform: uppercase;
+    color: #969696;
+    font-size: 0.833em;
+}
+
+#ui-datepicker-div table.ui-datepicker-calendar .ui-state-default.ui-state-default.ui-state-default {
+    border: none;
+    font-size: 12px;
+    font-weight: normal;
+    color: #222222;
+    font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+    background: none;
+    text-align: center;
+    line-height: 30px;
+    padding: 5px;
+    width: 35px;
+    height: 37px;
+    box-sizing: border-box;
+}
+
+#ui-datepicker-div table.ui-datepicker-calendar a:hover {
+    background: #f0f0f0 !important;
+}
+
+.ui-datepicker td a.ui-state-active { 
+    background: #aadbee !important;
+    color: #131313 !important;
+}
+
+.ui-datepicker-today {
+    background: #f0f0f0;
+}
+
+.datePickerContainer:after {
+    content: "";
+    width: 38px;
+    background: white;
+    display: block;
+    position: relative;
+    z-index: 2;
+    left: 100%;
+    top: -35px;
+    background-image: url("http://sc8/sitecore/shell/client/Speak/Assets/img/Speak/DatePicker/date_picker_bg.png");
+    background-repeat: no-repeat;
+    position: relative;
+    height: 33px;
+    top: -34px;
+    background-position: 15px;
+    left: ~"-moz-calc(100% - 39px)" !important;
+	left: ~"-webkit-calc(100% - 39px)" !important;
+	left: ~"calc(100% - 39px)" !important;
+}
+
+.multiCheckBoxList {
+    margin-left: -3px;
+}
+
+.imagePicker {
+    background: white;
+	height: 100%;
+    display: flex;
+    -ms-display: flex;
+    -webkit-display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+}
+
+.imagePicker .sectionGroupHeader {
+    background: #2b2b2b !important;
+	flex: 0 0 68px;
+    -ms-flex: 0 0 54px;
+    -webkit-flex: 0 0 68px;
+    box-sizing: border-box;
+}
+
+.imagePicker .sectionGroupHeader:after {
+    display: none;
+}
+
+.propertyItemContent .imagePicker{
+    display: block;
+}
+
+.imagePicker .footerOkCancel .dialog-saveButton {
+    margin-right: 5px;
+}
+
+.imagePicker a.modal-close {
+    top: 31px;
+}
+
+.imagePicker #uc-headline {
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: normal;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.multipicker-container .contentTree.multiPicker .multiPickerAction > div {
+    vertical-align: top;
+}
+
+.set-category-products .multipicker-container .contentTree.multiPicker .multiPickerAction > div {
+    vertical-align: top;
+    height: 275px;
+}
+
+.checkbox-list label {
+    margin-left: 6px;
+}
+
+#tinymce {
+	font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+}

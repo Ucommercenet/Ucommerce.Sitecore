@@ -1,0 +1,42 @@
+﻿<configuration>
+	<components>
+		<!-- Pipeline Instance -->
+		<component id="SaveUserGroupRoles"
+				  service="UCommerce.Pipelines.IPipeline`1[[UCommerce.Pipelines.IPipelineArgs`2[[UCommerce.Pipelines.SaveUserGroupRoles.SaveUserGroupRolesRequest, UCommerce],[UCommerce.Pipelines.SaveUserGroupRoles.SaveUserGroupRolesResponse, UCommerce]], UCommerce]], UCommerce"
+					type="UCommerce.Pipelines.Settings.Security.Group.SaveUserGroupRolesPipeline, UCommerce.Pipelines">
+			<parameters>
+				<tasks>
+					<array>
+						<value>${SaveUserGroupRoles.ClearAllRolesForUser}</value>
+						<value>${SaveUserGroupRoles.AddUserToRoles}</value>
+						<value>${SaveUserGroupRoles.SaveUser}</value>
+            <value>${SaveUserGroupRoles.InformDataProvider}</value>
+            <value>${SaveUserRoles.ClearAccessResultCacheForUserGroup}</value>
+					</array>
+				</tasks>
+			</parameters>
+		</component>
+
+		<!-- Pipeline Tasks-->
+		<component id="SaveUserGroupRoles.ClearAllRolesForUser"
+								 service="UCommerce.Pipelines.IPipelineTask`1[[UCommerce.Pipelines.IPipelineArgs`2[[UCommerce.Pipelines.SaveUserGroupRoles.SaveUserGroupRolesRequest, UCommerce],[UCommerce.Pipelines.SaveUserGroupRoles.SaveUserGroupRolesResponse, UCommerce]], UCommerce]], UCommerce"
+								 type="UCommerce.Pipelines.Settings.Security.Group.ClearAllRolesForUserGroupTask, UCommerce.Pipelines" />
+
+		<component id="SaveUserGroupRoles.AddUserToRoles"
+								 service="UCommerce.Pipelines.IPipelineTask`1[[UCommerce.Pipelines.IPipelineArgs`2[[UCommerce.Pipelines.SaveUserGroupRoles.SaveUserGroupRolesRequest, UCommerce],[UCommerce.Pipelines.SaveUserGroupRoles.SaveUserGroupRolesResponse, UCommerce]], UCommerce]], UCommerce"
+								 type="UCommerce.Pipelines.Settings.Security.Group.AddUserGroupToRolesTask, UCommerce.Pipelines" />
+
+		<component id="SaveUserGroupRoles.SaveUser"
+								 service="UCommerce.Pipelines.IPipelineTask`1[[UCommerce.Pipelines.IPipelineArgs`2[[UCommerce.Pipelines.SaveUserGroupRoles.SaveUserGroupRolesRequest, UCommerce],[UCommerce.Pipelines.SaveUserGroupRoles.SaveUserGroupRolesResponse, UCommerce]], UCommerce]], UCommerce"
+								 type="UCommerce.Pipelines.Settings.Security.Group.SaveUserGroupTask, UCommerce.Pipelines" />
+
+    <component id="SaveUserGroupRoles.InformDataProvider"
+             service="UCommerce.Pipelines.IPipelineTask`1[[UCommerce.Pipelines.IPipelineArgs`2[[UCommerce.Pipelines.SaveUserGroupRoles.SaveUserGroupRolesRequest, UCommerce],[UCommerce.Pipelines.SaveUserGroupRoles.SaveUserGroupRolesResponse, UCommerce]], UCommerce]], UCommerce"
+             type="UCommerce.Sitecore.Pipelines.InformDataProviderThatPermissionsHaveChangedTask, UCommerce.Sitecore" />
+
+    <component id="SaveUserRoles.ClearAccessResultCacheForUserGroup"
+								 service="UCommerce.Pipelines.IPipelineTask`1[[UCommerce.Pipelines.IPipelineArgs`2[[UCommerce.Pipelines.SaveUserGroupRoles.SaveUserGroupRolesRequest, UCommerce],[UCommerce.Pipelines.SaveUserGroupRoles.SaveUserGroupRolesResponse, UCommerce]], UCommerce]], UCommerce"
+								 type="UCommerce.Sitecore.Pipelines.ClearAccessResultCacheForUserGroupTask, UCommerce.Sitecore" />
+		
+	</components>
+</configuration>

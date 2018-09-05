@@ -19,7 +19,7 @@ namespace UCommerce.Sitecore.Installer.Steps
 
 			IInstallerLoggingService logging = new SitecoreInstallerLoggingService();
 
-			ConnectionStringLocator locator = new SitecoreConnectionStringLocator();
+			InstallationConnectionStringLocator locator = new SitecoreInstallationConnectionStringLocator();
 
 			_command = new DbInstallerSitecore(locator, migrations, logging);
 		}

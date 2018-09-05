@@ -1,0 +1,183 @@
+﻿/* Lists.css */
+.propertyPane .dataTables_filter, .propertyPane .dataList {
+	font-family: "Open Sans", Arial, sans-serif !important;
+}
+
+.dataList thead tr th, .dataList tbody tr th {
+	font-family: "Open Sans", Arial, sans-serif;
+}
+
+/* UI.css */
+body {
+	font-family: "Open Sans", Arial, sans-serif !important;
+}
+
+.propertyPane {
+	font-family: "Open Sans", Arial, sans-serif !important;
+}
+
+#uc-headline {
+	font-family: "Open Sans", Arial, sans-serif;
+}
+
+input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], textarea, .propertyPane select {
+	font-family: "Open Sans", Arial, sans-serif !important;
+}
+
+.multiPicker .multiPickerHeaderText {
+	font-family: "Open Sans", Arial, sans-serif;
+}
+
+.contentTree .treeNodeIcon .nodeName {
+	font-family: "Open Sans", Arial, sans-serif;
+}
+
+.customFilter .hasDatepicker {
+	font-family: "Open Sans", Arial, sans-serif;
+}
+
+#ui-datepicker-div .ui-datepicker-header .ui-datepicker-title {
+	font-family: "Open Sans", Arial, sans-serif !important;
+}
+
+#ui-datepicker-div .ui-state-default.ui-state-default.ui-state-default {
+	font-family: "Open Sans", Arial, sans-serif !important;
+}
+
+.editCampaignItemButton, .mediumButton, #ui-datepicker-div .ui-datepicker-buttonpane .ui-datepicker-close {
+	font-family: "Open Sans", Arial, sans-serif !important;
+}
+
+.shippingMethodPrices tbody tr td span.validator {
+	font-size: 17px;
+}
+
+.boxbody .dialog-header h3 {
+	font-family: "Open Sans", Arial, sans-serif;
+}
+
+.dialog-cancelButton, .dialog-saveButton, #ui-datepicker-div .ui-datepicker-buttonpane .ui-datepicker-current {
+	font-family: "Open Sans", Arial, sans-serif;
+}
+
+/* Jquery.css */
+.ui-tabs .ui-tabs-nav li a {
+	font-family: "Open Sans", Arial, sans-serif !important;
+}
+
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
+	font-family: "Open Sans", Arial, sans-serif !important;
+}
+
+.ui-widget {
+	font-family: "Open Sans", Arial, sans-serif !important;
+}
+
+/* PropertyPane.css*/
+.propertyItemHeader {
+	font-family: "Open Sans", Arial, sans-serif !important;
+}
+
+.propertyItemContent input[type="text"], .propertyItemContent textarea {
+	font-family: "Open Sans", Arial, sans-serif !important;
+}
+
+.propertyItemContent {
+	font-family: "Open Sans", Arial, sans-serif !important;
+}
+
+	.propertyItemContent select, .variantContainer select, .dataList tbody tr td select {
+		font-family: "Open Sans", Arial, sans-serif !important;
+	}
+
+h2.propertyPaneTitel {
+	font-family: "Open Sans", Arial, sans-serif !important;
+}
+
+/* Widget.css */
+.widgetHeader span {
+	font-family: "Open Sans", Arial, sans-serif !important;
+}
+
+.widgetName {
+	font-family: "Open Sans", Arial, sans-serif;
+}
+
+/* ucommerce.speak.css */
+.save-button-label {
+	font-family: "Open Sans", Arial, sans-serif !important;
+}
+
+/* Speak notification */
+.notifications .alert.alert-success {
+	display: flex;
+	flex-direction: row;
+	color: rgb(24, 95, 123);
+	background-color: rgb(170, 219, 238);
+	height: 50px;
+	width: 100%;
+	padding: 0 10px 0 0;
+	box-shadow: rgba(255, 255, 255, 0.247059) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.0470588) 0px 1px 2px 0px;
+	box-sizing: border-box;
+	font-family: "Open Sans", Arial, sans-serif;
+}
+
+
+	.notifications .alert.alert-success .notification-image-container {
+		background-color: rgb(38, 148, 192);
+		box-sizing: border-box;
+		color: rgb(24, 95, 123);
+		flex: 0 0 50px;
+		height: 50px;
+	}
+
+		.notifications .alert.alert-success .notification-image-container .alert-ico {
+			background-image: url(http://sc8/sitecore/shell/client/Speak/Assets/img/Speak/MessageBar/sc-message-bar-icons.png);
+			background-position: 0px 0px;
+			box-sizing: border-box;
+			display: inline-block;
+			height: 32px;
+			width: 32px;
+			margin: 9px 9px 9px 9px;
+		}
+
+	.notifications .alert.alert-success .notification-text-container {
+		box-sizing: border-box;
+		color: rgb(24, 95, 123);
+		height: 50px;
+		flex: 1;
+	}
+
+		.notifications .alert.alert-success .notification-text-container #notification-text {
+			box-sizing: border-box;
+			color: rgb(24, 95, 123);
+			display: inline;
+			height: auto;
+			line-height: 50px;
+			padding-left: 15px;
+			white-space: nowrap;
+			width: auto;
+		}
+
+
+
+	.notifications .alert.alert-success .notification-button-container {
+		box-sizing: border-box;
+		color: rgb(24, 95, 123);
+		height: 50px;
+		line-height: 20px;
+		flex: 0 0 30px;
+	}
+
+		.notifications .alert.alert-success .notification-button-container button.close {
+			color: #289bc8;
+			cursor: pointer;
+			display: block;
+			font-size: 30px;
+			font-weight: normal;
+			height: 24px;
+			position: absolute;
+			right: 15px;
+			top: 163px;
+			opacity: 1;
+		}

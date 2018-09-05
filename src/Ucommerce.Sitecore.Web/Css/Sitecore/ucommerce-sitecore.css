@@ -1,0 +1,341 @@
+﻿/*CSS to make the top of the application transparent.*/
+.columns.content {
+	background: #4E4E4E url(/sitecore/shell/themes/standard/gradients/gray1.gif) 50% 0 repeat-y;
+}
+
+.ucommerce-tree-header, .tree-wrapper, #mainframe {
+	background-color: white !important;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	font-family: Arial, Lucida Grande;
+	background-color: #D2D5DA;
+}
+
+#ucommerceMainPageBody {
+	background-color: #D2D5DA;
+	overflow: hidden;
+}
+
+#mainframe {
+	height: 100%;
+	width: 100%;
+	border-left: 1px solid #4C535C;
+	border-top: none;
+	background: rgba(255, 255, 255, 0) !important;
+}
+
+.modal-header span {
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.container-fluid {
+	margin: 0;
+	height: 100%;
+	padding: 20px 0;
+	padding-left: 0 !important;
+	padding-right: 0px !important;
+	padding-top: 0 !important;
+	padding-bottom: 0px !important;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.columns {
+	height: 100%;
+}
+
+.background {
+	position: absolute;
+	display: inline-block;
+	background: url("images/transparent.gif");
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	overflow: hidden;
+}
+
+	.background * {
+		margin-top: 125px;
+		display: block;
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		background: #f0f1f2;
+	}
+
+.article-tree {
+	background: white;
+}
+
+.content-area, .article-tree, .ui-splitter {
+	float: left;
+	display: inline-block;
+	position: relative;
+	z-index: 2;
+	height: 100%;
+}
+
+.content-area {
+	width: 74.7%;
+}
+
+.ui-splitter {
+	position: relative;
+	width: 0.3%;
+	background: url("images/transparent.gif");
+	cursor: ew-resize;
+	z-index: 30;
+	overflow: hidden;
+}
+
+	.ui-splitter .ui-splitter-top {
+		left: 0px;
+		height: 100%;
+		width: 100%;
+		background: #d2d5da;
+		position: relative;
+		border-left: 1px solid black;
+		z-index: 40;
+	}
+
+	.ui-splitter .ui-splitter-bottom {
+		background: url("images/transparent.gif");
+		position: absolute;
+		border: 2px ridge;
+		width: 6px;
+		z-index: 40;
+	}
+
+.article-tree {
+	overflow-y: auto;
+	overflow-x: auto;
+	height: 100%;
+	width: 24.9%;
+}
+
+
+.content-area {
+	height: 100%;
+	overflow: hidden;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	margin-left: 20px;
+	padding-bottom: 2px;
+}
+
+.ucommerce-navigation-tree {
+	margin-left: 0px;
+	margin-top: 10px;
+}
+
+a.treeItemHidden {
+	background: none;
+	visibility: hidden;
+}
+
+a.dimNode {
+	color: #c0c0c0;
+}
+
+.notifications {
+	position: fixed;
+	min-width: 200px;
+}
+
+	.notifications.bottom-right {
+		right: 25px;
+		bottom: 25px;
+	}
+
+a.nodeSelected span div span {
+	background-color: #D5EFFC;
+}
+
+div.relative {
+	position: relative;
+}
+
+div.absolute {
+	position: absolute;
+}
+
+div.tree-wrapper-content {
+	background: white;
+	background-position-x: -10px;
+}
+
+.ucommerce-modal-iframe {
+	border: none;
+	width: 100%;
+	height: 98%;
+	margin-top: 3px;
+}
+
+.ucommerce-modal.ucommerce-modal {
+    left: 33%;
+}
+
+.contentTree ul {
+	padding: 0px;
+	margin: 0px;
+}
+
+	.contentTree ul li {
+		margin-top: 5px;
+	}
+
+.contentTree .treeItemExpandContainer {
+	display: table-cell;
+}
+
+	.contentTree .treeItemExpandContainer .invisible {
+		visibility: hidden;
+	}
+
+	.contentTree .treeItemExpandContainer .treeItemExpand {
+		cursor: pointer;
+	}
+
+	.contentTree .treeItemExpandContainer a span {
+		width: 15px;
+		height: 15px;
+		display: inline-block;
+	}
+
+	.contentTree .treeItemExpandContainer a.treeItemOpen span {
+		background-image: url("../images/collapse.gif");
+	}
+
+	.contentTree .treeItemExpandContainer a.treeItemClosed span {
+		background-image: url("../images/expand.gif");
+	}
+
+.contentTree .treeNodeIcon {
+	width: auto;
+	display: inline-block;
+	cursor: pointer;
+	height: 16px;
+	background-repeat: no-repeat;
+	padding-left: 20px;
+	background-size: 16px;
+	line-height: 16px;
+}
+
+	.contentTree .treeNodeIcon .nodeName {
+		width: auto;
+		display: inline-block;
+		font-size: 12px;
+		font-family: Arial,Lucida Grande;
+		white-space: nowrap;
+	}
+
+.contentTree .nodeSelectedStyle .nodeName {
+	background: #D5EFFC;
+}
+
+.contentTree div.treeContextMenu > ul {
+	z-index: 100;
+	background: white url('../images/contextMenuBg-sitecore.gif') repeat-y left;
+	border: 1px solid #868686;
+	padding-left: 3px;
+	padding-right: 0;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	width: auto;
+	-moz-min-width: 200px;
+	-ms-min-width: 200px;
+	-o-min-width: 200px;
+	-webkit-min-width: 200px;
+	min-width: 140px;
+	margin: 0;
+	display: block;
+	list-style-type: none;
+	position: absolute;
+}
+
+	.contentTree div.treeContextMenu > ul > li {
+		margin: 0;
+		height: 22px;
+		font-size: 11px;
+		line-height: 20px;
+		white-space: nowrap;
+	}
+
+		.contentTree div.treeContextMenu > ul > li > a {
+			background-size: 16px;
+			background-position: 2px 4px;
+			background-repeat: no-repeat;
+			text-indent: 30px;
+			color: #080864;
+			display: block;
+			height: 20px;
+			padding-top: 1px;
+			padding-left: 1px;
+			padding-right: 5px;
+			margin-right: 2px;
+			text-decoration: none;
+		}
+
+			.contentTree div.treeContextMenu > ul > li > a:hover {
+				text-decoration: none;
+				background-color: #DCECF3 !important;
+				border: 1px solid #A8D8EB;
+				margin-right: 2px;
+				padding-top: 0;
+				padding-left: 0;
+				padding-right: 4px;
+				background-position: 1px 3px;
+			}
+
+		.contentTree div.treeContextMenu > ul > li.separator {
+			font-size: 1px;
+			border-top: 1px solid #868686;
+			line-height: 1px;
+			height: 1px;
+			margin-top: 2px;
+			margin-bottom: 1px;
+			margin-left: 29px;
+			margin-right: 0px;
+			min-height: 1px;
+			display: block;
+		}
+
+.contentTree .dimNode span {
+	color: #c0c0c0;
+}
+
+.contentTree .treeTop {
+	line-height: 0px;
+	display: table;
+}
+
+.contentTree .treeLink {
+	vertical-align: top;
+	display: inline-block;
+}
+
+.contentTree div.treeContextMenu > ul > li.separator > a {
+	height: 0;
+	text-decoration: none;
+}
+
+	.contentTree div.treeContextMenu > ul > li.separator > a:hover {
+		border: none;
+	}
+
+.contentTree .treeTop {
+	line-height: 18px;
+}
+
+#ucommerceMainPageBody .wrapper {
+    height: 100%;
+}

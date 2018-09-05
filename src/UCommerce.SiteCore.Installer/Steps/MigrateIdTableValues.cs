@@ -33,8 +33,8 @@ namespace UCommerce.Sitecore.Installer.Steps
 		public MigrateIdTableValues()
 		{
 			_log = new SitecoreInstallerLoggingService();
-			var locator = new SitecoreConnectionStringLocator();
-			ConnectionString = locator.Locate();
+			var locator = new SitecoreInstallationConnectionStringLocator();
+			ConnectionString = locator.LocateConnectionString();
 			SqlStatements = new List<string>();
 		}
 
