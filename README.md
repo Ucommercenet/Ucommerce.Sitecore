@@ -36,7 +36,7 @@ The value needs to match the website root of your Sitecore instance where Ucomme
 
 Per default the Ucommerce.CommerceConnect project is not loaded. If you want to build a version for Sitecore 8 with Commerce Connect, simply include the project and run the commands above. Then it will automatically be included in the package. 
 
-Then follow the steps from [this article to set up Commerce Connect]("https://docs.ucommerce.net/ucommerce/v7.18/sitecore/Commerce-Connect/Installation.html").
+Then follow the steps from [this article to set up Commerce Connect](https://docs.ucommerce.net/ucommerce/v7.18/sitecore/Commerce-Connect/Installation.html).
 
 ### Who do I talk to? ###
 
