@@ -92,13 +92,6 @@
     </Content>
     <Content Include="Apps\Sitecore\Baskets.Checkout.config.default" />
     <None Include="packages.config" />
-    <Content Include="web.config" />
-    <None Include="web.Debug.config">
-      <DependentUpon>web.config</DependentUpon>
-    </None>
-    <None Include="web.Release.config">
-      <DependentUpon>web.config</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Css\Sitecore8.2\Sitecore.css" />
