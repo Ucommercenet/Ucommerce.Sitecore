@@ -17,8 +17,8 @@ namespace UCommerce.Sitecore.Web
 
         public SitecoreWrappedControllerSelector(HttpConfiguration configuration, IControllerNameGenerator controllerNameGenerator) : base(configuration)
         {
-            SitecoreVersionResolver vr = new SitecoreVersionResolver(new LoggingService());
-            if (vr.IsEqualOrGreaterThan(new Version(9, 0)))
+            SitecoreVersionResolver versionResolver = new SitecoreVersionResolver(new LoggingService());
+            if (versionResolver.IsEqualOrGreaterThan(new Version(9, 0)))
             {
                 _sitecoreHttpControllerSelector = GetControllerSelectorFromReflectionVersion90(configuration, controllerNameGenerator);
             }
