@@ -48,4 +48,5 @@ Then follow the steps from [this article to set up Commerce Connect](https://doc
 
 ### Who do I talk to? ###
 
-* https://eureka.ucommerce.net
+We'd love to hear from you. If you have any trouble, want to contribute, or similar, please reach out to:
+support@ucommerce.net
