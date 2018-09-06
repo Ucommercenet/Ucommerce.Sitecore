@@ -5,11 +5,18 @@ using Sitecore.Analytics;
 using UCommerce.Pipelines;
 using UCommerce.Pipelines.AddAddress;
 using UCommerce.Sitecore.Sitecore75Compatability;
+using UCommerce.Sitecore.UI.Resources;
 
 namespace UCommerce.Sitecore.Pipelines
 {
     public class UpdateTrackerInformationTask : IPipelineTask<IPipelineArgs<AddAddressRequest, AddAddressResult>>
     {
+        private readonly ISitecoreVersionResolver _sitecoreVersionResolver;
+
+        public UpdateTrackerInformationTask(ISitecoreVersionResolver sitecoreVersionResolver)
+        {
+            _sitecoreVersionResolver = sitecoreVersionResolver;
+        }
         public PipelineExecutionResult Execute(IPipelineArgs<AddAddressRequest, AddAddressResult> subject)
         {
 
@@ -21,7 +28,7 @@ namespace UCommerce.Sitecore.Pipelines
 
             if (hasCurrentProperty && hasEnabledProperty)
             {   
-                new UpdateTrackerInformation().Execute(subject.Request.FirstName, subject.Request.LastName, 
+                new UpdateTrackerInformation(_sitecoreVersionResolver).Execute(subject.Request.FirstName, subject.Request.LastName, 
                     subject.Request.EmailAddress, subject.Request.PhoneNumber, subject.Request.AddressName);
             }
 
