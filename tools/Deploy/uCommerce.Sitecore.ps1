@@ -7,6 +7,13 @@ task SetVersionNumberFromClientNugetPackage {
 
 	$folderItem = Get-ChildItem uCommerce.client.* 
 
+	if("System.Object[]" -eq $folderItem.GetType())
+	{
+		#return the last element in an array:
+		#$myArray[-1]
+		$folderItem = $folderItem[-1];
+	}
+
 	Push-Location "$folderItem\lib\net45"
 
 	$info = Get-ChildItem -Filter UCommerce.Admin.dll -Recurse | Select-Object -ExpandProperty VersionInfo
@@ -85,6 +92,14 @@ task CopySitecoreFiles -description "Copy all the sitecore files needs for a dep
 	# copy client resources from client nuget package. Even though it copies the files to a ucommerce folder, this will only happen during installatino not restore
    	Push-Location "$src\packages"
     $path = Get-ChildItem -Include uCommerce.client* -name
+
+	if("System.Object[]" -eq $path.GetType())
+	{
+		#return the last element in an array:
+		#$myArray[-1]
+		$path = $path[-1];
+	}
+
     Pop-Location
 
 	&robocopy "$src\packages\$path\uCommerceFiles" "$working_dir\files\sitecore modules\Shell" /is /it /e /NFL /NDL
