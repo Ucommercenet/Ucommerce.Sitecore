@@ -10,12 +10,7 @@ namespace UCommerce.Sitecore.Pipelines
     {
         public void Process(PipelineArgs args)
         {
-            GlobalConfiguration.Configure(config =>
-            {
-                config.Services.Replace(typeof(IHttpControllerSelector), new SitecoreWrappedControllerSelector(config, new NamespaceQualifiedUniqueNameGenerator()));
-            });
 
-            GlobalConfiguration.Configuration.MapHttpAttributeRoutes();
         }
     }
 }
