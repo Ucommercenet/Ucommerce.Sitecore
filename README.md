@@ -3,6 +3,10 @@
 ### Community Developed and maintained integration between Sitecore and Ucommerce ###
 Be a part of developing the awesome Ucommerce integration with Sitecore. We accept pull requests.
 
+### Supported versions of Sitecore ###
+
+This repository supports version of SC 8.2 and above. 
+
 ### Building the package for testing ###
 
 After downloading the repo, building the installation package is really easy. 
