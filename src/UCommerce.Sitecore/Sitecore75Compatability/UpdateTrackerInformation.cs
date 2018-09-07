@@ -1,20 +1,10 @@
-﻿using System;
-using System.Reflection;
-using Sitecore.Analytics;
+﻿using Sitecore.Analytics;
 using Sitecore.Analytics.Model.Entities;
-using UCommerce.Sitecore.UI.Resources;
 
 namespace UCommerce.Sitecore.Sitecore75Compatability
 {
     public class UpdateTrackerInformation
     {
-        private readonly ISitecoreVersionResolver _sitecoreVersionResolver;
-
-        public UpdateTrackerInformation(ISitecoreVersionResolver sitecoreVersionResolver)
-        {
-            _sitecoreVersionResolver = sitecoreVersionResolver;
-        }
-
         public void Execute(string firstName, string lastName, string emailAddress, string phoneNumber, string addressName)
         {
             if (!Tracker.Enabled || addressName != "Billing")
@@ -22,17 +12,8 @@ namespace UCommerce.Sitecore.Sitecore75Compatability
                 return;
             }
 
-            //Sitecore 9 https://briancaos.wordpress.com/2018/01/19/sitecore-9-tracker-current-session-identify-is-replaced-with-tracker-current-session-identifyas/
-            //Added additional information which is the source identifier, where this contact is coming from.
-
-            if (_sitecoreVersionResolver.IsEqualOrGreaterThan(new Version(9, 0)))
-            {
-                CallTrackerIdentify90(emailAddress);
-            }
-            else
-            {
-                CallTrackerIdentify82(emailAddress);
-            }
+            dynamic currentSession = Tracker.Current.Session;
+            currentSession.Identify(emailAddress);
 
             var personalInfo = Tracker.Current.Contact.GetFacet<IContactPersonalInfo>("Personal");
             personalInfo.FirstName = firstName;
@@ -56,21 +37,5 @@ namespace UCommerce.Sitecore.Sitecore75Compatability
             emailInfo.Preferred = "Preferred";
         }
 
-        private void CallTrackerIdentify82(string email)
-        {
-            Type trackerSessionType = Tracker.Current.Session.GetType();
-            var identifyMethod = trackerSessionType.GetMethod("Identify");
-            identifyMethod.Invoke(Tracker.Current.Session, new object[] { email });
-
-        }
-
-        private void CallTrackerIdentify90(string email)
-        {
-            //Tracker.Current.Session.Identify(source, knowidentifier);
-
-            Type trackerSessionType = Tracker.Current.Session.GetType();
-            var identifyMethod = trackerSessionType.GetMethod("Identify");
-            identifyMethod.Invoke(Tracker.Current.Session, new object[] { "website", email});
-        }
     }
 }
