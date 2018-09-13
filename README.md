@@ -12,7 +12,7 @@ This repository supports version of SC 8.2 and above.
 After downloading the repo, building the installation package is really easy. 
 Just follow these few simple steps below:
 
-0. Copy the Sitecore assemblies required for the project to compile from your website's bin folder, and place them under a lib/Sitecore folder in the solution folder. 
+1. Copy the Sitecore assemblies required for the project to compile from your website's bin folder, and place them under a lib/Sitecore folder in the solution folder. 
 	- Sitecore.Analytics.dll
 	- Sitecore.Analytics.Model.dll
 	- Sitecore.Buckets.dll
@@ -21,7 +21,6 @@ Just follow these few simple steps below:
 	- Sitecore.Logging.dll
 	- Sitecore.Services.Core.dll
 	- Sitecore.Services.Infrastructure.dll
-1. Update the references in the Ucommerce.Sitecore and Ucommerce.Sitecore.Installer projects to use these assemblies.
 2. Open a Powershell tool.
 3. Navigate the path to the root of the repository.
 	Further navigate to "\tools\deploy"

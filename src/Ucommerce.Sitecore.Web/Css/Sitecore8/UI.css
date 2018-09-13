@@ -1226,6 +1226,7 @@ textarea, .propertyPane select {
 			height: 20px;
 			padding-left: 20px;
 			background-repeat: no-repeat;
+            flex-grow: 1;
 		}
 
 /* Override width and height for multi picker tree on categories picker on product editor */
@@ -2820,6 +2821,7 @@ input[type=text].contentPickerSearchInput {
     display: block;
     white-space: nowrap;
     text-overflow: ellipsis;
+    max-width: 90%;
 }
 
 .selectedNodes .selected-nodes-container .selectedNode .node .treeNodeIcon {
