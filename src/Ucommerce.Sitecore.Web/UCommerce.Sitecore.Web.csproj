@@ -164,10 +164,6 @@
     <Content Include="Css\Speak\tabs.less" />
     <Content Include="Css\Speak\tree.less" />
     <Content Include="Css\Speak\Widget.less" />
-    <Content Include="Apps\Speak\CatalogApplication.config.default" />
-    <Content Include="Apps\Speak\MarketingApplication.config.default" />
-    <Content Include="Apps\Speak\OrdersApplication.config.default" />
-    <Content Include="Apps\Speak\SettingsApplication.config.default" />
     <Content Include="Configuration\Shell.config.default">
       <SubType>Designer</SubType>
     </Content>
