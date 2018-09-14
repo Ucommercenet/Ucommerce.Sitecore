@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.Linq;
-using Sitecore.Configuration;
 using Sitecore.Install.Framework;
 using UCommerce.Installer;
 using UCommerce.Sitecore.Installer.Steps;
@@ -37,10 +35,10 @@ namespace UCommerce.Sitecore.Installer
         /// </remarks>
         public PostInstallationStep()
         {
-            var sitefinityInstallerLoggingService = new SitecoreInstallerLoggingService();
+            var sitecoreInstallerLoggingService = new SitecoreInstallerLoggingService();
             IDatabaseAvailabilityService sitefinityDatabaseAvailabilityService = new SitecoreDatabaseAvailabilityService();
             var installationConnectionStringLocator = new SitecoreInstallationConnectionStringLocator();
-            var runtimeVersionChecker = new RuntimeVersionChecker(installationConnectionStringLocator, sitefinityInstallerLoggingService);
+            var runtimeVersionChecker = new RuntimeVersionChecker(installationConnectionStringLocator, sitecoreInstallerLoggingService);
             var updateService = new UpdateService(installationConnectionStringLocator, runtimeVersionChecker, sitefinityDatabaseAvailabilityService);
             var sitecoreVersionChecker = new SitecoreVersionChecker();
 
@@ -50,7 +48,7 @@ namespace UCommerce.Sitecore.Installer
             _postInstallationSteps.Add(new InitializeObjectFactory());
             _postInstallationSteps.Add(new InstallDatabase("~/sitecore modules/Shell/ucommerce/install"));
             _postInstallationSteps.Add(new InstallDatabaseSitecore("~/sitecore modules/Shell/ucommerce/install"));
-            _postInstallationSteps.Add(new UpdateUCommerceAssemblyVersionInDatabase(updateService, runtimeVersionChecker, sitefinityInstallerLoggingService));
+            _postInstallationSteps.Add(new UpdateUCommerceAssemblyVersionInDatabase(updateService, runtimeVersionChecker, sitecoreInstallerLoggingService));
 
             _postInstallationSteps.Add(new CopyFile(sourceVirtualPath: "~/web.config", targetVirtualPath: "~/web.config.{DateTime.Now.Ticks}.backup"));
             _postInstallationSteps.Add(new SitecoreWebconfigMerger(sitecoreVersionChecker));
@@ -59,6 +57,8 @@ namespace UCommerce.Sitecore.Installer
 
             // Remove old UCommerce.Transactions.Payment.dll from /bin since payment methods have been moved to Apps.
             _postInstallationSteps.Add(new DeleteFile("~/bin/UCommerce.Transactions.Payments.dll"));
+            //Clean up unused configuration since payment integration has move to apps 
+            _postInstallationSteps.Add(new DeleteFile("~/sitecore modules/shell/ucommerce/Configuration/Payments.config"));
 
             _postInstallationSteps.Add(new MoveUcommerceBinaries());
             _postInstallationSteps.Add(new MoveResourceFiles());
@@ -69,10 +69,10 @@ namespace UCommerce.Sitecore.Installer
             _postInstallationSteps.Add(new MoveDirectoryIfTargetExist("~/sitecore modules/Shell/uCommerce/Apps/SimpleInventory.disabled", "~/sitecore modules/Shell/uCommerce/Apps/SimpleInventory"));
             _postInstallationSteps.Add(new MoveDirectoryIfTargetExist("~/sitecore modules/Shell/uCommerce/Apps/Acquire and Cancel Payments.disabled", "~/sitecore modules/Shell/uCommerce/Apps/Acquire and Cancel Payments"));
             _postInstallationSteps.Add(new MoveDirectoryIfTargetExist("~/sitecore modules/shell/uCommerce/Apps/RavenDB30.disabled", "~/sitecore modules/shell/uCommerce/Apps/RavenDB30"));
+
             _postInstallationSteps.Add(new MoveDirectory("~/sitecore modules/shell/uCommerce/Apps/RavenDB25.disabled", "~/sitecore modules/shell/uCommerce/Apps/RavenDB25", true));
             //Create back up and remove old files
             RemovedRenamedPipelines();
-
 
             _postInstallationSteps.Add(new CreateApplicationShortcuts());
             _postInstallationSteps.Add(new CreateSpeakApplicationIfSupported(sitecoreVersionChecker));
