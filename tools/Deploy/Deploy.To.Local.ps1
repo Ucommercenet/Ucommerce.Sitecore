@@ -1,5 +1,5 @@
 ﻿# Website root folder (website is deployed here)
-$website_root = "C:\inetpub\sc8\Website"
+$website_root = "C:\inetpub\sc9\Website"
 
 $ucommerce_folder = "$website_root\sitecore modules\Shell\Ucommerce\"
 # Temporarily change to the correct folder containing script
