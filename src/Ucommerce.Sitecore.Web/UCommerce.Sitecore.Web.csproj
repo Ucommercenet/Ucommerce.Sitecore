@@ -118,9 +118,6 @@
     <Reference Include="UCommerce, Version=7.19.0.18249, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\uCommerce.Core.7.19.0.18249\lib\net45\UCommerce.dll</HintPath>
     </Reference>
-    <Reference Include="UCommerce.Admin, Version=7.19.0.18249, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.7.19.0.18249\lib\net45\UCommerce.Admin.dll</HintPath>
-    </Reference>
     <Reference Include="UCommerce.Infrastructure, Version=7.19.0.18249, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\uCommerce.Core.7.19.0.18249\lib\net45\UCommerce.Infrastructure.dll</HintPath>
     </Reference>
@@ -144,9 +141,6 @@
     </Reference>
     <Reference Include="UCommerce.Web.Api, Version=7.19.0.18249, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\uCommerce.Core.7.19.0.18249\lib\net45\UCommerce.Web.Api.dll</HintPath>
-    </Reference>
-    <Reference Include="UCommerce.Web.Shell, Version=7.19.0.18248, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Ucommerce.Client.WebForms.7.19.0.18248\lib\net45\UCommerce.Web.Shell.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
