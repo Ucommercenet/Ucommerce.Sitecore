@@ -1272,10 +1272,11 @@ textarea:focus,
   height: 20px;
   padding-left: 20px;
   background-repeat: no-repeat;
+  max-width: 90%;
 }
 
 /* Override width and height for multi picker tree on categories picker on product editor */
-.categoriesForProducts .multiPicker .multiPickerTree {
+.multiPicker .multiPickerTree {
   width: 49%;
   height: 97% !important;
   overflow: auto;
