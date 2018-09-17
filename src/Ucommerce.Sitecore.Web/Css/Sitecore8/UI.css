@@ -1727,20 +1727,6 @@ select::-ms-expand {
   display: none;
 }
 
-.boxbody .contentPane {
-  height: 100%;
-  margin: -68px 0 -56px;
-  padding: 68px 0 56px;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-.boxbody .propertyPane.contentPane {
-  height: 100%;
-  overflow: auto;
-  box-sizing: inherit;
-}
-
 .panel,
 .panel .boxbody,
 .contentTree {
@@ -1799,12 +1785,9 @@ body {
   box-sizing: border-box;
 }
 
-
-
-
-.contentTree {
-  padding: 0 15px 0 15px;
-  box-sizing: border-box;
+.contentPane, .contentTree {
+    padding: 0 15px 0 15px;
+    box-sizing: border-box;
 }
 
 .create-product-relation .multipicker-container {

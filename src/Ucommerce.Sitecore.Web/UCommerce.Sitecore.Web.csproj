@@ -115,39 +115,6 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="UCommerce, Version=7.20.0.18250, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.7.20.0.18250\lib\net45\UCommerce.dll</HintPath>
-    </Reference>
-    <Reference Include="UCommerce.Admin, Version=7.20.0.18250, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Ucommerce.Client.WebForms.7.20.0.18250\lib\net45\UCommerce.Admin.dll</HintPath>
-    </Reference>
-    <Reference Include="UCommerce.Infrastructure, Version=7.20.0.18250, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.7.20.0.18250\lib\net45\UCommerce.Infrastructure.dll</HintPath>
-    </Reference>
-    <Reference Include="UCommerce.Installer, Version=7.20.0.18250, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.7.20.0.18250\lib\net45\UCommerce.Installer.dll</HintPath>
-    </Reference>
-    <Reference Include="UCommerce.NHibernate, Version=7.20.0.18250, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.7.20.0.18250\lib\net45\UCommerce.NHibernate.dll</HintPath>
-    </Reference>
-    <Reference Include="UCommerce.Pipelines, Version=7.20.0.18250, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.7.20.0.18250\lib\net45\UCommerce.Pipelines.dll</HintPath>
-    </Reference>
-    <Reference Include="UCommerce.Presentation, Version=7.20.0.18250, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.7.20.0.18250\lib\net45\UCommerce.Presentation.dll</HintPath>
-    </Reference>
-    <Reference Include="UCommerce.SystemHttp, Version=7.20.0.18250, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.7.20.0.18250\lib\net45\UCommerce.SystemHttp.dll</HintPath>
-    </Reference>
-    <Reference Include="UCommerce.SystemWeb, Version=7.20.0.18250, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.7.20.0.18250\lib\net45\UCommerce.SystemWeb.dll</HintPath>
-    </Reference>
-    <Reference Include="UCommerce.Web.Api, Version=7.20.0.18250, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.7.20.0.18250\lib\net45\UCommerce.Web.Api.dll</HintPath>
-    </Reference>
-    <Reference Include="UCommerce.Web.Shell, Version=7.20.0.18250, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Ucommerce.Client.WebForms.7.20.0.18250\lib\net45\UCommerce.Web.Shell.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Css\Sitecore8\UI.css.orig" />
