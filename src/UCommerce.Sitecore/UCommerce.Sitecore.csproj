@@ -62,6 +62,9 @@
       <HintPath>..\packages\Iesi.Collections.4.0.1.4000\lib\net40\Iesi.Collections.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Infralution.Licensing, Version=4.7.1.0, Culture=neutral, PublicKeyToken=3e7e8e3744a5c13f, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.7.19.0.18257\lib\net45\Infralution.Licensing.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CompilerServices.AsyncTargetingPack.Net45, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CompilerServices.AsyncTargetingPack.1.0.1\lib\net45\Microsoft.CompilerServices.AsyncTargetingPack.Net45.dll</HintPath>
     </Reference>
