@@ -172,6 +172,10 @@ task CopySitecoreFiles -description "Copy all the sitecore files needs for a dep
 	if (Test-Path "$working_dir\files\sitecore modules\Shell\Ucommerce\Apps\Acquire%20and%20Cancel%20Payments.disabled") {
 		Rename-Item -Path "$working_dir\files\sitecore modules\Shell\Ucommerce\Apps\Acquire%20and%20Cancel%20Payments.disabled" -NewName "Acquire and Cancel Payments.disabled" -Force
 	}
+
+	if (Test-Path "$working_dir\files\sitecore modules\shell\ucommerce\install\binaries\UCommerce.Installer.dll"){
+		Remove-Item "$working_dir\files\sitecore modules\shell\ucommerce\install\binaries\UCommerce.Installer.dll" -Force
+	}
 }
 
 task CleanSitecoreWorkingDirectory -description "Cleans the sitecore working directory. This should NOT be used when using Deploy.To.Local" -depends SetSitecoreVars{

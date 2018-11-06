@@ -55,6 +55,8 @@ namespace UCommerce.Sitecore.Installer
             _postInstallationSteps.Add(new SeperateConfigSectionInNewFile("configuration/sitecore/settings", "~/web.config", "~/App_Config/Include/.Sitecore.Settings.config"));
             _postInstallationSteps.Add(new MoveDirectory("~/sitecore modules/shell/ucommerce/install/binaries", "~/bin/uCommerce", overwriteTarget: true));
 
+            _postInstallationSteps.Add(new DeleteFile("~/bin/ucommerce/UCommerce.Installer.dll"));
+
             // Remove old UCommerce.Transactions.Payment.dll from /bin since payment methods have been moved to Apps.
             _postInstallationSteps.Add(new DeleteFile("~/bin/UCommerce.Transactions.Payments.dll"));
             //Clean up unused configuration since payment integration has move to apps 
