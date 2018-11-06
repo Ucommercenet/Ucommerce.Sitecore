@@ -70,7 +70,7 @@
       <HintPath>..\packages\Iesi.Collections.4.0.1.4000\lib\net40\Iesi.Collections.dll</HintPath>
     </Reference>
     <Reference Include="Infralution.Licensing">
-      <HintPath>..\packages\uCommerce.7.19.0.18257\lib\net45\Infralution.Licensing.dll</HintPath>
+      <HintPath>..\packages\uCommerce.7.19.0.18249\lib\net45\Infralution.Licensing.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
@@ -115,35 +115,32 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="UCommerce">
-      <HintPath>..\packages\uCommerce.Core.7.19.0.18257\lib\net45\UCommerce.dll</HintPath>
+    <Reference Include="UCommerce, Version=7.19.0.18249, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.7.19.0.18249\lib\net45\UCommerce.dll</HintPath>
     </Reference>
-    <Reference Include="UCommerce.Admin">
-      <HintPath>..\packages\uCommerce.Core.7.19.0.18257\lib\net45\UCommerce.Admin.dll</HintPath>
+    <Reference Include="UCommerce.Infrastructure, Version=7.19.0.18249, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.7.19.0.18249\lib\net45\UCommerce.Infrastructure.dll</HintPath>
     </Reference>
-    <Reference Include="UCommerce.Infrastructure">
-      <HintPath>..\packages\uCommerce.Core.7.19.0.18257\lib\net45\UCommerce.Infrastructure.dll</HintPath>
+    <Reference Include="UCommerce.Installer, Version=7.19.0.18249, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.7.19.0.18249\lib\net45\UCommerce.Installer.dll</HintPath>
     </Reference>
-    <Reference Include="UCommerce.Installer">
-      <HintPath>..\packages\uCommerce.Core.7.19.0.18257\lib\net45\UCommerce.Installer.dll</HintPath>
+    <Reference Include="UCommerce.NHibernate, Version=7.19.0.18249, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.7.19.0.18249\lib\net45\UCommerce.NHibernate.dll</HintPath>
     </Reference>
-    <Reference Include="UCommerce.NHibernate">
-      <HintPath>..\packages\uCommerce.Core.7.19.0.18257\lib\net45\UCommerce.NHibernate.dll</HintPath>
+    <Reference Include="UCommerce.Pipelines, Version=7.19.0.18249, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.7.19.0.18249\lib\net45\UCommerce.Pipelines.dll</HintPath>
     </Reference>
-    <Reference Include="UCommerce.Pipelines">
-      <HintPath>..\packages\uCommerce.Core.7.19.0.18257\lib\net45\UCommerce.Pipelines.dll</HintPath>
+    <Reference Include="UCommerce.Presentation, Version=7.19.0.18249, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.7.19.0.18249\lib\net45\UCommerce.Presentation.dll</HintPath>
     </Reference>
-    <Reference Include="UCommerce.Presentation">
-      <HintPath>..\packages\uCommerce.Core.7.19.0.18257\lib\net45\UCommerce.Presentation.dll</HintPath>
+    <Reference Include="UCommerce.SystemHttp, Version=7.19.0.18249, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.7.19.0.18249\lib\net45\UCommerce.SystemHttp.dll</HintPath>
     </Reference>
-    <Reference Include="UCommerce.SystemHttp">
-      <HintPath>..\packages\uCommerce.Core.7.19.0.18257\lib\net45\UCommerce.SystemHttp.dll</HintPath>
+    <Reference Include="UCommerce.SystemWeb, Version=7.19.0.18249, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.7.19.0.18249\lib\net45\UCommerce.SystemWeb.dll</HintPath>
     </Reference>
-    <Reference Include="UCommerce.SystemWeb">
-      <HintPath>..\packages\uCommerce.Core.7.19.0.18257\lib\net45\UCommerce.SystemWeb.dll</HintPath>
-    </Reference>
-    <Reference Include="UCommerce.Web.Api">
-      <HintPath>..\packages\uCommerce.Core.7.19.0.18257\lib\net45\UCommerce.Web.Api.dll</HintPath>
+    <Reference Include="UCommerce.Web.Api, Version=7.19.0.18249, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.7.19.0.18249\lib\net45\UCommerce.Web.Api.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -161,11 +158,22 @@
     <Content Include="Css\Speak\tabs.less" />
     <Content Include="Css\Speak\tree.less" />
     <Content Include="Css\Speak\Widget.less" />
+    <Content Include="Apps\Speak\CatalogApplication.config.default" />
+    <Content Include="Apps\Speak\MarketingApplication.config.default" />
+    <Content Include="Apps\Speak\OrdersApplication.config.default" />
+    <Content Include="Apps\Speak\SettingsApplication.config.default" />
     <Content Include="Configuration\Shell.config.default">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Apps\Sitecore\Baskets.Checkout.config.default" />
     <None Include="packages.config" />
+    <Content Include="web.config" />
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Css\Sitecore8.2\Sitecore.css" />

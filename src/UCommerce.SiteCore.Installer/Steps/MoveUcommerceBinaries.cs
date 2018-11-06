@@ -70,6 +70,16 @@ namespace UCommerce.Sitecore.Installer.Steps
                 "~/bin/UCommerce.Presentation.dll",
                 backupTarget: false));
 
+            _postInstallationSteps.Add(new MoveFile(
+                "~/bin/ucommerce/UCommerce.NHibernate.dll",
+                "~/bin/UCommerce.NHibernate.dll",
+                backupTarget: false));
+
+            _postInstallationSteps.Add(new MoveFile(
+                "~/bin/ucommerce/UCommerce.Sitecore.Web.dll",
+                "~/bin/UCommerce.Sitecore.Web.dll",
+                backupTarget: false));
+
             _postInstallationSteps.Add(new CopyFile(
                 "~/bin/ucommerce/ServiceStack.dll",
                 "~/bin/ServiceStack.dll"));

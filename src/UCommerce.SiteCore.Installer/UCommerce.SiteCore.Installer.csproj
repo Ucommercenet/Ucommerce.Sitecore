@@ -111,34 +111,34 @@
     </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="UCommerce">
+    <Reference Include="UCommerce, Version=7.19.0.18257, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\uCommerce.Core.7.19.0.18257\lib\net45\UCommerce.dll</HintPath>
     </Reference>
-    <Reference Include="UCommerce.Admin">
+    <Reference Include="UCommerce.Admin, Version=7.19.0.18257, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\uCommerce.Core.7.19.0.18257\lib\net45\UCommerce.Admin.dll</HintPath>
     </Reference>
-    <Reference Include="UCommerce.Infrastructure">
+    <Reference Include="UCommerce.Infrastructure, Version=7.19.0.18257, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\uCommerce.Core.7.19.0.18257\lib\net45\UCommerce.Infrastructure.dll</HintPath>
     </Reference>
-    <Reference Include="UCommerce.Installer">
+    <Reference Include="UCommerce.Installer, Version=7.19.0.18257, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\uCommerce.Core.7.19.0.18257\lib\net45\UCommerce.Installer.dll</HintPath>
     </Reference>
-    <Reference Include="UCommerce.NHibernate">
+    <Reference Include="UCommerce.NHibernate, Version=7.19.0.18257, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\uCommerce.Core.7.19.0.18257\lib\net45\UCommerce.NHibernate.dll</HintPath>
     </Reference>
-    <Reference Include="UCommerce.Pipelines">
+    <Reference Include="UCommerce.Pipelines, Version=7.19.0.18257, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\uCommerce.Core.7.19.0.18257\lib\net45\UCommerce.Pipelines.dll</HintPath>
     </Reference>
-    <Reference Include="UCommerce.Presentation">
+    <Reference Include="UCommerce.Presentation, Version=7.19.0.18257, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\uCommerce.Core.7.19.0.18257\lib\net45\UCommerce.Presentation.dll</HintPath>
     </Reference>
-    <Reference Include="UCommerce.SystemHttp">
+    <Reference Include="UCommerce.SystemHttp, Version=7.19.0.18257, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\uCommerce.Core.7.19.0.18257\lib\net45\UCommerce.SystemHttp.dll</HintPath>
     </Reference>
-    <Reference Include="UCommerce.SystemWeb">
+    <Reference Include="UCommerce.SystemWeb, Version=7.19.0.18257, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\uCommerce.Core.7.19.0.18257\lib\net45\UCommerce.SystemWeb.dll</HintPath>
     </Reference>
-    <Reference Include="UCommerce.Web.Api">
+    <Reference Include="UCommerce.Web.Api, Version=7.19.0.18257, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\uCommerce.Core.7.19.0.18257\lib\net45\UCommerce.Web.Api.dll</HintPath>
     </Reference>
   </ItemGroup>
