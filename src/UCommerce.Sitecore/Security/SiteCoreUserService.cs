@@ -199,6 +199,7 @@ namespace UCommerce.Sitecore.Security
 			var user = GetOrCreateUser(sitecoreUser);
 
 			user.UserName = sitecoreUser.LocalName;
+			user.FirstName = sitecoreUser.LocalName;
 			user.ExternalId = sitecoreUser.LocalName;
 			user.IsAdmin = sitecoreUser.IsAdministrator;
 
