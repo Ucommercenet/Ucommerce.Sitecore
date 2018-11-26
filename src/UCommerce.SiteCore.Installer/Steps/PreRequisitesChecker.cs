@@ -21,7 +21,6 @@ namespace UCommerce.Sitecore.Installer.Steps
 				{
 					new CanCreateTables(connectionStringLocator.LocateConnectionString(), sitecoreInstallerLoggingService),
 					new CanModifyFiles(sitecoreInstallerLoggingService,FileUtil.MapPath("/")),
-					new NoConflictingAppHost()
 				};
 
 			var checker = new PrerequisitesChecker(steps,new SitecoreInstallerLoggingService());
