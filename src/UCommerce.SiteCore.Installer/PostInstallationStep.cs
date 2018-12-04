@@ -59,6 +59,8 @@ namespace UCommerce.Sitecore.Installer
 
             // Remove old UCommerce.Transactions.Payment.dll from /bin since payment methods have been moved to Apps.
             _postInstallationSteps.Add(new DeleteFile("~/bin/UCommerce.Transactions.Payments.dll"));
+            // Remove ServiceStack folder
+            _postInstallationSteps.Add(new DeleteDirectory("~/sitecore modules/Shell/Ucommerce/Apps/ServiceStack"));
             //Clean up unused configuration since payment integration has move to apps 
             _postInstallationSteps.Add(new DeleteFile("~/sitecore modules/shell/ucommerce/Configuration/Payments.config"));
 
