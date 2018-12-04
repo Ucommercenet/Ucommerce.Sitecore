@@ -161,14 +161,6 @@ task CopySitecoreFiles -description "Copy all the sitecore files needs for a dep
 	##### Special version of Lucene.net #####
 	Copy-Item "$src\..\lib\Lucene.net\Lucene.net.dll" "$working_dir\files\Sitecore modules\shell\ucommerce\install\binaries\Lucene.net.dll" -Force
 
-
-	##### ServiceStack ######
-	Copy-Item "$src\..\lib\ServiceStack\3.9.55\ServiceStack.Common.3.9.55\lib\net35\ServiceStack.Common.dll" "$working_dir\files\bin\ServiceStack.Common.dll" -Force
-	Copy-Item "$src\..\lib\ServiceStack\3.9.55\ServiceStack.Common.3.9.55\lib\net35\ServiceStack.interfaces.dll" "$working_dir\files\bin\ServiceStack.interfaces.dll" -Force
-	Copy-Item "$src\..\lib\ServiceStack\3.9.55\ServiceStack.3.9.55\lib\net35\ServiceStack.dll" "$working_dir\files\bin\ServiceStack.dll" -Force
-	Copy-Item "$src\..\lib\ServiceStack\3.9.55\ServiceStack.3.9.55\lib\net35\ServiceStack.ServiceInterface.dll" "$working_dir\files\bin\ServiceStack.ServiceInterface.dll" -Force
-	Copy-Item "$src\..\lib\ServiceStack\3.9.55\ServiceStack.Text.3.9.55\lib\net35\ServiceStack.Text.dll" "$working_dir\files\bin\ServiceStack.Text.dll" -Force
-
 	if (Test-Path "$working_dir\files\sitecore modules\Shell\Ucommerce\Apps\Acquire%20and%20Cancel%20Payments.disabled") {
 		Rename-Item -Path "$working_dir\files\sitecore modules\Shell\Ucommerce\Apps\Acquire%20and%20Cancel%20Payments.disabled" -NewName "Acquire and Cancel Payments.disabled" -Force
 	}
