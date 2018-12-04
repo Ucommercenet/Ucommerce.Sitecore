@@ -5,7 +5,6 @@ using Sitecore.Install.Framework;
 using Sitecore.Install.Utils;
 using UCommerce.Installer.Prerequisites;
 using UCommerce.Installer.Prerequisites.impl;
-using UCommerce.Sitecore.Installer.Steps.PreRequisitesSteps;
 
 namespace UCommerce.Sitecore.Installer.Steps
 {
