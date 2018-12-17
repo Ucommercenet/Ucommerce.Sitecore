@@ -173,7 +173,6 @@
     <Compile Include="Steps\MoveDirectory.cs" />
     <Compile Include="Steps\MoveFileIfTargetExist.cs" />
     <Compile Include="Steps\PreRequisitesChecker.cs" />
-    <Compile Include="Steps\PreRequisitesSteps\NoConflictingAppHost.cs" />
     <Compile Include="Steps\RenameConfigDefaultFilesToConfigFilesStep.cs" />
     <Compile Include="Steps\SeperateConfigSectionInNewFile.cs" />
     <Compile Include="Steps\SitecoreWebconfigMerger.cs" />
@@ -253,7 +252,9 @@
     <None Include="SpeakSerialization\sitecore\templates\uCommerce\uCommerce Speak Application\Content.item" />
     <None Include="SpeakSerialization\sitecore\templates\uCommerce\uCommerce Speak Application\Content\FrameUrl.item" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Steps\PreRequisitesSteps\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

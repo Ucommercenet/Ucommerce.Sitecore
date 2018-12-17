@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using Sitecore.Install.Framework;
 using UCommerce.Installer;
+using UCommerce.Installer.InstallerSteps;
 using UCommerce.Sitecore.Installer.Steps;
+using DeleteFile = UCommerce.Sitecore.Installer.Steps.DeleteFile;
 using FileBackup = UCommerce.Sitecore.Installer.Steps.FileBackup;
+using UpdateUCommerceAssemblyVersionInDatabase = UCommerce.Sitecore.Installer.Steps.UpdateUCommerceAssemblyVersionInDatabase;
 
 namespace UCommerce.Sitecore.Installer
 {
@@ -59,6 +62,12 @@ namespace UCommerce.Sitecore.Installer
 
             // Remove old UCommerce.Transactions.Payment.dll from /bin since payment methods have been moved to Apps.
             _postInstallationSteps.Add(new DeleteFile("~/bin/UCommerce.Transactions.Payments.dll"));
+            // Remove ServiceStack folder
+            _postInstallationSteps.Add(new UCommerce.Sitecore.Installer.Steps.DeleteDirectory("~/sitecore modules/Shell/Ucommerce/Apps/ServiceStack"));
+            // Enable ExchangeRateAPICurrencyConversion app
+            _postInstallationSteps.Add(new MoveDirectory(
+                "~/sitecore modules/Shell/Ucommerce/Apps/ExchangeRateAPICurrencyConversion.disabled",
+                "~/sitecore modules/Shell/Ucommerce/Apps/ExchangeRateAPICurrencyConversion", true));
             //Clean up unused configuration since payment integration has move to apps 
             _postInstallationSteps.Add(new DeleteFile("~/sitecore modules/shell/ucommerce/Configuration/Payments.config"));
 

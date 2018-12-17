@@ -80,11 +80,6 @@ namespace UCommerce.Sitecore.Installer.Steps
                 "~/bin/UCommerce.Sitecore.Web.dll",
                 backupTarget: false));
 
-            _postInstallationSteps.Add(new CopyFile(
-                "~/bin/ucommerce/ServiceStack.dll",
-                "~/bin/ServiceStack.dll"));
-
-
             foreach (var postInstallationStep in _postInstallationSteps)
             {
                 postInstallationStep.Run(output, metaData);
