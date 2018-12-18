@@ -13,7 +13,6 @@ namespace UCommerce.Sitecore.Installer.Steps
 		public DeleteFile(string filePath)
 		{
 			var filePathInfo = new FileInfo(HostingEnvironment.MapPath(filePath));
-
 			_command = new FileDeleter(filePathInfo);
 		}
 

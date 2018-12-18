@@ -60,8 +60,9 @@
     <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <HintPath>..\packages\Iesi.Collections.4.0.1.4000\lib\net40\Iesi.Collections.dll</HintPath>
     </Reference>
-    <Reference Include="Infralution.Licensing">
-      <HintPath>..\packages\uCommerce.7.19.0.18257\lib\net45\Infralution.Licensing.dll</HintPath>
+    <Reference Include="Infralution.Licensing, Version=4.7.1.0, Culture=neutral, PublicKeyToken=3e7e8e3744a5c13f, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.8.0.0.18352\lib\net45\Infralution.Licensing.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CompilerServices.AsyncTargetingPack.Net45, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CompilerServices.AsyncTargetingPack.1.0.1\lib\net45\Microsoft.CompilerServices.AsyncTargetingPack.Net45.dll</HintPath>
@@ -111,35 +112,41 @@
     </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="UCommerce, Version=7.19.0.18257, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.7.19.0.18257\lib\net45\UCommerce.dll</HintPath>
+    <Reference Include="UCommerce, Version=8.0.0.18352, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.8.0.0.18352\lib\net45\UCommerce.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="UCommerce.Admin, Version=7.19.0.18257, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.7.19.0.18257\lib\net45\UCommerce.Admin.dll</HintPath>
+    <Reference Include="UCommerce.Admin, Version=8.0.0.18352, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.8.0.0.18352\lib\net45\UCommerce.Admin.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="UCommerce.Infrastructure, Version=7.19.0.18257, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.7.19.0.18257\lib\net45\UCommerce.Infrastructure.dll</HintPath>
+    <Reference Include="UCommerce.Infrastructure, Version=8.0.0.18352, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.8.0.0.18352\lib\net45\UCommerce.Infrastructure.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="UCommerce.Installer, Version=7.19.0.18257, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.7.19.0.18257\lib\net45\UCommerce.Installer.dll</HintPath>
+    <Reference Include="UCommerce.Installer, Version=8.0.0.18352, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.8.0.0.18352\lib\net45\UCommerce.Installer.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="UCommerce.NHibernate, Version=7.19.0.18257, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.7.19.0.18257\lib\net45\UCommerce.NHibernate.dll</HintPath>
+    <Reference Include="UCommerce.NHibernate, Version=8.0.0.18352, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.8.0.0.18352\lib\net45\UCommerce.NHibernate.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="UCommerce.Pipelines, Version=7.19.0.18257, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.7.19.0.18257\lib\net45\UCommerce.Pipelines.dll</HintPath>
+    <Reference Include="UCommerce.Pipelines, Version=8.0.0.18352, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.8.0.0.18352\lib\net45\UCommerce.Pipelines.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="UCommerce.Presentation, Version=7.19.0.18257, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.7.19.0.18257\lib\net45\UCommerce.Presentation.dll</HintPath>
+    <Reference Include="UCommerce.Presentation, Version=8.0.0.18352, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.8.0.0.18352\lib\net45\UCommerce.Presentation.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="UCommerce.SystemHttp, Version=7.19.0.18257, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.7.19.0.18257\lib\net45\UCommerce.SystemHttp.dll</HintPath>
+    <Reference Include="UCommerce.SystemHttp, Version=8.0.0.18352, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.8.0.0.18352\lib\net45\UCommerce.SystemHttp.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="UCommerce.SystemWeb, Version=7.19.0.18257, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.7.19.0.18257\lib\net45\UCommerce.SystemWeb.dll</HintPath>
-    </Reference>
-    <Reference Include="UCommerce.Web.Api, Version=7.19.0.18257, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uCommerce.Core.7.19.0.18257\lib\net45\UCommerce.Web.Api.dll</HintPath>
+    <Reference Include="UCommerce.SystemWeb, Version=8.0.0.18352, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uCommerce.Core.8.0.0.18352\lib\net45\UCommerce.SystemWeb.dll</HintPath>
+      <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -148,6 +155,7 @@
     <Compile Include="SitecoreVersionChecker.cs" />
     <Compile Include="Steps\AddTitleToCommerceSpeakAppsSection.cs" />
     <Compile Include="Steps\CreateSpeakApplicationIfSupported.cs" />
+    <Compile Include="Steps\DeleteDirectory.cs" />
     <Compile Include="Steps\MoveResourceFiles.cs" />
     <Compile Include="Steps\MoveUcommerceBinaries.cs" />
     <Compile Include="Steps\RemoveUCommerceApplicationLaunchButton.cs" />
@@ -173,7 +181,6 @@
     <Compile Include="Steps\MoveDirectory.cs" />
     <Compile Include="Steps\MoveFileIfTargetExist.cs" />
     <Compile Include="Steps\PreRequisitesChecker.cs" />
-    <Compile Include="Steps\PreRequisitesSteps\NoConflictingAppHost.cs" />
     <Compile Include="Steps\RenameConfigDefaultFilesToConfigFilesStep.cs" />
     <Compile Include="Steps\SeperateConfigSectionInNewFile.cs" />
     <Compile Include="Steps\SitecoreWebconfigMerger.cs" />
@@ -204,6 +211,7 @@
     <Content Include="package\metadata\sc_version.txt" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="ConfigurationTransformations\ConfigIncludes\Sitecore.uCommerce.Databases.config">
       <SubType>Designer</SubType>
     </None>
@@ -253,7 +261,9 @@
     <None Include="SpeakSerialization\sitecore\templates\uCommerce\uCommerce Speak Application\Content.item" />
     <None Include="SpeakSerialization\sitecore\templates\uCommerce\uCommerce Speak Application\Content\FrameUrl.item" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Steps\PreRequisitesSteps\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
