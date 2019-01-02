@@ -18,25 +18,7 @@ namespace UCommerce.Sitecore.Installer.Steps
         }
         public void Run(ITaskOutput output, NameValueCollection metaData)
         {
-            var tasks = new List<IPostStep>();
-            if (_sitecoreVersionChecker.SupportsSpeakApps())
-            {
-                tasks.Add(new CreateSpeakApplications());
-                tasks.Add(new CreateApplicationLaunchButton());
-
-                //Remove uCommerce shortcut on desktop if present
-                tasks.Add(new RemoveUCommerceApplicationLaunchButton());
-            }
-
-            if (_sitecoreVersionChecker.IsEqualOrGreaterThan(new Version(8, 2)))
-            {
-                tasks.Add(new AddTitleToCommerceSpeakAppsSection());
-            }
-
-            foreach (var task in tasks)
-            {
-                task.Run(output, metaData);
-            }
+            new InstallationSteps.CreateSpeakApplicationIfSupported(_sitecoreVersionChecker).Execute();
         }
     }
 }

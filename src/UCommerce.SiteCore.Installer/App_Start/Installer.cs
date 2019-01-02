@@ -61,7 +61,8 @@ namespace UCommerce.Sitecore.Installer.App_Start
             installationSteps.Add(new DeleteDirectory("~/sitecore modules/Shell/Ucommerce/Apps/ServiceStack", sitecoreInstallerLoggingService));
             installationSteps.Add(new UpdateUCommerceApps("~/sitecore modules/Shell/ucommerce/Apps", sitecoreInstallerLoggingService));
             installationSteps.Add(new DeleteFile("~/sitecore modules/shell/ucommerce/Configuration/Payments.config", sitecoreInstallerLoggingService));
-
+            installationSteps.Add(new CreateApplicationShortcuts());
+            installationSteps.Add(new MigrateIdTableValues());
             //exchange rate app always enabled through nuget.
             //move binaries and app global resources not needed.
             //compose configuration and pipeline not needed, already updated via package.

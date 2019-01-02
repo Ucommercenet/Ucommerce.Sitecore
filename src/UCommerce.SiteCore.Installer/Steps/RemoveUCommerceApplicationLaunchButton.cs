@@ -12,12 +12,7 @@ namespace UCommerce.Sitecore.Installer.Steps
 	{
 		public void Run(ITaskOutput output, NameValueCollection metaData)
 		{
-			Item item = Factory.GetDatabase("core").GetItem("/sitecore/client/Applications/Launchpad/PageSettings/Buttons/ContentEditing/uCommerce");
-
-			if (item != null)
-			{
-				item.Delete();
-			}
+            new InstallationSteps.RemoveUCommerceApplicationLaunchButton().Execute();
 		}
 	}
 }

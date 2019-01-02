@@ -11,7 +11,7 @@ namespace UCommerce.Sitecore.Installer.Steps
 
 		public CopyFile(string sourceVirtualPath, string targetVirtualPath)
 		{
-			var source = new FileInfo(HostingEnvironment.MapPath(sourceVirtualPath));
+            var source = new FileInfo(HostingEnvironment.MapPath(sourceVirtualPath));
 			var target = new FileInfo(HostingEnvironment.MapPath(targetVirtualPath));
 
 			_command = new UCommerce.Installer.FileCopier(source, target);

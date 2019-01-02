@@ -149,7 +149,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\Installer.cs" />
     <Compile Include="DbInstallerSitecore.cs" />
+    <Compile Include="InstallationSteps\AddTitleToCommerceSpeakAppsSection.cs" />
+    <Compile Include="InstallationSteps\CreateApplicationLaunchButton.cs" />
+    <Compile Include="InstallationSteps\CreateApplicationShortcuts.cs" />
+    <Compile Include="InstallationSteps\CreateSpeakApplicationIfSupported.cs" />
+    <Compile Include="InstallationSteps\CreateSpeakApplications.cs" />
+    <Compile Include="InstallationSteps\InitializeObjectFactory.cs" />
+    <Compile Include="InstallationSteps\InstallDatabaseSitecore.cs" />
+    <Compile Include="InstallationSteps\MigrateIdTableValues.cs" />
+    <Compile Include="InstallationSteps\MoveDirectory.cs" />
+    <Compile Include="InstallationSteps\MoveDirectoryIfTargetExist.cs" />
+    <Compile Include="InstallationSteps\MoveFile.cs" />
+    <Compile Include="InstallationSteps\MoveResourceFiles.cs" />
+    <Compile Include="InstallationSteps\MoveUcommerceBinaries.cs" />
+    <Compile Include="InstallationSteps\RemoveUCommerceApplicationLaunchButton.cs" />
+    <Compile Include="InstallationSteps\RenameConfigDefaultFilesToConfigFilesStep.cs" />
+    <Compile Include="InstallationSteps\SeperateConfigSectionInNewFile.cs" />
+    <Compile Include="InstallationSteps\SitecorePrerequisitesChecker.cs" />
+    <Compile Include="InstallationSteps\SitecoreWebconfigMerger.cs" />
     <Compile Include="SitecoreDatabaseAvailabilityService.cs" />
     <Compile Include="SitecoreVersionChecker.cs" />
     <Compile Include="Steps\AddTitleToCommerceSpeakAppsSection.cs" />
