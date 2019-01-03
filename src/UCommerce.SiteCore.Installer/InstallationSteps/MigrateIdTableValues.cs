@@ -8,8 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Sitecore.Data.IDTables;
 using Sitecore.Install.Framework;
+using UCommerce.Extensions;
 using UCommerce.Installer;
-using UCommerce.Sitecore.Installer.Steps;
 
 namespace UCommerce.Sitecore.Installer.InstallationSteps
 {

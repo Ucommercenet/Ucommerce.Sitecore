@@ -1,12 +1,36 @@
-﻿using Sitecore.Configuration;
+﻿using System.Collections.Specialized;
+using System.IO;
+using System.Web.Hosting;
+using Sitecore.Configuration;
 using Sitecore.Data;
 using Sitecore.Data.Items;
 using Sitecore.Data.Managers;
 using Sitecore.Globalization;
+using Sitecore.Install.Framework;
 using UCommerce.Installer;
 
 namespace UCommerce.Sitecore.Installer.InstallationSteps
 {
+    public class MoveFileIfTargetExist : IInstallationStep
+    {
+        private readonly bool _backupTarget;
+        private readonly FileMoverIfTargetExist _command;
+
+        public MoveFileIfTargetExist(string sourceVirtualPath, string targetVirtualPath, bool backupTarget)
+        {
+            _backupTarget = backupTarget;
+            FileInfo source = new FileInfo(HostingEnvironment.MapPath(sourceVirtualPath)),
+                target = new FileInfo(HostingEnvironment.MapPath(targetVirtualPath));
+
+            _command = new FileMoverIfTargetExist(source, target);
+        }
+
+        public void Execute()
+        {
+            _command.MoveIfTargetExist(_backupTarget, ex => new SitecoreInstallerLoggingService().Log<int>(ex));
+        }
+    }
+
     public class CreateApplicationLaunchButton : IInstallationStep
     {
         public void Execute()

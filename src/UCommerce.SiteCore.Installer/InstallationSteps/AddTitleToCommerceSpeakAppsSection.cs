@@ -12,11 +12,11 @@ namespace UCommerce.Sitecore.Installer.InstallationSteps
         public void Execute()
         {
             IInstallerLoggingService logging = new SitecoreInstallerLoggingService();
-            logging.Log<Steps.CreateSpeakApplications>("AddTitleToCommerceSpeakAppsSection started.");
+            logging.Log<CreateSpeakApplications>("AddTitleToCommerceSpeakAppsSection started.");
 
             Parse(new DirectoryInfo(GetRootFolder()));
 
-            logging.Log<Steps.CreateSpeakApplications>("AddTitleToCommerceSpeakAppsSection finished.");
+            logging.Log<CreateSpeakApplications>("AddTitleToCommerceSpeakAppsSection finished.");
         }
 
         private void Parse(DirectoryInfo directoryInfo)

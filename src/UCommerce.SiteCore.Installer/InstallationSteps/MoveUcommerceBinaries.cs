@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using UCommerce.Installer;
-using UCommerce.Sitecore.Installer.Steps;
 
 namespace UCommerce.Sitecore.Installer.InstallationSteps
 {
