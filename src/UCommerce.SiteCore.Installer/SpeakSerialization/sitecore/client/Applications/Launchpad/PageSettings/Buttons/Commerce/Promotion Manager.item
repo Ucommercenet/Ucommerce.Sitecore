@@ -8,6 +8,7 @@ name: Promotion Manager
 master: {00000000-0000-0000-0000-000000000000}
 template: {D4C7F5F9-8977-4E0C-B6CE-28AE8E0753E2}
 templatekey: LaunchPad-Button
+created: 20190107T084702Z
 
 ----field----
 field: {D25B56D4-23B6-4462-BE25-B6A6D7F38E13}
