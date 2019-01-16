@@ -8,6 +8,7 @@ name: Order Manager Application
 master: {00000000-0000-0000-0000-000000000000}
 template: {B1F24505-F8F2-4051-B4FE-1A430CBB5BEA}
 templatekey: uCommerce Speak Application
+created: 20190107T084702Z
 
 ----field----
 field: {3A67AD0F-9530-4B1B-9B70-9230C36AE8D6}
@@ -26,7 +27,7 @@ content-length: 1247
 ----version----
 language: en
 version: 1
-revision: c1b475dd-8065-4c5b-9487-83d69e8766d0
+revision: fbe6e2da-62d0-4a3a-9af3-bf06993b8011
 
 ----field----
 field: {7205A57F-93B4-413A-AA9A-6B16BBC59565}
@@ -55,14 +56,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-c1b475dd-8065-4c5b-9487-83d69e8766d0
+fbe6e2da-62d0-4a3a-9af3-bf06993b8011
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20160504T053530Z
+20190109T153950Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
