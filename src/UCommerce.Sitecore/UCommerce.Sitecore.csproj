@@ -329,6 +329,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SitecoreDataProvider\Impl\UCommerceId.cs" />
     <Compile Include="SitecoreLanguageService.cs" />
+    <Compile Include="SystemInformation\GetHostSystemInfo.cs" />
     <Compile Include="Tree\Impl\Providers\SitecoreCatalogSectionProvider.cs" />
     <Compile Include="Tree\Impl\Providers\SitecoreProductSectionProvider.cs" />
     <Compile Include="UI\JavascriptFactory.cs" />
