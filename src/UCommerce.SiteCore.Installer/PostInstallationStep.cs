@@ -124,12 +124,10 @@ namespace UCommerce.Sitecore.Installer
             IInstallerLoggingService logging = new SitecoreInstallerLoggingService();
             foreach (var step in _installationSteps)
             {
-
                 try
                 {
                     step.Execute();
                     logging.Log<PostInstallationStep>($"Executed: {step.GetType().FullName}");
-
                 }
                 catch (Exception ex)
                 {
