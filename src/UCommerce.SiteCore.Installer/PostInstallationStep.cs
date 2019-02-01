@@ -53,7 +53,7 @@ namespace UCommerce.Sitecore.Installer
             _installationSteps.Add(new UCommerce.Installer.InstallerSteps.UpdateUCommerceAssemblyVersionInDatabase(updateService,runtimeVersionChecker, sitecoreInstallerLoggingService));
             _installationSteps.Add(new BackupFile("~/web.config", "~/web.config.{DateTime.Now.Ticks}.backup", sitecoreInstallerLoggingService));
             _installationSteps.Add(new InstallationSteps.SitecoreWebconfigMerger(sitecoreVersionChecker));
-            _installationSteps.Add(new InstallationSteps.SeperateConfigSectionInNewFile("configuration/sitecore/settings", "~/web.config", "~/App_Config/Include/.Sitecore.Settings.config", sitecoreInstallerLoggingService));
+            _installationSteps.Add(new InstallationSteps.SeperateConfigSectionInNewFile("~/web.config", "~/App_Config/Include/.Sitecore.Settings.config", "configuration/sitecore/settings", sitecoreInstallerLoggingService));
             _installationSteps.Add(new InstallationSteps.MoveDirectory("~/sitecore modules/shell/ucommerce/install/binaries", "~/bin/uCommerce", overwriteTarget: true));
             _installationSteps.Add(new UCommerce.Installer.InstallerSteps.DeleteFile("~/bin/ucommerce/UCommerce.Installer.dll", sitecoreInstallerLoggingService));
             _installationSteps.Add(new UCommerce.Installer.InstallerSteps.DeleteFile("~/bin/UCommerce.Transactions.Payments.dll", sitecoreInstallerLoggingService));
