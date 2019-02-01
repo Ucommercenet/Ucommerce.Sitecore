@@ -23,7 +23,8 @@ namespace UCommerce.Sitecore.Installer.InstallationSteps
             steps.Add(new UCommerce.Sitecore.Installer.InstallationSteps.MoveFile("~/bin/ucommerce/UCommerce.Presentation.dll", "~/bin/UCommerce.Presentation.dll", false));
             steps.Add(new UCommerce.Sitecore.Installer.InstallationSteps.MoveFile("~/bin/ucommerce/UCommerce.NHibernate.dll", "~/bin/UCommerce.NHibernate.dll", false));
             steps.Add(new UCommerce.Sitecore.Installer.InstallationSteps.MoveFile("~/bin/ucommerce/UCommerce.Sitecore.Web.dll", "~/bin/UCommerce.Sitecore.Web.dll", false));
-            
+            steps.Add(new UCommerce.Sitecore.Installer.InstallationSteps.MoveFile("~/bin/ucommerce/UCommerce.Infrastructure.dll", "~/bin/UCommerce.Infrastructure.dll", false));
+
             foreach (var installationStep in steps)
             {
                 installationStep.Execute();
