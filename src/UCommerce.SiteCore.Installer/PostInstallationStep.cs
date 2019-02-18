@@ -68,6 +68,12 @@ namespace UCommerce.Sitecore.Installer
             _postInstallationSteps.Add(new MoveDirectory(
                 "~/sitecore modules/Shell/Ucommerce/Apps/ExchangeRateAPICurrencyConversion.disabled",
                 "~/sitecore modules/Shell/Ucommerce/Apps/ExchangeRateAPICurrencyConversion", true));
+
+            // Enable Sanitization app
+            _postInstallationSteps.Add(new MoveDirectory(
+                "~/sitecore modules/Shell/Ucommerce/Apps/Sanitization.disabled",
+                "~/sitecore modules/Shell/Ucommerce/Apps/Sanitization", true));
+
             //Clean up unused configuration since payment integration has move to apps 
             _postInstallationSteps.Add(new DeleteFile("~/sitecore modules/shell/ucommerce/Configuration/Payments.config"));
 
