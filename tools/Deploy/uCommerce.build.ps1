@@ -68,16 +68,9 @@ function RemoveFiles($directory, $files){
 . .\uCommerce.Sitecore.ps1
 . .\Get-FolderItem.ps1
 
-task default -depends Compile
-
 task PostDeployMoveBinFiles -description "used to move all uCommerce bin files to the root bin folder when deploying local" {
     $root = $script:hash.files_root_dir
     Move-Item "$root\bin\ucommerce\UCommerce.*" "$root\bin\" -Force
-}
-
-task ValidateSetup -description "Validates the setup prerequirement" {
-    Assert($base_dir -ne $null) "base_dir should never be null. This should be specifed in the call powershell script file."
-	Write-Host "$script:version"
 }
 
 task CleanSolution -description "Cleans the complete solution" {
@@ -107,7 +100,7 @@ task Compile -description "Compiles the complete solution" -depends UpdateAssemb
     Pop-Location
 }
 
-task UpdateAssemblyInfo -description "Updates the AssemblyInfo.cs file if there is a valid version string supplied" -precondition { return IsVersionNumber $version } -depends UpdateSitecorePackageInfo{
+task UpdateAssemblyInfo -description "Updates the AssemblyInfo.cs file if there is a valid version string supplied" -depends UpdateSitecorePackageInfo{
     if ($UpdateAssemblyInfo -eq "True") {
         Push-Location $src
 
