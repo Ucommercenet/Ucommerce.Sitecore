@@ -1,4 +1,4 @@
-task CreateSitecorePackage -depends SetVersionNumberFromClientNugetPackage,ValidateSetup,CleanSitecoreWorkingDirectory,NuGetRestore, Rebuild,CopySitecoreFiles, CleanPackageForOtherCmsDependencies, CreateSitecoreZipFile {
+task CreateSitecorePackage -depends SetVersionNumberFromClientNugetPackage,CleanSitecoreWorkingDirectory,NuGetRestore, Rebuild,CopySitecoreFiles, CleanPackageForOtherCmsDependencies, CreateSitecoreZipFile {
 
 }
 
@@ -18,8 +18,12 @@ task SetVersionNumberFromClientNugetPackage {
 
 	$info = Get-ChildItem -Filter UCommerce.Admin.dll -Recurse | Select-Object -ExpandProperty VersionInfo
 
-	$script:version = $info.FileVersion
-
+	# Removing build part from the Ucommerce packages.
+	$version = $info.FileVersion.SubString(0,$info.FileVersion.LastIndexOf('.'))
+	
+	# Adding build number from date.
+	$script:versionDateNumberPart = (Get-Date).Year.ToString().Substring(2) + "" + (Get-Date).DayOfYear.ToString("000");
+	$script:version = "$version." + $script:versionDateNumberPart
 	Pop-Location
 }
 
