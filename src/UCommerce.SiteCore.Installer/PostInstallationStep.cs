@@ -70,9 +70,9 @@ namespace UCommerce.Sitecore.Installer
                 "~/sitecore modules/Shell/Ucommerce/Apps/ExchangeRateAPICurrencyConversion", true));
 
             // Update Catalogs app
-            _postInstallationSteps.Add(new MoveDirectory(
+            _postInstallationSteps.Add(new MoveDirectoryIfTargetExist(
                 "~/sitecore modules/Shell/Ucommerce/Apps/Catalogs.disabled",
-                "~/sitecore modules/Shell/Ucommerce/Apps/Catalogs", true));
+                "~/sitecore modules/Shell/Ucommerce/Apps/Catalogs"));
 
             //Clean up unused configuration since payment integration has move to apps 
             _postInstallationSteps.Add(new DeleteFile("~/sitecore modules/shell/ucommerce/Configuration/Payments.config"));
