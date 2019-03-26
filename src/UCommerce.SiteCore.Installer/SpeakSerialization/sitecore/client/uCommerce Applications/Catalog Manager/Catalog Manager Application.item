@@ -8,6 +8,7 @@ name: Catalog Manager Application
 master: {00000000-0000-0000-0000-000000000000}
 template: {B1F24505-F8F2-4051-B4FE-1A430CBB5BEA}
 templatekey: uCommerce Speak Application
+created: 20190107T084702Z
 
 ----field----
 field: {3A67AD0F-9530-4B1B-9B70-9230C36AE8D6}
