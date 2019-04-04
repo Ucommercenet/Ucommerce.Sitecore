@@ -3,6 +3,7 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using Sitecore;
 using Sitecore.Collections;
@@ -194,6 +195,10 @@ namespace UCommerce.Sitecore.SitecoreDataProvider.Impl.SitecoreItems
 
 		private ISitecoreItem IdOfFirstParentThatIsABucket(ISitecoreItem item)
 		{
+            if (item.ParentId.Guid == item.Id.Guid)
+            {
+                throw new InvalidDataException($"Id and parent Id cannot be the same. Id of item: '{ item.Id.Guid }' ParentId: '{ item.ParentId.Guid}'. Item definition: '{ item.ItemDefinition.Name }'");
+            }
 			if (!_sitecoreItems.ContainsKey(item.ParentId)) return null;
 
 			var parent = _sitecoreItems[item.ParentId];
