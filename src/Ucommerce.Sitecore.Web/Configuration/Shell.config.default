@@ -373,8 +373,12 @@
 		<component id="Sitecore.DataType.Save"
 			   service="UCommerce.Pipelines.IPipelineTask`1[[UCommerce.EntitiesV2.DataType, UCommerce]], UCommerce"
 			   type="UCommerce.Sitecore.Pipelines.DataTypeSavedTask, UCommerce.Sitecore" />
-		
-		<!-- -->
-		
+
+    <!-- GetHostSystemInfo-->
+    <component
+      id="GetHostSystemInfo"
+      service="UCommerce.SystemInformation.IGetHostSystemInfo, UCommerce"
+      type="UCommerce.Sitecore.SystemInformation.GetHostSystemInfo, UCommerce.Sitecore" />
+
 	</components>
 </configuration>

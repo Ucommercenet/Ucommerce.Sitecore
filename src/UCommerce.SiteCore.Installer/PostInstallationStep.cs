@@ -69,6 +69,11 @@ namespace UCommerce.Sitecore.Installer
                 "~/sitecore modules/Shell/Ucommerce/Apps/ExchangeRateAPICurrencyConversion.disabled",
                 "~/sitecore modules/Shell/Ucommerce/Apps/ExchangeRateAPICurrencyConversion", true));
 
+            // Update Catalogs app
+            _postInstallationSteps.Add(new MoveDirectoryIfTargetExist(
+                "~/sitecore modules/Shell/Ucommerce/Apps/Catalogs.disabled",
+                "~/sitecore modules/Shell/Ucommerce/Apps/Catalogs"));
+            
             // Enable Sanitization app
             _postInstallationSteps.Add(new MoveDirectory(
                 "~/sitecore modules/Shell/Ucommerce/Apps/Sanitization.disabled",
