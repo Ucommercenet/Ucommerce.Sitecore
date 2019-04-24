@@ -133,7 +133,7 @@ task CopySitecoreFiles -description "Copy all the sitecore files needs for a dep
 	#binaries
 	&robocopy "$src\UCommerce.Sitecore\bin\$configuration" "$working_dir\files\sitecore modules\Shell\ucommerce\install\binaries" UCommerce.* /is /it /e /NFL /NDL
 	
-    $dependencies = @("castle.core.dll", "castle.windsor.dll", "clientdependency.core.dll", "csvhelper.dll", "epplus.dll", "fluentnhibernate.dll", "iesi.collections.dll", "infralution.licensing.dll", "log4net.dll", "lucene.net.dll", "microsoft.web.xmltransform.dll". "newtonsoft.json.dll", "nhibernate.caches.syscache.dll", "nhibernate.dll", "system.net.http.formatting.dll", "system.web.http.dll", "system.web.http.webhost.dll")
+    $dependencies = @("castle.core.dll", "castle.windsor.dll", "clientdependency.core.dll", "csvhelper.dll", "epplus.dll", "fluentnhibernate.dll", "iesi.collections.dll", "infralution.licensing.dll", "log4net.dll", "lucene.net.dll", "microsoft.web.xmltransform.dll". "newtonsoft.json.dll", "nhibernate.caches.syscache.dll", "nhibernate.dll", "system.net.http.formatting.dll")
 	CopyFiles "$src\UCommerce.Sitecore\bin\$configuration" "$working_dir\files\sitecore modules\Shell\ucommerce\install\binaries" $dependencies
 
 	# Commerce Connect app
