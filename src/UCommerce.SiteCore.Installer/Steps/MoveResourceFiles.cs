@@ -23,6 +23,7 @@ namespace UCommerce.Sitecore.Installer.Steps
                 "Definition.de.resx",
                 "Definition.resx",
                 "Definition.sv.resx",
+                "Icons.resx",
                 "RoleName.da.resx",
                 "RoleName.resx",
                 "Search.da.resx",
