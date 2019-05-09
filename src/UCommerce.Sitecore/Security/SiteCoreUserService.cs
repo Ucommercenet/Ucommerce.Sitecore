@@ -8,6 +8,7 @@ using Sitecore.Common;
 using Sitecore.SecurityModel;
 using UCommerce.Security;
 using Sitecore.Security.Authentication;
+using UCommerce.Infrastructure.Components.Windsor;
 using Domain = Sitecore.Security.Domains.Domain;
 using SitecoreUser = Sitecore.Security.Accounts.User;
 using User = UCommerce.EntitiesV2.User;
@@ -24,6 +25,9 @@ namespace UCommerce.Sitecore.Security
 		private List<User> _allUsers;
 		private static readonly object _lock = new object();
 
+		[Mandatory]
+		public ICurrentUserNameService CurrentUserNameService { get; set; }
+		
 		public SitecoreUserService(ISitecoreContext sitecoreContext, IUserGroupService userGroupService)
 		{
 			_sitecoreContext = sitecoreContext;
@@ -42,19 +46,11 @@ namespace UCommerce.Sitecore.Security
 		public virtual User GetCurrentUser()
 		{
 			if (CurrentUser == null)
-				CurrentUser = GetUser(GetCurrentUserName());
+				CurrentUser = GetUser(CurrentUserNameService.CurrentUserName);
 
 			return CurrentUser;
 		}
 
-		/// <summary>
-		/// Get the user name of the person currently logged in.
-		/// </summary>
-		/// <returns></returns>
-		public virtual string GetCurrentUserName()
-		{
-		    return AuthenticationManager.GetActiveUser().LocalName;
-		}
 
 		/// <summary>
 		/// Get the current culture configured for the user
