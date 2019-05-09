@@ -180,10 +180,21 @@ div.tree-wrapper-content {
 	height: 100%;
 }
 
-.contentTree ul {
-	padding: 0px;
-	margin: 0px;
+/* Disabled U8 elements */
+
+.indentation {
+	display: none;
 }
+.contextMenuEllipsis {
+	display: none;
+}
+.contextTitle {
+	display: none;
+}
+.treeLine {
+	display: inline;
+}
+
 
 	.contentTree ul li {
 		margin-top: 5px;
