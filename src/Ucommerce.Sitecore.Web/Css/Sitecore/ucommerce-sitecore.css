@@ -182,24 +182,12 @@ div.tree-wrapper-content {
 
 .ucommerce-modal.ucommerce-modal {
     left: 33%;
-
-
-/* Disabled U8 elements */
-
-.indentation { 
-	display: none; 
-}
-.contextMenuEllipsis { 
-	display: none; 
-}
-.contextTitle { 
-	display: none; 
-}
-.treeLine { 
-	display: inline; 
 }
 
-
+.contentTree ul {
+	padding: 0px;
+	margin: 0px;
+}
 
 	.contentTree ul li {
 		margin-top: 5px;

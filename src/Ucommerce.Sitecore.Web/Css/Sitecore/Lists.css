@@ -130,3 +130,7 @@ tr.listEven
 .newSortOrder.newSortOrder {
 	display: none;
 }
+
+.umbraco.eight.only {
+	display: none;
+}

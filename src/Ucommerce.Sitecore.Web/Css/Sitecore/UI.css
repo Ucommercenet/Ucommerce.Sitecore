@@ -1925,3 +1925,8 @@ input.contentPickerSearchInput {
 .contentPickerSearchResults .treeLink {
     padding: 3px 0 3px 0;
 }
+
+.sorter.save.button.wrapper {
+	margin: 10px; 
+	margin-left: -2px;
+}
