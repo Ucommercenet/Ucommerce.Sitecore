@@ -2362,6 +2362,14 @@ img.ui-datepicker-trigger {
   text-align: center;
 }
 
+.variantContainer tbody tr td .variantOptions .secondary-button-wrapper{
+  display: inline;
+}
+
+.variantContainer tbody tr td .variantOptions .secondary-button-wrapper .secondary-button-label{
+  display:none;
+}
+
 .variantContainer tbody tr td .inline .btn-group {
   min-width: 200px;
   width: 100%;
