@@ -3,7 +3,7 @@ html {
 }
 /*SITECORE TRANSPARENT LOOK AND FEEL*/
 .modalTabView
-  .ui-tabs-nav.ui-helper-reset.ui-helper-clearfix.ui-widget-header.ui-corner-all {
+.ui-tabs-nav.ui-helper-reset.ui-helper-clearfix.ui-widget-header.ui-corner-all {
   background-color: #2b2b2b !important;
 }
 
@@ -35,8 +35,8 @@ body * {
 
 .imagePicker .imagePickerContainer .imagePickerContainerRibbon {
   background: #e0eced
-    url('/sitecore/shell/themes/standard/images/RibbonToolbarStrip.png')
-    repeat-x;
+  url('/sitecore/shell/themes/standard/images/RibbonToolbarStrip.png')
+  repeat-x;
   height: 33px;
   border-bottom: 1px solid #bababa;
 }
@@ -45,13 +45,13 @@ body * {
   padding: 1px;
   height: 20px;
   background: #4e4e4e url(/sitecore/shell/themes/standard/gradients/gray1.gif)
-    50% 0 repeat-y;
+  50% 0 repeat-y;
 }
 
 .imagePicker
-  .imagePickerContainer
-  .imagePickerContainerHeader
-  .imagePickerContainerClose {
+.imagePickerContainer
+.imagePickerContainerHeader
+.imagePickerContainerClose {
   float: right;
   height: 13px;
   width: 38px;
@@ -59,9 +59,9 @@ body * {
 }
 
 .imagePicker
-  .imagePickerContainer
-  .imagePickerContainerRibbon
-  .imagePickerContainerSave {
+.imagePickerContainer
+.imagePickerContainerRibbon
+.imagePickerContainerSave {
   width: 24px;
   height: 24px;
   display: inline-block;
@@ -105,9 +105,9 @@ body * {
 }
 
 .imagePicker
-  .imagePickerContainer
-  .imagePickerContainerBody
-  .imagePickerContainerTreeContainer {
+.imagePickerContainer
+.imagePickerContainerBody
+.imagePickerContainerTreeContainer {
   overflow: auto;
   display: inline-block;
   width: 56%;
@@ -115,9 +115,9 @@ body * {
 }
 
 .imagePicker
-  .imagePickerContainer
-  .imagePickerContainerBody
-  .imagePickerContainerPreview {
+.imagePickerContainer
+.imagePickerContainerBody
+.imagePickerContainerPreview {
   display: inline-block;
   width: 44%;
   height: 100%;
@@ -140,7 +140,7 @@ body * {
 /*CREATE DIALOG */
 .dialog-head {
   background: url('../images/panel_boxhead_bg.gif') no-repeat scroll left top
-    transparent;
+  transparent;
   height: 19px;
   left: 0;
   position: absolute;
@@ -249,6 +249,7 @@ h3 {
   flex-basis: auto;
   flex-grow: 1;
   height: auto;
+  overflow-y: auto;
 }
 
 .boxbody .dialog-actions {
@@ -309,6 +310,7 @@ p.guiDialogTiny {
   height: 56px;
   background-color: #f0f0f0;
   box-sizing: border-box;
+  min-height: 54px;
 }
 
 .addOrderContent {
@@ -608,7 +610,7 @@ guiEditor {
 
 .datePicker .nextButton {
   background: buttonface url('../images/arrow.right.png') no-repeat center
-    center;
+  center;
 }
 
 .datePicker .previousButton,
@@ -826,7 +828,7 @@ guiEditor {
   position: relative;
   padding: 10px 1%;
   background: url(../images/PropertyPane/propertyBackground.gif) repeat-x scroll
-    center top #ffffff;
+  center top #ffffff;
 }
 
 .third {
@@ -1202,7 +1204,7 @@ textarea:focus,
   border-color: #66afe9;
   outline: 0;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
-    0 0 8px rgba(102, 175, 233, 0.6);
+  0 0 8px rgba(102, 175, 233, 0.6);
 }
 
 .mediumButton[disabled='disabled'] {
@@ -1278,8 +1280,9 @@ textarea:focus,
 /* Override width and height for multi picker tree on categories picker on product editor */
 .multiPicker .multiPickerTree {
   width: 49%;
-  height: 97% !important;
-  overflow: auto;
+  height: 100% !important;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .categoriesForProducts .multiPicker .selectedNodes {
@@ -1540,9 +1543,9 @@ ul.multiselect-container.dropdown-menu {
   color: #fff !important;
   background-color: #207da2 !important;
   background-image: linear-gradient(
-    to bottom,
-    #289bc8 0%,
-    #207da2 100%
+          to bottom,
+          #289bc8 0%,
+          #207da2 100%
   ) !important;
   border-radius: 6px;
 }
@@ -1692,8 +1695,8 @@ select::-ms-expand {
   align-items: flex-start;
   background-color: rgb(221, 221, 221) !important;
   background-image: linear-gradient(
-    rgb(240, 240, 240) 0%,
-    rgb(217, 217, 217) 100%
+          rgb(240, 240, 240) 0%,
+          rgb(217, 217, 217) 100%
   ) !important;
   background-position: 0% 0% !important;
   background-repeat: repeat-x !important;
@@ -1787,8 +1790,8 @@ body {
 }
 
 .contentPane, .contentTree {
-    padding: 0 15px 0 15px;
-    box-sizing: border-box;
+  padding: 0 15px 0 15px;
+  box-sizing: border-box;
 }
 
 .create-product-relation .multipicker-container {
@@ -1805,6 +1808,7 @@ body {
 }
 .multiPickerTree.false {
   width: 100% !important;
+  height: 100% !important;
 }
 
 .dialog-content__property {
@@ -1842,6 +1846,7 @@ body {
   padding: 68px 0 56px;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  overflow-y: auto;
 }
 
 .boxbody .contentPaneZero {
@@ -2260,10 +2265,10 @@ img.ui-datepicker-trigger {
 }
 
 #ContentArea_catalogItemSelector_SelectorTreeView
-  table
-  tbody
-  tr
-  td:first-child {
+table
+tbody
+tr
+td:first-child {
   display: none;
 }
 
@@ -2416,14 +2421,14 @@ img.ui-datepicker-trigger {
 }
 
 .CatalogItemSelectorTable tbody
-  tr
-  td
-  input#ContentArea_catalogItemSelector_AddRelationsButton,
+tr
+td
+input#ContentArea_catalogItemSelector_AddRelationsButton,
 .CatalogItemSelectorTable
-  tbody
-  tr
-  td
-  input#ContentArea_catalogItemSelector_RemoveRelationsButton {
+tbody
+tr
+td
+input#ContentArea_catalogItemSelector_RemoveRelationsButton {
   margin: 0;
 }
 
