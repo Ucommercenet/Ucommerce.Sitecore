@@ -139,7 +139,12 @@
 			type="UCommerce.Sitecore.Security.SitecoreUserService, UCommerce.Sitecore">
 		</component>
 
-		<component id="LanguageService"
+	  <component id="UserNameService"
+				 service="UCommerce.Security.ICurrentUserNameService, UCommerce"
+				 type="UCommerce.Sitecore.Security.SitecoreUserNameService, UCommerce.Sitecore">
+	  </component>
+
+	  <component id="LanguageService"
 			service="UCommerce.Infrastructure.Globalization.ILanguageService, UCommerce.Infrastructure"
 			type="UCommerce.Sitecore.SitecoreLanguageService, UCommerce.Sitecore" />
 
