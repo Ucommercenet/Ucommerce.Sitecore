@@ -21,7 +21,7 @@ namespace UCommerce.Sitecore.Content
 
 		public virtual ITreeNodeContent GetRoot()
 		{
-			return new TreeNodeContent("Image", ItemIDs.MediaLibraryRoot.ToString()) { AutoLoad = true };
+			return new TreeNodeContent("Folder", ItemIDs.MediaLibraryRoot.ToString()) { AutoLoad = true };
 		}
 
 		public IList<ITreeNodeContent> GetChildren(string nodeType, int id)
@@ -40,9 +40,11 @@ namespace UCommerce.Sitecore.Content
 		}
 
 		private ITreeNodeContent CreateTreeNodeContent(Item item)
-		{
+        {
+            string nodeType = string.Empty;
+            nodeType = item.Template.Key == "media folder" ? "Folder" : "Image";
 			var mediaitem = MediaManager.GetMedia(item);
-			return new TreeNodeContent("image", item.ID.ToString());
+			return new TreeNodeContent(nodeType, item.ID.ToString());
 		}
 	}
 }
