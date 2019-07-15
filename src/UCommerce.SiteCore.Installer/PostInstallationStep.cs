@@ -20,19 +20,19 @@ namespace UCommerce.Sitecore.Installer
         /// </summary>
         /// <remarks>
         /// There is a race condition between upgrading the database and upgrading the binaries. :-(
-        /// 
+        ///
         /// Upgrade the database first, and the old binaries might not work with the new database.
         /// Upgrade the binaries first, and the new binaries might not work with the old database.
-        /// 
+        ///
         /// We have one observation indicating a failed installation because the new binaries was
         /// activated before the database scripts were done, resulting in a broken system.
-        /// 
+        ///
         /// The problem is probably going to grow, as more database migrations are added.
-        /// 
+        ///
         /// We have chosen to upgrade the database first.
         /// This is because the database upgrade takes a long time in the clean scenario, but is
         /// relatively faster in upgrade scenarios.
-        /// 
+        ///
         /// So for clean installs there are no old binaries, so the race condition is void.
         /// - Jesper
         /// </remarks>
@@ -69,17 +69,16 @@ namespace UCommerce.Sitecore.Installer
                 "~/sitecore modules/Shell/Ucommerce/Apps/ExchangeRateAPICurrencyConversion.disabled",
                 "~/sitecore modules/Shell/Ucommerce/Apps/ExchangeRateAPICurrencyConversion", true));
 
-            // Update Catalogs app
-            _postInstallationSteps.Add(new MoveDirectoryIfTargetExist(
-                "~/sitecore modules/Shell/Ucommerce/Apps/Catalogs.disabled",
-                "~/sitecore modules/Shell/Ucommerce/Apps/Catalogs"));
-            
+            // Remove Catalogs app since it was moved into Core
+            _postInstallationSteps.Add(new Steps.DeleteDirectory("~/sitecore modules/Shell/Ucommerce/Apps/Catalogs"));
+            _postInstallationSteps.Add(new Steps.DeleteDirectory("~/sitecore modules/Shell/Ucommerce/Apps/Catalogs.disabled"));
+
             // Enable Sanitization app
             _postInstallationSteps.Add(new MoveDirectory(
                 "~/sitecore modules/Shell/Ucommerce/Apps/Sanitization.disabled",
                 "~/sitecore modules/Shell/Ucommerce/Apps/Sanitization", true));
 
-            //Clean up unused configuration since payment integration has move to apps 
+            //Clean up unused configuration since payment integration has move to apps
             _postInstallationSteps.Add(new DeleteFile("~/sitecore modules/shell/ucommerce/Configuration/Payments.config"));
 
             _postInstallationSteps.Add(new MoveUcommerceBinaries());
@@ -99,7 +98,7 @@ namespace UCommerce.Sitecore.Installer
             _postInstallationSteps.Add(new CreateApplicationShortcuts());
             _postInstallationSteps.Add(new CreateSpeakApplicationIfSupported(sitecoreVersionChecker));
 
-            // Move sitecore config includes into the right path			
+            // Move sitecore config includes into the right path
             ComposeMoveSitecoreConfigIncludes(sitecoreVersionChecker);
 
             _postInstallationSteps.Add(new MigrateIdTableValues());
