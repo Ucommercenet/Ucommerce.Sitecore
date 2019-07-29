@@ -369,3 +369,8 @@ iframe#uCommerce-contentFrame {
 #ucommerceMainPageBody .wrapper {
 	height: 100%;
 }
+
+div[id*="createproductrelation"] {
+	height: 670px!important;
+	width: 900px!important;
+}
