@@ -27,21 +27,10 @@ namespace UCommerce.Sitecore.Installer.Steps
                     new Transformation("~/sitecore modules/Shell/ucommerce/install/uCommerce.IIS7.config", isIntegrated: true),
                     new Transformation("~/sitecore modules/Shell/ucommerce/install/uCommerce.dependencies.sitecore.config"),
                     new Transformation("~/sitecore modules/Shell/ucommerce/install/sitecore.config"),
-                    new Transformation("~/sitecore modules/Shell/ucommerce/install/ClientDependency.config")
+                    new Transformation("~/sitecore modules/Shell/ucommerce/install/ClientDependency.config"),
+                    new Transformation("~/sitecore modules/Shell/ucommerce/install/updateAssemblyBinding.config")
                 }
             );
-
-            if (_sitecoreVersionChecker.IsLowerThan(new Version(8, 0)))
-            {
-                mergeConfig.Transformations.Add(
-                    new Transformation("~/sitecore modules/Shell/ucommerce/install/log4net.config"));
-            }
-
-            if (_sitecoreVersionChecker.IsLowerThan(new Version(8, 1))) // Only add new assembly bindings for version 8.0 and earlier.
-            {
-                mergeConfig.Transformations.Add(
-                    new Transformation("~/sitecore modules/Shell/ucommerce/install/updateAssemblyBinding.config"));
-            }
         
             mergeConfig.Run(output, metaData);
         }
