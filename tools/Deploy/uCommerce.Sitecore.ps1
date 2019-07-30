@@ -5,7 +5,7 @@ task CreateSitecorePackage -depends SetVersionNumberFromClientNugetPackage,Clean
 task SetVersionNumberFromClientNugetPackage {
 	Push-Location "$src\packages"
 
-	$folderItem = Get-ChildItem uCommerce.client.* 
+	$folderItem = Get-ChildItem uCommerce.client.*
 
 	if("System.Object[]" -eq $folderItem.GetType())
 	{
@@ -20,7 +20,7 @@ task SetVersionNumberFromClientNugetPackage {
 
 	# Removing build part from the Ucommerce packages.
 	$version = $info.FileVersion.SubString(0,$info.FileVersion.LastIndexOf('.'))
-	
+
 	# Adding build number from date.
 	$script:versionDateNumberPart = (Get-Date).Year.ToString().Substring(2) + "" + (Get-Date).DayOfYear.ToString("000");
 	$script:version = "$version." + $script:versionDateNumberPart
@@ -49,7 +49,7 @@ task SetSitecoreVars -description "Since path are different from Deploy.To.Local
 }
 
 task CleanPackageForOtherCmsDependencies {
-	$items = Get-ChildItem $working_dir -Recurse | Where-Object { $_.FullName.ToLower().Contains("umbraco") -or $_.FullName.ToLower().Contains("sitefinity") -or $_.FullName.ToLower().Contains("kentico")} 
+	$items = Get-ChildItem $working_dir -Recurse | Where-Object { $_.FullName.ToLower().Contains("umbraco") -or $_.FullName.ToLower().Contains("sitefinity") -or $_.FullName.ToLower().Contains("kentico")}
 
 	foreach($item in $items) {
 		if (Test-Path $item.FullName) {
@@ -80,19 +80,19 @@ task CopySitecoreFiles -description "Copy all the sitecore files needs for a dep
 	Copy-Item "$src\..\lib\XmlTransform\Microsoft.Web.XmlTransform.dll" "$working_dir\files\bin\Microsoft.Web.XmlTransform.dll" -Force
 
 	# Binaries for the site to run
-	
+
 	# Only copy commerce connect if exists (exluded from sln per default).
 	if (Test-Path "$src\UCommerce.Sitecore.CommerceConnect\bin\$configuration\UCommerce.Sitecore.CommerceConnect.dll") {
 		Copy-Item "$src\UCommerce.Sitecore.CommerceConnect\bin\$configuration\UCommerce.Sitecore.CommerceConnect.dll" "$working_dir\Files\Sitecore modules\shell\ucommerce\install\binaries" -Force
 	}
-	
+
 	Copy-Item "$src\Ucommerce.Sitecore.Web\bin\UCommerce.Sitecore.Web.dll" "$working_dir\Files\Sitecore modules\shell\ucommerce\install\binaries" -Force
-	
+
 	#Lets delete the Ucommerce folder that Client nuget package copies over - we'll just grab from the package location
 	if (Test-Path "$src\Ucommerce.Sitecore.Web\ucommerce") {
 		Remove-Item "$src\Ucommerce.Sitecore.Web\ucommerce" -Force -Recurse
 	}
- 
+
 	# copy client resources from client nuget package. Even though it copies the files to a ucommerce folder, this will only happen during installatino not restore
    	Push-Location "$src\packages"
     $path = Get-ChildItem -Include uCommerce.client* -name
@@ -132,8 +132,8 @@ task CopySitecoreFiles -description "Copy all the sitecore files needs for a dep
 
 	#binaries
 	&robocopy "$src\UCommerce.Sitecore\bin\$configuration" "$working_dir\files\sitecore modules\Shell\ucommerce\install\binaries" UCommerce.* /is /it /e /NFL /NDL
-	
-    $dependencies = @("castle.core.dll", "castle.windsor.dll", "clientdependency.core.dll","Castle.Facilities.AspNet.SystemWeb.dll" , "csvhelper.dll", "epplus.dll", "fluentnhibernate.dll", "iesi.collections.dll", "infralution.licensing.dll", "log4net.dll", "lucene.net.dll", "microsoft.web.xmltransform.dll". "newtonsoft.json.dll", "nhibernate.caches.syscache.dll", "nhibernate.dll", "FluentValidation.dll")
+
+    $dependencies = @("castle.core.dll", "castle.windsor.dll", "clientdependency.core.dll","Castle.Facilities.AspNet.SystemWeb.dll" , "csvhelper.dll", "epplus.dll", "fluentnhibernate.dll", "iesi.collections.dll", "infralution.licensing.dll", "log4net.dll", "lucene.net.dll", "microsoft.web.xmltransform.dll". "newtonsoft.json.dll", "nhibernate.caches.syscache.dll", "nhibernate.dll", "Remotion.Linq.dll","Remotion.Linq.EagerFetching.dll", "FluentValidation.dll")
 	CopyFiles "$src\UCommerce.Sitecore\bin\$configuration" "$working_dir\files\sitecore modules\Shell\ucommerce\install\binaries" $dependencies
 
 	# Commerce Connect app
@@ -144,9 +144,9 @@ task CopySitecoreFiles -description "Copy all the sitecore files needs for a dep
 
 	# Raven Lucene.net assembly not used in Sitecore and can make weired errors. Don't copy it over.
 	Remove-Item "$working_dir\Files\Sitecore modules\shell\ucommerce\apps\RavenDB25.disabled\bin\Lucene.net.dll" -Force
-	
+
 	Remove-Item "$working_dir\Files\Sitecore modules\shell\ucommerce\css\speak\*.less" -Force
-	
+
 	&robocopy "$src\UCommerce.Sitecore.Web\Pipelines" "$working_dir\Files\Sitecore modules\shell\ucommerce\Pipelines" * /is /it /e /NFL /NDL
 
 	# Other files that are part of the client package that should not be there

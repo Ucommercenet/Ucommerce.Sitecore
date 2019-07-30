@@ -125,6 +125,7 @@ body * {
 
 .imagePicker .imagePickerContainer.propertyPane {
   height: 335px !important;
+  overflow-x: auto;
 }
 
 .imagePicker .preselectedValues.multiPicker {
@@ -1248,6 +1249,14 @@ textarea:focus,
   background-color: #fff;
   min-height: 300px;
   padding-top: 5px;
+}
+
+.imagePickerContainer .selectedNode{
+  display: flex;
+}
+
+.imagePickerContainer .selectedNode .node{
+  flex : 1;
 }
 
 .multiPicker .selectedNodes .selectedNode {
