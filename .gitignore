@@ -34,3 +34,4 @@ src/Ucommerce.Sitecore.Web/ucommerce/*
 lib/*Sitecore*.dll
 lib/Sitecore*
 lib/*SiteCore*
+src/.idea/*

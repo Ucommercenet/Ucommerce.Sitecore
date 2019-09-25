@@ -22,7 +22,12 @@ namespace UCommerce.Sitecore.Security
 			return true;
 		}
 
-		public bool UserIsInRole(Role role)
+        public bool UserCanAccess(Guid guid)
+        {
+            return true;
+        }
+
+        public bool UserIsInRole(Role role)
 		{
 			return true;
 		}
