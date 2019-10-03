@@ -72,6 +72,7 @@ namespace UCommerce.Sitecore.Installer
             // Remove Catalogs app since it was moved into Core
             _postInstallationSteps.Add(new Steps.DeleteDirectory("~/sitecore modules/Shell/Ucommerce/Apps/Catalogs"));
             _postInstallationSteps.Add(new Steps.DeleteDirectory("~/sitecore modules/Shell/Ucommerce/Apps/Catalogs.disabled"));
+            _postInstallationSteps.Add(new Steps.EnableSitecoreCompatibilityApp(sitecoreVersionChecker, sitecoreInstallerLoggingService));
 
             // Enable Sanitization app
             _postInstallationSteps.Add(new MoveDirectory(

@@ -47,7 +47,7 @@ namespace UCommerce.Sitecore.SitecoreDataProvider.Impl.SitecoreItems
 
 		private int PartitionDepth { get; set; }
 
-		private static FieldListCache _cache = new FieldListCache(1024, new DetectFullCategoryScan(true));
+		private static FieldListCache _cache = new FieldListCache(1024, ObjectFactory.Instance.Resolve<IDetectFullCategoryScan>());
 		private static FieldListCache Cache { get { return _cache; } }
 
 		private static CacheStatistics _stats = new CacheStatistics("Product Field List Cache", 1000);

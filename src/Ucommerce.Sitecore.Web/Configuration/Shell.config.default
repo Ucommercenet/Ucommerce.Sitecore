@@ -82,9 +82,6 @@
 		<component id="DetectFullCatalogScan"
 			service="UCommerce.Sitecore.SitecoreDataProvider.IDetectFullCategoryScan, UCommerce.Sitecore"
 			type="UCommerce.Sitecore.SitecoreDataProvider.Impl.DetectFullCategoryScan, UCommerce.Sitecore" >
-			<parameters>
-				<activated>true</activated>
-			</parameters>
 		</component>
 
     <component id="SecurityFieldValueBuilder"
