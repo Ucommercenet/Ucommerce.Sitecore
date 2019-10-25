@@ -367,10 +367,20 @@ namespace UCommerce.Sitecore.Installer
                 "~/App_Config/include/Sitecore.uCommerce.Pipelines.HttpRequestBegin.config",
                 backupTarget: true));
 
-            _postInstallationSteps.Add(new MoveFile(
-                "~/sitecore modules/Shell/ucommerce/install/configInclude/Sitecore.uCommerce.Pipelines.PreProcessRequest.config",
-                "~/App_Config/include/Sitecore.uCommerce.Pipelines.PreProcessRequest.config",
-                backupTarget: true));
+            if (versionChecker.IsEqualOrGreaterThan(new Version(9, 1)))
+            {
+                _postInstallationSteps.Add(new MoveFile(
+                    "~/sitecore modules/Shell/ucommerce/install/configInclude/Sitecore.uCommerce.Pipelines.PreProcessRequest.9.1.config",
+                    "~/App_Config/include/Sitecore.uCommerce.Pipelines.PreProcessRequest.config",
+                    backupTarget: true));
+            }
+            else
+            {
+                _postInstallationSteps.Add(new MoveFile(
+                    "~/sitecore modules/Shell/ucommerce/install/configInclude/Sitecore.uCommerce.Pipelines.PreProcessRequest.config",
+                    "~/App_Config/include/Sitecore.uCommerce.Pipelines.PreProcessRequest.config",
+                    backupTarget: true));
+            }
 
             _postInstallationSteps.Add(new MoveFile(
                 "~/sitecore modules/Shell/ucommerce/install/configInclude/Sitecore.uCommerce.Settings.config",
