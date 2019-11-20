@@ -32,19 +32,17 @@ function Run-It () {
                 "working_dir"="$env:TEMP\uCommerceTmp\8e0acd5c-f842-49db-933d-cc9e61fcff53";
             };
 
-	Invoke-PSake "$scriptPath\uCommerce.build.ps1" "CreateSitecorePackage" -properties $properties
+		Invoke-PSake "$scriptPath\uCommerce.build.ps1" "CreateSitecorePackage" -properties $properties
         
-        if ($configuration -eq "Debug") {
+	    if ($configuration -eq "Debug") {
 
             Push-Location $src
 
-			hg revert -I "glob:**\*AssemblyInfo.cs"
-			hg revert -I "glob:**\*ClientDependency*.config"
-			hg revert -I "glob:**\*sc_*.txt"
-			hg revert -I "glob:**\*Package*.xml"
+			git checkout -q -- "**\*AssemblyInfo.cs"
+            git checkout -q -- "**\*sc_*.txt"
 
-            Pop-Location
-	}
+		    Pop-Location
+		}
 		
     } catch {  
         Write-Error $_.Exception.Message -ErrorAction Stop  

@@ -1,4 +1,4 @@
-Framework "4.6"
+Framework "4.7.1"
 
 properties {
     $configuration = 'Debug'
@@ -75,7 +75,7 @@ task PostDeployMoveBinFiles -description "used to move all uCommerce bin files t
 
 task CleanSolution -description "Cleans the complete solution" {
     Push-Location "$src"
-    Exec { msbuild "$solution_file" /p:Configuration=$configuration /t:Clean /verbosity:quiet /p:VisualStudioVersion=15.0 }
+    Exec { msbuild "$solution_file" /p:Configuration=$configuration /t:Clean /verbosity:quiet }
     Pop-Location
 }
 
@@ -95,7 +95,7 @@ task Compile -description "Compiles the complete solution" -depends UpdateAssemb
 	
     # Set Visual Studio version explicitly so the proper build tasks can be found
     # Disable post build event to avoid deploying the solution as part of packaging
-    Exec { msbuild "$solution_file" /p:Configuration=$configuration /m /p:VisualStudioVersion=15.0 /p:WarningLevel=0 /verbosity:quiet /p:PostBuildEvent= }
+    Exec { msbuild "$solution_file" /p:Configuration=$configuration /m /p:WarningLevel=0 /verbosity:quiet /p:PostBuildEvent= }
     
     Pop-Location
 }
@@ -104,7 +104,7 @@ task UpdateAssemblyInfo -description "Updates the AssemblyInfo.cs file if there 
     if ($UpdateAssemblyInfo -eq "True") {
         Push-Location $src
 
-		$hgChangeSetHash = hg identify
+		$hgChangeSetHash = git rev-parse HEADs
 		
         $assemblyVersionPattern = 'AssemblyVersion\("[0-9]+(\.([0-9]+|\*)){1,3}"\)'
         $fileVersionPattern = 'AssemblyFileVersion\("[0-9]+(\.([0-9]+|\*)){1,3}"\)'
