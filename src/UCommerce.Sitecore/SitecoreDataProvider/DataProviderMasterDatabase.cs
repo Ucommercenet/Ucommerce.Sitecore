@@ -41,7 +41,7 @@ namespace UCommerce.Sitecore.SitecoreDataProvider
 
 		private TemplateCollection _data = null;
 
-		private readonly ItemFieldsCache _fieldsCache = new ItemFieldsCache(new DetectFullCategoryScan(true));
+		private readonly ItemFieldsCache _fieldsCache = new ItemFieldsCache(ObjectFactory.Instance.Resolve<IDetectFullCategoryScan>());
 
 		private readonly HashSet<ID> _itemsKnownToBelongToUs = new HashSet<ID>();
 

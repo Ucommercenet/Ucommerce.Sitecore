@@ -18,6 +18,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Deploy", "Deploy", "{C5D04B
 		..\tools\Deploy\UCommerce.Sitecore.ps1 = ..\tools\Deploy\UCommerce.Sitecore.ps1
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UCommerce.Sitecore92", "UCommerce.Sitecore92\UCommerce.Sitecore92.csproj", "{C46C6742-A928-4A0D-BF86-485BCAE76648}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,12 @@ Global
 		{6267B533-B0AD-419A-90E6-B24041A1384D}.Release Pro|Any CPU.Build.0 = Release|Any CPU
 		{6267B533-B0AD-419A-90E6-B24041A1384D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6267B533-B0AD-419A-90E6-B24041A1384D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C46C6742-A928-4A0D-BF86-485BCAE76648}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C46C6742-A928-4A0D-BF86-485BCAE76648}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C46C6742-A928-4A0D-BF86-485BCAE76648}.Release Pro|Any CPU.ActiveCfg = Release|Any CPU
+		{C46C6742-A928-4A0D-BF86-485BCAE76648}.Release Pro|Any CPU.Build.0 = Release|Any CPU
+		{C46C6742-A928-4A0D-BF86-485BCAE76648}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C46C6742-A928-4A0D-BF86-485BCAE76648}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

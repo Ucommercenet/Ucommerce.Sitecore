@@ -36,7 +36,7 @@ namespace UCommerce.Sitecore.SitecoreDataProvider.Impl.SitecoreItems
 		private ProductCategoryTemplateBuilder _categoryValueProvider;
 		private ProductCatalogTemplateBuilder _catalogValueProvider;
 
-		private static readonly FieldListCache _cache = new FieldListCache(1024, new DetectFullCategoryScan(true));
+		private static readonly FieldListCache _cache = new FieldListCache(1024, ObjectFactory.Instance.Resolve<IDetectFullCategoryScan>());
 		private static FieldListCache Cache { get { return _cache; } }
 
 		private static readonly CacheStatistics _stats = new CacheStatistics("Catalog Field List Cache", 1000);

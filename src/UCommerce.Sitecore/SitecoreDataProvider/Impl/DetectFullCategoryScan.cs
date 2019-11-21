@@ -14,9 +14,9 @@ namespace UCommerce.Sitecore.SitecoreDataProvider.Impl
 
 		private static bool _publishingInProgressState;
 
-		public DetectFullCategoryScan(bool activated)
+		public DetectFullCategoryScan()
 		{
-			_activated = activated;
+			_activated = true;
 			_testMode = false;
 		}
 

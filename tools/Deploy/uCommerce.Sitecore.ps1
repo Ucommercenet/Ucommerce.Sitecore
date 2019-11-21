@@ -1,5 +1,13 @@
-task CreateSitecorePackage -depends SetVersionNumberFromClientNugetPackage,CleanSitecoreWorkingDirectory,NuGetRestore, Rebuild,CopySitecoreFiles, CleanPackageForOtherCmsDependencies, CreateSitecoreZipFile {
+task CreateSitecorePackage -depends SetVersionNumberFromClientNugetPackage,CleanSitecoreWorkingDirectory,NuGetRestore, Rebuild,CopySitecoreFiles, AddCompatibilityApp, CleanPackageForOtherCmsDependencies, CreateSitecoreZipFile {
 
+}
+
+task AddCompatibilityApp {
+	if ((Test-Path "$working_dir\Files\Sitecore modules\shell\ucommerce\apps\Sitecore92compatibility.disabled\bin") -eq $false) {
+		New-Item "$working_dir\Files\Sitecore modules\shell\ucommerce\apps\Sitecore92compatibility.disabled\bin" -Type Directory -Force
+	}
+
+	Copy-Item "$src\UCommerce.Sitecore92\bin\$configuration\UCommerce.Sitecore92.dll" "$working_dir\Files\Sitecore modules\shell\ucommerce\apps\Sitecore92compatibility.disabled\bin" -Force
 }
 
 task SetVersionNumberFromClientNugetPackage {
