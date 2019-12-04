@@ -104,7 +104,7 @@ task UpdateAssemblyInfo -description "Updates the AssemblyInfo.cs file if there 
     if ($UpdateAssemblyInfo -eq "True") {
         Push-Location $src
 
-		$hgChangeSetHash = git rev-parse HEADs
+		$hgChangeSetHash = git rev-parse HEAD
 		
         $assemblyVersionPattern = 'AssemblyVersion\("[0-9]+(\.([0-9]+|\*)){1,3}"\)'
         $fileVersionPattern = 'AssemblyFileVersion\("[0-9]+(\.([0-9]+|\*)){1,3}"\)'
