@@ -224,11 +224,10 @@ task CreateSitecoreZipFile -description "Creates the Sitecore Zip fil" {
     del $packageZipFullName
 }
 
-task UpdateSitecorePackageInfo -description "Updates the Sitecore package information file" -precondition { return ($target.ToUpper().Equals("sitecore".ToUpper()))}{
+task UpdateSitecorePackageInfo -description "Updates the Sitecore package information file" {
     if($UpdateAssemblyInfo -eq "True") {
-        $version = $script:version
-        Get-Content "$src\UCommerce.Installer\PackageInformation\Sitecore.txt" > "$src\UCommerce.Sitecore.Installer\package\metadata\sc_readme.txt"
-        "$version" > "$src\UCommerce.Sitecore.Installer\package\metadata\sc_version.txt"
-        "uCommerce $version" > "$src\UCommerce.Sitecore.Installer\package\metadata\sc_name.txt"
+        $version = $script:version        
+        echo "$version" > "$src\UCommerce.Sitecore.Installer\package\metadata\sc_version.txt"
+        echo "uCommerce $version" > "$src\UCommerce.Sitecore.Installer\package\metadata\sc_name.txt"
     }
 }
