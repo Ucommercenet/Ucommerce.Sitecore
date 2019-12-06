@@ -37,7 +37,8 @@ namespace UCommerce.Sitecore.Content
 				HasChildren = item.HasChildren,
 				AutoLoad = autoload,
 				DimNode = false,
-				Url = mediaitem.MediaData.HasContent ? _imageService.GetImage(item.ID.ToString()).Url : ""
+				Url = mediaitem.MediaData.HasContent ? _imageService.GetImage(item.ID.ToString()).Url : "",
+				ChildrenCount = item.Children.Count
 			};
 		}
 	}
