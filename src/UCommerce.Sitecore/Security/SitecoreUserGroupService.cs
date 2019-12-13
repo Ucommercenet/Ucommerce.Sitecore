@@ -51,9 +51,15 @@ namespace UCommerce.Sitecore.Security
 			{
 				var roleNamesNotCreatedAsUserGroups = sitecoreDomainRoles.Where(x => existingUserGroups.All(y => y.ExternalId != x.LocalName)).Select(x => x.LocalName).ToList();
 
+				var roleNamesThatHasBeenDeletedInSitecore = existingUserGroups
+					.Where(x => sitecoreDomainRoles.All(y => y.LocalName != x.ExternalId)).ToList();
+				
 				var newGroups = MapExternalUserGroupsToInternalUserGroups(roleNamesNotCreatedAsUserGroups);
 
-				ObjectFactory.Instance.Resolve<IRepository<UserGroup>>().Save(newGroups);
+				var repository = ObjectFactory.Instance.Resolve<IRepository<UserGroup>>();
+				
+				repository.Delete(roleNamesThatHasBeenDeletedInSitecore);
+				repository.Save(newGroups);
 
 				var allGroups = existingUserGroups.Concat(newGroups).ToList();
 
