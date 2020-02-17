@@ -123,9 +123,14 @@ body * {
   height: 100%;
 }
 
+.imagePickerContainer .imagePickerContainerBody.propertyItem {
+  display: flex !important;
+}
+
 .imagePicker .imagePickerContainer.propertyPane {
   height: 335px !important;
   overflow-x: auto;
+  display: flex;
 }
 
 .imagePicker .preselectedValues.multiPicker {
