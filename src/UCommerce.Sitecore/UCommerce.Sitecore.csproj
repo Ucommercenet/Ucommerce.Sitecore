@@ -77,7 +77,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Infralution.Licensing, Version=4.7.1.0, Culture=neutral, PublicKeyToken=3e7e8e3744a5c13f">
-      <HintPath>..\packages\uCommerce.8.4.0.19331\lib\net45\Infralution.Licensing.dll</HintPath>
+      <HintPath>..\packages\uCommerce.8.4.1.19353\lib\net45\Infralution.Licensing.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
@@ -185,40 +185,40 @@
       <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml" />
-    <Reference Include="UCommerce, Version=8.4.0.19331, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\uCommerce.Core.8.4.0.19331\lib\net45\UCommerce.dll</HintPath>
+    <Reference Include="UCommerce, Version=8.4.1.19353, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.8.4.1.19353\lib\net45\UCommerce.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="UCommerce.Admin, Version=8.4.0.19331, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\uCommerce.Core.8.4.0.19331\lib\net45\UCommerce.Admin.dll</HintPath>
+    <Reference Include="UCommerce.Admin, Version=8.4.1.19353, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.8.4.1.19353\lib\net45\UCommerce.Admin.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="UCommerce.Infrastructure, Version=8.4.0.19331, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\uCommerce.Core.8.4.0.19331\lib\net45\UCommerce.Infrastructure.dll</HintPath>
+    <Reference Include="UCommerce.Infrastructure, Version=8.4.1.19353, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.8.4.1.19353\lib\net45\UCommerce.Infrastructure.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="UCommerce.Installer, Version=8.4.0.19331, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\uCommerce.Core.8.4.0.19331\lib\net45\UCommerce.Installer.dll</HintPath>
+    <Reference Include="UCommerce.Installer, Version=8.4.1.19353, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.8.4.1.19353\lib\net45\UCommerce.Installer.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="UCommerce.NHibernate, Version=8.4.0.19331, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\uCommerce.Core.8.4.0.19331\lib\net45\UCommerce.NHibernate.dll</HintPath>
+    <Reference Include="UCommerce.NHibernate, Version=8.4.1.19353, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.8.4.1.19353\lib\net45\UCommerce.NHibernate.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="UCommerce.Pipelines, Version=8.4.0.19331, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\uCommerce.Core.8.4.0.19331\lib\net45\UCommerce.Pipelines.dll</HintPath>
+    <Reference Include="UCommerce.Pipelines, Version=8.4.1.19353, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.8.4.1.19353\lib\net45\UCommerce.Pipelines.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="UCommerce.Presentation, Version=8.4.0.19331, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\uCommerce.Core.8.4.0.19331\lib\net45\UCommerce.Presentation.dll</HintPath>
+    <Reference Include="UCommerce.Presentation, Version=8.4.1.19353, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.8.4.1.19353\lib\net45\UCommerce.Presentation.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="UCommerce.SystemHttp, Version=8.4.0.19331, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\uCommerce.Core.8.4.0.19331\lib\net45\UCommerce.SystemHttp.dll</HintPath>
+    <Reference Include="UCommerce.SystemHttp, Version=8.4.1.19353, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.8.4.1.19353\lib\net45\UCommerce.SystemHttp.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="UCommerce.SystemWeb, Version=8.4.0.19331, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\uCommerce.Core.8.4.0.19331\lib\net45\UCommerce.SystemWeb.dll</HintPath>
+    <Reference Include="UCommerce.SystemWeb, Version=8.4.1.19353, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.8.4.1.19353\lib\net45\UCommerce.SystemWeb.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
