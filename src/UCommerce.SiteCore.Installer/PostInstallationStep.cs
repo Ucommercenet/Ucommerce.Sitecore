@@ -74,6 +74,10 @@ namespace UCommerce.Sitecore.Installer
             _postInstallationSteps.Add(new Steps.DeleteDirectory("~/sitecore modules/Shell/Ucommerce/Apps/Catalogs.disabled"));
             _postInstallationSteps.Add(new Steps.EnableSitecoreCompatibilityApp(sitecoreVersionChecker, sitecoreInstallerLoggingService));
 
+            // Remove CatalogSearch widget
+            _postInstallationSteps.Add(new Steps.DeleteDirectory("~/sitecore modules/Shell/Ucommerce/Apps/Widgets/CatalogSearch"));
+            _postInstallationSteps.Add(new Steps.DeleteDirectory("~/sitecore modules/Shell/Ucommerce/Apps/Widgets/CatalogSearch.disabled"));
+
             // Enable Sanitization app
             _postInstallationSteps.Add(new MoveDirectory(
                 "~/sitecore modules/Shell/Ucommerce/Apps/Sanitization.disabled",
