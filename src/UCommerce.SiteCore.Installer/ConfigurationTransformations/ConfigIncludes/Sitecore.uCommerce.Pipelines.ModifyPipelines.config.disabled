@@ -1,17 +1,17 @@
 ﻿<configuration xmlns:patch="http://www.sitecore.net/xmlconfig/">
 	<sitecore>
 		<!--Add Repository that should be used for Cart CRUD operations for cart-->
-		<cartService type="UCommerce.Sitecore.CommerceConnect.Pipelines.Carts.CartService, UCommerce.Sitecore.CommerceConnect" singleInstance="true" patch:after="*[@type='Sitecore.Commerce.Data.Carts.EaStateCartRepository, Sitecore.Commerce']">
+		<cartService type="Ucommerce.Sitecore.CommerceConnect.Pipelines.Carts.CartService, Ucommerce.Sitecore.CommerceConnect" singleInstance="true" patch:after="*[@type='Sitecore.Commerce.Data.Carts.EaStateCartRepository, Sitecore.Commerce']">
 		</cartService>
 
 		<!--Add Repository that should be used to fetch the basket of the current user from uCommerce-->
-		<basketService type="UCommerce.Sitecore.CommerceConnect.Pipelines.Orders.BasketService, UCommerce.Sitecore.CommerceConnect" singleInstance="true" patch:after="*[@type='Sitecore.Commerce.Data.Carts.EaStateCartRepository, Sitecore.Commerce']">
+		<basketService type="Ucommerce.Sitecore.CommerceConnect.Pipelines.Orders.BasketService, Ucommerce.Sitecore.CommerceConnect" singleInstance="true" patch:after="*[@type='Sitecore.Commerce.Data.Carts.EaStateCartRepository, Sitecore.Commerce']">
 		</basketService>
 		<pipelines>
 			<!--Modify LoadCart pipeline-->
 			<commerce.carts.loadCart>
 				<!--Replace loadCart with uCommerce loadCart-->
-				<processor type="UCommerce.Sitecore.CommerceConnect.Pipelines.Carts.LoadCart.LoadCart, UCommerce.Sitecore.CommerceConnect" patch:after="*[@type='Sitecore.Commerce.Pipelines.Carts.LoadCart.LoadCartFromEaState, Sitecore.Commerce']">
+				<processor type="Ucommerce.Sitecore.CommerceConnect.Pipelines.Carts.LoadCart.LoadCart, Ucommerce.Sitecore.CommerceConnect" patch:after="*[@type='Sitecore.Commerce.Pipelines.Carts.LoadCart.LoadCartFromEaState, Sitecore.Commerce']">
 					<param ref="cartService"/>
 				</processor>
 
@@ -24,7 +24,7 @@
 			<!--Modify CreateCart pipeline-->
 			<commerce.carts.createCart>
 				<!--Replace the CreateCart processor from createCart pipeline-->
-				<processor type="UCommerce.Sitecore.CommerceConnect.Pipelines.Carts.CreateCart.CreateCart, UCommerce.Sitecore.CommerceConnect" patch:instead="*[@type='Sitecore.Commerce.Pipelines.Carts.CreateCart.CreateCart, Sitecore.Commerce']">
+				<processor type="Ucommerce.Sitecore.CommerceConnect.Pipelines.Carts.CreateCart.CreateCart, Ucommerce.Sitecore.CommerceConnect" patch:instead="*[@type='Sitecore.Commerce.Pipelines.Carts.CreateCart.CreateCart, Sitecore.Commerce']">
 					<param ref="basketService"/>
 				</processor>
 			</commerce.carts.createCart>
@@ -35,15 +35,15 @@
 					<patch:delete />
 				</processor>
 				<!-- Replace the CommerceConnect UpdateLinesOnCart with uCommerce UpdateLinesOnCart -->
-				<processor type="UCommerce.Sitecore.CommerceConnect.Pipelines.Carts.UpdateCartLines.UpdateLinesOnCart, UCommerce.Sitecore.CommerceConnect" patch:instead="*[@type='Sitecore.Commerce.Pipelines.Carts.UpdateCartLines.UpdateLinesOnCart, Sitecore.Commerce']">
+				<processor type="Ucommerce.Sitecore.CommerceConnect.Pipelines.Carts.UpdateCartLines.UpdateLinesOnCart, Ucommerce.Sitecore.CommerceConnect" patch:instead="*[@type='Sitecore.Commerce.Pipelines.Carts.UpdateCartLines.UpdateLinesOnCart, Sitecore.Commerce']">
 					<param ref="basketService"/>
 				</processor>
 				<!--Add uCommerce RunAddCartLines after UpdateLinesOnCart-->
-				<processor type="UCommerce.Sitecore.CommerceConnect.Pipelines.Carts.UpdateCartLines.RunAddCartLines, UCommerce.Sitecore.CommerceConnect" patch:after="*[@type='UCommerce.Sitecore.CommerceConnect.Pipelines.Carts.UpdateCartLines.UpdateLinesOnCart, UCommerce.Sitecore.CommerceConnect']" >
+				<processor type="Ucommerce.Sitecore.CommerceConnect.Pipelines.Carts.UpdateCartLines.RunAddCartLines, Ucommerce.Sitecore.CommerceConnect" patch:after="*[@type='Ucommerce.Sitecore.CommerceConnect.Pipelines.Carts.UpdateCartLines.UpdateLinesOnCart, Ucommerce.Sitecore.CommerceConnect']" >
 					<param ref="basketService"/>
 				</processor>
 				<!--Add uCommerce CalculateResult after RunAddCartLines-->
-				<processor type="UCommerce.Sitecore.CommerceConnect.Pipelines.Carts.CalculateResult, UCommerce.Sitecore.CommerceConnect" patch:after="*[@type='UCommerce.Sitecore.CommerceConnect.Pipelines.Carts.UpdateCartLines.RunAddCartLines, UCommerce.Sitecore.CommerceConnect']" >
+				<processor type="Ucommerce.Sitecore.CommerceConnect.Pipelines.Carts.CalculateResult, Ucommerce.Sitecore.CommerceConnect" patch:after="*[@type='Ucommerce.Sitecore.CommerceConnect.Pipelines.Carts.UpdateCartLines.RunAddCartLines, Ucommerce.Sitecore.CommerceConnect']" >
 					<param ref="basketService"/>
 				</processor>
 			</commerce.carts.updateCartLines>
@@ -51,13 +51,13 @@
 			<!-- Modify AddCartLines pipeline -->
 			<commerce.carts.addCartLines>
 				<!--Add uCommerce AddCartLinesToCart after CommerceConnect AddCartLinesToCart-->
-				<processor type="UCommerce.Sitecore.CommerceConnect.Pipelines.Carts.AddCartLines.AddCartLinesToCart, UCommerce.Sitecore.CommerceConnect" patch:after="*[@type='Sitecore.Commerce.Pipelines.Carts.AddCartLines.AddLinesToCart, Sitecore.Commerce']" >
+				<processor type="Ucommerce.Sitecore.CommerceConnect.Pipelines.Carts.AddCartLines.AddCartLinesToCart, Ucommerce.Sitecore.CommerceConnect" patch:after="*[@type='Sitecore.Commerce.Pipelines.Carts.AddCartLines.AddLinesToCart, Sitecore.Commerce']" >
 					<param ref="entityFactory"/>
 					<param ref="basketService"/>
 				</processor>
 
 				<!--Add uCommerce CalculateResult after AddCartLinesToCart-->
-				<processor type="UCommerce.Sitecore.CommerceConnect.Pipelines.Carts.CalculateResult, UCommerce.Sitecore.CommerceConnect" patch:after="*[@type='UCommerce.Sitecore.CommerceConnect.Pipelines.Carts.AddCartLines.AddCartLinesToCart, UCommerce.Sitecore.CommerceConnect']" >
+				<processor type="Ucommerce.Sitecore.CommerceConnect.Pipelines.Carts.CalculateResult, Ucommerce.Sitecore.CommerceConnect" patch:after="*[@type='Ucommerce.Sitecore.CommerceConnect.Pipelines.Carts.AddCartLines.AddCartLinesToCart, Ucommerce.Sitecore.CommerceConnect']" >
 					<param ref="basketService"/>
 				</processor>
 			</commerce.carts.addCartLines>
@@ -65,13 +65,13 @@
 			<!--Modify removeCartLines pipeline-->
 			<commerce.carts.removeCartLines>
 				<!--Replace RemoveLinesFromCart with uCommerce RemoveCartLineItem-->
-				<processor type="UCommerce.Sitecore.CommerceConnect.Pipelines.Carts.RemoveCartLines.RemoveCartLineItem, UCommerce.Sitecore.CommerceConnect" patch:instead="*[@type='Sitecore.Commerce.Pipelines.Carts.RemoveCartLines.RemoveLinesFromCart, Sitecore.Commerce']" >
+				<processor type="Ucommerce.Sitecore.CommerceConnect.Pipelines.Carts.RemoveCartLines.RemoveCartLineItem, Ucommerce.Sitecore.CommerceConnect" patch:instead="*[@type='Sitecore.Commerce.Pipelines.Carts.RemoveCartLines.RemoveLinesFromCart, Sitecore.Commerce']" >
 					<param ref="basketService"/>
 				</processor>
 			</commerce.carts.removeCartLines>
 
 			<commerce.customers.createCustomer>
-				<processor type="UCommerce.Sitecore.CommerceConnect.Pipelines.Customers.CreateCustomer.CreateCustomer, UCommerce.Sitecore.CommerceConnect" patch:before="*[@type='Sitecore.Commerce.Pipelines.Customers.CreateCustomer.CreateCustomerInExternalSystem, Sitecore.Commerce']" />
+				<processor type="Ucommerce.Sitecore.CommerceConnect.Pipelines.Customers.CreateCustomer.CreateCustomer, Ucommerce.Sitecore.CommerceConnect" patch:before="*[@type='Sitecore.Commerce.Pipelines.Customers.CreateCustomer.CreateCustomerInExternalSystem, Sitecore.Commerce']" />
 				<!--Remove CreateCustomer processor from createCustomer pipeline-->
 				<processor type="Sitecore.Commerce.Pipelines.Customers.CreateCustomer.CreateCustomerInExternalSystem, Sitecore.Commerce">
 					<patch:delete />
@@ -83,30 +83,30 @@
 			</commerce.customers.createCustomer>
 
 			<commerce.customers.getCustomer>
-				<processor type="UCommerce.Sitecore.CommerceConnect.Pipelines.Customers.GetCustomer.GetCustomer, UCommerce.Sitecore.CommerceConnect" patch:before="*[@type='Sitecore.Commerce.Pipelines.Customers.GetCustomer.GetCustomerFromSitecore, Sitecore.Commerce']" />
+				<processor type="Ucommerce.Sitecore.CommerceConnect.Pipelines.Customers.GetCustomer.GetCustomer, Ucommerce.Sitecore.CommerceConnect" patch:before="*[@type='Sitecore.Commerce.Pipelines.Customers.GetCustomer.GetCustomerFromSitecore, Sitecore.Commerce']" />
 			</commerce.customers.getCustomer>
 
 			<commerce.carts.saveCart>
-				<processor type="UCommerce.Sitecore.CommerceConnect.Pipelines.Carts.SaveCart.SaveCart, UCommerce.Sitecore.CommerceConnect" patch:before="*[@type='Sitecore.Commerce.Pipelines.Carts.Common.SaveCartToEaState, Sitecore.Commerce']" >
+				<processor type="Ucommerce.Sitecore.CommerceConnect.Pipelines.Carts.SaveCart.SaveCart, Ucommerce.Sitecore.CommerceConnect" patch:before="*[@type='Sitecore.Commerce.Pipelines.Carts.Common.SaveCartToEaState, Sitecore.Commerce']" >
 					<param ref="entityFactory"/>
 					<param ref="basketService"/>
 				</processor>
 			</commerce.carts.saveCart>
 
       <commerce.orders.submitVisitorOrder>
-        <processor type="UCommerce.Sitecore.CommerceConnect.Pipelines.Orders.SubmitVisitorOrder.CartToOrderUCommerce, UCommerce.Sitecore.CommerceConnect" patch:before="*[@type='Sitecore.Commerce.Pipelines.Orders.Common.TriggerOrderGoal, Sitecore.Commerce']" >
+        <processor type="Ucommerce.Sitecore.CommerceConnect.Pipelines.Orders.SubmitVisitorOrder.CartToOrderUcommerce, Ucommerce.Sitecore.CommerceConnect" patch:before="*[@type='Sitecore.Commerce.Pipelines.Orders.Common.TriggerOrderGoal, Sitecore.Commerce']" >
           <param ref="basketService"/>
         </processor>
       </commerce.orders.submitVisitorOrder>
-      
+
 			<!--Modify createUser pipeline-->
 			<commerce.customers.createUser>
 				<!--Remove CreateUserInExternalSystem processor from createUser pipeline-->
 				<processor type="Sitecore.Commerce.Pipelines.Customers.CreateUser.CreateUserInExternalSystem, Sitecore.Commerce">
 					<patch:delete />
 				</processor>
-				<!--Replace CreateUserInSitecore with uCommerce CreateUCommerceMember-->
-				<processor type="UCommerce.Sitecore.CommerceConnect.Pipelines.Customers.CreateUser.CreateUCommerceMember, UCommerce.Sitecore.CommerceConnect" patch:instead="*[@type='Sitecore.Commerce.Pipelines.Customers.CreateUser.CreateUserInSitecore, Sitecore.Commerce']">
+				<!--Replace CreateUserInSitecore with uCommerce CreateUcommerceMember-->
+				<processor type="Ucommerce.Sitecore.CommerceConnect.Pipelines.Customers.CreateUser.CreateUcommerceMember, Ucommerce.Sitecore.CommerceConnect" patch:instead="*[@type='Sitecore.Commerce.Pipelines.Customers.CreateUser.CreateUserInSitecore, Sitecore.Commerce']">
 					<param ref="sitecoreUserRepository"/>
 				</processor>
 				<!--Remove RunSaveCart processor from removeCartLines pipeline-->
@@ -121,87 +121,87 @@
 					<patch:delete />
 				</processor>
 				<!--Replace ExecuteQuery with uCommerce GetCarts-->
-				<processor type="UCommerce.Sitecore.CommerceConnect.Pipelines.Carts.GetCarts.GetCarts, UCommerce.Sitecore.CommerceConnect" patch:instead="*[@type='Sitecore.Commerce.Pipelines.Carts.GetCarts.ExecuteQuery, Sitecore.Commerce']">
+				<processor type="Ucommerce.Sitecore.CommerceConnect.Pipelines.Carts.GetCarts.GetCarts, Ucommerce.Sitecore.CommerceConnect" patch:instead="*[@type='Sitecore.Commerce.Pipelines.Carts.GetCarts.ExecuteQuery, Sitecore.Commerce']">
 					<param ref="cartService"/>
 				</processor>
 			</commerce.carts.getCarts>
 
 			<commerce.shipping.getShippingOptions>
-				<processor type="UCommerce.Sitecore.CommerceConnect.Pipelines.Shipping.GetShippingOptions.GetShippingOptions, UCommerce.Sitecore.CommerceConnect" />
+				<processor type="Ucommerce.Sitecore.CommerceConnect.Pipelines.Shipping.GetShippingOptions.GetShippingOptions, Ucommerce.Sitecore.CommerceConnect" />
 			</commerce.shipping.getShippingOptions>
 
 			<commerce.shipping.getShippingMethods>
-				<processor type="UCommerce.Sitecore.CommerceConnect.Pipelines.Shipping.GetShippingMethods.GetShippingMethods, UCommerce.Sitecore.CommerceConnect" />
+				<processor type="Ucommerce.Sitecore.CommerceConnect.Pipelines.Shipping.GetShippingMethods.GetShippingMethods, Ucommerce.Sitecore.CommerceConnect" />
 			</commerce.shipping.getShippingMethods>
 
 			<commerce.shipping.getShippingMethod>
-				<processor type="UCommerce.Sitecore.CommerceConnect.Pipelines.Shipping.GetShippingMethod.GetShippingMethod, UCommerce.Sitecore.CommerceConnect" />
+				<processor type="Ucommerce.Sitecore.CommerceConnect.Pipelines.Shipping.GetShippingMethod.GetShippingMethod, Ucommerce.Sitecore.CommerceConnect" />
 			</commerce.shipping.getShippingMethod>
 
 			<commerce.shipping.getPricesForShipments>
-				<processor type="UCommerce.Sitecore.CommerceConnect.Pipelines.Shipping.GetPricesForShipments.GetPricesForShipments, UCommerce.Sitecore.CommerceConnect" />
+				<processor type="Ucommerce.Sitecore.CommerceConnect.Pipelines.Shipping.GetPricesForShipments.GetPricesForShipments, Ucommerce.Sitecore.CommerceConnect" />
 			</commerce.shipping.getPricesForShipments>
 
 			<commerce.carts.addShippingInfo>
-				<processor type="UCommerce.Sitecore.CommerceConnect.Pipelines.Carts.AddShippingInfo.AddShippingInfoToCart, UCommerce.Sitecore.CommerceConnect" patch:instead="*[@type='Sitecore.Commerce.Pipelines.Carts.AddShippingInfo.AddShippingInfoToCart, Sitecore.Commerce']">
+				<processor type="Ucommerce.Sitecore.CommerceConnect.Pipelines.Carts.AddShippingInfo.AddShippingInfoToCart, Ucommerce.Sitecore.CommerceConnect" patch:instead="*[@type='Sitecore.Commerce.Pipelines.Carts.AddShippingInfo.AddShippingInfoToCart, Sitecore.Commerce']">
 					<param ref="basketService"/>
 				</processor>
 			</commerce.carts.addShippingInfo>
 
 			<commerce.carts.removeShippingInfo>
-				<processor type="UCommerce.Sitecore.CommerceConnect.Pipelines.Carts.RemoveShippingInfo.RemoveShippingInfoFromCart, UCommerce.Sitecore.CommerceConnect" patch:instead="processor[@type='Sitecore.Commerce.Pipelines.Carts.RemoveShippingInfo.RemoveShippingInfoFromCart, Sitecore.Commerce']">
+				<processor type="Ucommerce.Sitecore.CommerceConnect.Pipelines.Carts.RemoveShippingInfo.RemoveShippingInfoFromCart, Ucommerce.Sitecore.CommerceConnect" patch:instead="processor[@type='Sitecore.Commerce.Pipelines.Carts.RemoveShippingInfo.RemoveShippingInfoFromCart, Sitecore.Commerce']">
 					<param ref="basketService"/>
 				</processor>
 			</commerce.carts.removeShippingInfo>
 
       <commerce.payments.getPaymentOptions>
-        <processor type="UCommerce.Sitecore.CommerceConnect.Pipelines.Payments.GetPaymentOptions.GetPaymentOptions, UCommerce.Sitecore.CommerceConnect" />
+        <processor type="Ucommerce.Sitecore.CommerceConnect.Pipelines.Payments.GetPaymentOptions.GetPaymentOptions, Ucommerce.Sitecore.CommerceConnect" />
       </commerce.payments.getPaymentOptions>
 
       <commerce.payments.getPaymentMethods>
-        <processor type="UCommerce.Sitecore.CommerceConnect.Pipelines.Payments.GetPaymentMethods.GetPaymentMethods, UCommerce.Sitecore.CommerceConnect" />
+        <processor type="Ucommerce.Sitecore.CommerceConnect.Pipelines.Payments.GetPaymentMethods.GetPaymentMethods, Ucommerce.Sitecore.CommerceConnect" />
       </commerce.payments.getPaymentMethods>
 
       <commerce.payments.getPricesForPayments>
-        <processor type="UCommerce.Sitecore.CommerceConnect.Pipelines.Payments.GetPricesForPayments.GetPricesForPayments, UCommerce.Sitecore.CommerceConnect" />
+        <processor type="Ucommerce.Sitecore.CommerceConnect.Pipelines.Payments.GetPricesForPayments.GetPricesForPayments, Ucommerce.Sitecore.CommerceConnect" />
       </commerce.payments.getPricesForPayments>
 
       <commerce.carts.addPaymentInfo>
-        <processor type="UCommerce.Sitecore.CommerceConnect.Pipelines.Carts.AddPaymentInfo.AddPaymentInfoToCart, UCommerce.Sitecore.CommerceConnect" patch:instead="*[@type='Sitecore.Commerce.Pipelines.Carts.AddPaymentInfo.AddPaymentInfoToCart, Sitecore.Commerce']">
+        <processor type="Ucommerce.Sitecore.CommerceConnect.Pipelines.Carts.AddPaymentInfo.AddPaymentInfoToCart, Ucommerce.Sitecore.CommerceConnect" patch:instead="*[@type='Sitecore.Commerce.Pipelines.Carts.AddPaymentInfo.AddPaymentInfoToCart, Sitecore.Commerce']">
           <param ref="basketService"/>
         </processor>
       </commerce.carts.addPaymentInfo>
 
       <commerce.carts.removePaymentInfo>
-        <processor type="UCommerce.Sitecore.CommerceConnect.Pipelines.Carts.RemovePaymentInfo.RemovePaymentInfoFromCart, UCommerce.Sitecore.CommerceConnect" patch:instead="*[@type='Sitecore.Commerce.Pipelines.Carts.RemovePaymentInfo.RemovePaymentInfoFromCart, Sitecore.Commerce']">
+        <processor type="Ucommerce.Sitecore.CommerceConnect.Pipelines.Carts.RemovePaymentInfo.RemovePaymentInfoFromCart, Ucommerce.Sitecore.CommerceConnect" patch:instead="*[@type='Sitecore.Commerce.Pipelines.Carts.RemovePaymentInfo.RemovePaymentInfoFromCart, Sitecore.Commerce']">
           <param ref="basketService"/>
         </processor>
       </commerce.carts.removePaymentInfo>
 
       <commerce.carts.addParties>
-        <processor type="UCommerce.Sitecore.CommerceConnect.Pipelines.Carts.AddParties.AddPartiesToCart, UCommerce.Sitecore.CommerceConnect" patch:instead="*[@type='Sitecore.Commerce.Pipelines.Carts.AddParties.AddPartiesToCart, Sitecore.Commerce']">
+        <processor type="Ucommerce.Sitecore.CommerceConnect.Pipelines.Carts.AddParties.AddPartiesToCart, Ucommerce.Sitecore.CommerceConnect" patch:instead="*[@type='Sitecore.Commerce.Pipelines.Carts.AddParties.AddPartiesToCart, Sitecore.Commerce']">
           <param ref="basketService"/>
         </processor>
       </commerce.carts.addParties>
 
       <commerce.carts.removeParties>
-        <processor type="UCommerce.Sitecore.CommerceConnect.Pipelines.Carts.RemoveParties.RemovePartiesFromCart, UCommerce.Sitecore.CommerceConnect" patch:instead="*[@type='Sitecore.Commerce.Pipelines.Carts.RemoveParties.RemovePartiesFromCart, Sitecore.Commerce']">
+        <processor type="Ucommerce.Sitecore.CommerceConnect.Pipelines.Carts.RemoveParties.RemovePartiesFromCart, Ucommerce.Sitecore.CommerceConnect" patch:instead="*[@type='Sitecore.Commerce.Pipelines.Carts.RemoveParties.RemovePartiesFromCart, Sitecore.Commerce']">
           <param ref="basketService"/>
         </processor>
       </commerce.carts.removeParties>
 
       <commerce.carts.updateParties>
-        <processor type="UCommerce.Sitecore.CommerceConnect.Pipelines.Carts.UpdateParties.UpdatePartiesOnCart, UCommerce.Sitecore.CommerceConnect" patch:instead="*[@type='Sitecore.Commerce.Pipelines.Carts.UpdateParties.UpdatePartiesInCart, Sitecore.Commerce']">
+        <processor type="Ucommerce.Sitecore.CommerceConnect.Pipelines.Carts.UpdateParties.UpdatePartiesOnCart, Ucommerce.Sitecore.CommerceConnect" patch:instead="*[@type='Sitecore.Commerce.Pipelines.Carts.UpdateParties.UpdatePartiesInCart, Sitecore.Commerce']">
           <param ref="basketService"/>
         </processor>
       </commerce.carts.updateParties>
 
       <commerce.payments.getPaymentServiceUrl>
-        <processor type="UCommerce.Sitecore.CommerceConnect.Pipelines.Payments.GetPaymentServiceUrl.GetPaymentServiceUrl, UCommerce.Sitecore.CommerceConnect" />
+        <processor type="Ucommerce.Sitecore.CommerceConnect.Pipelines.Payments.GetPaymentServiceUrl.GetPaymentServiceUrl, Ucommerce.Sitecore.CommerceConnect" />
       </commerce.payments.getPaymentServiceUrl>
 
       <commerce.payments.getPaymentServiceActionResult>
-        <processor type="UCommerce.Sitecore.CommerceConnect.Pipelines.Payments.GetPaymentServiceActionResult.GetPaymentServiceActionResult, UCommerce.Sitecore.CommerceConnect" />
+        <processor type="Ucommerce.Sitecore.CommerceConnect.Pipelines.Payments.GetPaymentServiceActionResult.GetPaymentServiceActionResult, Ucommerce.Sitecore.CommerceConnect" />
       </commerce.payments.getPaymentServiceActionResult>
     </pipelines>
 	</sitecore>

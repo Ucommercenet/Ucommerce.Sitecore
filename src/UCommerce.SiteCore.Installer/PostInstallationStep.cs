@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using Sitecore.Install.Framework;
-using UCommerce.Installer;
-using UCommerce.Installer.InstallerSteps;
-using UCommerce.Sitecore.Installer.Steps;
-using DeleteFile = UCommerce.Sitecore.Installer.Steps.DeleteFile;
-using FileBackup = UCommerce.Sitecore.Installer.Steps.FileBackup;
-using UpdateUCommerceAssemblyVersionInDatabase = UCommerce.Sitecore.Installer.Steps.UpdateUCommerceAssemblyVersionInDatabase;
+using Ucommerce.Installer;
+using Ucommerce.Sitecore.Installer.Steps;
+using DeleteFile = Ucommerce.Sitecore.Installer.Steps.DeleteFile;
+using FileBackup = Ucommerce.Sitecore.Installer.Steps.FileBackup;
+using UpdateUCommerceAssemblyVersionInDatabase = Ucommerce.Sitecore.Installer.Steps.UpdateUCommerceAssemblyVersionInDatabase;
 
-namespace UCommerce.Sitecore.Installer
+namespace Ucommerce.Sitecore.Installer
 {
     public class PostInstallationStep : IPostStep
     {
@@ -58,12 +57,12 @@ namespace UCommerce.Sitecore.Installer
             _postInstallationSteps.Add(new SeperateConfigSectionInNewFile("configuration/sitecore/settings", "~/web.config", "~/App_Config/Include/.Sitecore.Settings.config"));
             _postInstallationSteps.Add(new MoveDirectory("~/sitecore modules/shell/ucommerce/install/binaries", "~/bin/uCommerce", overwriteTarget: true));
 
-            _postInstallationSteps.Add(new DeleteFile("~/bin/ucommerce/UCommerce.Installer.dll"));
+            _postInstallationSteps.Add(new DeleteFile("~/bin/ucommerce/Ucommerce.Installer.dll"));
 
             // Remove old UCommerce.Transactions.Payment.dll from /bin since payment methods have been moved to Apps.
-            _postInstallationSteps.Add(new DeleteFile("~/bin/UCommerce.Transactions.Payments.dll"));
+            _postInstallationSteps.Add(new DeleteFile("~/bin/Ucommerce.Transactions.Payments.dll"));
             // Remove ServiceStack folder
-            _postInstallationSteps.Add(new UCommerce.Sitecore.Installer.Steps.DeleteDirectory("~/sitecore modules/Shell/Ucommerce/Apps/ServiceStack"));
+            _postInstallationSteps.Add(new DeleteDirectory("~/sitecore modules/Shell/Ucommerce/Apps/ServiceStack"));
             // Enable ExchangeRateAPICurrencyConversion app
             _postInstallationSteps.Add(new MoveDirectory(
                 "~/sitecore modules/Shell/Ucommerce/Apps/ExchangeRateAPICurrencyConversion.disabled",

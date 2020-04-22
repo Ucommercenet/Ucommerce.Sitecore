@@ -2,8 +2,8 @@
 <configuration>
   <components>
     <component id="Checkout.Sitecore.RestoreSitecoreLanguageContextTask"
-            service="UCommerce.Pipelines.IPipelineTask`1[[UCommerce.EntitiesV2.PurchaseOrder, UCommerce]], UCommerce"
-            type="UCommerce.Sitecore.Pipelines.RestoreSitecoreLanguageContextTask, UCommerce.Sitecore" />
+            service="Ucommerce.Pipelines.IPipelineTask`1[[Ucommerce.EntitiesV2.PurchaseOrder, Ucommerce]], Ucommerce"
+            type="Ucommerce.Sitecore.Pipelines.RestoreSitecoreLanguageContextTask, Ucommerce.Sitecore" />
 
     <partial-component id="Checkout">
       <parameters>

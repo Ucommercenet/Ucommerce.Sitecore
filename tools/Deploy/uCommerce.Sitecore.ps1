@@ -7,7 +7,7 @@ task AddCompatibilityApp {
 		New-Item "$working_dir\Files\Sitecore modules\shell\ucommerce\apps\Sitecore92compatibility.disabled\bin" -Type Directory -Force
 	}
 
-	Copy-Item "$src\UCommerce.Sitecore92\bin\$configuration\UCommerce.Sitecore92.dll" "$working_dir\Files\Sitecore modules\shell\ucommerce\apps\Sitecore92compatibility.disabled\bin" -Force
+	Copy-Item "$src\Ucommerce.Sitecore92\bin\$configuration\Ucommerce.Sitecore92.dll" "$working_dir\Files\Sitecore modules\shell\ucommerce\apps\Sitecore92compatibility.disabled\bin" -Force
 }
 
 task SetVersionNumberFromClientNugetPackage {
@@ -24,7 +24,7 @@ task SetVersionNumberFromClientNugetPackage {
 
 	Push-Location "$folderItem\lib\net45"
 
-	$info = Get-ChildItem -Filter UCommerce.Admin.dll -Recurse | Select-Object -ExpandProperty VersionInfo
+	$info = Get-ChildItem -Filter Ucommerce.Admin.dll -Recurse | Select-Object -ExpandProperty VersionInfo
 
 	# Removing build part from the Ucommerce packages.
 	$version = $info.FileVersion.SubString(0,$info.FileVersion.LastIndexOf('.'))
@@ -50,7 +50,7 @@ task SetSitecoreVars -description "Since path are different from Deploy.To.Local
     }
     else
     {
-        $script:hash.ucommerce_dir = "$working_dir\sitecore modules\Shell\uCommerce"
+        $script:hash.ucommerce_dir = "$working_dir\sitecore modules\Shell\Ucommerce"
         $script:hash.bin_dir = "$working_dir\bin"
         $script:hash.files_root_dir = "$working_dir"
     }
@@ -77,24 +77,24 @@ task CopySitecoreFiles -description "Copy all the sitecore files needs for a dep
     $files_root = $script:hash["files_root_dir"]
 
 	# First let's copy the package data for the zip
-	&robocopy "$src\Ucommerce.SiteCore.Installer\package\installer" "$working_dir\installer" /is /it /e /NFL /NDL
-	&robocopy "$src\Ucommerce.SiteCore.Installer\package\metadata" "$working_dir\metadata" /is /it /e /NFL /NDL
-	&robocopy "$src\Ucommerce.SiteCore.Installer\package\Files" "$working_dir\Files" /is /it /e /NFL /NDL
-	&robocopy "$src\Ucommerce.SiteCore.Installer\SpeakSerialization" "$working_dir\Files\Sitecore modules\shell\ucommerce\install\SpeakSerialization" /is /it /e /NFL /NDL
+	&robocopy "$src\Ucommerce.Sitecore.Installer\package\installer" "$working_dir\installer" /is /it /e /NFL /NDL
+	&robocopy "$src\Ucommerce.Sitecore.Installer\package\metadata" "$working_dir\metadata" /is /it /e /NFL /NDL
+	&robocopy "$src\Ucommerce.Sitecore.Installer\package\Files" "$working_dir\Files" /is /it /e /NFL /NDL
+	&robocopy "$src\Ucommerce.Sitecore.Installer\SpeakSerialization" "$working_dir\Files\Sitecore modules\shell\ucommerce\install\SpeakSerialization" /is /it /e /NFL /NDL
 
 	# Copy binaries needed for the actual bootstrapping
-	Copy-Item "$src\UCommerce.SiteCore.Installer\bin\$configuration\UCommerce.Installer.dll" "$working_dir\files\bin\UCommerce.Installer.dll" -Force
-	Copy-Item "$src\UCommerce.SiteCore.Installer\bin\$configuration\UCommerce.Sitecore.Installer.dll" "$working_dir\files\bin\UCommerce.Sitecore.Installer.dll" -Force
+	Copy-Item "$src\Ucommerce.SiteCore.Installer\bin\$configuration\Ucommerce.Installer.dll" "$working_dir\files\bin\Ucommerce.Installer.dll" -Force
+	Copy-Item "$src\Ucommerce.SiteCore.Installer\bin\$configuration\Ucommerce.Sitecore.Installer.dll" "$working_dir\files\bin\Ucommerce.Sitecore.Installer.dll" -Force
 	Copy-Item "$src\..\lib\XmlTransform\Microsoft.Web.XmlTransform.dll" "$working_dir\files\bin\Microsoft.Web.XmlTransform.dll" -Force
 
 	# Binaries for the site to run
 
 	# Only copy commerce connect if exists (exluded from sln per default).
-	if (Test-Path "$src\UCommerce.Sitecore.CommerceConnect\bin\$configuration\UCommerce.Sitecore.CommerceConnect.dll") {
-		Copy-Item "$src\UCommerce.Sitecore.CommerceConnect\bin\$configuration\UCommerce.Sitecore.CommerceConnect.dll" "$working_dir\Files\Sitecore modules\shell\ucommerce\install\binaries" -Force
+	if (Test-Path "$src\Ucommerce.Sitecore.CommerceConnect\bin\$configuration\Ucommerce.Sitecore.CommerceConnect.dll") {
+		Copy-Item "$src\Ucommerce.Sitecore.CommerceConnect\bin\$configuration\Ucommerce.Sitecore.CommerceConnect.dll" "$working_dir\Files\Sitecore modules\shell\ucommerce\install\binaries" -Force
 	}
 
-	Copy-Item "$src\Ucommerce.Sitecore.Web\bin\UCommerce.Sitecore.Web.dll" "$working_dir\Files\Sitecore modules\shell\ucommerce\install\binaries" -Force
+	Copy-Item "$src\Ucommerce.Sitecore.Web\bin\Ucommerce.Sitecore.Web.dll" "$working_dir\Files\Sitecore modules\shell\ucommerce\install\binaries" -Force
 
 	#Lets delete the Ucommerce folder that Client nuget package copies over - we'll just grab from the package location
 	if (Test-Path "$src\Ucommerce.Sitecore.Web\ucommerce") {
@@ -118,35 +118,35 @@ task CopySitecoreFiles -description "Copy all the sitecore files needs for a dep
 
 	# Start overriding CMS specific things to the package
 	##Shell specific
-	Copy-Item "$src\UCommerce.Sitecore.Web\Shell\CatalogManager.aspx" "$working_dir\files\sitecore modules\Shell\ucommerce\shell\CatalogManager.aspx" -Force
-	Copy-Item "$src\UCommerce.Sitecore.Web\Shell\OrderManager.aspx" "$working_dir\files\sitecore modules\Shell\ucommerce\shell\OrderManager.aspx" -Force
-	Copy-Item "$src\UCommerce.Sitecore.Web\Shell\PromotionManager.aspx" "$working_dir\files\sitecore modules\Shell\ucommerce\shell\PromotionManager.aspx" -Force
-	Copy-Item "$src\UCommerce.Sitecore.Web\Shell\SettingsManager.aspx" "$working_dir\files\sitecore modules\Shell\ucommerce\shell\SettingsManager.aspx" -Force
-	Copy-Item "$src\UCommerce.Sitecore.Web\Shell\Scripts\Sitecore.js" "$working_dir\files\sitecore modules\Shell\ucommerce\shell\app\constants.js" -Force
+	Copy-Item "$src\Ucommerce.Sitecore.Web\Shell\CatalogManager.aspx" "$working_dir\files\sitecore modules\Shell\ucommerce\shell\CatalogManager.aspx" -Force
+	Copy-Item "$src\Ucommerce.Sitecore.Web\Shell\OrderManager.aspx" "$working_dir\files\sitecore modules\Shell\ucommerce\shell\OrderManager.aspx" -Force
+	Copy-Item "$src\Ucommerce.Sitecore.Web\Shell\PromotionManager.aspx" "$working_dir\files\sitecore modules\Shell\ucommerce\shell\PromotionManager.aspx" -Force
+	Copy-Item "$src\Ucommerce.Sitecore.Web\Shell\SettingsManager.aspx" "$working_dir\files\sitecore modules\Shell\ucommerce\shell\SettingsManager.aspx" -Force
+	Copy-Item "$src\Ucommerce.Sitecore.Web\Shell\Scripts\Sitecore.js" "$working_dir\files\sitecore modules\Shell\ucommerce\shell\app\constants.js" -Force
 
 	#Configuration specific
-	&robocopy "$src\UCommerce.Sitecore.Web\Apps" "$working_dir\files\sitecore modules\Shell\ucommerce\Apps" /is /it /e /NFL /NDL
-	Copy-Item "$src\UCommerce.Sitecore.Web\Configuration\Shell.config.default" "$working_dir\files\sitecore modules\Shell\ucommerce\Configuration\Shell.config.default" -Force
+	&robocopy "$src\Ucommerce.Sitecore.Web\Apps" "$working_dir\files\sitecore modules\Shell\ucommerce\Apps" /is /it /e /NFL /NDL
+	Copy-Item "$src\Ucommerce.Sitecore.Web\Configuration\Shell.config.default" "$working_dir\files\sitecore modules\Shell\ucommerce\Configuration\Shell.config.default" -Force
 
 	New-Item "$working_dir\Files\Sitecore modules\shell\ucommerce\install\configinclude" -ItemType Directory
-	&robocopy "$src\UCommerce.SiteCore.Installer\ConfigurationTransformations\ConfigIncludes" "$working_dir\Files\Sitecore modules\shell\ucommerce\install\configinclude" * /NFL /NDL
-	&robocopy "$src\UCommerce.SiteCore.Installer\ConfigurationTransformations" "$working_dir\Files\Sitecore modules\shell\ucommerce\install" *.config /NFL /NDL
+	&robocopy "$src\Ucommerce.SiteCore.Installer\ConfigurationTransformations\ConfigIncludes" "$working_dir\Files\Sitecore modules\shell\ucommerce\install\configinclude" * /NFL /NDL
+	&robocopy "$src\Ucommerce.SiteCore.Installer\ConfigurationTransformations" "$working_dir\Files\Sitecore modules\shell\ucommerce\install" *.config /NFL /NDL
 
 	#Copy sql scripts to install folder
 	&robocopy "$src\..\database" "$working_dir\files\sitecore modules\Shell\ucommerce\install" *.sql /NFL /NDL
 
 	#css
-	&robocopy "$src\UCommerce.Sitecore.Web\Css" "$working_dir\files\sitecore modules\Shell\ucommerce\Css" * /is /it /e /NFL /NDL
+	&robocopy "$src\Ucommerce.Sitecore.Web\Css" "$working_dir\files\sitecore modules\Shell\ucommerce\Css" * /is /it /e /NFL /NDL
 
 	#binaries
-	&robocopy "$src\UCommerce.Sitecore\bin\$configuration" "$working_dir\files\sitecore modules\Shell\ucommerce\install\binaries" UCommerce.* /is /it /e /NFL /NDL
+	&robocopy "$src\Ucommerce.Sitecore\bin\$configuration" "$working_dir\files\sitecore modules\Shell\ucommerce\install\binaries" Ucommerce.* /is /it /e /NFL /NDL
 
     $dependencies = @("castle.core.dll", "castle.windsor.dll", "clientdependency.core.dll","Castle.Facilities.AspNet.SystemWeb.dll" , "csvhelper.dll", "epplus.dll", "fluentnhibernate.dll", "iesi.collections.dll", "infralution.licensing.dll", "log4net.dll", "lucene.net.dll", "microsoft.web.xmltransform.dll". "newtonsoft.json.dll", "nhibernate.caches.syscache.dll", "nhibernate.dll", "Antlr3.Runtime.dll", "Remotion.Linq.dll","Remotion.Linq.EagerFetching.dll", "FluentValidation.dll")
-	CopyFiles "$src\UCommerce.Sitecore\bin\$configuration" "$working_dir\files\sitecore modules\Shell\ucommerce\install\binaries" $dependencies
+	CopyFiles "$src\Ucommerce.Sitecore\bin\$configuration" "$working_dir\files\sitecore modules\Shell\ucommerce\install\binaries" $dependencies
 
 	# Commerce Connect app
 	New-Item "$working_dir\Files\Sitecore modules\shell\ucommerce\apps\sitecore commerce connect.disabled" -ItemType Directory
-	&robocopy "$src\UCommerce.Sitecore.CommerceConnect\Configuration" "$working_dir\Files\Sitecore modules\shell\ucommerce\apps\sitecore commerce connect.disabled" * /NFL /NDL
+	&robocopy "$src\Ucommerce.Sitecore.CommerceConnect\Configuration" "$working_dir\Files\Sitecore modules\shell\ucommerce\apps\sitecore commerce connect.disabled" * /NFL /NDL
 
 	Move-Item "$working_dir\Files\Sitecore modules\shell\ucommerce\configuration\settings\settings.sitecore.config.default" "$working_dir\Files\Sitecore modules\shell\ucommerce\configuration\settings\settings.config.default" -Force
 
@@ -155,7 +155,7 @@ task CopySitecoreFiles -description "Copy all the sitecore files needs for a dep
 
 	Remove-Item "$working_dir\Files\Sitecore modules\shell\ucommerce\css\speak\*.less" -Force
 
-	&robocopy "$src\UCommerce.Sitecore.Web\Pipelines" "$working_dir\Files\Sitecore modules\shell\ucommerce\Pipelines" * /is /it /e /NFL /NDL
+	&robocopy "$src\Ucommerce.Sitecore.Web\Pipelines" "$working_dir\Files\Sitecore modules\shell\ucommerce\Pipelines" * /is /it /e /NFL /NDL
 
 	# Other files that are part of the client package that should not be there
 	Remove-Item "$working_dir\Files\Sitecore modules\shell\ucommerce\scripts\ucommerce6.js" -Force
@@ -177,8 +177,8 @@ task CopySitecoreFiles -description "Copy all the sitecore files needs for a dep
 		Rename-Item -Path "$working_dir\files\sitecore modules\Shell\Ucommerce\Apps\Acquire%20and%20Cancel%20Payments.disabled" -NewName "Acquire and Cancel Payments.disabled" -Force
 	}
 
-	if (Test-Path "$working_dir\files\sitecore modules\shell\ucommerce\install\binaries\UCommerce.Installer.dll"){
-		Remove-Item "$working_dir\files\sitecore modules\shell\ucommerce\install\binaries\UCommerce.Installer.dll" -Force
+	if (Test-Path "$working_dir\files\sitecore modules\shell\ucommerce\install\binaries\Ucommerce.Installer.dll"){
+		Remove-Item "$working_dir\files\sitecore modules\shell\ucommerce\install\binaries\Ucommerce.Installer.dll" -Force
 	}
 }
 
@@ -226,8 +226,8 @@ task CreateSitecoreZipFile -description "Creates the Sitecore Zip fil" {
 
 task UpdateSitecorePackageInfo -description "Updates the Sitecore package information file" {
     if($UpdateAssemblyInfo -eq "True") {
-        $version = $script:version        
-        echo "$version" > "$src\UCommerce.Sitecore.Installer\package\metadata\sc_version.txt"
-        echo "uCommerce $version" > "$src\UCommerce.Sitecore.Installer\package\metadata\sc_name.txt"
+        $version = $script:version
+        echo "$version" > "$src\Ucommerce.Sitecore.Installer\package\metadata\sc_version.txt"
+        echo "Ucommerce $version" > "$src\Ucommerce.Sitecore.Installer\package\metadata\sc_name.txt"
     }
 }

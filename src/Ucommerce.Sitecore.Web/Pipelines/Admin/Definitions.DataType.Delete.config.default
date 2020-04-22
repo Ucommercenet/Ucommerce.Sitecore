@@ -3,8 +3,8 @@
 	<components>
 		<!-- Pipeline Instance -->
 		<component id="DeleteDataType"
-				   service="UCommerce.Pipelines.IPipeline`1[[UCommerce.EntitiesV2.DataType, UCommerce]], UCommerce"
-				   type="UCommerce.Pipelines.GenericPipeline`1[[UCommerce.EntitiesV2.DataType, UCommerce]], UCommerce.Pipelines">
+				   service="Ucommerce.Pipelines.IPipeline`1[[Ucommerce.EntitiesV2.DataType, Ucommerce]], Ucommerce"
+				   type="Ucommerce.Pipelines.GenericPipeline`1[[Ucommerce.EntitiesV2.DataType, Ucommerce]], Ucommerce.Pipelines">
 			<parameters>
 				<tasks>
 					<array>
@@ -18,11 +18,11 @@
 
 		<!-- Pipeline Tasks-->
 		<component id="DataType.Delete"
-			service="UCommerce.Pipelines.IPipelineTask`1[[UCommerce.EntitiesV2.DataType, UCommerce]], UCommerce"
-			type="UCommerce.Pipelines.Definitions.Admin.DataTypeDelete.DeleteDataTypeTask, UCommerce.Pipelines" />
+			service="Ucommerce.Pipelines.IPipelineTask`1[[Ucommerce.EntitiesV2.DataType, Ucommerce]], Ucommerce"
+			type="Ucommerce.Pipelines.Definitions.Admin.DataTypeDelete.DeleteDataTypeTask, Ucommerce.Pipelines" />
 
 		<component id="DataType.Deindex"
-				   service="UCommerce.Pipelines.IPipelineTask`1[[UCommerce.EntitiesV2.DataType, UCommerce]], UCommerce"
-				   type="UCommerce.Pipelines.Search.SearchDeindexerTask`1[[UCommerce.EntitiesV2.DataType, UCommerce]], UCommerce.Pipelines" />
+				   service="Ucommerce.Pipelines.IPipelineTask`1[[Ucommerce.EntitiesV2.DataType, Ucommerce]], Ucommerce"
+				   type="Ucommerce.Pipelines.Search.SearchDeindexerTask`1[[Ucommerce.EntitiesV2.DataType, Ucommerce]], Ucommerce.Pipelines" />
 	</components>
 </configuration>

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace UCommerce.Sitecore.Web.Shell
+namespace Ucommerce.Sitecore.Web.Shell
 {
 	public partial class OrderManager : System.Web.UI.Page
 	{

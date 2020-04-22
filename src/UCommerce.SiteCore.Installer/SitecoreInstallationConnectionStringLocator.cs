@@ -1,7 +1,7 @@
 ﻿using System.Configuration;
-using UCommerce.Installer;
+using Ucommerce.Installer;
 
-namespace UCommerce.Sitecore.Installer
+namespace Ucommerce.Sitecore.Installer
 {
     public class SitecoreInstallationConnectionStringLocator : InstallationConnectionStringLocator
     {
