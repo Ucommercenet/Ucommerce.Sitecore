@@ -8,7 +8,6 @@
 			<parameters>
 				<tasks>
 					<array>
-						<value>${DataType.Deindex}</value>
 						<value>${DataType.Delete}</value>
 						<value>${Sitecore.DataType.Save}</value>
 					</array>
@@ -20,9 +19,5 @@
 		<component id="DataType.Delete"
 			service="Ucommerce.Pipelines.IPipelineTask`1[[Ucommerce.EntitiesV2.DataType, Ucommerce]], Ucommerce"
 			type="Ucommerce.Pipelines.Definitions.Admin.DataTypeDelete.DeleteDataTypeTask, Ucommerce.Pipelines" />
-
-		<component id="DataType.Deindex"
-				   service="Ucommerce.Pipelines.IPipelineTask`1[[Ucommerce.EntitiesV2.DataType, Ucommerce]], Ucommerce"
-				   type="Ucommerce.Pipelines.Search.SearchDeindexerTask`1[[Ucommerce.EntitiesV2.DataType, Ucommerce]], Ucommerce.Pipelines" />
 	</components>
 </configuration>

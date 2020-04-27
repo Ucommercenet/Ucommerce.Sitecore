@@ -8,7 +8,6 @@
 			<parameters>
 				<tasks>
 					<array>
-						<value>${Definition.Deindex}</value>
 						<value>${Definition.Delete}</value>
 						<value>${Sitecore.Definition.Save}</value>
 					</array>
@@ -20,9 +19,5 @@
 		<component id="Definition.Delete"
 			service="Ucommerce.Pipelines.IPipelineTask`1[[Ucommerce.EntitiesV2.Definitions.IDefinition, Ucommerce]], Ucommerce"
 			type="Ucommerce.Pipelines.Definitions.Admin.DefinitionDelete.DeleteDefinitionTask, Ucommerce.Pipelines" />
-
-		<component id="Definition.Deindex"
-				   service="Ucommerce.Pipelines.IPipelineTask`1[[Ucommerce.EntitiesV2.Definitions.IDefinition, Ucommerce]], Ucommerce"
-				   type="Ucommerce.Pipelines.Search.SearchDeindexerTask`1[[Ucommerce.EntitiesV2.Definitions.IDefinition, Ucommerce]], Ucommerce.Pipelines" />
 	</components>
 </configuration>

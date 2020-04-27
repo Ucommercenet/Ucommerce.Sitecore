@@ -10,7 +10,6 @@
 					<array>
 						<value>${Definition.UpdateRevision}</value>
 						<value>${Definition.Save}</value>
-						<value>${Definition.Index}</value>
 						<value>${Sitecore.Definition.Save}</value>
 					</array>
 				</tasks>
@@ -25,9 +24,5 @@
 		<component id="Definition.Save"
 			service="Ucommerce.Pipelines.IPipelineTask`1[[Ucommerce.EntitiesV2.Definitions.IDefinition, Ucommerce]], Ucommerce"
 			type="Ucommerce.Pipelines.Definitions.Admin.DefinitionSave.SaveDefinitionTask, Ucommerce.Pipelines" />
-
-		<component id="Definition.Index"
-				   service="Ucommerce.Pipelines.IPipelineTask`1[[Ucommerce.EntitiesV2.Definitions.IDefinition, Ucommerce]], Ucommerce"
-				   type="Ucommerce.Pipelines.Search.SearchIndexerTask`1[[Ucommerce.EntitiesV2.Definitions.IDefinition, Ucommerce]], Ucommerce.Pipelines" />
 	</components>
 </configuration>
