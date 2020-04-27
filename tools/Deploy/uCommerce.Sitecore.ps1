@@ -150,9 +150,6 @@ task CopySitecoreFiles -description "Copy all the sitecore files needs for a dep
 
 	Move-Item "$working_dir\Files\Sitecore modules\shell\ucommerce\configuration\settings\settings.sitecore.config.default" "$working_dir\Files\Sitecore modules\shell\ucommerce\configuration\settings\settings.config.default" -Force
 
-	# Raven Lucene.net assembly not used in Sitecore and can make weired errors. Don't copy it over.
-	Remove-Item "$working_dir\Files\Sitecore modules\shell\ucommerce\apps\RavenDB25.disabled\bin\Lucene.net.dll" -Force
-
 	Remove-Item "$working_dir\Files\Sitecore modules\shell\ucommerce\css\speak\*.less" -Force
 
 	&robocopy "$src\Ucommerce.Sitecore.Web\Pipelines" "$working_dir\Files\Sitecore modules\shell\ucommerce\Pipelines" * /is /it /e /NFL /NDL
