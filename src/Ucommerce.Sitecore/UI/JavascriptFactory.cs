@@ -8,7 +8,7 @@ namespace Ucommerce.Sitecore.UI
     {
         private IUrlResolver UrlResolver { get; set; }
 
-		private const string ClientMgrScript = "UCommerceClientMgr";
+		private const string ClientMgrScript = "UcommerceClientMgr";
 
 		public JavaScriptFactory(IUrlResolver urlResolver)
 		{

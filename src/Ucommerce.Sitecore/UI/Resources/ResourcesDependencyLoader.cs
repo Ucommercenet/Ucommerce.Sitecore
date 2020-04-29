@@ -6,7 +6,7 @@ namespace Ucommerce.Sitecore.UI.Resources {
     {
         public ResourcesDependencyLoader(IUrlResolver urlResolver)
         {
-            AddPath("UCommerce", urlResolver.ResolveUrl(""));
+            AddPath("Ucommerce", urlResolver.ResolveUrl(""));
             AddPath("shell", urlResolver.ResolveUrl(""));
         }
     }
