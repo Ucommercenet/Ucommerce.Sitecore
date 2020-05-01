@@ -1,4 +1,4 @@
-task CreateSitecorePackage -depends SetVersionNumberFromClientNugetPackage,CleanSitecoreWorkingDirectory,NuGetRestore, Rebuild,CopySitecoreFiles, AddCompatibilityApp, CleanPackageForOtherCmsDependencies, CreateSitecoreZipFile {
+task CreateSitecorePackage -depends SetVersionNumberFromClientNugetPackage,CleanSitecoreWorkingDirectory,NuGetRestore, Rebuild,CopySitecoreFiles, CreateFakeAssembliesForUpgrade, AddCompatibilityApp, CleanPackageForOtherCmsDependencies, CreateSitecoreZipFile {
 
 }
 
@@ -54,6 +54,13 @@ task SetSitecoreVars -description "Since path are different from Deploy.To.Local
         $script:hash.bin_dir = "$working_dir\bin"
         $script:hash.files_root_dir = "$working_dir"
     }
+}
+
+task CreateFakeAssembliesForUpgrade {
+	# Create empty assemblies to enable upgrades from v8 -> v9
+	$bin_dir = $script:hash["bin_dir"]
+	New-Item -Path "$bin_dir" -Name "Ucommerce.Admin.dll" -ItemType File
+	New-Item -Path "$bin_dir" -Name "Ucommerce.SystemWeb.dll" -ItemType File
 }
 
 task CleanPackageForOtherCmsDependencies {
