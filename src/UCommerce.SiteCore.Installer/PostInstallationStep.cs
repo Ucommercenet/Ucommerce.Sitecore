@@ -63,19 +63,25 @@ namespace Ucommerce.Sitecore.Installer
             _postInstallationSteps.Add(new DeleteFile("~/bin/Ucommerce.Transactions.Payments.dll"));
             // Remove ServiceStack folder
             _postInstallationSteps.Add(new DeleteDirectory("~/sitecore modules/Shell/Ucommerce/Apps/ServiceStack"));
+
+            // Remove RavenDB apps (in V9 Raven has been replaced by Lucene)
+            _postInstallationSteps.Add(new DeleteDirectory("~/sitecore modules/Shell/Ucommerce/Apps/RavenDB25"));
+            _postInstallationSteps.Add(new DeleteDirectory("~/sitecore modules/Shell/Ucommerce/Apps/RavenDB25.disabled"));
+            _postInstallationSteps.Add(new DeleteDirectory("~/sitecore modules/Shell/Ucommerce/Apps/RavenDB30"));
+            _postInstallationSteps.Add(new DeleteDirectory("~/sitecore modules/Shell/Ucommerce/Apps/RavenDB30.disabled"));
             // Enable ExchangeRateAPICurrencyConversion app
             _postInstallationSteps.Add(new MoveDirectory(
                 "~/sitecore modules/Shell/Ucommerce/Apps/ExchangeRateAPICurrencyConversion.disabled",
                 "~/sitecore modules/Shell/Ucommerce/Apps/ExchangeRateAPICurrencyConversion", true));
 
             // Remove Catalogs app since it was moved into Core
-            _postInstallationSteps.Add(new Steps.DeleteDirectory("~/sitecore modules/Shell/Ucommerce/Apps/Catalogs"));
-            _postInstallationSteps.Add(new Steps.DeleteDirectory("~/sitecore modules/Shell/Ucommerce/Apps/Catalogs.disabled"));
-            _postInstallationSteps.Add(new Steps.EnableSitecoreCompatibilityApp(sitecoreVersionChecker, sitecoreInstallerLoggingService));
+            _postInstallationSteps.Add(new DeleteDirectory("~/sitecore modules/Shell/Ucommerce/Apps/Catalogs"));
+            _postInstallationSteps.Add(new DeleteDirectory("~/sitecore modules/Shell/Ucommerce/Apps/Catalogs.disabled"));
+            _postInstallationSteps.Add(new EnableSitecoreCompatibilityApp(sitecoreVersionChecker, sitecoreInstallerLoggingService));
 
             // Remove CatalogSearch widget
-            _postInstallationSteps.Add(new Steps.DeleteDirectory("~/sitecore modules/Shell/Ucommerce/Apps/Widgets/CatalogSearch"));
-            _postInstallationSteps.Add(new Steps.DeleteDirectory("~/sitecore modules/Shell/Ucommerce/Apps/Widgets/CatalogSearch.disabled"));
+            _postInstallationSteps.Add(new DeleteDirectory("~/sitecore modules/Shell/Ucommerce/Apps/Widgets/CatalogSearch"));
+            _postInstallationSteps.Add(new DeleteDirectory("~/sitecore modules/Shell/Ucommerce/Apps/Widgets/CatalogSearch.disabled"));
 
             // Enable Sanitization app
             _postInstallationSteps.Add(new MoveDirectory(
