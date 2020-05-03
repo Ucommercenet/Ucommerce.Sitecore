@@ -80,6 +80,21 @@ namespace Ucommerce.Sitecore.Installer.Steps
                 "~/bin/Ucommerce.Sitecore.Web.dll",
                 backupTarget: false));
 
+            _postInstallationSteps.Add(new MoveFile(
+                "~/bin/ucommerce/Ucommerce.Api.dll",
+                "~/bin/Ucommerce.Api.dll",
+                backupTarget: false));
+
+            _postInstallationSteps.Add(new MoveFile(
+                "~/bin/ucommerce/Ucommerce.Search.dll",
+                "~/bin/Ucommerce.Search.dll",
+                backupTarget: false));
+
+            _postInstallationSteps.Add(new MoveFile(
+                "~/bin/ucommerce/Ucommerce.SqlMultiReaderConnector.dll",
+                "~/bin/Ucommerce.SqlMultiReaderConnector.dll",
+                backupTarget: false));
+
             foreach (var postInstallationStep in _postInstallationSteps)
             {
                 postInstallationStep.Run(output, metaData);
