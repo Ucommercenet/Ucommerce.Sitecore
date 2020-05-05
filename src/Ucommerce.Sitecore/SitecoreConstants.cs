@@ -39,10 +39,10 @@ namespace Ucommerce.Sitecore
 
 		public const string SitecoreDataProviderTreeServiceId = "TreeServiceContentEditor";
 
-	    public const string RewriteCategoryProduct = "categoryProduct";
-        public const string RewriteProduct = "product";
-        public const string RewriteCategory = "category";
         public const string RewriteCatalog = "catalog";
+        public const string RewriteCategory = "category";
+	    public const string RewriteCategoryProduct = "product";
+        public const string RewriteVariant = "variant";
 
 		public const bool EnableCacheable = false;
 
