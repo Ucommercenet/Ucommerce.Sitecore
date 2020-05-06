@@ -2,9 +2,9 @@ using System.Collections.Specialized;
 using System.IO;
 using System.Web.Hosting;
 using Sitecore.Install.Framework;
-using UCommerce.Installer;
+using Ucommerce.Installer;
 
-namespace UCommerce.Sitecore.Installer.Steps
+namespace Ucommerce.Sitecore.Installer.Steps
 {
 	/// <summary>
 	/// Moves a folder.
@@ -25,7 +25,7 @@ namespace UCommerce.Sitecore.Installer.Steps
 		public void Run(ITaskOutput output, NameValueCollection metaData)
 		{
 			new DirectoryMover(
-				new DirectoryInfo(HostingEnvironment.MapPath(_sourceDirectory)), 
+				new DirectoryInfo(HostingEnvironment.MapPath(_sourceDirectory)),
 				new DirectoryInfo(HostingEnvironment.MapPath(_targetDirectory)),
 				_overwriteTarget).Move(
 				ex => new SitecoreInstallerLoggingService().Log<int>(ex));

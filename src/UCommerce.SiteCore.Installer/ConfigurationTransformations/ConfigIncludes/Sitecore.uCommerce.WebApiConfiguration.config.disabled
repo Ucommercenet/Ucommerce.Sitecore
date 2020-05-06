@@ -4,7 +4,7 @@
   <sitecore>
     <pipelines>
       <initialize>
-       <processor patch:after="processor[@type='Sitecore.Services.Infrastructure.Sitecore.Pipelines.ServicesWebApiInitializer, Sitecore.Services.Infrastructure.Sitecore']" type="UCommerce.Sitecore.Pipelines.WebApiConfig, UCommerce.Sitecore"  />
+       <processor patch:after="processor[@type='Sitecore.Services.Infrastructure.Sitecore.Pipelines.ServicesWebApiInitializer, Sitecore.Services.Infrastructure.Sitecore']" type="Ucommerce.Sitecore.Pipelines.WebApiConfig, Ucommerce.Sitecore"  />
       </initialize>
     </pipelines>
   </sitecore>

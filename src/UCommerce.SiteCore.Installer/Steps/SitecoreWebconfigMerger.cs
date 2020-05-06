@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Sitecore.Install.Framework;
-using UCommerce.Installer;
+using Ucommerce.Installer;
 
-namespace UCommerce.Sitecore.Installer.Steps
+namespace Ucommerce.Sitecore.Installer.Steps
 {
     public class SitecoreWebconfigMerger : IPostStep
     {
@@ -31,7 +27,7 @@ namespace UCommerce.Sitecore.Installer.Steps
                     new Transformation("~/sitecore modules/Shell/ucommerce/install/updateAssemblyBinding.config")
                 }
             );
-        
+
             mergeConfig.Run(output, metaData);
         }
     }

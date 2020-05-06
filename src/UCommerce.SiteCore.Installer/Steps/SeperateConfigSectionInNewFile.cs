@@ -3,22 +3,22 @@ using System.IO;
 using System.Web.Hosting;
 using Sitecore.Install.Framework;
 
-namespace UCommerce.Sitecore.Installer.Steps
+namespace Ucommerce.Sitecore.Installer.Steps
 {
 	/// <summary>
-	/// Extract section by a giving section path from file to an seperated file. 
+	/// Extract section by a giving section path from file to an seperated file.
 	/// </summary>
 	class SeperateConfigSectionInNewFile : IPostStep
 	{
 		private readonly string _section;
-		private readonly UCommerce.Installer.ExtractSection _command;
+		private readonly Ucommerce.Installer.ExtractSection _command;
 
 		public SeperateConfigSectionInNewFile(string sectionPath, string sourceVirtualPath, string targetVirtualPath)
 		{
 			var source = new FileInfo(HostingEnvironment.MapPath(sourceVirtualPath));
 			var target = new FileInfo(HostingEnvironment.MapPath(targetVirtualPath));
 
-			_command = new UCommerce.Installer.ExtractSection(sectionPath, source, target);
+			_command = new Ucommerce.Installer.ExtractSection(sectionPath, source, target);
 		}
 
 

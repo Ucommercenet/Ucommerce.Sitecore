@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using Sitecore.Install.Framework;
-using UCommerce.Installer;
-using UCommerce.Installer.InstallerSteps;
-using UCommerce.Sitecore.Installer.Steps;
-using DeleteFile = UCommerce.Sitecore.Installer.Steps.DeleteFile;
-using FileBackup = UCommerce.Sitecore.Installer.Steps.FileBackup;
-using UpdateUCommerceAssemblyVersionInDatabase = UCommerce.Sitecore.Installer.Steps.UpdateUCommerceAssemblyVersionInDatabase;
+using Ucommerce.Installer;
+using Ucommerce.Sitecore.Installer.Steps;
+using DeleteFile = Ucommerce.Sitecore.Installer.Steps.DeleteFile;
+using FileBackup = Ucommerce.Sitecore.Installer.Steps.FileBackup;
+using UpdateUCommerceAssemblyVersionInDatabase = Ucommerce.Sitecore.Installer.Steps.UpdateUCommerceAssemblyVersionInDatabase;
 
-namespace UCommerce.Sitecore.Installer
+namespace Ucommerce.Sitecore.Installer
 {
     public class PostInstallationStep : IPostStep
     {
@@ -58,25 +57,31 @@ namespace UCommerce.Sitecore.Installer
             _postInstallationSteps.Add(new SeperateConfigSectionInNewFile("configuration/sitecore/settings", "~/web.config", "~/App_Config/Include/.Sitecore.Settings.config"));
             _postInstallationSteps.Add(new MoveDirectory("~/sitecore modules/shell/ucommerce/install/binaries", "~/bin/uCommerce", overwriteTarget: true));
 
-            _postInstallationSteps.Add(new DeleteFile("~/bin/ucommerce/UCommerce.Installer.dll"));
+            _postInstallationSteps.Add(new DeleteFile("~/bin/ucommerce/Ucommerce.Installer.dll"));
 
             // Remove old UCommerce.Transactions.Payment.dll from /bin since payment methods have been moved to Apps.
-            _postInstallationSteps.Add(new DeleteFile("~/bin/UCommerce.Transactions.Payments.dll"));
+            _postInstallationSteps.Add(new DeleteFile("~/bin/Ucommerce.Transactions.Payments.dll"));
             // Remove ServiceStack folder
-            _postInstallationSteps.Add(new UCommerce.Sitecore.Installer.Steps.DeleteDirectory("~/sitecore modules/Shell/Ucommerce/Apps/ServiceStack"));
+            _postInstallationSteps.Add(new DeleteDirectory("~/sitecore modules/Shell/Ucommerce/Apps/ServiceStack"));
+
+            // Remove RavenDB apps (in V9 Raven has been replaced by Lucene)
+            _postInstallationSteps.Add(new DeleteDirectory("~/sitecore modules/Shell/Ucommerce/Apps/RavenDB25"));
+            _postInstallationSteps.Add(new DeleteDirectory("~/sitecore modules/Shell/Ucommerce/Apps/RavenDB25.disabled"));
+            _postInstallationSteps.Add(new DeleteDirectory("~/sitecore modules/Shell/Ucommerce/Apps/RavenDB30"));
+            _postInstallationSteps.Add(new DeleteDirectory("~/sitecore modules/Shell/Ucommerce/Apps/RavenDB30.disabled"));
             // Enable ExchangeRateAPICurrencyConversion app
             _postInstallationSteps.Add(new MoveDirectory(
                 "~/sitecore modules/Shell/Ucommerce/Apps/ExchangeRateAPICurrencyConversion.disabled",
                 "~/sitecore modules/Shell/Ucommerce/Apps/ExchangeRateAPICurrencyConversion", true));
 
             // Remove Catalogs app since it was moved into Core
-            _postInstallationSteps.Add(new Steps.DeleteDirectory("~/sitecore modules/Shell/Ucommerce/Apps/Catalogs"));
-            _postInstallationSteps.Add(new Steps.DeleteDirectory("~/sitecore modules/Shell/Ucommerce/Apps/Catalogs.disabled"));
-            _postInstallationSteps.Add(new Steps.EnableSitecoreCompatibilityApp(sitecoreVersionChecker, sitecoreInstallerLoggingService));
+            _postInstallationSteps.Add(new DeleteDirectory("~/sitecore modules/Shell/Ucommerce/Apps/Catalogs"));
+            _postInstallationSteps.Add(new DeleteDirectory("~/sitecore modules/Shell/Ucommerce/Apps/Catalogs.disabled"));
+            _postInstallationSteps.Add(new EnableSitecoreCompatibilityApp(sitecoreVersionChecker, sitecoreInstallerLoggingService));
 
             // Remove CatalogSearch widget
-            _postInstallationSteps.Add(new Steps.DeleteDirectory("~/sitecore modules/Shell/Ucommerce/Apps/Widgets/CatalogSearch"));
-            _postInstallationSteps.Add(new Steps.DeleteDirectory("~/sitecore modules/Shell/Ucommerce/Apps/Widgets/CatalogSearch.disabled"));
+            _postInstallationSteps.Add(new DeleteDirectory("~/sitecore modules/Shell/Ucommerce/Apps/Widgets/CatalogSearch"));
+            _postInstallationSteps.Add(new DeleteDirectory("~/sitecore modules/Shell/Ucommerce/Apps/Widgets/CatalogSearch.disabled"));
 
             // Enable Sanitization app
             _postInstallationSteps.Add(new MoveDirectory(
@@ -94,9 +99,6 @@ namespace UCommerce.Sitecore.Installer
             _postInstallationSteps.Add(new RenameConfigDefaultFilesToConfigFilesStep("~/sitecore modules/Shell/uCommerce/Apps", false));
             _postInstallationSteps.Add(new MoveDirectoryIfTargetExist("~/sitecore modules/Shell/uCommerce/Apps/SimpleInventory.disabled", "~/sitecore modules/Shell/uCommerce/Apps/SimpleInventory"));
             _postInstallationSteps.Add(new MoveDirectoryIfTargetExist("~/sitecore modules/Shell/uCommerce/Apps/Acquire and Cancel Payments.disabled", "~/sitecore modules/Shell/uCommerce/Apps/Acquire and Cancel Payments"));
-            _postInstallationSteps.Add(new MoveDirectoryIfTargetExist("~/sitecore modules/shell/uCommerce/Apps/RavenDB30.disabled", "~/sitecore modules/shell/uCommerce/Apps/RavenDB30"));
-
-            _postInstallationSteps.Add(new MoveDirectory("~/sitecore modules/shell/uCommerce/Apps/RavenDB25.disabled", "~/sitecore modules/shell/uCommerce/Apps/RavenDB25", true));
             //Create back up and remove old files
             RemovedRenamedPipelines();
 

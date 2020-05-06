@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace UCommerce.Sitecore.Installer.Steps
+namespace Ucommerce.Sitecore.Installer.Steps
 {
 	/// <summary>
 	/// Extensions for Guids.

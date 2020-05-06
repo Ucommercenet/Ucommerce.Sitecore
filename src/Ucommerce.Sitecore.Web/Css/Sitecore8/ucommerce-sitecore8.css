@@ -333,7 +333,7 @@ div.tree-wrapper-content {
 	border: none;
 }
 
-#uCommerceHeader {
+#UcommerceHeader {
 	height: 50px;
 	background-color: #2b2b2b;
 }
@@ -354,7 +354,7 @@ div.tree-wrapper-content {
 		text-decoration: none;
 	}
 
-iframe#uCommerce-contentFrame {
+iframe#Ucommerce-contentFrame {
 	width: 100%;
 	position: fixed;
 	height: 100%;

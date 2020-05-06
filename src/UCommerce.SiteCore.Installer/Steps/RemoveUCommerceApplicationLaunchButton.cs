@@ -3,7 +3,7 @@ using Sitecore.Configuration;
 using Sitecore.Data.Items;
 using Sitecore.Install.Framework;
 
-namespace UCommerce.Sitecore.Installer.Steps
+namespace Ucommerce.Sitecore.Installer.Steps
 {
 	/// <summary>
 	/// Remove uCommerce Application, which was added until uCommerce version 7.2.0

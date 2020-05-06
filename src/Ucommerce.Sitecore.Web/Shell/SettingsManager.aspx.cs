@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
-namespace UCommerce.Sitecore.Web.Shell
+namespace Ucommerce.Sitecore.Web.Shell
 {
 	public partial class SettingsManager : System.Web.UI.Page
 	{

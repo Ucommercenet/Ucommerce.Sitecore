@@ -3,14 +3,13 @@ using System.IO;
 using System.Web.Hosting;
 using Sitecore.Install.Framework;
 
-
-namespace UCommerce.Sitecore.Installer.Steps
+namespace Ucommerce.Sitecore.Installer.Steps
 {
 	public class MoveFile : IPostStep
 	{
 		private readonly bool _backupTarget;
-		private readonly UCommerce.Installer.FileMover _command;
-		
+		private readonly Ucommerce.Installer.FileMover _command;
+
 		public MoveFile(string sourceVirtualPath, string targetVirtualPath, bool backupTarget)
 		{
 			_backupTarget = backupTarget;
@@ -18,7 +17,7 @@ namespace UCommerce.Sitecore.Installer.Steps
 			FileInfo source = new FileInfo(HostingEnvironment.MapPath(sourceVirtualPath)),
 				target = new FileInfo(HostingEnvironment.MapPath(targetVirtualPath));
 
-			_command = new UCommerce.Installer.FileMover(source, target);
+			_command = new Ucommerce.Installer.FileMover(source, target);
 		}
 
 		public void Run(ITaskOutput output, NameValueCollection metaData)

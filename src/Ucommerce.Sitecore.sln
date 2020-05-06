@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UCommerce.Sitecore.Installer", "UCommerce.SiteCore.Installer\UCommerce.Sitecore.Installer.csproj", "{1A45A6DD-D898-48E8-869C-7C72891921A8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ucommerce.Sitecore.Installer", "Ucommerce.SiteCore.Installer\Ucommerce.Sitecore.Installer.csproj", "{1A45A6DD-D898-48E8-869C-7C72891921A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UCommerce.Sitecore", "UCommerce.Sitecore\UCommerce.Sitecore.csproj", "{7CD73861-41CF-4627-85A7-F58F4536EA15}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ucommerce.Sitecore", "Ucommerce.Sitecore\Ucommerce.Sitecore.csproj", "{7CD73861-41CF-4627-85A7-F58F4536EA15}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UCommerce.Sitecore.Web", "Ucommerce.Sitecore.Web\UCommerce.Sitecore.Web.csproj", "{6267B533-B0AD-419A-90E6-B24041A1384D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ucommerce.Sitecore.Web", "Ucommerce.Sitecore.Web\Ucommerce.Sitecore.Web.csproj", "{6267B533-B0AD-419A-90E6-B24041A1384D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Deploy", "Deploy", "{C5D04B48-39CF-42C9-B2CF-25599227F71E}"
 	ProjectSection(SolutionItems) = preProject
@@ -18,7 +18,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Deploy", "Deploy", "{C5D04B
 		..\tools\Deploy\UCommerce.Sitecore.ps1 = ..\tools\Deploy\UCommerce.Sitecore.ps1
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UCommerce.Sitecore92", "UCommerce.Sitecore92\UCommerce.Sitecore92.csproj", "{C46C6742-A928-4A0D-BF86-485BCAE76648}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ucommerce.Sitecore92", "Ucommerce.Sitecore92\Ucommerce.Sitecore92.csproj", "{C46C6742-A928-4A0D-BF86-485BCAE76648}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,10 +1,10 @@
-﻿#uCommerce-contentFrame {
+﻿#Ucommerce-contentFrame {
 	margin-top: -50px;
 	padding-top: 50px;
 	box-sizing: border-box;
 }
 
-#uCommerceHeader {
+#UcommerceHeader {
 	position: relative;
 	z-index: 1;
 }

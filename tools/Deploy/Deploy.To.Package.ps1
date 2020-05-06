@@ -10,21 +10,21 @@ Param(
     [string]$Configuration = "Debug"
 )
 
-function Get-ScriptDirectory { 
-    Split-Path -parent $PSCommandPath 
+function Get-ScriptDirectory {
+    Split-Path -parent $PSCommandPath
 }
 
 function Run-It () {
-    try {  
+    try {
         $scriptPath = Get-ScriptDirectory
-    
+
         $src = Resolve-Path "$scriptPath\..\..\src";
         $base_dir = Resolve-Path "$scriptPath\..\.."
 
         Import-Module "$scriptPath\..\psake\4.7.0\psake.psm1"
-        
+
         $properties = @{
-                "configuration"="$Configuration"; 
+                "configuration"="$Configuration";
                 "UpdateAssemblyInfo"="$UpdateAssemblyInfo";
                 "version"="$Version";
                 "base_dir"="$base_dir";
@@ -32,8 +32,8 @@ function Run-It () {
                 "working_dir"="$env:TEMP\uCommerceTmp\8e0acd5c-f842-49db-933d-cc9e61fcff53";
             };
 
-		Invoke-PSake "$scriptPath\uCommerce.build.ps1" "CreateSitecorePackage" -properties $properties
-        
+		Invoke-PSake "$scriptPath\Ucommerce.build.ps1" "CreateSitecorePackage" -properties $properties
+
 	    if ($configuration -eq "Debug") {
 
             Push-Location $src
@@ -43,9 +43,9 @@ function Run-It () {
 
 		    Pop-Location
 		}
-		
-    } catch {  
-        Write-Error $_.Exception.Message -ErrorAction Stop  
+
+    } catch {
+        Write-Error $_.Exception.Message -ErrorAction Stop
     }
 }
 
