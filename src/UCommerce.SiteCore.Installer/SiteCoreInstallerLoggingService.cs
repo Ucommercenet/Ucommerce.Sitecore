@@ -1,9 +1,9 @@
 ﻿using System;
-using UCommerce.Installer;
-using UCommerce.Installer.Extensions;
 using log4net;
+using Ucommerce.Installer;
+using Ucommerce.Installer.Extensions;
 
-namespace UCommerce.Sitecore.Installer
+namespace Ucommerce.Sitecore.Installer
 {
 	internal class SitecoreInstallerLoggingService : IInstallerLoggingService
 	{

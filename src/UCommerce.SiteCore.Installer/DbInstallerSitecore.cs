@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using UCommerce.Installer;
+using Ucommerce.Installer;
 
-namespace UCommerce.Sitecore.Installer
+namespace Ucommerce.Sitecore.Installer
 {
 	public class DbInstallerSitecore : DbInstaller
 	{

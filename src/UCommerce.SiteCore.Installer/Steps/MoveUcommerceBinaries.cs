@@ -2,7 +2,7 @@
 using System.Collections.Specialized;
 using Sitecore.Install.Framework;
 
-namespace UCommerce.Sitecore.Installer.Steps
+namespace Ucommerce.Sitecore.Installer.Steps
 {
     public class MoveUcommerceBinaries : IPostStep
     {
@@ -12,72 +12,87 @@ namespace UCommerce.Sitecore.Installer.Steps
 
             // Move the Commerce Connect dependend files to the Commerce Connect app location.
             // Therefor any older version located in the bin folder needs to be removed.
-            _postInstallationSteps.Add(new DeleteFile("~/bin/UCommerce.Sitecore.CommerceConnect.dll"));
+            _postInstallationSteps.Add(new DeleteFile("~/bin/Ucommerce.Sitecore.CommerceConnect.dll"));
 
             _postInstallationSteps.Add(new MoveFile(
-                "~/bin/ucommerce/UCommerce.Infrastructure.dll",
-                "~/bin/UCommerce.Infrastructure.dll",
+                "~/bin/ucommerce/Ucommerce.Infrastructure.dll",
+                "~/bin/Ucommerce.Infrastructure.dll",
                 backupTarget: false));
 
             _postInstallationSteps.Add(new MoveFile(
-                "~/bin/ucommerce/UCommerce.Sitecore.dll",
-                "~/bin/UCommerce.Sitecore.dll",
+                "~/bin/ucommerce/Ucommerce.Sitecore.dll",
+                "~/bin/Ucommerce.Sitecore.dll",
                 backupTarget: false));
 
             // Move the Commerce Connect dependend files to the Commerce Connect app location.
             _postInstallationSteps.Add(new MoveFile(
-                "~/bin/ucommerce/UCommerce.Sitecore.CommerceConnect.dll",
-                "~/sitecore modules/Shell/uCommerce/Apps/Sitecore Commerce Connect.disabled/UCommerce.Sitecore.CommerceConnect.dll",
+                "~/bin/ucommerce/Ucommerce.Sitecore.CommerceConnect.dll",
+                "~/sitecore modules/Shell/uCommerce/Apps/Sitecore Commerce Connect.disabled/Ucommerce.Sitecore.CommerceConnect.dll",
                 backupTarget: false));
 
             _postInstallationSteps.Add(new MoveFile(
-                "~/bin/ucommerce/UCommerce.Web.Api.dll",
-                "~/bin/UCommerce.Web.Api.dll",
+                "~/bin/ucommerce/Ucommerce.Web.Api.dll",
+                "~/bin/Ucommerce.Web.Api.dll",
                 backupTarget: false));
 
             _postInstallationSteps.Add(new MoveFile(
-                "~/bin/ucommerce/UCommerce.SystemHttp.dll",
-                "~/bin/UCommerce.SystemHttp.dll",
+                "~/bin/ucommerce/Ucommerce.SystemHttp.dll",
+                "~/bin/Ucommerce.SystemHttp.dll",
                 backupTarget: false));
 
             _postInstallationSteps.Add(new MoveFile(
-                "~/bin/ucommerce/UCommerce.SystemWeb.dll",
-                "~/bin/UCommerce.SystemWeb.dll",
+                "~/bin/ucommerce/Ucommerce.SystemWeb.dll",
+                "~/bin/Ucommerce.SystemWeb.dll",
                 backupTarget: false));
 
             _postInstallationSteps.Add(new MoveFile(
-                "~/bin/ucommerce/UCommerce.Web.Shell.dll",
-                "~/bin/UCommerce.Web.Shell.dll",
+                "~/bin/ucommerce/Ucommerce.Web.Shell.dll",
+                "~/bin/Ucommerce.Web.Shell.dll",
                 backupTarget: false));
 
             _postInstallationSteps.Add(new MoveFile(
-                "~/bin/ucommerce/UCommerce.dll",
-                "~/bin/UCommerce.dll",
+                "~/bin/ucommerce/Ucommerce.dll",
+                "~/bin/Ucommerce.dll",
                 backupTarget: false));
 
             _postInstallationSteps.Add(new MoveFile(
-                "~/bin/ucommerce/UCommerce.Admin.dll",
-                "~/bin/UCommerce.Admin.dll",
+                "~/bin/ucommerce/Ucommerce.Admin.dll",
+                "~/bin/Ucommerce.Admin.dll",
                 backupTarget: false));
 
             _postInstallationSteps.Add(new MoveFile(
-                "~/bin/ucommerce/UCommerce.Pipelines.dll",
-                "~/bin/UCommerce.Pipelines.dll",
+                "~/bin/ucommerce/Ucommerce.Pipelines.dll",
+                "~/bin/Ucommerce.Pipelines.dll",
                 backupTarget: false));
 
             _postInstallationSteps.Add(new MoveFile(
-                "~/bin/ucommerce/UCommerce.Presentation.dll",
-                "~/bin/UCommerce.Presentation.dll",
+                "~/bin/ucommerce/Ucommerce.Presentation.dll",
+                "~/bin/Ucommerce.Presentation.dll",
                 backupTarget: false));
 
             _postInstallationSteps.Add(new MoveFile(
-                "~/bin/ucommerce/UCommerce.NHibernate.dll",
-                "~/bin/UCommerce.NHibernate.dll",
+                "~/bin/ucommerce/Ucommerce.NHibernate.dll",
+                "~/bin/Ucommerce.NHibernate.dll",
                 backupTarget: false));
 
             _postInstallationSteps.Add(new MoveFile(
-                "~/bin/ucommerce/UCommerce.Sitecore.Web.dll",
-                "~/bin/UCommerce.Sitecore.Web.dll",
+                "~/bin/ucommerce/Ucommerce.Sitecore.Web.dll",
+                "~/bin/Ucommerce.Sitecore.Web.dll",
+                backupTarget: false));
+
+            _postInstallationSteps.Add(new MoveFile(
+                "~/bin/ucommerce/Ucommerce.Api.dll",
+                "~/bin/Ucommerce.Api.dll",
+                backupTarget: false));
+
+            _postInstallationSteps.Add(new MoveFile(
+                "~/bin/ucommerce/Ucommerce.Search.dll",
+                "~/bin/Ucommerce.Search.dll",
+                backupTarget: false));
+
+            _postInstallationSteps.Add(new MoveFile(
+                "~/bin/ucommerce/Ucommerce.SqlMultiReaderConnector.dll",
+                "~/bin/Ucommerce.SqlMultiReaderConnector.dll",
                 backupTarget: false));
 
             foreach (var postInstallationStep in _postInstallationSteps)

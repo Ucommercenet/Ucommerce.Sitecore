@@ -2,9 +2,9 @@
 using System.IO;
 using System.Web.Hosting;
 using Sitecore.Install.Framework;
-using UCommerce.Installer;
+using Ucommerce.Installer;
 
-namespace UCommerce.Sitecore.Installer.Steps
+namespace Ucommerce.Sitecore.Installer.Steps
 {
 	public class MoveFileIfTargetExist : IPostStep
 	{

@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Sitecore.Configuration;
 
-namespace UCommerce.Sitecore.Installer
+namespace Ucommerce.Sitecore.Installer
 {
     public class SitecoreVersionChecker
     {

@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Specialized;
+﻿using System.Collections.Specialized;
 using Sitecore.Install.Framework;
-using UCommerce.Installer;
+using Ucommerce.Installer;
 
-namespace UCommerce.Sitecore.Installer.Steps
+namespace Ucommerce.Sitecore.Installer.Steps
 {
     public class UpdateUCommerceAssemblyVersionInDatabase : IPostStep
     {
@@ -20,8 +19,7 @@ namespace UCommerce.Sitecore.Installer.Steps
 
         public void Run(ITaskOutput output, NameValueCollection metaData)
         {
-            var assemblyVersion = _runtimeVersion.GetUCommerceRuntimeAssemblyVersion().ToString();
-
+            var assemblyVersion = _runtimeVersion.GetUcommerceRuntimeAssemblyVersion().ToString();
             _installerLoggingService.Log<UpdateUCommerceAssemblyVersionInDatabase>("New uCommerce version: " + assemblyVersion);
             _updateService.UpdateAssemblyVersion(assemblyVersion);
         }

@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Sitecore.Data.Serialization;
 using Sitecore.Data.Serialization.ObjectModel;
 using Sitecore.Install.Framework;
 using Sitecore.IO;
-using UCommerce.Installer;
+using Ucommerce.Installer;
 
-namespace UCommerce.Sitecore.Installer.Steps
+namespace Ucommerce.Sitecore.Installer.Steps
 {
 	public class AddTitleToCommerceSpeakAppsSection : IPostStep
 	{
@@ -24,7 +20,7 @@ namespace UCommerce.Sitecore.Installer.Steps
 
 			logging.Log<CreateSpeakApplications>("AddTitleToCommerceSpeakAppsSection finished.");
 		}
-		
+
 		private void Parse(DirectoryInfo directoryInfo)
 		{
 			var fileInfos = directoryInfo.GetFiles("*.item");

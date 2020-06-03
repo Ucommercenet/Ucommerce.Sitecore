@@ -1,18 +1,13 @@
 ﻿using System;
 using System.Collections.Specialized;
 using System.IO;
-using System.Linq;
-using Sitecore.Configuration;
-using Sitecore.Data;
-using Sitecore.Data.Items;
-using Sitecore.Data.Managers;
 using Sitecore.Data.Serialization;
 using Sitecore.Data.Serialization.ObjectModel;
 using Sitecore.Install.Framework;
 using Sitecore.IO;
-using UCommerce.Installer;
+using Ucommerce.Installer;
 
-namespace UCommerce.Sitecore.Installer.Steps
+namespace Ucommerce.Sitecore.Installer.Steps
 {
     /// <summary>
     /// Setup the order management application and add to the launchpad.
@@ -44,7 +39,7 @@ namespace UCommerce.Sitecore.Installer.Steps
             foreach (var fileInfo in fileInfos)
             {
                 var streamReader = new StreamReader(fileInfo.FullName);
-                
+
                 var syncItem = SyncItem.ReadItem(new Tokenizer(streamReader), true);
                 var options = new LoadOptions { DisableEvents = true, ForceUpdate = true, UseNewID = false };
 
@@ -82,7 +77,7 @@ namespace UCommerce.Sitecore.Installer.Steps
             catch (Exception)
             {
                 return AppDomain.CurrentDomain.BaseDirectory;
-            }            
+            }
         }
     }
 }

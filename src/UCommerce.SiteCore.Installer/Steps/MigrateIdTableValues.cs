@@ -7,10 +7,10 @@ using System.Linq;
 using System.Text;
 using Sitecore.Data.IDTables;
 using Sitecore.Install.Framework;
-using UCommerce.Installer;
+using Ucommerce.Installer;
 using SqlCommand = System.Data.SqlClient.SqlCommand;
 
-namespace UCommerce.Sitecore.Installer.Steps
+namespace Ucommerce.Sitecore.Installer.Steps
 {
 	/// <summary>
 	/// This class migrates ID values found in IDTable to the uCommerce database.
@@ -23,10 +23,10 @@ namespace UCommerce.Sitecore.Installer.Steps
 		private readonly IInstallerLoggingService _log;
 
 		private readonly Dictionary<int, Guid> _dictionaryOfTemplateIds = new Dictionary<int, Guid>();
-	
+
 		private readonly Dictionary<int, Guid> _dictionaryOfVariantTemplateIds = new Dictionary<int, Guid>();
 		private Dictionary<Guid, int> _reversedDictionaryOfVariantTemplateIds;
-		
+
 		private readonly Dictionary<Guid, Guid> _dictionaryTemplateIdToStandardValueItemId = new Dictionary<Guid, Guid>();
 		private readonly List<IDTableEntry> _entriesToBeDeleted = new List<IDTableEntry>();
 
@@ -47,7 +47,7 @@ namespace UCommerce.Sitecore.Installer.Steps
 		/// <remarks>
 		/// Runs through all the uCommerce entries in the IDTable.
 		/// Each entry is examined to determine what action to perform.
-		/// 
+		///
 		/// If the entry corresponds to a uCommerce entity, that entity's Guid is updated.
 		/// If the corresponging entry cannot be updated, then instead we:
 		///  1. Migrate the standard values to the new ID.
@@ -59,7 +59,7 @@ namespace UCommerce.Sitecore.Installer.Steps
 
 			var watch = new Stopwatch();
 			watch.Start();
-			
+
 			var entries = GetAllUCommerceIdTableEntries();
 
 			foreach (var entry in entries)
@@ -268,7 +268,7 @@ namespace UCommerce.Sitecore.Installer.Steps
 					cmd.CommandText = combinedSqlStatement;
 					cmd.CommandTimeout = 600;
 					cmd.ExecuteNonQuery();
-				}				
+				}
 				catch (SqlException exception)
 				{
 					_log.Log<DbInstaller>(exception,

@@ -3,9 +3,9 @@ using System.Collections.Specialized;
 using System.IO;
 using System.Web.Hosting;
 using Sitecore.Install.Framework;
-using UCommerce.Installer;
+using Ucommerce.Installer;
 
-namespace UCommerce.Sitecore.Installer.Steps
+namespace Ucommerce.Sitecore.Installer.Steps
 {
     public class EnableSitecoreCompatibilityApp : IPostStep
     {
@@ -26,7 +26,7 @@ namespace UCommerce.Sitecore.Installer.Steps
             }
 
             string _virtualPathToAppsFolder = "~/sitecore modules/shell/ucommerce/apps";
-            
+
             new DirectoryMover(
                 new DirectoryInfo(HostingEnvironment.MapPath($"{_virtualPathToAppsFolder}/Sitecore92compatibility.disabled")),
                 new DirectoryInfo(HostingEnvironment.MapPath($"{_virtualPathToAppsFolder}/Sitecore92compatibility")),
