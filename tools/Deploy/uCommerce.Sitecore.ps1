@@ -8,6 +8,12 @@ task AddCompatibilityApp {
 	}
 
 	Copy-Item "$src\Ucommerce.Sitecore92\bin\$configuration\Ucommerce.Sitecore92.dll" "$working_dir\Files\Sitecore modules\shell\ucommerce\apps\Sitecore92compatibility.disabled\bin" -Force
+
+	if ((Test-Path "$working_dir\Files\Sitecore modules\shell\ucommerce\apps\Sitecore93compatibility.disabled\bin") -eq $false) {
+		New-Item "$working_dir\Files\Sitecore modules\shell\ucommerce\apps\Sitecore93compatibility.disabled\bin" -Type Directory -Force
+	}
+
+	Copy-Item "$src\Ucommerce.Sitecore93\bin\$configuration\Ucommerce.Sitecore93.dll" "$working_dir\Files\Sitecore modules\shell\ucommerce\apps\Sitecore93compatibility.disabled\bin" -Force
 }
 
 task SetVersionNumberFromClientNugetPackage {
