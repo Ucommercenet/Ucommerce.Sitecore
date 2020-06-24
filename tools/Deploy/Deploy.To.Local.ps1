@@ -1,5 +1,5 @@
 ﻿# Website root folder (website is deployed here)
-$website_root = "C:\inetpub\wwwroot\sitecore.9.3.0.local"
+$website_root = "C:\inetpub\sc9\Website"
 
 $ucommerce_folder = "$website_root\sitecore modules\Shell\Ucommerce\"
 # Temporarily change to the correct folder containing script
@@ -12,7 +12,7 @@ $src = ".\..\..\src\"
 $website_project = "$src\Ucommerce.Sitecore.Web"
 
 # Exclude files and folders from deploy, usually these are
-# source code files, proj files from Visual Studio, and otherde
+# source code files, proj files from Visual Studio, and other
 # files not required at runtime
 $options = @("/E", "/S", "/xf", "*.cs", "/xf", "*.??proj", "/xf", "*.user", "/xf", "*.old", "/xf", "*.vspscc", "/xf", "xsltExtensions.config", "/xf", "uCommerce.key", "/xf", "*.tmp", "/xd", "_Resharper*", "/xd", ".svn", "/xd", "_svn", "/xf", "Ucommerce.dll", "/xf", "Ucommerce.Presentation.dll", "/xf", "Ucommerce.Web.Api.dll", "Ucommerce.Infrastructure.dll", "/xf", "UCommerce.Transactions.Payments.dll", "/xf", "UCommerce.Pipelines.dll", "/xf", "ServiceStack.*", "/xf", "web.config")
 
