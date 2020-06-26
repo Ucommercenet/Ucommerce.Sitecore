@@ -36,5 +36,19 @@ if (Test-Path "$src\Ucommerce.Sitecore.CommerceConnect\bin\Debug\Ucommerce.Sitec
 	Copy-Item "$src\Ucommerce.Sitecore.CommerceConnect\bin\Debug\Ucommerce.Sitecore.CommerceConnect.pdb" "$website_root\bin\Ucommerce.Sitecore.CommerceConnect.pdb"
 }
 
+if ((Test-Path "$website_root\Sitecore modules\shell\ucommerce\apps\Sitecore92compatibility\bin") -eq $false) {
+	New-Item "$website_root\Sitecore modules\shell\ucommerce\apps\Sitecore92compatibility\bin" -Type Directory -Force
+}
+
+Copy-Item "$src\Ucommerce.Sitecore92/bin/debug/Ucommerce.Sitecore92.dll" "$website_root\sitecore modules\Shell\Ucommerce\Apps\Sitecore92compatibility\bin\Ucommerce.Sitecore92.dll"
+Copy-Item "$src\Ucommerce.Sitecore92/bin/debug/Ucommerce.Sitecore92.pdb" "$website_root\sitecore modules\Shell\Ucommerce\Apps\Sitecore92compatibility\bin\Ucommerce.Sitecore92.pdb"
+
+if ((Test-Path "$website_root\Sitecore modules\shell\ucommerce\apps\Sitecore93compatibility\bin") -eq $false) {
+	New-Item "$website_root\Sitecore modules\shell\ucommerce\apps\Sitecore93compatibility\bin" -Type Directory -Force
+}
+
+Copy-Item "$src\Ucommerce.Sitecore93/bin/debug/Ucommerce.Sitecore93.dll" "$website_root\sitecore modules\Shell\Ucommerce\Apps\Sitecore93compatibility\bin\Ucommerce.Sitecore93.dll"
+Copy-Item "$src\Ucommerce.Sitecore93/bin/debug/Ucommerce.Sitecore93.pdb" "$website_root\sitecore modules\Shell\Ucommerce\Apps\Sitecore93compatibility\bin\Ucommerce.Sitecore93.pdb"
+
 # Now back to original directory
 Pop-Location

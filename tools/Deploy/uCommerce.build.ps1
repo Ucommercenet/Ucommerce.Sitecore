@@ -75,7 +75,7 @@ task PostDeployMoveBinFiles -description "used to move all uCommerce bin files t
 
 task CleanSolution -description "Cleans the complete solution" {
     Push-Location "$src"
-    Exec { msbuild "$solution_file" /p:Configuration=$configuration /p:VisualStudioVersion=15.0 /t:Clean /verbosity:quiet }
+    Exec { msbuild "$solution_file" /p:Configuration=$configuration /p:VisualStudioVersion=16.0 /t:Clean /verbosity:quiet }
     Pop-Location
 }
 
@@ -95,7 +95,7 @@ task Compile -description "Compiles the complete solution" -depends UpdateAssemb
 
     # Set Visual Studio version explicitly so the proper build tasks can be found
     # Disable post build event to avoid deploying the solution as part of packaging
-    Exec { msbuild "$solution_file" /p:Configuration=$configuration /p:VisualStudioVersion=15.0 /m /p:WarningLevel=0 /verbosity:quiet /p:PostBuildEvent= }
+    Exec { msbuild "$solution_file" /p:Configuration=$configuration /p:VisualStudioVersion=16.0 /m /p:WarningLevel=0 /verbosity:quiet /p:PostBuildEvent= }
 
     Pop-Location
 }
