@@ -28,6 +28,7 @@ namespace Ucommerce.Sitecore.Content
 				NodeType = node.NodeType,
 				Icon = "/~/icon/" + item.Appearance.Icon,
 				HasChildren = item.HasChildren,
+				ChildrenCount = item.Children.Count,
 				AutoLoad = node.AutoLoad,
 				DimNode = false,
 				Url = _contentService.GetContent(item.ID.Guid.ToString()).Url
