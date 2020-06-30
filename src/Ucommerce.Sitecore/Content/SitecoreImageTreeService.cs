@@ -43,7 +43,6 @@ namespace Ucommerce.Sitecore.Content
         {
             string nodeType = string.Empty;
             nodeType = item.Template.Key == "media folder" ? "Folder" : "Image";
-			var mediaitem = MediaManager.GetMedia(item);
 			return new TreeNodeContent(nodeType, item.ID.ToString())
 			{
 				ChildrenCount = item.Children.Count
