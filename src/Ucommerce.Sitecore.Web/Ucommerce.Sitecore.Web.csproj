@@ -46,49 +46,60 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f">
       <HintPath>..\packages\Antlr3.Runtime.3.5.1\lib\net40-client\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="AuthorizeNet, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="AuthorizeNet, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\packages\AuthorizeNet.1.8.3\lib\AuthorizeNet.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Braintree-2.22.0, Version=2.22.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Braintree-2.22.0, Version=2.22.0.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\packages\Braintree.2.22.0\lib\Braintree-2.22.0.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc">
       <HintPath>..\packages\Castle.Core.4.4.0\lib\net45\Castle.Core.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Castle.Facilities.AspNet.SystemWeb, Version=5.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+    <Reference Include="Castle.Facilities.AspNet.SystemWeb, Version=5.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc">
       <HintPath>..\packages\Castle.Facilities.AspNet.SystemWeb.5.0.0\lib\net45\Castle.Facilities.AspNet.SystemWeb.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Castle.Windsor, Version=5.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+    <Reference Include="Castle.Windsor, Version=5.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc">
       <HintPath>..\packages\Castle.Windsor.5.0.0\lib\net45\Castle.Windsor.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="ClientDependency.Core, Version=1.8.2.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ClientDependency.1.8.2.1\lib\net45\ClientDependency.Core.dll</HintPath>
+    <Reference Include="ClientDependency.Core, Version=1.9.9.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\ClientDependency.1.9.9\lib\net45\ClientDependency.Core.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\packages\Dapper.2.0.30\lib\net461\Dapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EPPlus, Version=4.1.1.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+    <Reference Include="EPPlus, Version=4.1.1.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1">
       <HintPath>..\packages\EPPlus.4.1.1\lib\net40\EPPlus.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="FluentNHibernate, Version=2.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="FluentNHibernate, Version=2.1.2.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\packages\FluentNHibernate.2.1.2\lib\net461\FluentNHibernate.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="FluentValidation, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
+    <Reference Include="FluentValidation, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0">
       <HintPath>..\packages\FluentValidation.8.4.0\lib\net45\FluentValidation.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Iesi.Collections, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+    <Reference Include="Iesi.Collections, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4">
       <HintPath>..\packages\Iesi.Collections.4.0.4\lib\net461\Iesi.Collections.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Infralution.Licensing, Version=4.7.1.0, Culture=neutral, PublicKeyToken=3e7e8e3744a5c13f">
-      <HintPath>..\packages\uCommerce.9.2.0.20189\lib\net45\Infralution.Licensing.dll</HintPath>
+      <HintPath>..\packages\uCommerce.9.2.0.20195\lib\net45\Infralution.Licensing.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="J2N, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f39447d697a969af">
-      <HintPath>..\packages\uCommerce.9.2.0.20189\lib\net45\J2N.dll</HintPath>
+      <HintPath>..\packages\uCommerce.9.2.0.20195\lib\net45\J2N.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -98,27 +109,34 @@
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+    <Reference Include="mscorlib" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
       <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="NHibernate, Version=5.2.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+    <Reference Include="NHibernate, Version=5.2.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4">
       <HintPath>..\packages\NHibernate.5.2.5\lib\net461\NHibernate.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="NHibernate.Caches.SysCache, Version=5.5.0.0, Culture=neutral, PublicKeyToken=6876f2ea66c9f443, processorArchitecture=MSIL">
+    <Reference Include="NHibernate.Caches.SysCache, Version=5.5.0.0, Culture=neutral, PublicKeyToken=6876f2ea66c9f443">
       <HintPath>..\packages\NHibernate.Caches.SysCache.5.5.1\lib\net461\NHibernate.Caches.SysCache.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Remotion.Linq, Version=2.2.0.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
+    <Reference Include="Remotion.Linq, Version=2.2.0.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b">
       <HintPath>..\packages\Remotion.Linq.2.2.0\lib\net45\Remotion.Linq.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Remotion.Linq.EagerFetching, Version=2.2.0.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
+    <Reference Include="Remotion.Linq.EagerFetching, Version=2.2.0.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b">
       <HintPath>..\packages\Remotion.Linq.EagerFetching.2.2.0\lib\net45\Remotion.Linq.EagerFetching.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Slugify.Core, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\packages\Slugify.Core.2.3.0\lib\net40\Slugify.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.ComponentModel.Annotations, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <HintPath>..\packages\System.ComponentModel.Annotations.4.4.1\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Linq.Dynamic, Version=1.0.6132.35681, Culture=neutral, PublicKeyToken=null">
@@ -126,8 +144,9 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Net.Http" />
-    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Runtime.Remoting" />
     <Reference Include="System.ServiceModel" />
@@ -141,67 +160,69 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="Ucommerce, Version=9.2.0.20189, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\uCommerce.Core.9.2.0.20189\lib\net45\Ucommerce.dll</HintPath>
+    <Reference Include="Ucommerce, Version=9.2.0.20195, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.9.2.0.20195\lib\net45\Ucommerce.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Ucommerce.Admin, Version=9.2.0.20189, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\Ucommerce.Client.WebForms.9.2.0.20189\lib\net45\Ucommerce.Admin.dll</HintPath>
+    <Reference Include="Ucommerce.Admin, Version=9.2.0.20195, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Ucommerce.Client.WebForms.9.2.0.20195\lib\net45\Ucommerce.Admin.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Ucommerce.Api, Version=9.2.0.20189, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\uCommerce.Core.9.2.0.20189\lib\net45\Ucommerce.Api.dll</HintPath>
+    <Reference Include="Ucommerce.Api, Version=9.2.0.20195, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.9.2.0.20195\lib\net45\Ucommerce.Api.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Ucommerce.Infrastructure, Version=9.2.0.20189, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\uCommerce.Core.9.2.0.20189\lib\net45\Ucommerce.Infrastructure.dll</HintPath>
+    <Reference Include="Ucommerce.Infrastructure, Version=9.2.0.20195, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.9.2.0.20195\lib\net45\Ucommerce.Infrastructure.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Ucommerce.Installer, Version=9.2.0.20189, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\uCommerce.Core.9.2.0.20189\lib\net45\Ucommerce.Installer.dll</HintPath>
+    <Reference Include="Ucommerce.Installer, Version=9.2.0.20195, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.9.2.0.20195\lib\net45\Ucommerce.Installer.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Ucommerce.NHibernate, Version=9.2.0.20189, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\uCommerce.Core.9.2.0.20189\lib\net45\Ucommerce.NHibernate.dll</HintPath>
+    <Reference Include="Ucommerce.NHibernate, Version=9.2.0.20195, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.9.2.0.20195\lib\net45\Ucommerce.NHibernate.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Ucommerce.Pipelines, Version=9.2.0.20189, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\uCommerce.Core.9.2.0.20189\lib\net45\Ucommerce.Pipelines.dll</HintPath>
+    <Reference Include="Ucommerce.Pipelines, Version=9.2.0.20195, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.9.2.0.20195\lib\net45\Ucommerce.Pipelines.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Ucommerce.Presentation, Version=9.2.0.20189, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\uCommerce.Core.9.2.0.20189\lib\net45\Ucommerce.Presentation.dll</HintPath>
+    <Reference Include="Ucommerce.Presentation, Version=9.2.0.20195, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.9.2.0.20195\lib\net45\Ucommerce.Presentation.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Ucommerce.Search, Version=9.2.0.20189, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\uCommerce.Core.9.2.0.20189\lib\net45\Ucommerce.Search.dll</HintPath>
+    <Reference Include="Ucommerce.Search, Version=9.2.0.20195, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.9.2.0.20195\lib\net45\Ucommerce.Search.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Ucommerce.SqlMultiReaderConnector, Version=9.2.0.20189, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\uCommerce.Core.9.2.0.20189\lib\net45\Ucommerce.SqlMultiReaderConnector.dll</HintPath>
+    <Reference Include="Ucommerce.SqlMultiReaderConnector, Version=9.2.0.20195, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.9.2.0.20195\lib\net45\Ucommerce.SqlMultiReaderConnector.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Ucommerce.SystemHttp, Version=9.2.0.20189, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\uCommerce.Core.9.2.0.20189\lib\net45\Ucommerce.SystemHttp.dll</HintPath>
+    <Reference Include="Ucommerce.SystemHttp, Version=9.2.0.20195, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.9.2.0.20195\lib\net45\Ucommerce.SystemHttp.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Ucommerce.SystemWeb, Version=9.2.0.20189, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\uCommerce.Core.9.2.0.20189\lib\net45\Ucommerce.SystemWeb.dll</HintPath>
+    <Reference Include="Ucommerce.SystemWeb, Version=9.2.0.20195, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.9.2.0.20195\lib\net45\Ucommerce.SystemWeb.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Ucommerce.Web.Shell, Version=9.2.0.20189, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\Ucommerce.Client.WebForms.9.2.0.20189\lib\net45\Ucommerce.Web.Shell.dll</HintPath>
+    <Reference Include="Ucommerce.Web.Shell, Version=9.2.0.20195, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Ucommerce.Client.WebForms.9.2.0.20195\lib\net45\Ucommerce.Web.Shell.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
