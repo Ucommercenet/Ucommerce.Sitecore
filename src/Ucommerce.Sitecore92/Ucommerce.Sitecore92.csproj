@@ -30,7 +30,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Sitecore.Kernel">
+    <Reference Include="Sitecore.Kernel, Version=13.0.0.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\..\lib\Sitecore92\Sitecore.Kernel.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -51,9 +51,6 @@
       <Project>{7cd73861-41cf-4627-85a7-f58f4536ea15}</Project>
       <Name>Ucommerce.Sitecore</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

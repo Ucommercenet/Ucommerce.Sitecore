@@ -1,4 +1,3 @@
-<<<<<<< HEAD:.gitignore
 syntax: glob
 *.o
 *.lo
@@ -32,44 +31,9 @@ _ReSharper*
 .vs
 src/packages/*
 src/Ucommerce.Sitecore.Web/ucommerce/*
-lib/*Sitecore*.dll
-lib/Sitecore*
-lib/*SiteCore*
-=======
-syntax: glob
-*.o
-*.lo
-*.la
-*.al
-.libs
-*.so
-*.so.[0-9]*
-*.a
-*.pyc
-*.pyo
-*.rej
-*~
-#*#
-.#*
-.*.swp
-.DS_Store
-._.DS_Store
-bin
-Bin
-debug
-obj
-*.user
-*.suo
-*.tmp
-_ReSharper*
-*.resharper
-*.ReSharper
-*.orig
-._*
-.vs
-src/packages/*
-src/Ucommerce.Sitecore.Web/ucommerce/*
-lib/*Sitecore*.dll
-lib/Sitecore*
-lib/*SiteCore*
 src/.idea/*
+lib/*Sitecore*.dll
+lib/*SiteCore*
+lib/Sitecore*
+lib/9.2
+lib/9.3

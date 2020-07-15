@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BEC8A6FB-3563-4DB7-A915-90D8BC72F99B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Ucommerce.Sitecore93</RootNamespace>
+    <AssemblyName>Ucommerce.Sitecore93</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Sitecore.Buckets, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\lib\Sitecore92\Sitecore.Buckets.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.ContentSearch, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\lib\Sitecore92\Sitecore.ContentSearch.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Kernel, Version=13.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\lib\Sitecore92\Sitecore.Kernel.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Ucommerce, Version=9.2.0.20195, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.9.2.0.20195\lib\net45\Ucommerce.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ucommerce.Admin, Version=9.2.0.20195, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.9.2.0.20195\lib\net45\Ucommerce.Admin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ucommerce.Api, Version=9.2.0.20195, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.9.2.0.20195\lib\net45\Ucommerce.Api.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ucommerce.Infrastructure, Version=9.2.0.20195, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.9.2.0.20195\lib\net45\Ucommerce.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ucommerce.Installer, Version=9.2.0.20195, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.9.2.0.20195\lib\net45\Ucommerce.Installer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ucommerce.NHibernate, Version=9.2.0.20195, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.9.2.0.20195\lib\net45\Ucommerce.NHibernate.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ucommerce.Pipelines, Version=9.2.0.20195, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.9.2.0.20195\lib\net45\Ucommerce.Pipelines.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ucommerce.Presentation, Version=9.2.0.20195, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.9.2.0.20195\lib\net45\Ucommerce.Presentation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ucommerce.Search, Version=9.2.0.20195, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.9.2.0.20195\lib\net45\Ucommerce.Search.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ucommerce.SqlMultiReaderConnector, Version=9.2.0.20195, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.9.2.0.20195\lib\net45\Ucommerce.SqlMultiReaderConnector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ucommerce.SystemHttp, Version=9.2.0.20195, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.9.2.0.20195\lib\net45\Ucommerce.SystemHttp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ucommerce.SystemWeb, Version=9.2.0.20195, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\uCommerce.Core.9.2.0.20195\lib\net45\Ucommerce.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Pipelines\BreakAxdExtensionProcessor.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ucommerce.Sitecore\Ucommerce.Sitecore.csproj">
+      <Project>{7cd73861-41cf-4627-85a7-f58f4536ea15}</Project>
+      <Name>Ucommerce.Sitecore</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+         Other similar extension points exist, see Microsoft.Common.targets.
+    <Target Name="BeforeBuild">
+    </Target>
+    <Target Name="AfterBuild">
+    </Target>
+    -->
+</Project>

@@ -1,4 +1,4 @@
-task CreateSitecorePackage -depends SetVersionNumberFromClientNugetPackage,CleanSitecoreWorkingDirectory,NuGetRestore, Rebuild,CopySitecoreFiles, CreateFakeAssembliesForUpgrade, AddCompatibilityApp, CleanPackageForOtherCmsDependencies, CreateSitecoreZipFile {
+task CreateSitecorePackage -depends SetVersionNumberFromClientNugetPackage,CleanSitecoreWorkingDirectory,NuGetRestore, Rebuild,CopySitecoreFiles, AddCompatibilityApp, CleanPackageForOtherCmsDependencies, CreateSitecoreZipFile {
 
 }
 
@@ -8,6 +8,12 @@ task AddCompatibilityApp {
 	}
 
 	Copy-Item "$src\Ucommerce.Sitecore92\bin\$configuration\Ucommerce.Sitecore92.dll" "$working_dir\Files\Sitecore modules\shell\ucommerce\apps\Sitecore92compatibility.disabled\bin" -Force
+
+	if ((Test-Path "$working_dir\Files\Sitecore modules\shell\ucommerce\apps\Sitecore93compatibility.disabled\bin") -eq $false) {
+		New-Item "$working_dir\Files\Sitecore modules\shell\ucommerce\apps\Sitecore93compatibility.disabled\bin" -Type Directory -Force
+	}
+
+	Copy-Item "$src\Ucommerce.Sitecore93\bin\$configuration\Ucommerce.Sitecore93.dll" "$working_dir\Files\Sitecore modules\shell\ucommerce\apps\Sitecore93compatibility.disabled\bin" -Force
 }
 
 task SetVersionNumberFromClientNugetPackage {
@@ -54,13 +60,6 @@ task SetSitecoreVars -description "Since path are different from Deploy.To.Local
         $script:hash.bin_dir = "$working_dir\bin"
         $script:hash.files_root_dir = "$working_dir"
     }
-}
-
-task CreateFakeAssembliesForUpgrade {
-	# Create empty assemblies to enable upgrades from v8 -> v9
-	$bin_dir = $script:hash["bin_dir"]
-	New-Item -Path "$bin_dir" -Name "Ucommerce.Admin.dll" -ItemType File
-	New-Item -Path "$bin_dir" -Name "Ucommerce.SystemWeb.dll" -ItemType File
 }
 
 task CleanPackageForOtherCmsDependencies {

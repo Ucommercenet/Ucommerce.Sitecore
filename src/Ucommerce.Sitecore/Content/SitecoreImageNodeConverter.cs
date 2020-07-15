@@ -35,10 +35,10 @@ namespace Ucommerce.Sitecore.Content
 				NodeType = nodeType,
 				Icon = "/~/icon/" + item.Appearance.Icon,
 				HasChildren = item.HasChildren,
+				ChildrenCount = item.Children.Count,
 				AutoLoad = autoload,
 				DimNode = false,
-				Url = mediaitem.MediaData.HasContent ? _imageService.GetImage(item.ID.ToString()).Url : "",
-				ChildrenCount = item.Children.Count
+				Url = mediaitem.MediaData.HasContent ? _imageService.GetImage(item.ID.ToString()).Url : ""
 			};
 		}
 	}

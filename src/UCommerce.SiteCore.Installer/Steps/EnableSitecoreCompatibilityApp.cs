@@ -12,7 +12,8 @@ namespace Ucommerce.Sitecore.Installer.Steps
         private readonly SitecoreVersionChecker _sitecoreVersionChecker;
         private readonly IInstallerLoggingService _sitecoreInstallerLoggingService;
 
-        public EnableSitecoreCompatibilityApp(SitecoreVersionChecker sitecoreVersionChecker, IInstallerLoggingService sitecoreInstallerLoggingService)
+        public EnableSitecoreCompatibilityApp(SitecoreVersionChecker sitecoreVersionChecker,
+            IInstallerLoggingService sitecoreInstallerLoggingService)
         {
             _sitecoreVersionChecker = sitecoreVersionChecker;
             _sitecoreInstallerLoggingService = sitecoreInstallerLoggingService;
@@ -20,17 +21,28 @@ namespace Ucommerce.Sitecore.Installer.Steps
 
         public void Run(ITaskOutput output, NameValueCollection metaData)
         {
-            if (!_sitecoreVersionChecker.IsEqualOrGreaterThan(new Version(9, 2)))
+            string _virtualPathToAppsFolder = "~/sitecore modules/shell/ucommerce/apps";
+            if (_sitecoreVersionChecker.IsEqualOrGreaterThan(new Version(9, 2)))
             {
-                return;
+                new DirectoryMover(
+                    new DirectoryInfo(
+                        HostingEnvironment.MapPath($"{_virtualPathToAppsFolder}/Sitecore92compatibility.disabled")),
+                    new DirectoryInfo(
+                        HostingEnvironment.MapPath($"{_virtualPathToAppsFolder}/Sitecore92compatibility")),
+                    true).Move(ex => _sitecoreInstallerLoggingService.Log<Exception>(ex));
             }
 
-            string _virtualPathToAppsFolder = "~/sitecore modules/shell/ucommerce/apps";
 
-            new DirectoryMover(
-                new DirectoryInfo(HostingEnvironment.MapPath($"{_virtualPathToAppsFolder}/Sitecore92compatibility.disabled")),
-                new DirectoryInfo(HostingEnvironment.MapPath($"{_virtualPathToAppsFolder}/Sitecore92compatibility")),
-                true).Move(ex => _sitecoreInstallerLoggingService.Log<Exception>(ex));
+            if (_sitecoreVersionChecker.IsEqualOrGreaterThan(new Version(9, 3)))
+            {
+
+                new DirectoryMover(
+                    new DirectoryInfo(
+                        HostingEnvironment.MapPath($"{_virtualPathToAppsFolder}/Sitecore93compatibility.disabled")),
+                    new DirectoryInfo(
+                        HostingEnvironment.MapPath($"{_virtualPathToAppsFolder}/Sitecore93compatibility")),
+                    true).Move(ex => _sitecoreInstallerLoggingService.Log<Exception>(ex));
+            }
         }
     }
 }

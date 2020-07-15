@@ -26,7 +26,10 @@ namespace Ucommerce.Sitecore.Content
 			var item = _sitecoreContext.DatabaseForContent.GetItem(ID.Parse(id));
 			var children = new List<ITreeNodeContent>();
 
-			item.Children.ToList().ForEach(x => children.Add(new TreeNodeContent("content", x.ID.ToString())));
+			item.Children.ToList().ForEach(x => children.Add(new TreeNodeContent("content", x.ID.ToString())
+			{
+				ChildrenCount = x.Children.Count
+			}));
 
 			return children;
 		}
