@@ -32,14 +32,29 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Sitecore.Buckets, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\..\lib\Sitecore92\Sitecore.Buckets.dll</HintPath>
+    <Reference Include="Sitecore.Analytics, Version=14.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\lib\Sitecore93\Sitecore.Analytics.dll</HintPath>
     </Reference>
-    <Reference Include="Sitecore.ContentSearch, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\..\lib\Sitecore92\Sitecore.ContentSearch.dll</HintPath>
+    <Reference Include="Sitecore.Analytics.Model, Version=14.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\lib\Sitecore93\Sitecore.Analytics.Model.dll</HintPath>
     </Reference>
-    <Reference Include="Sitecore.Kernel, Version=13.0.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\..\lib\Sitecore92\Sitecore.Kernel.dll</HintPath>
+    <Reference Include="Sitecore.Buckets, Version=6.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\lib\Sitecore93\Sitecore.Buckets.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Content.Services, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\lib\Sitecore93\Sitecore.Content.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Kernel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\lib\Sitecore93\Sitecore.Kernel.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Logging, Version=13.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\lib\Sitecore93\Sitecore.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Services.Core, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\lib\Sitecore93\Sitecore.Services.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Services.Infrastructure, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\lib\Sitecore93\Sitecore.Services.Infrastructure.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -96,6 +111,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Content\SitecoreImageService.cs" />
     <Compile Include="Pipelines\BreakAxdExtensionProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
