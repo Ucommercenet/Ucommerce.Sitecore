@@ -43,7 +43,7 @@ namespace Ucommerce.Sitecore.Content
 			}
 
 			content.Name = item.Name;
-			content.Url = MediaManager.GetMediaUrl(item, new MediaUrlOptions { AlwaysIncludeServerUrl = true });
+			content.Url = GetMediaUrl(item);
 		    content.Icon = item.Appearance.Icon;
 
 			return content;
@@ -58,9 +58,14 @@ namespace Ucommerce.Sitecore.Content
 		/// Runs on Context object, initialized on each Http request, using configured
 		/// database from the site detected by SiteCore, which is configured in web.config under sites node.
 		/// </remarks>
-		private Item GetItemFromId(string id)
+		protected virtual Item GetItemFromId(string id)
 		{
 			return _sitecoreContext.DatabaseForContent.GetItem(id);
+		}
+
+		protected virtual string GetMediaUrl(Item item)
+		{
+			return MediaManager.GetMediaUrl(item, new MediaUrlOptions { AlwaysIncludeServerUrl = true });
 		}
 	}
 }
