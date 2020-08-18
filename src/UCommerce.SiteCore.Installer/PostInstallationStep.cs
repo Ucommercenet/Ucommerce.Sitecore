@@ -127,8 +127,6 @@ namespace Ucommerce.Sitecore.Installer
 
             // Move sitecore config includes into the right path
             ComposeMoveSitecoreConfigIncludes(sitecoreVersionChecker);
-
-            _postInstallationSteps.Add(new MigrateIdTableValues());
         }
 
         private void ComposePipelineConfiguration()
@@ -371,11 +369,6 @@ namespace Ucommerce.Sitecore.Installer
             _postInstallationSteps.Add(new MoveFile(
                 "~/sitecore modules/Shell/ucommerce/install/configInclude/Sitecore.uCommerce.Events.config",
                 "~/App_Config/include/Sitecore.uCommerce.Events.config",
-                backupTarget: true));
-
-            _postInstallationSteps.Add(new MoveFile(
-                "~/sitecore modules/Shell/ucommerce/install/configInclude/Sitecore.uCommerce.IdTable.config",
-                "~/App_Config/include/Sitecore.uCommerce.IdTable.config",
                 backupTarget: true));
 
             _postInstallationSteps.Add(new MoveFile(
