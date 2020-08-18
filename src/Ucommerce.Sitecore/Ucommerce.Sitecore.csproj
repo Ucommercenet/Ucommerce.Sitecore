@@ -323,7 +323,6 @@
     <Compile Include="SitecoreDataProvider\Impl\CategoriesTreelist.cs" />
     <Compile Include="SitecoreDataProvider\Impl\CategoryIdToCategoryDefinitionIdMapperService.cs" />
     <Compile Include="SitecoreDataProvider\Impl\DetectFullCategoryScan.cs" />
-    <Compile Include="SitecoreDataProvider\Impl\IdTableProvider.cs" />
     <Compile Include="SitecoreDataProvider\Impl\IndexingAndPublishingEventsHandler.cs" />
     <Compile Include="SitecoreDataProvider\Impl\ItemFieldsCache.cs" />
     <Compile Include="SitecoreDataProvider\Impl\ProductsMultilistWithSearch.cs" />

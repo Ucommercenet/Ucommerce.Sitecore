@@ -235,7 +235,6 @@
     <Compile Include="Steps\InstallDatabase.cs" />
     <Compile Include="Steps\InstallDatabaseSitecore.cs" />
     <Compile Include="Steps\MergeConfig.cs" />
-    <Compile Include="Steps\MigrateIdTableValues.cs" />
     <Compile Include="Steps\MoveDirectoryIfTargetExist.cs" />
     <Compile Include="Steps\MoveFile.cs" />
     <Compile Include="Steps\MoveFileIfDoesntExist.cs" />
