@@ -1,4 +1,5 @@
-﻿using Sitecore.Data.Items;
+﻿using System.Linq;
+using Sitecore.Data.Items;
 using Sitecore.Resources.Media;
 using Ucommerce.Content;
 using Ucommerce.Infrastructure.Logging;
@@ -42,11 +43,39 @@ namespace Ucommerce.Sitecore.Content
 				return content;
 			}
 
-			content.Name = item.Name;
-			content.Url = GetMediaUrl(item);
-		    content.Icon = item.Appearance.Icon;
+			return MapItemToContent(item);
+		}
 
-			return content;
+		protected virtual Ucommerce.Content.Content MapItemToContent(Item item)
+		{
+			return new Ucommerce.Content.Content()
+			{
+				Name = item.Name,
+				Icon = item.Appearance.Icon,
+				Url = GetMediaUrl(item),
+				Id = item.ID.ToString(),
+				// NodeType = item.Template.Key == "media folder" ? "Folder" : "Image"
+				NodeType = GetNodeType(item)
+			};
+		}
+
+		protected virtual string GetNodeType(Item item)
+		{
+			var folderTemplateKeys = new[] {"media folder", "node"};
+			var imageTemplateKey = "image";
+
+			if (folderTemplateKeys.Contains(item.Template.Key))
+			{
+				return "Folder";
+			}
+
+			if (item.Template.Key == imageTemplateKey ||
+			    item.Template.BaseTemplates.Any(x => x.Key == imageTemplateKey))
+			{
+				return "Image";
+			}
+
+			return "File";
 		}
 
 		/// <summary>

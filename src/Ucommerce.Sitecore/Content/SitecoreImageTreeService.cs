@@ -39,10 +39,29 @@ namespace Ucommerce.Sitecore.Content
 			return children;
 		}
 
-		private ITreeNodeContent CreateTreeNodeContent(Item item)
+		protected virtual string GetNodeType(Item item)
+		{
+			var folderTemplateKeys = new[] {"media folder", "node"};
+			var imageTemplateKey = "image";
+
+			if (folderTemplateKeys.Contains(item.Template.Key))
+			{
+				return "Folder";
+			}
+
+			if (item.Template.Key == imageTemplateKey ||
+			    item.Template.BaseTemplates.Any(x => x.Key == imageTemplateKey))
+			{
+				return "Image";
+			}
+
+			return "File";
+		}
+
+		protected virtual ITreeNodeContent CreateTreeNodeContent(Item item)
         {
             string nodeType = string.Empty;
-            nodeType = item.Template.Key == "media folder" ? "Folder" : "Image";
+            nodeType = GetNodeType(item);
 			return new TreeNodeContent(nodeType, item.ID.ToString())
 			{
 				ChildrenCount = item.Children.Count
