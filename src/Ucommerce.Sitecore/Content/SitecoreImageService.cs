@@ -1,7 +1,11 @@
-﻿using Sitecore.Data.Items;
+﻿using System.IO;
+using System.Linq;
+using Sitecore.Data.Items;
 using Sitecore.Resources.Media;
 using Ucommerce.Content;
+using Ucommerce.Infrastructure.Components.Windsor;
 using Ucommerce.Infrastructure.Logging;
+using Ucommerce.Infrastructure.Runtime;
 
 namespace Ucommerce.Sitecore.Content
 {
@@ -9,6 +13,8 @@ namespace Ucommerce.Sitecore.Content
 	{
 		private readonly ILoggingService _loggingService;
 		private readonly ISitecoreContext _sitecoreContext;
+
+		[Mandatory] public IPathService PathService { get; set; }
 
 		public SitecoreImageService(ILoggingService loggingService, ISitecoreContext sitecoreContext)
 		{
@@ -27,8 +33,9 @@ namespace Ucommerce.Sitecore.Content
 			var content = new Ucommerce.Content.Content
 				{
 					Id = contentId,
-					Name = "",
-					Url = ""
+					Name = "image_not_found.jpg",
+					Url = Path.Combine(PathService.GetPath(), "images/ui/image_not_found.jpg"),
+					NodeType = Constants.ImagePicker.Image
 				};
 
 			if (string.IsNullOrEmpty(contentId))
@@ -42,11 +49,38 @@ namespace Ucommerce.Sitecore.Content
 				return content;
 			}
 
-			content.Name = item.Name;
-			content.Url = GetMediaUrl(item);
-		    content.Icon = item.Appearance.Icon;
+			return MapItemToContent(item);
+		}
 
-			return content;
+		protected virtual Ucommerce.Content.Content MapItemToContent(Item item)
+		{
+			return new Ucommerce.Content.Content()
+			{
+				Name = item.Name,
+				Icon = item.Appearance.Icon,
+				Url = GetMediaUrl(item),
+				Id = item.ID.ToString(),
+				NodeType = GetNodeType(item)
+			};
+		}
+
+		protected virtual string GetNodeType(Item item)
+		{
+			var folderTemplateKeys = new[] {"media folder", "node"};
+			var imageTemplateKey = "image";
+
+			if (folderTemplateKeys.Contains(item.Template.Key))
+			{
+				return Constants.ImagePicker.Folder;
+			}
+
+			if (item.Template.Key == imageTemplateKey ||
+			    item.Template.BaseTemplates.Any(x => x.Key == imageTemplateKey))
+			{
+				return Constants.ImagePicker.Image;
+			}
+
+			return Constants.ImagePicker.File;
 		}
 
 		/// <summary>
