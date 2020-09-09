@@ -8,7 +8,7 @@ namespace Ucommerce.Sitecore.Installer
 	internal class SitecoreInstallerLoggingService : IInstallerLoggingService
 	{
 		private readonly ILog _logger;
-
+		
 		public SitecoreInstallerLoggingService()
 		{
 			_logger = LogManager.GetLogger("UCommerce");
@@ -20,6 +20,7 @@ namespace Ucommerce.Sitecore.Installer
 		/// <param name="customMessage">The custom message.</param>
 		public void Log<T>(string customMessage)
 		{
+			global::Sitecore.Diagnostics.Log.Info(customMessage, this);
 			_logger.Info(customMessage);
 		}
 
@@ -33,6 +34,7 @@ namespace Ucommerce.Sitecore.Installer
 
 			while (exToLog != null)
 			{
+				global::Sitecore.Diagnostics.Log.Error(exToLog.FormatForLogging(), exception, this);
 				_logger.Error(exToLog.FormatForLogging());
 				exToLog = exToLog.InnerException;
 			}
@@ -45,6 +47,7 @@ namespace Ucommerce.Sitecore.Installer
 		/// <param name="customMessage">The custom message.</param>
 		public void Log<T>(Exception exception, string customMessage)
 		{
+			global::Sitecore.Diagnostics.Log.Error(customMessage, this);
 			_logger.Error(customMessage);
 			Log<T>(exception);
 		}
