@@ -6,6 +6,7 @@ using Ucommerce.Content;
 using Ucommerce.Infrastructure.Components.Windsor;
 using Ucommerce.Infrastructure.Logging;
 using Ucommerce.Infrastructure.Runtime;
+using Ucommerce.Web;
 
 namespace Ucommerce.Sitecore.Content
 {
@@ -14,7 +15,7 @@ namespace Ucommerce.Sitecore.Content
 		private readonly ILoggingService _loggingService;
 		private readonly ISitecoreContext _sitecoreContext;
 
-		[Mandatory] public IPathService PathService { get; set; }
+		[Mandatory] public IAbsoluteUrlService AbsoluteUrlService { get; set; }
 
 		public SitecoreImageService(ILoggingService loggingService, ISitecoreContext sitecoreContext)
 		{
@@ -33,8 +34,8 @@ namespace Ucommerce.Sitecore.Content
 			var content = new Ucommerce.Content.Content
 				{
 					Id = contentId,
-					Name = "image_not_found.jpg",
-					Url = Path.Combine(PathService.GetPath(), "images/ui/image_not_found.jpg"),
+					Name = "image-not-found.png",
+					Url = AbsoluteUrlService.GetAbsoluteUrl("sitecore modules/Shell/Ucommerce/images/ui/image-not-found.png"),
 					NodeType = Constants.ImagePicker.Image
 				};
 
