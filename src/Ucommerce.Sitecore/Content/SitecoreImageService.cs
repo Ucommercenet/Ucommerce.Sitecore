@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Linq;
+using System.Web;
 using Sitecore.Data.Items;
 using Sitecore.Resources.Media;
 using Ucommerce.Content;
@@ -105,8 +106,8 @@ namespace Ucommerce.Sitecore.Content
             {
                 Id = id,
                 Name = "image-not-found.png",
-                Url = AbsoluteUrlService.GetAbsoluteUrl(
-                    "sitecore modules/Shell/Ucommerce/images/ui/image-not-found.png"),
+                Url = VirtualPathUtility.ToAbsolute(
+                    "~/sitecore modules/Shell/Ucommerce/images/ui/image-not-found.png"),
                 NodeType = Constants.ImagePicker.Image
             };
         }
