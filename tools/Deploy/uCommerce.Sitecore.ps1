@@ -67,6 +67,7 @@ task CreateFakeAssembliesForUpgrade {
 	$bin_dir = $script:hash["bin_dir"]
 	New-Item -Path "$bin_dir" -Name "Ucommerce.Admin.dll" -ItemType File
 	New-Item -Path "$bin_dir" -Name "Ucommerce.SystemWeb.dll" -ItemType File
+	New-Item -Path "$bin_dir" -Name "Ucommerce.Pipelines.dll" -ItemType File
 }
 
 task CleanPackageForOtherCmsDependencies {
