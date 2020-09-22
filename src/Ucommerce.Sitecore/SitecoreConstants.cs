@@ -7,7 +7,6 @@ namespace Ucommerce.Sitecore
 	/// </summary>
     internal static class SitecoreConstants
     {
-		public const string SitecoreIdTablePrefix = "uCommerceDataProvider";
 		public const string SitecoreDomainName = "sitecore";
 		public const string SitecoreProfilesPath = "/sitecore/system/Settings/Security/Profiles";
 		public const string SitecoreCoreDatabaseName = "core";

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Sitecore.Data;
-using Sitecore.Data.IDTables;
 using Sitecore.Data.Items;
 using Ucommerce.EntitiesV2;
 using Ucommerce.EntitiesV2.Definitions;
@@ -198,19 +197,10 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.TemplateBuilders
 		private void UpdateSelectedCategories(FieldChange fieldChange, Product product)
 		{
 			var selectedSitecoreCategoryIds = fieldChange.Value.Split('|');
-			var selectedCategories = new List<Category>();
+			var categoryRepository = ObjectFactory.Instance.Resolve<IRepository<Category>>();
 
-			// Find categories from the sitecore ids
-			foreach (var selectedSitecoreCategoryId in selectedSitecoreCategoryIds)
-			{
-				var categoryIdKeys = IDTable.GetKeys(SitecoreConstants.SitecoreIdTablePrefix, ID.Parse(selectedSitecoreCategoryId));
-
-				foreach (var categoryIdKey in categoryIdKeys)
-				{
-					var categoryId = Convert.ToInt32(categoryIdKey.Key.Split(';').Last());
-					selectedCategories.Add(Category.Get(categoryId));
-				}
-			}
+			var selectedCategories = categoryRepository.Select(
+				x => selectedSitecoreCategoryIds.Select(Guid.Parse).Contains(x.Guid));
 
 			var existingRelations = CategoryProductRelation.Find(x => x.Product.ProductId == product.ProductId)
 										.Select(x => x.Category.CategoryId).ToList();
