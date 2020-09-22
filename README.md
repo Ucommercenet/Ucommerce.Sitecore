@@ -25,6 +25,7 @@ Just follow these few simple steps below:
 3. Navigate the path to the root of the repository.
 	Further navigate to "\tools\deploy"
 4. Execute the Powershell command: ".\Deploy.To.Package.ps1"
+	To generate release packages update version number in `version.txt` and `name.txt`	
 	The package will be generated under "c:\tmp"
 5. Install the package through the Sitecore package installer.
 
