@@ -10,7 +10,7 @@ namespace Ucommerce.Sitecore93.Content
     	{
 	        protected override string GetMediaUrl(Item item)
             {
-	            return MediaManager.GetMediaUrl(item, new MediaUrlBuilderOptions { AlwaysIncludeServerUrl = true });
+	            return MediaManager.GetMediaUrl(item, new MediaUrlBuilderOptions { AlwaysIncludeServerUrl = false });
             }
 
 	        public SitecoreImageService(ILoggingService loggingService, ISitecoreContext sitecoreContext) : base(loggingService, sitecoreContext)
