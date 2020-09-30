@@ -16,8 +16,6 @@ namespace Ucommerce.Sitecore.Content
         private readonly ILoggingService _loggingService;
         private readonly ISitecoreContext _sitecoreContext;
 
-        [Mandatory] public IAbsoluteUrlService AbsoluteUrlService { get; set; }
-
         public SitecoreImageService(ILoggingService loggingService, ISitecoreContext sitecoreContext)
         {
             _loggingService = loggingService;
@@ -29,7 +27,6 @@ namespace Ucommerce.Sitecore.Content
         /// </summary>
         /// <param name="contentId">Id of a sitecore item.</param>
         /// <returns>Link to an .ashx which resolves to an image.</returns>
-        /// <remarks>Url must be absolute and return an .ashx page which is the way that SiteCore stores and resolves images.</remarks>
         public virtual Ucommerce.Content.Content GetImage(string contentId)
         {
             var content = new Ucommerce.Content.Content();
@@ -97,7 +94,7 @@ namespace Ucommerce.Sitecore.Content
 
         protected virtual string GetMediaUrl(Item item)
         {
-            return MediaManager.GetMediaUrl(item, new MediaUrlOptions {AlwaysIncludeServerUrl = true});
+            return MediaManager.GetMediaUrl(item, new MediaUrlOptions {AlwaysIncludeServerUrl = false});
         }
 
         private Ucommerce.Content.Content ImageNotFound(string id)
@@ -106,8 +103,7 @@ namespace Ucommerce.Sitecore.Content
             {
                 Id = id,
                 Name = "image-not-found.png",
-                Url = VirtualPathUtility.ToAbsolute(
-                    "~/sitecore modules/Shell/Ucommerce/images/ui/image-not-found.png"),
+                Url = "/sitecore modules/Shell/Ucommerce/images/ui/image-not-found.png",
                 NodeType = Constants.ImagePicker.Image
             };
         }
