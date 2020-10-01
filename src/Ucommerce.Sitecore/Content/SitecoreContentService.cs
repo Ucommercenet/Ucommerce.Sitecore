@@ -45,7 +45,7 @@ namespace Ucommerce.Sitecore.Content
 
 		    var urlOptions = new Links.UrlOptions()
 		    {
-		        AlwaysIncludeServerUrl = true,
+		        AlwaysIncludeServerUrl = false,
                 Language = Context.Language,
                 Site = SiteContext.Current
 		    };
