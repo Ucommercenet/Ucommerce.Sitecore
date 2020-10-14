@@ -259,7 +259,6 @@
     <Content Include="Css\Sitecore8\images\sort_asc.png" />
     <Content Include="Css\Sitecore8\images\sort_both.png" />
     <Content Include="Css\Sitecore8\images\sort_desc.png" />
-    <Content Include="Css\Sitecore8\images\Speak\Catalog manager.png" />
     <Content Include="Css\Sitecore8\images\Speak\commerce-settings.png" />
     <Content Include="Css\Sitecore8\images\Speak\Order Manager.png" />
     <Content Include="Css\Sitecore8\images\Speak\Promotion Manager.png" />
@@ -324,7 +323,6 @@
     <Content Include="Css\Sitecore\UI.css" />
     <Content Include="Css\Sitecore\Widget.css" />
     <Content Include="Css\Speak\ucommerce-speak.css" />
-    <Content Include="Shell\CatalogManager.aspx" />
     <Content Include="Shell\OrderManager.aspx" />
     <Content Include="Shell\PromotionManager.aspx" />
     <Content Include="Shell\Scripts\Sitecore.js" />
@@ -332,13 +330,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Shell\CatalogManager.aspx.cs">
-      <DependentUpon>CatalogManager.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Shell\CatalogManager.aspx.designer.cs">
-      <DependentUpon>CatalogManager.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Shell\OrderManager.aspx.cs">
       <DependentUpon>OrderManager.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

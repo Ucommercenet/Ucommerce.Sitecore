@@ -312,14 +312,11 @@
     <None Include="package\installer\version" />
     <None Include="SpeakSerialization\sitecore82\client\Applications\Launchpad\PageSettings\Buttons\Commerce.item" />
     <None Include="SpeakSerialization\sitecore\client\Applications\Launchpad\PageSettings\Buttons\Commerce.item" />
-    <None Include="SpeakSerialization\sitecore\client\Applications\Launchpad\PageSettings\Buttons\Commerce\Catalog Manager.item" />
     <None Include="SpeakSerialization\sitecore\client\Applications\Launchpad\PageSettings\Buttons\Commerce\Stores.item" />
     <None Include="SpeakSerialization\sitecore\client\Applications\Launchpad\PageSettings\Buttons\Commerce\Dashboard.item" />
     <None Include="SpeakSerialization\sitecore\client\Applications\Launchpad\PageSettings\Buttons\Commerce\Order Manager.item" />
     <None Include="SpeakSerialization\sitecore\client\Applications\Launchpad\PageSettings\Buttons\Commerce\Promotion Manager.item" />
     <None Include="SpeakSerialization\sitecore\client\uCommerce Applications.item" />
-    <None Include="SpeakSerialization\sitecore\client\uCommerce Applications\Catalog Manager.item" />
-    <None Include="SpeakSerialization\sitecore\client\uCommerce Applications\Catalog Manager\Catalog Manager Application.item" />
     <None Include="SpeakSerialization\sitecore\client\uCommerce Applications\Dashboard.item" />
     <None Include="SpeakSerialization\sitecore\client\uCommerce Applications\Dashboard\Dashboard.item" />
     <None Include="SpeakSerialization\sitecore\client\uCommerce Applications\Order Manager.item" />

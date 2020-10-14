@@ -132,7 +132,6 @@ task CopySitecoreFiles -description "Copy all the sitecore files needs for a dep
 
 	# Start overriding CMS specific things to the package
 	##Shell specific
-	Copy-Item "$src\Ucommerce.Sitecore.Web\Shell\CatalogManager.aspx" "$working_dir\files\sitecore modules\Shell\ucommerce\shell\CatalogManager.aspx" -Force
 	Copy-Item "$src\Ucommerce.Sitecore.Web\Shell\OrderManager.aspx" "$working_dir\files\sitecore modules\Shell\ucommerce\shell\OrderManager.aspx" -Force
 	Copy-Item "$src\Ucommerce.Sitecore.Web\Shell\PromotionManager.aspx" "$working_dir\files\sitecore modules\Shell\ucommerce\shell\PromotionManager.aspx" -Force
 	Copy-Item "$src\Ucommerce.Sitecore.Web\Shell\SettingsManager.aspx" "$working_dir\files\sitecore modules\Shell\ucommerce\shell\SettingsManager.aspx" -Force
