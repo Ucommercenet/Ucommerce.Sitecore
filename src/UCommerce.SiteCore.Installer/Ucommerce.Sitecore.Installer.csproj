@@ -313,6 +313,7 @@
     <None Include="SpeakSerialization\sitecore82\client\Applications\Launchpad\PageSettings\Buttons\Commerce.item" />
     <None Include="SpeakSerialization\sitecore\client\Applications\Launchpad\PageSettings\Buttons\Commerce.item" />
     <None Include="SpeakSerialization\sitecore\client\Applications\Launchpad\PageSettings\Buttons\Commerce\Catalog Manager.item" />
+    <None Include="SpeakSerialization\sitecore\client\Applications\Launchpad\PageSettings\Buttons\Commerce\Stores.item" />
     <None Include="SpeakSerialization\sitecore\client\Applications\Launchpad\PageSettings\Buttons\Commerce\Dashboard.item" />
     <None Include="SpeakSerialization\sitecore\client\Applications\Launchpad\PageSettings\Buttons\Commerce\Order Manager.item" />
     <None Include="SpeakSerialization\sitecore\client\Applications\Launchpad\PageSettings\Buttons\Commerce\Promotion Manager.item" />
@@ -325,6 +326,8 @@
     <None Include="SpeakSerialization\sitecore\client\uCommerce Applications\Order Manager\Order Manager Application.item" />
     <None Include="SpeakSerialization\sitecore\client\uCommerce Applications\Promotion Manager.item" />
     <None Include="SpeakSerialization\sitecore\client\uCommerce Applications\Promotion Manager\Promotion Manager Application.item" />
+    <None Include="SpeakSerialization\sitecore\client\uCommerce Applications\Stores.item" />
+    <None Include="SpeakSerialization\sitecore\client\uCommerce Applications\Stores\Stores.item" />
     <None Include="SpeakSerialization\sitecore\layout\Renderings\uCommerce Speak Frame.item" />
     <None Include="SpeakSerialization\sitecore\templates\uCommerce.item" />
     <None Include="SpeakSerialization\sitecore\templates\uCommerce\uCommerce Speak Application.item" />

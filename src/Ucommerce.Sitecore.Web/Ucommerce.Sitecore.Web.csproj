@@ -230,7 +230,7 @@
     <Content Include="Apps\Sitecore92compatibility.disabled\sitecore92compatibility.config" />
     <Content Include="Apps\Sitecore93compatibility.disabled\sitecore93compatibility.config" />
     <Content Include="Css\Sitecore8\images\Speak\dashboard.png" />
-    <Content Include="Css\Sitecore8\UI.css.orig" />
+    <Content Include="Css\Sitecore8\images\Speak\Stores.svg" />
     <Content Include="Css\Sitecore\sitecore.less" />
     <Content Include="Css\Speak\common.less" />
     <Content Include="Css\Speak\dataTypes.less" />
