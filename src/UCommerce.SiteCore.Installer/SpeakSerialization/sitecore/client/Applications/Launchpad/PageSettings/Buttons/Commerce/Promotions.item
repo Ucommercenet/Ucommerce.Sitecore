@@ -24,10 +24,17 @@ key: link
 content-length: 73
 
 /sitecore/client/uCommerce Applications/Promotions/Promotions Application
+----field----
+field: {BA3F86A2-4A1C-4D78-B63D-91C2779C1B5E}
+name: __Sortorder
+key: __sortorder
+content-length: 2
+
+50
 ----version----
 language: en
 version: 1
-revision: 4504ad81-03d6-4478-b9b5-7e1913006a92
+revision: 1849da5f-4750-4bc7-8b6d-ed945559e55c
 
 ----field----
 field: {AA4A4643-5BFC-45A7-B9D9-5183A5211D99}

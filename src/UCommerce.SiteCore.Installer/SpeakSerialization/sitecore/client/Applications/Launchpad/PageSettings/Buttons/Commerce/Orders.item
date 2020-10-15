@@ -24,10 +24,17 @@ key: link
 content-length: 65
 
 /sitecore/client/uCommerce Applications/Orders/Orders Application
+----field----
+field: {BA3F86A2-4A1C-4D78-B63D-91C2779C1B5E}
+name: __Sortorder
+key: __sortorder
+content-length: 2
+
+40
 ----version----
 language: en
 version: 1
-revision: cd954d72-234b-4028-8f31-87005586997d
+revision: 1849da5f-4750-4bc7-8b6d-ed945559e55c
 
 ----field----
 field: {AA4A4643-5BFC-45A7-B9D9-5183A5211D99}
