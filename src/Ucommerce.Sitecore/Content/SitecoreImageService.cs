@@ -58,7 +58,6 @@ namespace Ucommerce.Sitecore.Content
                 Icon = item.Appearance.Icon,
                 Url = GetMediaUrl(item),
                 Id = item.ID.ToString(),
-                NodeType = GetNodeType(item)
             };
         }
 
@@ -108,7 +107,6 @@ namespace Ucommerce.Sitecore.Content
                 Name = "image-not-found.png",
                 Url = VirtualPathUtility.ToAbsolute(
                     "~/sitecore modules/Shell/Ucommerce/images/ui/image-not-found.png"),
-                NodeType = Constants.ImagePicker.Image
             };
         }
     }
