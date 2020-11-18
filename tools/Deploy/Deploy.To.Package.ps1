@@ -7,7 +7,10 @@ Param(
 
     [Parameter(Mandatory=$False)]
     [ValidateSet("Debug", "Release")]
-    [string]$Configuration = "Debug"
+    [string]$Configuration = "Debug",
+        
+    [Parameter(Mandatory=$False)]
+    [string]$outputDir = "c:\tmp"
 )
 
 function Get-ScriptDirectory {
@@ -23,12 +26,20 @@ function Run-It () {
 
         Import-Module "$scriptPath\..\psake\4.9.0\psake.psm1"
 
+        If(!(test-path $outputDir))
+        {
+            New-Item -ItemType Directory -Force -Path $outputDir
+        }
+        $outputDirPathInfo = Resolve-Path $outputDir
+        $outputDir = $outputDirPathInfo.Path
+
         $properties = @{
                 "configuration"="$Configuration";
                 "UpdateAssemblyInfo"="$UpdateAssemblyInfo";
                 "version"="$Version";
                 "base_dir"="$base_dir";
                 "src"=$src;
+                "zipDestinationFolder"=$outputDir;
                 "working_dir"="$env:TEMP\uCommerceTmp\8e0acd5c-f842-49db-933d-cc9e61fcff53";
             };
 
