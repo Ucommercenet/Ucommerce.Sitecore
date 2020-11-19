@@ -4,7 +4,7 @@ properties {
     $configuration = 'Debug'
     $src = "."
     $zipFileName = "Ucommerce-for-Sitecore-{1}.zip"
-    $zipDestinationFolder = "C:\tmp"
+    $zipDestinationFolder = $null
     $solution_file = "Ucommerce.Sitecore.sln"
     $working_dir = $null
     $version = $null
