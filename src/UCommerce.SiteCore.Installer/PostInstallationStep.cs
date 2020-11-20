@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.IO;
+using System.Web.Hosting;
 using Sitecore.Install.Framework;
 using Ucommerce.Installer;
 using Ucommerce.Sitecore.Installer.Steps;
@@ -47,6 +49,7 @@ namespace Ucommerce.Sitecore.Installer
             var updateService = new UpdateService(installationConnectionStringLocator, runtimeVersionChecker,
                 sitefinityDatabaseAvailabilityService);
             var sitecoreVersionChecker = new SitecoreVersionChecker();
+            var virtualAppsPath = "~/sitecore modules/Shell/uCommerce/Apps";
 
             _postInstallationSteps = new List<IPostStep>();
 
@@ -70,37 +73,37 @@ namespace Ucommerce.Sitecore.Installer
             // Remove old UCommerce.Transactions.Payment.dll from /bin since payment methods have been moved to Apps.
             _postInstallationSteps.Add(new DeleteFile("~/bin/Ucommerce.Transactions.Payments.dll"));
             // Remove ServiceStack folder
-            _postInstallationSteps.Add(new DeleteDirectory("~/sitecore modules/Shell/Ucommerce/Apps/ServiceStack"));
+            _postInstallationSteps.Add(new DeleteDirectory($"{virtualAppsPath}/ServiceStack"));
 
             // Remove RavenDB apps (in V9 Raven has been replaced by Lucene)
-            _postInstallationSteps.Add(new DeleteDirectory("~/sitecore modules/Shell/Ucommerce/Apps/RavenDB25"));
+            _postInstallationSteps.Add(new DeleteDirectory($"{virtualAppsPath}/RavenDB25"));
             _postInstallationSteps.Add(
-                new DeleteDirectory("~/sitecore modules/Shell/Ucommerce/Apps/RavenDB25.disabled"));
-            _postInstallationSteps.Add(new DeleteDirectory("~/sitecore modules/Shell/Ucommerce/Apps/RavenDB30"));
+                new DeleteDirectory($"{virtualAppsPath}RavenDB25.disabled"));
+            _postInstallationSteps.Add(new DeleteDirectory($"{virtualAppsPath}/RavenDB30"));
             _postInstallationSteps.Add(
-                new DeleteDirectory("~/sitecore modules/Shell/Ucommerce/Apps/RavenDB30.disabled"));
+                new DeleteDirectory($"{virtualAppsPath}RavenDB30.disabled"));
             // Enable ExchangeRateAPICurrencyConversion app
             _postInstallationSteps.Add(new MoveDirectory(
-                "~/sitecore modules/Shell/Ucommerce/Apps/ExchangeRateAPICurrencyConversion.disabled",
-                "~/sitecore modules/Shell/Ucommerce/Apps/ExchangeRateAPICurrencyConversion", true));
+                $"{virtualAppsPath}/ExchangeRateAPICurrencyConversion.disabled",
+                $"{virtualAppsPath}/ExchangeRateAPICurrencyConversion", true));
 
             // Remove Catalogs app since it was moved into Core
-            _postInstallationSteps.Add(new DeleteDirectory("~/sitecore modules/Shell/Ucommerce/Apps/Catalogs"));
+            _postInstallationSteps.Add(new DeleteDirectory($"{virtualAppsPath}/Catalogs"));
             _postInstallationSteps.Add(
-                new DeleteDirectory("~/sitecore modules/Shell/Ucommerce/Apps/Catalogs.disabled"));
+                new DeleteDirectory($"{virtualAppsPath}/Catalogs.disabled"));
             _postInstallationSteps.Add(
                 new EnableSitecoreCompatibilityApp(sitecoreVersionChecker, sitecoreInstallerLoggingService));
 
             // Remove CatalogSearch widget
             _postInstallationSteps.Add(
-                new DeleteDirectory("~/sitecore modules/Shell/Ucommerce/Apps/Widgets/CatalogSearch"));
+                new DeleteDirectory($"{virtualAppsPath}/Widgets/CatalogSearch"));
             _postInstallationSteps.Add(
-                new DeleteDirectory("~/sitecore modules/Shell/Ucommerce/Apps/Widgets/CatalogSearch.disabled"));
+                new DeleteDirectory($"{virtualAppsPath}/Widgets/CatalogSearch.disabled"));
 
             // Enable Sanitization app
             _postInstallationSteps.Add(new MoveDirectory(
-                "~/sitecore modules/Shell/Ucommerce/Apps/Sanitization.disabled",
-                "~/sitecore modules/Shell/Ucommerce/Apps/Sanitization", true));
+                $"{virtualAppsPath}/Sanitization.disabled",
+                $"{virtualAppsPath}/Sanitization", true));
 
             //Clean up unused configuration since payment integration has move to apps
             _postInstallationSteps.Add(
@@ -114,11 +117,12 @@ namespace Ucommerce.Sitecore.Installer
             _postInstallationSteps.Add(
                 new RenameConfigDefaultFilesToConfigFilesStep("~/sitecore modules/Shell/uCommerce/Apps", false));
             _postInstallationSteps.Add(new MoveDirectoryIfTargetExist(
-                "~/sitecore modules/Shell/uCommerce/Apps/SimpleInventory.disabled",
-                "~/sitecore modules/Shell/uCommerce/Apps/SimpleInventory"));
+                $"{virtualAppsPath}/SimpleInventory.disabled",
+                $"{virtualAppsPath}/SimpleInventory"));
             _postInstallationSteps.Add(new MoveDirectoryIfTargetExist(
-                "~/sitecore modules/Shell/uCommerce/Apps/Acquire and Cancel Payments.disabled",
-                "~/sitecore modules/Shell/uCommerce/Apps/Acquire and Cancel Payments"));
+                $"{virtualAppsPath}/Acquire and Cancel Payments.disabled",
+                $"{virtualAppsPath}/Acquire and Cancel Payments"));
+            ToggleActiveSearchProvider(virtualAppsPath);
             //Create back up and remove old files
             RemovedRenamedPipelines();
 
@@ -127,6 +131,28 @@ namespace Ucommerce.Sitecore.Installer
 
             // Move sitecore config includes into the right path
             ComposeMoveSitecoreConfigIncludes(sitecoreVersionChecker);
+        }
+
+        private void ToggleActiveSearchProvider(string virtualAppsPath)
+        {
+            // If Elastic is enabled, replace the app, and make sure Lucene is then disabled.
+            if(Directory.Exists(HostingEnvironment.MapPath($"{virtualAppsPath}/Ucommerce.Search.ElasticSearch")))
+            {
+                new DirectoryMoverIfTargetExist(
+                        new DirectoryInfo(HostingEnvironment.MapPath($"{virtualAppsPath}/Ucommerce.Search.ElasticSearch.disabled")),
+                        new DirectoryInfo(HostingEnvironment.MapPath($"{virtualAppsPath}/Ucommerce.Search.ElasticSearch")))
+                    .Move(null);
+
+                new DirectoryMover(
+                        new DirectoryInfo(HostingEnvironment.MapPath($"{virtualAppsPath}/Ucommerce.Search.Lucene")),
+                        new DirectoryInfo(HostingEnvironment.MapPath($"{virtualAppsPath}/Ucommerce.Search.Lucene.disabled")), true)
+                    .Move(null);
+            }
+            
+            new DirectoryMoverIfTargetExist(
+                    new DirectoryInfo(HostingEnvironment.MapPath($"{virtualAppsPath}/Ucommerce.Search.Lucene")),
+                    new DirectoryInfo(HostingEnvironment.MapPath($"{virtualAppsPath}/Ucommerce.Search.Lucene.disabled")))
+                .Move(null);
         }
 
         private void ComposePipelineConfiguration()
