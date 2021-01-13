@@ -9,6 +9,7 @@
 					<array>
 						<value>${ProductCatalogGroup.RunDeleteProductCatalog}</value>
 						<value>${ProductCatalogGroup.delete}</value>
+						<value>${ProductCatalogGroup.Deindex}</value>
 						<value>${Sitecore.Store.Save}</value>
 					</array>
 				</tasks>
@@ -27,6 +28,9 @@
 		<component id="ProductCatalogGroup.delete"
 				   service="Ucommerce.Pipelines.IPipelineTask`1[[Ucommerce.EntitiesV2.ProductCatalogGroup, Ucommerce]], Ucommerce"
 				   type="Ucommerce.Pipelines.Catalog.Admin.ProductCatalogGroupDelete.DeleteProductCatalogGroupTask, Ucommerce.Pipelines" />
-
+				   
+       <component id="ProductCatalogGroup.Deindex"
+                   service="Ucommerce.Pipelines.IPipelineTask`1[[Ucommerce.EntitiesV2.ProductCatalogGroup, Ucommerce]], Ucommerce"
+                   type="Ucommerce.Pipelines.Search.SearchDeindexerTask`1[[Ucommerce.EntitiesV2.ProductCatalogGroup, Ucommerce]], Ucommerce.Pipelines" />
 	</components>
 </configuration>
