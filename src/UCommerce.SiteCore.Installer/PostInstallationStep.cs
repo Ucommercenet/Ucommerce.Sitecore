@@ -122,6 +122,7 @@ namespace Ucommerce.Sitecore.Installer
             _postInstallationSteps.Add(new MoveDirectoryIfTargetExist(
                 $"{virtualAppsPath}/Acquire and Cancel Payments.disabled",
                 $"{virtualAppsPath}/Acquire and Cancel Payments"));
+            SearchProviderCleanup(virtualAppsPath);
             ToggleActiveSearchProvider(virtualAppsPath);
             //Create back up and remove old files
             RemovedRenamedPipelines();
@@ -131,6 +132,22 @@ namespace Ucommerce.Sitecore.Installer
 
             // Move sitecore config includes into the right path
             ComposeMoveSitecoreConfigIncludes(sitecoreVersionChecker);
+        }
+
+        private void SearchProviderCleanup(string virtualAppsPath)
+        {
+            var luceneIndexesFolderPath = HostingEnvironment.MapPath($"{virtualAppsPath}/Ucommerce.Search.Lucene/Configuration/Indexes");
+            var luceneIndexesFolderPathDisabled = HostingEnvironment.MapPath($"{virtualAppsPath}/Ucommerce.Search.Lucene.disabled/Configuration/Indexes");
+
+            if (Directory.Exists(luceneIndexesFolderPath))
+            {
+                Directory.Delete(luceneIndexesFolderPath, true);
+            }
+            
+            if (Directory.Exists(luceneIndexesFolderPathDisabled))
+            {
+                Directory.Delete(luceneIndexesFolderPathDisabled, true);
+            }
         }
 
         private void ToggleActiveSearchProvider(string virtualAppsPath)
