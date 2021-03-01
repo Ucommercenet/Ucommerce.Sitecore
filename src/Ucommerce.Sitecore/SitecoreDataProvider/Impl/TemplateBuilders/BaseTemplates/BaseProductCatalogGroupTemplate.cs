@@ -60,12 +60,22 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.TemplateBuilders.BaseTemp
 			list.SafeAdd(FieldIds.Store.DescriptionFieldId, store.Description);
 			list.SafeAdd(FieldIds.Store.CurrencyFieldId, store.Currency.SitecoreId().ToString());
 			list.SafeAdd(FieldIds.Store.EmailProfileFieldId, store.EmailProfile.SitecoreId().ToString());
-			list.SafeAdd(FieldIds.Store.OrderNumberSeriesFieldId, store.OrderNumberSerie.SitecoreId().ToString());
+			list.SafeAdd(FieldIds.Store.OrderNumberSeriesFieldId, ConvertOrderNumberSeriesIdToSitecoreId(store.OrderNumberSerie));
 			list.SafeAdd(FieldIds.Store.ProductReviewRequiresApprovalFieldId, store.ProductReviewsRequireApproval.ToSitecoreFormat());
 			list.SafeAdd(FieldIds.Store.CreateCustomersAsMembersFieldId, store.CreateCustomersAsMembers.ToSitecoreFormat());
 			list.SafeAdd(FieldIds.Store.MemberGroupFieldId, ConvertMemberGroupIdToSitecoreId(store.MemberGroupId));
 			list.SafeAdd(FieldIds.Store.MemberTypeFieldId, ConvertMemberTypeIdToSitecoreId(store.MemberTypeId));
 			list.SafeAdd(FieldIDs.Revision, store.Guid.Derived(store.ModifiedOn).ToString());
+		}
+
+		private string ConvertOrderNumberSeriesIdToSitecoreId(OrderNumberSerie storeOrderNumberSerie)
+		{
+			if (storeOrderNumberSerie == null)
+			{
+				return string.Empty;
+			}
+
+			return storeOrderNumberSerie.SitecoreId().ToString();
 		}
 
 		private string GetSecurityPermisionsFor(ProductCatalogGroup store)
