@@ -33,7 +33,7 @@ namespace Ucommerce.Sitecore.Events
             if (eventArgs == null) return;
 
             var logger = ObjectFactory.Instance.Resolve<ILoggingService>();
-            logger.Log<PermissionsChangedTask>("Event name: " + eventArgs.EventName);
+            logger.Debug<PermissionsChangedTask>("Event name: " + eventArgs.EventName);
         }
     }
 }

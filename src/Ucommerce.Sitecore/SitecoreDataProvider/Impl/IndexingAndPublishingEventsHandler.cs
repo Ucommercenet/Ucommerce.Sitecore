@@ -15,7 +15,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl
 
 			if (databaseName.Equals("master", StringComparison.InvariantCultureIgnoreCase))
 			{
-				ObjectFactory.Instance.Resolve<ILoggingService>().Log<IndexingAndPublishingEventsHandler>("Indexing starting on master database.");
+				ObjectFactory.Instance.Resolve<ILoggingService>().Debug<IndexingAndPublishingEventsHandler>("Indexing starting on master database.");
 				DetectFullCategoryScan.IndexingOfMasterDatabaseInProgress = true;
 			}
 		}
@@ -26,7 +26,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl
 
 			if (databaseName.Equals("master", StringComparison.InvariantCultureIgnoreCase))
 			{
-				ObjectFactory.Instance.Resolve<ILoggingService>().Log<IndexingAndPublishingEventsHandler>("Indexing ending on master database.");
+				ObjectFactory.Instance.Resolve<ILoggingService>().Debug<IndexingAndPublishingEventsHandler>("Indexing ending on master database.");
 				DetectFullCategoryScan.IndexingOfMasterDatabaseInProgress = false;
 			}
 		}

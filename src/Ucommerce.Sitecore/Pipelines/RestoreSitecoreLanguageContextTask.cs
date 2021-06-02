@@ -30,7 +30,7 @@ namespace Ucommerce.Sitecore.Pipelines
             }
             catch (Exception ex)
             {
-                _loggingService.Log<RestoreSitecoreLanguageContextTask>(ex, "Error trying to restore the Sitecore language context");
+                _loggingService.Error<RestoreSitecoreLanguageContextTask>(ex, "Error trying to restore the Sitecore language context");
             }
 
             return PipelineExecutionResult.Success;

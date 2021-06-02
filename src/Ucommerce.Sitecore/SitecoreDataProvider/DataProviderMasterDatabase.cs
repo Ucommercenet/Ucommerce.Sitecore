@@ -58,7 +58,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider
 				return;
 
 			var loggingService = ObjectFactory.Instance.Resolve<ILoggingService>();
-			loggingService.Log<DataProviderMasterDatabase>("ResetTemplatesCollection called.");
+			loggingService.Debug<DataProviderMasterDatabase>("ResetTemplatesCollection called.");
 
 			Stopwatch watch = new Stopwatch();
 			watch.Start();
@@ -74,7 +74,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider
 			SetTemplatesCollection(templates);
 
 			watch.Stop();
-			loggingService.Log<DataProviderMasterDatabase>(string.Format("ResetTemplatesCollection took: {0} ms.", watch.ElapsedMilliseconds));
+			loggingService.Debug<DataProviderMasterDatabase>(string.Format("ResetTemplatesCollection took: {0} ms.", watch.ElapsedMilliseconds));
 		}
 
 		/// <summary>
@@ -155,7 +155,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider
 			{
 				if (sitecoreDataProvider.IsOneOfOurSitecoreItems(itemId))
 				{
-					if (UseVerboseLogging) _log.Log<DataProviderMasterDatabase>("GetItemDefinition called with 'itemId' = " + itemId);
+					if (UseVerboseLogging) _log.Debug<DataProviderMasterDatabase>("GetItemDefinition called with 'itemId' = " + itemId);
 					if (context != null) context.Abort();
 					return sitecoreDataProvider.GetItemDefinition(itemId);
 				}
@@ -192,7 +192,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider
 			{
 				if (sitecoreDataProvider.IsOneOfOurSitecoreItems(item.ID))
 				{
-					if (UseVerboseLogging) _log.Log<DataProviderMasterDatabase>("GetItemFields called with 'itemId' = " + item.ID + " Key = " + item.Key);
+					if (UseVerboseLogging) _log.Debug<DataProviderMasterDatabase>("GetItemFields called with 'itemId' = " + item.ID + " Key = " + item.Key);
 
 					RemoveItemFromSitecoresItemCache(item.ID, context.DataManager.Database);
 
@@ -207,7 +207,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider
 					{
 						foreach (KeyValuePair<ID, string> fieldValue in fieldValues)
 						{
-							_log.Log<DataProviderMasterDatabase>(string.Format("-- '{0}'. ID='{1}'. VersionUri='{2}'", fieldValue.Value, fieldValue.Key, version));
+							_log.Debug<DataProviderMasterDatabase>(string.Format("-- '{0}'. ID='{1}'. VersionUri='{2}'", fieldValue.Value, fieldValue.Key, version));
 						}
 					}
 
@@ -247,10 +247,10 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider
 					var childIds = sitecoreDataProvider.GetChildIds(item.ID);
 					if (UseVerboseLogging)
 					{
-						_log.Log<DataProviderMasterDatabase>("GetChildIDs called with 'itemId' = " + item.ID + " Key = " + item.Key);
+						_log.Debug<DataProviderMasterDatabase>("GetChildIDs called with 'itemId' = " + item.ID + " Key = " + item.Key);
 						foreach (var id in childIds)
 						{
-							_log.Log<DataProviderMasterDatabase>("  - " + id);
+							_log.Debug<DataProviderMasterDatabase>("  - " + id);
 						}
 					}
 
@@ -264,7 +264,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider
 
 				if (item.ID == sitecoreDataProvider.GetEntryIdInSitecoreTree())
 				{
-					if (UseVerboseLogging) _log.Log<DataProviderMasterDatabase>("GetChildIDs called with 'itemId' = " + item.ID + " Key = " + item.Key + " Our first level.");
+					if (UseVerboseLogging) _log.Debug<DataProviderMasterDatabase>("GetChildIDs called with 'itemId' = " + item.ID + " Key = " + item.Key + " Our first level.");
 					var list = sitecoreDataProvider.GetFirstLevelIds();
 
 					return list;
@@ -291,14 +291,14 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider
 			{
 				if (sitecoreDataProvider.IsOneOfOurSitecoreItems(item.ID))
 				{
-					if (UseVerboseLogging) _log.Log<DataProviderMasterDatabase>("HasChildren called with 'itemId' = " + item.ID + " Key = " + item.Key);
+					if (UseVerboseLogging) _log.Debug<DataProviderMasterDatabase>("HasChildren called with 'itemId' = " + item.ID + " Key = " + item.Key);
 					context.Abort();
 					return sitecoreDataProvider.HasChildren(item.ID);
 				}
 
 				if (item.ID == sitecoreDataProvider.GetEntryIdInSitecoreTree())
 				{
-					if (UseVerboseLogging) _log.Log<DataProviderMasterDatabase>("HasChildren called with 'itemId' = " + item.ID + " Key = " + item.Key + " Our first level.");
+					if (UseVerboseLogging) _log.Debug<DataProviderMasterDatabase>("HasChildren called with 'itemId' = " + item.ID + " Key = " + item.Key + " Our first level.");
 					return true;
 				}
 			}
@@ -324,7 +324,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider
 				if (sitecoreDataProvider.IsOneOfOurSitecoreItems(item.ID))
 				{
 					var result = sitecoreDataProvider.GetParentId(item.ID);
-					if (UseVerboseLogging) _log.Log<DataProviderMasterDatabase>("GetParentID called with 'itemId' = " + item.ID + " Key = " + item.Key + " Returns " + result);
+					if (UseVerboseLogging) _log.Debug<DataProviderMasterDatabase>("GetParentID called with 'itemId' = " + item.ID + " Key = " + item.Key + " Returns " + result);
 					context.Abort();
 					return result;
 				}
@@ -343,18 +343,18 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider
 		{
 			if (!EntryGuardOkToProceed(context))
 			{
-				_log.Log<DataProviderMasterDatabase>("GetTemplateItemIds called before we are ready to proceed. Returning null.");
+				_log.Debug<DataProviderMasterDatabase>("GetTemplateItemIds called before we are ready to proceed. Returning null.");
 				return null;
 			}
 
-			//_log.Log<DataProviderMasterDatabase>("GetTemplateItemIds called.");
+			//_log.Debug<DataProviderMasterDatabase>("GetTemplateItemIds called.");
 
 			var result = new IdCollection();
 
 			foreach (ID id in _templateDataProvider.GetTemplateIds())
 			{
 				result.Add(id);
-				//_log.Log<DataProviderMasterDatabase>("-- Template ID: " + id);
+				//_log.Debug<DataProviderMasterDatabase>("-- Template ID: " + id);
 			}
 
 			return result;
@@ -393,7 +393,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider
 			if (!EntryGuardOkToProceed(context)) return false;
 			if (IsThisItemKnownToNotBelongToUs(item.ID, context)) return false;
 
-			if (UseVerboseLogging) _log.Log<DataProviderMasterDatabase>("SaveItem called with 'itemId' = " + item.ID + " Key = " + item.Key);
+			if (UseVerboseLogging) _log.Debug<DataProviderMasterDatabase>("SaveItem called with 'itemId' = " + item.ID + " Key = " + item.Key);
 
 			foreach (var provider in _sitecoreDataProviders)
 			{
@@ -402,12 +402,12 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider
 					provider.SaveItem(item, changes);
 					SaveStandardTemplateFields(item, changes);
 
-					if (UseVerboseLogging) _log.Log<DataProviderMasterDatabase>("SaveItem finished with 'itemId' = " + item.ID + " Key = " + item.Key);
+					if (UseVerboseLogging) _log.Debug<DataProviderMasterDatabase>("SaveItem finished with 'itemId' = " + item.ID + " Key = " + item.Key);
 					_fieldsCache.EvictItem(item.ID.Guid);
 					return true;
 				}
 			}
-			if (UseVerboseLogging) _log.Log<DataProviderMasterDatabase>("SaveItem finished with 'itemId' = " + item.ID + " Key = " + item.Key + " No item hit.");
+			if (UseVerboseLogging) _log.Debug<DataProviderMasterDatabase>("SaveItem finished with 'itemId' = " + item.ID + " Key = " + item.Key + " No item hit.");
 			return false;
 		}
 
@@ -476,7 +476,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider
 				SetupItemsWeDeliverChildrenFor();
 
 				_dependenciesHaveBeenSet = true;
-				_log.Log<DataProviderMasterDatabase>("Dependencies have been setup.");
+				_log.Debug<DataProviderMasterDatabase>("Dependencies have been setup.");
 
 				return true;
 			}
@@ -600,7 +600,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider
 				ReflectionUtil.CallMethod(
 					typeof(ItemCache), CacheManager.GetItemCache(context.DataManager.Database),
 					"RemoveItem", true, true, new object[] { itemId });
-				//_log.Log<DataProviderMasterDatabase>("Called remove item from cache using reflection.");
+				//_log.Debug<DataProviderMasterDatabase>("Called remove item from cache using reflection.");
 			}
 		}
 
@@ -633,7 +633,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider
 			if ((context.CurrentResult != null) && !(context.CurrentResult is bool) && _itemsKnownToBelongToUs.Contains(itemId) &&
 				   context.CurrentResult is IDList && ((IDList) context.CurrentResult).Count != 0)
 			{
-				_log.Log<DataProviderMasterDatabase>("Sitecore already added data to an item we know is ours. " + itemId);
+				_log.Debug<DataProviderMasterDatabase>("Sitecore already added data to an item we know is ours. " + itemId);
 				throw new InvalidOperationException("Sitecore already added data to an item we know is ours. " + itemId);
 			}
 			return _breakEarlyUsingItemsKnownNotToBelongToUs &&
@@ -652,7 +652,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider
 		/// </summary>
 		public void DataChangedPleaseReinitialize()
 		{
-			_log.Log<DataProviderMasterDatabase>("Definitions have changed ...");
+			_log.Debug<DataProviderMasterDatabase>("Definitions have changed ...");
 			if (_sitecoreDataProviders != null)
 			{
 				foreach (var provider in _sitecoreDataProviders)
@@ -670,7 +670,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider
 		/// </summary>
 		public void ProductSaved(Product product)
 		{
-			_log.Log<DataProviderMasterDatabase>("Product saved : " + product.Name);
+			_log.Debug<DataProviderMasterDatabase>("Product saved : " + product.Name);
 			if (_sitecoreDataProviders != null)
 			{
 				foreach (var provider in _sitecoreDataProviders)
@@ -701,13 +701,13 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider
 			if (item != null)
 			{
 				item.Database.Engines.DataEngine.RaiseSavedItem(item, true);
-				_log.Log<TemplateDataProvider>("Raised the SavedItem event for : " + id);
+				_log.Debug<TemplateDataProvider>("Raised the SavedItem event for : " + id);
 			}
 		}
 
 		public void ProductDeleted(Product product)
 		{
-			_log.Log<DataProviderMasterDatabase>("Product deleted : " + product.Name);
+			_log.Debug<DataProviderMasterDatabase>("Product deleted : " + product.Name);
 			if (_sitecoreDataProviders != null)
 			{
 				foreach (var provider in _sitecoreDataProviders)
@@ -732,7 +732,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider
 
 		public void VariantDeleted(Product variant)
 		{
-			_log.Log<DataProviderMasterDatabase>("Variant deleted : " + variant.Name);
+			_log.Debug<DataProviderMasterDatabase>("Variant deleted : " + variant.Name);
 			if (_sitecoreDataProviders != null)
 			{
 				foreach (var provider in _sitecoreDataProviders)
@@ -755,7 +755,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider
 			if (item != null)
 			{
 				item.Database.Engines.DataEngine.RaiseDeletedItem(item, item.ParentID, true);
-				_log.Log<TemplateDataProvider>("Raised the DeletedItem event for : " + id);
+				_log.Debug<TemplateDataProvider>("Raised the DeletedItem event for : " + id);
 			}
 		}
 
@@ -764,7 +764,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider
 		/// </summary>
 		public void CategorySaved(Category category)
 		{
-			_log.Log<DataProviderMasterDatabase>("Category saved : " + category.Name);
+			_log.Debug<DataProviderMasterDatabase>("Category saved : " + category.Name);
 			if (_sitecoreDataProviders != null)
 			{
 				foreach (var provider in _sitecoreDataProviders)
@@ -782,7 +782,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider
 		/// </summary>
 		public void CatalogSaved(ProductCatalog catalog)
 		{
-			_log.Log<DataProviderMasterDatabase>("Catalog saved : " + catalog.Name);
+			_log.Debug<DataProviderMasterDatabase>("Catalog saved : " + catalog.Name);
 
 			if (_sitecoreDataProviders != null)
 			{
@@ -801,7 +801,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider
 		/// </summary>
 		public void StoreSaved(ProductCatalogGroup store)
 		{
-			_log.Log<DataProviderMasterDatabase>("Store saved : " + store.Name);
+			_log.Debug<DataProviderMasterDatabase>("Store saved : " + store.Name);
 
 			if (_sitecoreDataProviders != null)
 			{
@@ -820,7 +820,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider
 		/// </summary>
 		public void ProductDefinitionSaved(ProductDefinition definition)
 		{
-			_log.Log<DataProviderMasterDatabase>("ProductDefinition saved : " + definition.Name);
+			_log.Debug<DataProviderMasterDatabase>("ProductDefinition saved : " + definition.Name);
 			if (_sitecoreDataProviders != null)
 			{
 				foreach (var provider in _sitecoreDataProviders)
@@ -837,7 +837,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider
 		/// </summary>
 		public void DefinitionSaved(IDefinition definition)
 		{
-			_log.Log<DataProviderMasterDatabase>("Definition saved : " + definition.Name);
+			_log.Debug<DataProviderMasterDatabase>("Definition saved : " + definition.Name);
 			if (_sitecoreDataProviders != null)
 			{
 				foreach (var provider in _sitecoreDataProviders)
@@ -854,7 +854,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider
 		/// </summary>
 		public void DefinitionFieldSaved(IDefinitionField field)
 		{
-			_log.Log<DataProviderMasterDatabase>("Definition field saved : " + field.Name);
+			_log.Debug<DataProviderMasterDatabase>("Definition field saved : " + field.Name);
 			if (_sitecoreDataProviders != null)
 			{
 				foreach (var provider in _sitecoreDataProviders)
@@ -868,7 +868,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider
 
 		public void LanguageSaved(Language language)
 		{
-			_log.Log<DataProviderMasterDatabase>("Language saved : " + language.LanguageName);
+			_log.Debug<DataProviderMasterDatabase>("Language saved : " + language.LanguageName);
 			if (_sitecoreDataProviders != null)
 			{
 				foreach (var provider in _sitecoreDataProviders)
@@ -880,7 +880,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider
 
 		public void DataTypeSaved(DataType dataType)
 		{
-			_log.Log<DataProviderMasterDatabase>("DataType saved : " + dataType.Name);
+			_log.Debug<DataProviderMasterDatabase>("DataType saved : " + dataType.Name);
 			if (_sitecoreDataProviders != null)
 			{
 				foreach (var provider in _sitecoreDataProviders)
@@ -897,7 +897,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider
         /// </summary>
 	    public void PermissionsChanged()
 	    {
-	        _log.Log<DataProviderMasterDatabase>("PermissionsChanged() called.");
+	        _log.Debug<DataProviderMasterDatabase>("PermissionsChanged() called.");
             _fieldsCache.Clear();
 
             if (_sitecoreDataProviders != null)
@@ -932,7 +932,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider
 
 			if (templates != null && templates.Count == 0)
 			{
-				_log.Log<DataProviderMasterDatabase>("Resetting the template engine, because it is initialized but empty.");
+				_log.Debug<DataProviderMasterDatabase>("Resetting the template engine, because it is initialized but empty.");
 				templateEngine.Reset();
 			}
 		}

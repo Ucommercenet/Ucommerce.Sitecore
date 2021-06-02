@@ -14,11 +14,11 @@ namespace Ucommerce.Sitecore.Installer.Steps
 		public void Run(ITaskOutput output, NameValueCollection metaData)
 		{
 			IInstallerLoggingService logging = new SitecoreInstallerLoggingService();
-			logging.Log<CreateSpeakApplications>("AddTitleToCommerceSpeakAppsSection started.");
+			logging.Information<CreateSpeakApplications>("AddTitleToCommerceSpeakAppsSection started.");
 
 			Parse(new DirectoryInfo(GetRootFolder()));
 
-			logging.Log<CreateSpeakApplications>("AddTitleToCommerceSpeakAppsSection finished.");
+			logging.Information<CreateSpeakApplications>("AddTitleToCommerceSpeakAppsSection finished.");
 		}
 
 		private void Parse(DirectoryInfo directoryInfo)

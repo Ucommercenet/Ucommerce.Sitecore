@@ -61,7 +61,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.TemplateBuilders
 			if (product == null)
 			{
 				var message = string.Format("Product with id: {0} not found for ITreeNodeContent.", node.ItemId);
-				_loggingService.Log<ProductTemplatesBuilder>(message);
+				_loggingService.Debug<ProductTemplatesBuilder>(message);
 				throw new InvalidDataException(message);
 			}
 
@@ -106,7 +106,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.TemplateBuilders
 			else if (fieldChange.FieldID == FieldIds.Product.PrimaryImageFieldId)
 				product.PrimaryImageMediaId = this.GetFieldSpecificValue(fieldChange, item);
 			else
-				_loggingService.Log<ProductTemplatesBuilder>(
+				_loggingService.Debug<ProductTemplatesBuilder>(
 					string.Format("Could not find property: {0} for product: {1}.", fieldChange.Definition.Key, product.Name));
 		}
 
@@ -210,7 +210,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.TemplateBuilders
 			var categoriesToBeRemoved = Category.Find(x => categoryIdsToBeRemoved.Contains(x.CategoryId)).ToList();
 			foreach (var categoryToBeRemoved in categoriesToBeRemoved)
 			{
-				_loggingService.Log<ProductTemplatesBuilder>("Removing category " + categoryToBeRemoved.Name);
+				_loggingService.Debug<ProductTemplatesBuilder>("Removing category " + categoryToBeRemoved.Name);
 				product.RemoveCategory(categoryToBeRemoved);
 			}
 
@@ -218,7 +218,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.TemplateBuilders
 			var categoriesToBeAdded = selectedCategories.Where(x => !existingRelations.Contains(x.CategoryId)).ToList();
 			foreach (var categoryToBeAdded in categoriesToBeAdded)
 			{
-				_loggingService.Log<ProductTemplatesBuilder>("Adding category " + categoryToBeAdded.Name);
+				_loggingService.Debug<ProductTemplatesBuilder>("Adding category " + categoryToBeAdded.Name);
 				categoryToBeAdded.AddProduct(product, 0);
 			}
 		}

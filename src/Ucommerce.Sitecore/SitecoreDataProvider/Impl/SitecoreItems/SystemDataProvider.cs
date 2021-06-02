@@ -104,7 +104,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.SitecoreItems
 						var versions = new VersionUriList();
 						foreach (var language in languages)
 						{
-							_log.Log<TemplateDataProvider>("Adding language to list of versions: " + language.CultureInfo.Name);
+							_log.Debug<TemplateDataProvider>("Adding language to list of versions: " + language.CultureInfo.Name);
 							versions.Add(language, Version.First);
 						}
 
@@ -192,7 +192,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.SitecoreItems
 
 		private void InitializeData()
 		{
-			_log.Log<SystemDataProvider>("Initializing the System Data Provider data");
+			_log.Debug<SystemDataProvider>("Initializing the System Data Provider data");
 			var stopwatch = new Stopwatch();
 			stopwatch.Start();
 
@@ -216,7 +216,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.SitecoreItems
 			}
 
 			stopwatch.Stop();
-			_log.Log<SystemDataProvider>(string.Format("SystemDataProvider.InitializeData(). {0} ms", stopwatch.ElapsedMilliseconds));
+			_log.Debug<SystemDataProvider>(string.Format("SystemDataProvider.InitializeData(). {0} ms", stopwatch.ElapsedMilliseconds));
 		}
 	}
 }

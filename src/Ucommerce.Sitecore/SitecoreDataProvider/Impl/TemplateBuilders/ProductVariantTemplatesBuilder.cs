@@ -82,7 +82,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.TemplateBuilders
 			if (productVariant == null)
 			{
 				var message = string.Format("Product with id: {0} not found for ITreeNodeContent. ", node.ItemId);
-				_loggingService.Log<ProductCatalogTemplateBuilder>(message);
+				_loggingService.Debug<ProductCatalogTemplateBuilder>(message);
 				throw new InvalidDataException(message);
 			}
 
@@ -115,7 +115,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.TemplateBuilders
 			else if (IsDynamicField(fieldChange, productVariant))
 				UpdateDynamicFields(fieldChange, productVariant, item);
 			else
-				_loggingService.Log<ProductTemplatesBuilder>(
+				_loggingService.Debug<ProductTemplatesBuilder>(
 					string.Format("Could not find property: {0} for product: {1}.", fieldChange.Definition.Key, productVariant.Name));
 		}
 

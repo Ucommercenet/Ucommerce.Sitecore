@@ -18,7 +18,7 @@ namespace Ucommerce.Sitecore.Installer
 		/// Logs the specified <paramref name="customMessage"/>.
 		/// </summary>
 		/// <param name="customMessage">The custom message.</param>
-		public void Log<T>(string customMessage)
+		public void Information<T>(string customMessage)
 		{
 			_logger.Info(customMessage);
 		}
@@ -27,7 +27,7 @@ namespace Ucommerce.Sitecore.Installer
 		/// Logs the specified exception.
 		/// </summary>
 		/// <param name="exception">The exception.</param>
-		public void Log<T>(Exception exception)
+		public void Error<T>(Exception exception)
 		{
 			Exception exToLog = exception;
 
@@ -43,10 +43,10 @@ namespace Ucommerce.Sitecore.Installer
 		/// </summary>
 		/// <param name="exception">The exception.</param>
 		/// <param name="customMessage">The custom message.</param>
-		public void Log<T>(Exception exception, string customMessage)
+		public void Error<T>(Exception exception, string customMessage)
 		{
 			_logger.Error(customMessage);
-			Log<T>(exception);
+			Error<T>(exception);
 		}
 	}
 }

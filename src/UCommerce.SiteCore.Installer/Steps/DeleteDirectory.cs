@@ -18,7 +18,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
 
         public void Run(ITaskOutput output, NameValueCollection metaData)
         {
-            _command.Delete(ex => new SitecoreInstallerLoggingService().Log<int>(ex));
+            _command.Delete(ex => new SitecoreInstallerLoggingService().Error<int>(ex));
         }
     }
 }

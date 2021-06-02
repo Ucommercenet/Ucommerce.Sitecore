@@ -17,10 +17,10 @@ namespace Ucommerce.Sitecore.Installer.Steps
         public void Run(ITaskOutput output, NameValueCollection metaData)
         {
             IInstallerLoggingService logging = new SitecoreInstallerLoggingService();
-            logging.Log<CreateSpeakApplications>("CreateSpeakApplications started.");
+            logging.Information<CreateSpeakApplications>("CreateSpeakApplications started.");
 
             var rootFolder = GetRootFolder();
-            logging.Log<CreateSpeakApplications>(string.Format("RootFolder: {0}", rootFolder));
+            logging.Information<CreateSpeakApplications>(string.Format("RootFolder: {0}", rootFolder));
             var directoryOrder = new[]
                         {
                             "templates", "client", "layout"
@@ -30,7 +30,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
             {
                 Parse(new DirectoryInfo(Path.Combine(rootFolder, directory)));
             }
-            logging.Log<CreateSpeakApplications>("CreateSpeakApplications finished.");
+            logging.Information<CreateSpeakApplications>("CreateSpeakApplications finished.");
         }
 
         private void Parse(DirectoryInfo directoryInfo)

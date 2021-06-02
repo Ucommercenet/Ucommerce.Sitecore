@@ -31,7 +31,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
 					transformer.Transform(
 						new FileInfo(HostingEnvironment.MapPath(transformation.VirtualPath)),
 						transformation.OnlyIfIisIntegrated,
-						ex => new SitecoreInstallerLoggingService().Log<int>(ex));
+						ex => new SitecoreInstallerLoggingService().Error<int>(ex));
 				}
 			}
 

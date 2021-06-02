@@ -140,7 +140,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl
             var loggingService = ObjectFactory.Instance.Resolve<ILoggingService>();
             var stopwatch = new Stopwatch();
 
-            loggingService.Log<ProductsMultilistWithSearch>("Starting ProductsMultilistWithSearch.DoRender() ...");
+            loggingService.Debug<ProductsMultilistWithSearch>("Starting ProductsMultilistWithSearch.DoRender() ...");
 
             stopwatch.Start();
 
@@ -275,7 +275,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl
             RenderScript(output);
 
             stopwatch.Stop();
-            loggingService.Log<ProductsMultilistWithSearch>(
+            loggingService.Debug<ProductsMultilistWithSearch>(
                 string.Format("ProductsMultilistWithSearch.DoRender() took {0} ms", stopwatch.ElapsedMilliseconds));
         }
 

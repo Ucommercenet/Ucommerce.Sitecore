@@ -29,7 +29,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
                         HostingEnvironment.MapPath($"{_virtualPathToAppsFolder}/Sitecore92compatibility.disabled")),
                     new DirectoryInfo(
                         HostingEnvironment.MapPath($"{_virtualPathToAppsFolder}/Sitecore92compatibility")),
-                    true).Move(ex => _sitecoreInstallerLoggingService.Log<Exception>(ex));
+                    true).Move(ex => _sitecoreInstallerLoggingService.Error<Exception>(ex));
             }
 
 
@@ -41,7 +41,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
                         HostingEnvironment.MapPath($"{_virtualPathToAppsFolder}/Sitecore93compatibility.disabled")),
                     new DirectoryInfo(
                         HostingEnvironment.MapPath($"{_virtualPathToAppsFolder}/Sitecore93compatibility")),
-                    true).Move(ex => _sitecoreInstallerLoggingService.Log<Exception>(ex));
+                    true).Move(ex => _sitecoreInstallerLoggingService.Error<Exception>(ex));
             }
         }
     }

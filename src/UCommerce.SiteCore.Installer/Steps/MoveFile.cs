@@ -22,7 +22,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
 
 		public void Run(ITaskOutput output, NameValueCollection metaData)
 		{
-			_command.Move(_backupTarget, ex => new SitecoreInstallerLoggingService().Log<int>(ex));
+			_command.Move(_backupTarget, ex => new SitecoreInstallerLoggingService().Error<int>(ex));
 		}
 	}
 }
