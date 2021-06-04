@@ -50,7 +50,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.TemplateBuilders
 			if (store == null)
 			{
 				string message = string.Format("Store with id: {0} not found for ITreeNodeContent. ", node.ItemId);
-				_loggingService.Log<ProductCatalogGroupTemplateBuilder>(message);
+				_loggingService.Debug<ProductCatalogGroupTemplateBuilder>(message);
 				throw new InvalidDataException(message);
 			}
 
@@ -92,7 +92,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.TemplateBuilders
 				store.ProductReviewsRequireApproval = (fieldChange.Value == "1");
 			else
 			{
-				_loggingService.Log<ProductCatalogGroupTemplateBuilder>(
+				_loggingService.Debug<ProductCatalogGroupTemplateBuilder>(
 					string.Format("Could not find property: {0} for store: {1}.",fieldChange.Definition.Key,store.Name));
 			}
 		}
@@ -160,7 +160,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.TemplateBuilders
 				return;
 			}
 
-			_loggingService.Log<ProductCatalogGroupTemplateBuilder>(
+			_loggingService.Debug<ProductCatalogGroupTemplateBuilder>(
 				string.Format("Failed to update host name for store. Could not find Sitecore ID for domain with id: {0}.",
 				              value));
 		}
@@ -173,7 +173,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.TemplateBuilders
 				var orderNumbers = OrderNumberSerie.SingleOrDefault(x => x.Guid == id.Guid);
 				if (orderNumbers == null)
 				{
-					_loggingService.Log<ProductCatalogGroupTemplateBuilder>(
+					_loggingService.Debug<ProductCatalogGroupTemplateBuilder>(
 						string.Format("Failed to update order number series for store. Could not find order numbers serie with guid: {0}.",
 						              id.Guid));
 					return;
@@ -183,7 +183,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.TemplateBuilders
 			}
 			else
 			{
-				_loggingService.Log<ProductCatalogGroupTemplateBuilder>(
+				_loggingService.Debug<ProductCatalogGroupTemplateBuilder>(
 					string.Format("Failed to update order number series for store. Could not find Sitecore ID for order numbers serie with id: {0}.",
 								  value));
 			}
@@ -197,7 +197,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.TemplateBuilders
 				var emailProfile = EmailProfile.SingleOrDefault(x => x.Guid == id.Guid);
 				if (emailProfile == null)
 				{
-					_loggingService.Log<ProductCatalogGroupTemplateBuilder>(
+					_loggingService.Debug<ProductCatalogGroupTemplateBuilder>(
 						string.Format("Failed to update email profile for store. Could not find email profile with guid: {0}.", id.Guid));
 					return;
 				}
@@ -206,7 +206,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.TemplateBuilders
 			}
 			else
 			{
-				_loggingService.Log<ProductCatalogGroupTemplateBuilder>(
+				_loggingService.Debug<ProductCatalogGroupTemplateBuilder>(
 					string.Format("Failed to update email profile for store. Could not find Sitecore ID for email profile with id: {0}.", value));
 			}
 		}
@@ -219,7 +219,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.TemplateBuilders
 				var currency = Currency.SingleOrDefault(x => x.Guid == id.Guid);
 				if (currency == null)
 				{
-					_loggingService.Log<ProductCatalogGroupTemplateBuilder>(
+					_loggingService.Debug<ProductCatalogGroupTemplateBuilder>(
 						string.Format("Failed to update currency for store. Could not find currency with guid: {0}.", id.Guid));
 
 					return;
@@ -229,7 +229,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.TemplateBuilders
 			}
 			else
 			{
-				_loggingService.Log<ProductCatalogGroupTemplateBuilder>(
+				_loggingService.Debug<ProductCatalogGroupTemplateBuilder>(
 					string.Format("Failed to update currency for store. Could not find Sitecore ID for currency with id: {0}.", value));
 			}
 		}
@@ -238,7 +238,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.TemplateBuilders
 		{
 			if (ProductCatalogGroup.SingleOrDefault(x => x.Name == value) != null)
 			{
-				_loggingService.Log<ProductCatalogGroupTemplateBuilder>(string.Format("Failed to update store name for store. Store with name: {0} already exists.", value));
+				_loggingService.Debug<ProductCatalogGroupTemplateBuilder>(string.Format("Failed to update store name for store. Store with name: {0} already exists.", value));
 
 				return;
 			}

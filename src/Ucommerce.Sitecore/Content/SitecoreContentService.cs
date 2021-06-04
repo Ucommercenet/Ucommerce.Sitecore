@@ -39,7 +39,7 @@ namespace Ucommerce.Sitecore.Content
 
 			if (item == null)
 			{
-				_loggingService.Log<SitecoreContentService>(string.Format("Item with id: {0} was not found. Check that content exists in database",contentId));
+				_loggingService.Information<SitecoreContentService>(string.Format("Item with id: {0} was not found. Check that content exists in database",contentId));
 				return content;
 			}
 

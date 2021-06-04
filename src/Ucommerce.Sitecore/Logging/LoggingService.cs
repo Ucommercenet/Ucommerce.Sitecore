@@ -16,20 +16,25 @@ namespace Ucommerce.Sitecore.Logging
 			_logger = log4net.LogManager.GetLogger("UCommerce");
 		}
 
-		/// <summary>
-		/// Logs the specified <paramref name="customMessage"/>.
-		/// </summary>
-		/// <param name="customMessage">The custom message.</param>
-		public void Log<T>(string customMessage)
+		public void Debug<T>(string message)
 		{
-			_logger.Info(customMessage);
+			_logger.Debug(message);
+		}
+
+		/// <summary>
+		/// Logs the specified <paramref name="message"/>.
+		/// </summary>
+		/// <param name="message">The custom message.</param>
+		public void Information<T>(string message)
+		{
+			_logger.Info(message);
 		}
 
 		/// <summary>
 		/// Logs the specified exception.
 		/// </summary>
 		/// <param name="exception">The exception.</param>
-		public void Log<T>(Exception exception)
+		public void Error<T>(Exception exception)
 		{
 			var exceptionMessages = this.GetTypeLoadExceptionMessages(exception);
 			foreach (var exceptionMessage in exceptionMessages)
@@ -50,12 +55,12 @@ namespace Ucommerce.Sitecore.Logging
 		/// Logs the specified exception along with a custom message.
 		/// </summary>
 		/// <param name="exception">The exception.</param>
-		/// <param name="customMessage">The custom message.</param>
-		public void Log<T>(Exception exception, string customMessage)
+		/// <param name="message">The custom message.</param>
+		public void Error<T>(Exception exception, string message)
 		{
-			_logger.Error(customMessage);
+			_logger.Error(message);
 
-			Log<T>(exception);
+			Error<T>(exception);
 		}
 	}
 }

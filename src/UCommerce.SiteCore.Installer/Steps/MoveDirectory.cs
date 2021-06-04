@@ -28,7 +28,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
 				new DirectoryInfo(HostingEnvironment.MapPath(_sourceDirectory)),
 				new DirectoryInfo(HostingEnvironment.MapPath(_targetDirectory)),
 				_overwriteTarget).Move(
-				ex => new SitecoreInstallerLoggingService().Log<int>(ex));
+				ex => new SitecoreInstallerLoggingService().Error<int>(ex));
 		}
 	}
 }

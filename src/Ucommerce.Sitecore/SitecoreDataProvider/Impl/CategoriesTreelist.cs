@@ -315,7 +315,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl
 			var loggingService = ObjectFactory.Instance.Resolve<ILoggingService>();
 			var stopwatch = new Stopwatch();
 
-			loggingService.Log<CategoriesTreelist>("Starting CategoriesTreelist.OnLoad() ...");
+			loggingService.Debug<CategoriesTreelist>("Starting CategoriesTreelist.OnLoad() ...");
 
 			stopwatch.Start();
 
@@ -423,7 +423,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl
 			base.OnLoad(args);
 
 			stopwatch.Stop();
-			loggingService.Log<CategoriesTreelist>(string.Format("CategoriesTreelist.OnLoad() took {0} ms", stopwatch.ElapsedMilliseconds));
+			loggingService.Debug<CategoriesTreelist>(string.Format("CategoriesTreelist.OnLoad() took {0} ms", stopwatch.ElapsedMilliseconds));
 		}
 
 		/// <summary>

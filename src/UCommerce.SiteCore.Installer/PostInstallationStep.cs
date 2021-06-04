@@ -497,11 +497,11 @@ namespace Ucommerce.Sitecore.Installer
                 try
                 {
                     step.Run(output, metaData);
-                    logging.Log<PostInstallationStep>($"Executed: {step.GetType().FullName}");
+                    logging.Information<PostInstallationStep>($"Executed: {step.GetType().FullName}");
                 }
                 catch (Exception ex)
                 {
-                    logging.Log<PostInstallationStep>(ex, step.GetType().FullName);
+                    logging.Error<PostInstallationStep>(ex, step.GetType().FullName);
 
                     throw;
                 }

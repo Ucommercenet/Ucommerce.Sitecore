@@ -100,7 +100,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.SitecoreItems
 			var item = _sitecoreItems[id];
 			if (UseVerboseLogging)
 			{
-				_log.Log<ProductsDataProvider>(string.Format("ProductsDataProvider: GetItemDefinition() : {0} - {1} - {2}", id.Guid, item.GetType().Name, item.ItemDefinition.Name));
+				_log.Debug<ProductsDataProvider>(string.Format("ProductsDataProvider: GetItemDefinition() : {0} - {1} - {2}", id.Guid, item.GetType().Name, item.ItemDefinition.Name));
 			}
 
 			return item.ItemDefinition;
@@ -113,7 +113,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.SitecoreItems
 			var item = _sitecoreItems[id];
 			if (UseVerboseLogging)
 			{
-				_log.Log<ProductsDataProvider>(string.Format("ProductsDataProvider: GetChildIds() : {0} - {1} - {2}", id.Guid, item.GetType().Name, item.ItemDefinition.Name));
+				_log.Debug<ProductsDataProvider>(string.Format("ProductsDataProvider: GetChildIds() : {0} - {1} - {2}", id.Guid, item.GetType().Name, item.ItemDefinition.Name));
 			}
 
 			// Prefetch the products and variants, if the current item is a Bucket containing products.
@@ -130,7 +130,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.SitecoreItems
 			var item = _sitecoreItems[id];
 			if (UseVerboseLogging)
 			{
-				_log.Log<ProductsDataProvider>(string.Format("ProductsDataProvider: HasChildren() : {0} - {1} - {2}", id.Guid, item.GetType().Name, item.ItemDefinition.Name));
+				_log.Debug<ProductsDataProvider>(string.Format("ProductsDataProvider: HasChildren() : {0} - {1} - {2}", id.Guid, item.GetType().Name, item.ItemDefinition.Name));
 			}
 
 			return item.HasChildren();
@@ -143,7 +143,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.SitecoreItems
 			var item = _sitecoreItems[id];
 			if (UseVerboseLogging)
 			{
-				_log.Log<ProductsDataProvider>(string.Format("ProductsDataProvider: GetParentId() : {0} - {1} - {2}", id.Guid, item.GetType().Name, item.ItemDefinition.Name));
+				_log.Debug<ProductsDataProvider>(string.Format("ProductsDataProvider: GetParentId() : {0} - {1} - {2}", id.Guid, item.GetType().Name, item.ItemDefinition.Name));
 			}
 
 			return item.ParentId;
@@ -157,7 +157,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.SitecoreItems
 
 			if (UseVerboseLogging)
 			{
-				_log.Log<ProductsDataProvider>(string.Format("ProductsDataProvider: GetFieldList() : {0} - {1} - {2}", id.Guid, item.GetType().Name, item.ItemDefinition.Name));
+				_log.Debug<ProductsDataProvider>(string.Format("ProductsDataProvider: GetFieldList() : {0} - {1} - {2}", id.Guid, item.GetType().Name, item.ItemDefinition.Name));
 			}
 
 			if (item is BucketFolderItem)
@@ -169,12 +169,12 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.SitecoreItems
 			if (cachedFieldList != null)
 			{
 				Stats.Hit();
-				if (UseVerboseLogging) _log.Log<ProductsDataProvider>("Cache hit");
+				if (UseVerboseLogging) _log.Debug<ProductsDataProvider>("Cache hit");
 				return cachedFieldList;
 			}
 
 			Stats.Miss();
-			if (UseVerboseLogging) _log.Log<ProductsDataProvider>("Cache miss");
+			if (UseVerboseLogging) _log.Debug<ProductsDataProvider>("Cache miss");
 
 
 			lock (_prefetchlock)
@@ -239,7 +239,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.SitecoreItems
 
 		private void InitializeData()
 		{
-			_log.Log<SystemDataProvider>("Initializing the Product Data Provider data");
+			_log.Debug<SystemDataProvider>("Initializing the Product Data Provider data");
 			InitializeRoot();
 			InitializeProducts();
 		}
@@ -359,7 +359,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.SitecoreItems
 				}
 
 				stopwatch.Stop();
-				_log.Log<ProductsDataProvider>(string.Format("ProductsDataProvider.InitializeData(). {0} ms", stopwatch.ElapsedMilliseconds));
+				_log.Debug<ProductsDataProvider>(string.Format("ProductsDataProvider.InitializeData(). {0} ms", stopwatch.ElapsedMilliseconds));
 			}
 		}
 
@@ -439,7 +439,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.SitecoreItems
 				depth = 1;
 			}
 
-			_log.Log<ProductsDataProvider>(string.Format("Calculated the partition depth to be {0}, based upon {1} products.", depth, numberOfProducts));
+			_log.Debug<ProductsDataProvider>(string.Format("Calculated the partition depth to be {0}, based upon {1} products.", depth, numberOfProducts));
 			return depth;
 		}
 
@@ -451,7 +451,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.SitecoreItems
 			if (item != null)
 			{
 				item.Database.Engines.DataEngine.RaiseDeletedItem(item, item.ParentID, true);
-				_log.Log<TemplateDataProvider>("Raised the DeletedItem event for : " + id);
+				_log.Debug<TemplateDataProvider>("Raised the DeletedItem event for : " + id);
 			}
 		}
 

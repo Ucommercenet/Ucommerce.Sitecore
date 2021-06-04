@@ -19,7 +19,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
 
 		public void Run(ITaskOutput output, NameValueCollection metaData)
 		{
-			_command.Copy(ex => new SitecoreInstallerLoggingService().Log<int>(ex));
+			_command.Copy(ex => new SitecoreInstallerLoggingService().Error<int>(ex));
 		}
 	}
 }

@@ -41,7 +41,7 @@ namespace Ucommerce.Sitecore.UI.Resources
 				return actualVersion >= version;
 		    }
 
-			_loggingService.Log<SitecoreVersionResolver>(string.Format("Couldn't determine the version of Sitecore based on {0}", About.Version));
+			_loggingService.Debug<SitecoreVersionResolver>(string.Format("Couldn't determine the version of Sitecore based on {0}", About.Version));
 
 		    return false;
 	    }

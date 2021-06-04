@@ -20,7 +20,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
         public void Run(ITaskOutput output, NameValueCollection metaData)
         {
             var assemblyVersion = _runtimeVersion.GetUcommerceRuntimeAssemblyVersion().ToString();
-            _installerLoggingService.Log<UpdateUCommerceAssemblyVersionInDatabase>("New uCommerce version: " + assemblyVersion);
+            _installerLoggingService.Information<UpdateUCommerceAssemblyVersionInDatabase>("New uCommerce version: " + assemblyVersion);
             _updateService.UpdateAssemblyVersion(assemblyVersion);
         }
     }

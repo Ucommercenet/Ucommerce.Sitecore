@@ -80,7 +80,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.TemplateBuilders
 			if (category == null)
 			{
 				string message = string.Format("Category with id: {0} not found for ITreeNodeContent.", node.ItemId);
-				_loggingService.Log<ProductCatalogGroupTemplateBuilder>(message);
+				_loggingService.Debug<ProductCatalogGroupTemplateBuilder>(message);
 				throw new InvalidDataException(message);
 			}
 
@@ -116,7 +116,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.TemplateBuilders
 				UpdateDynamicCategoryProperty(fieldChange, category, item);
 			else
 			{
-				_loggingService.Log<ProductCategoryTemplateBuilder>(
+				_loggingService.Debug<ProductCategoryTemplateBuilder>(
 					string.Format("Could not find property: {0} for category: {1}.", fieldChange.Definition.Key, category.Name));
 			}
 		}
