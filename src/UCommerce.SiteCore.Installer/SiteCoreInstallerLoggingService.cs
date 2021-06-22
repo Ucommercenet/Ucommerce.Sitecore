@@ -23,7 +23,13 @@ namespace Ucommerce.Sitecore.Installer
 			_logger.Info(customMessage);
 		}
 
-		/// <summary>
+        public void Information<T>(string messageTemplate, params object[] propertyValues)
+		{
+			Ucommerce.Infrastructure.Logging.Capturing.MessageTemplateParser.TryParse(messageTemplate, propertyValues, out var message);
+            _logger.Info(message);
+		}
+
+        /// <summary>
 		/// Logs the specified exception.
 		/// </summary>
 		/// <param name="exception">The exception.</param>
@@ -48,5 +54,11 @@ namespace Ucommerce.Sitecore.Installer
 			_logger.Error(customMessage);
 			Error<T>(exception);
 		}
-	}
+
+        public void Error<T>(Exception exception, string messageTemplate, params object[] propertyValues)
+		{
+			Ucommerce.Infrastructure.Logging.Capturing.MessageTemplateParser.TryParse(messageTemplate, propertyValues, out var message);
+            _logger.Error(message, exception);
+		}
+    }
 }

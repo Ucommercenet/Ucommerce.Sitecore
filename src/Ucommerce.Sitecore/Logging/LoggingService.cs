@@ -21,7 +21,13 @@ namespace Ucommerce.Sitecore.Logging
 			_logger.Debug(message);
 		}
 
-		/// <summary>
+        public void Debug<T>(string messageTemplate, params object[] propertyValues)
+        {
+            Ucommerce.Infrastructure.Logging.Capturing.MessageTemplateParser.TryParse(messageTemplate, propertyValues, out var message);
+			_logger.Debug(message);
+        }
+
+        /// <summary>
 		/// Logs the specified <paramref name="message"/>.
 		/// </summary>
 		/// <param name="message">The custom message.</param>
@@ -30,7 +36,13 @@ namespace Ucommerce.Sitecore.Logging
 			_logger.Info(message);
 		}
 
-		/// <summary>
+        public void Information<T>(string messageTemplate, params object[] propertyValues)
+        {
+            Ucommerce.Infrastructure.Logging.Capturing.MessageTemplateParser.TryParse(messageTemplate, propertyValues, out var message);
+			_logger.Info(message);
+        }
+
+        /// <summary>
 		/// Logs the specified exception.
 		/// </summary>
 		/// <param name="exception">The exception.</param>
@@ -62,5 +74,11 @@ namespace Ucommerce.Sitecore.Logging
 
 			Error<T>(exception);
 		}
-	}
+
+        public void Error<T>(Exception exception, string messageTemplate, params object[] propertyValues)
+		{
+			Ucommerce.Infrastructure.Logging.Capturing.MessageTemplateParser.TryParse(messageTemplate, propertyValues, out var message);
+            _logger.Error(message, exception);
+		}
+    }
 }
