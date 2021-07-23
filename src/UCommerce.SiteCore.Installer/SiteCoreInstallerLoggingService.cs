@@ -25,8 +25,9 @@ namespace Ucommerce.Sitecore.Installer
 
         public void Information<T>(string messageTemplate, params object[] propertyValues)
 		{
-			Ucommerce.Infrastructure.Logging.Capturing.MessageTemplateParser.TryParse(messageTemplate, propertyValues, out var message);
-            _logger.Info(message);
+			// TODO: Doing nothing here prevents an error on install. We don't have Ucommerce.Infrastructure loaded at the time where this would be used.
+			// Infrastructure.Logging.Capturing.MessageTemplateParser.TryParse(messageTemplate, propertyValues, out var message);
+   //          _logger.Info(message);
 		}
 
         /// <summary>
@@ -57,8 +58,9 @@ namespace Ucommerce.Sitecore.Installer
 
         public void Error<T>(Exception exception, string messageTemplate, params object[] propertyValues)
 		{
-			Ucommerce.Infrastructure.Logging.Capturing.MessageTemplateParser.TryParse(messageTemplate, propertyValues, out var message);
-            _logger.Error(message, exception);
+			// TODO: Doing nothing here prevents an error on install. We don't have Ucommerce.Infrastructure loaded at the time where this would be used.
+			// Ucommerce.Infrastructure.Logging.Capturing.MessageTemplateParser.TryParse(messageTemplate, propertyValues, out var message);
+   //          _logger.Error(message, exception);
 		}
     }
 }
