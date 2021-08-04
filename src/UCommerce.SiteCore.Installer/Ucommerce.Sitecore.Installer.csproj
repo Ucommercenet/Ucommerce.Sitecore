@@ -188,7 +188,7 @@
       <HintPath>..\packages\uCommerce.Core.9.3.1.20275\lib\net45\Ucommerce.Api.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Ucommerce.Infrastructure, Version=9.3.1.20275, Culture=neutral, PublicKeyToken=null">
+     <Reference Include="Ucommerce.Infrastructure, Version=9.3.1.20275, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\packages\uCommerce.Core.9.3.1.20275\lib\net45\Ucommerce.Infrastructure.dll</HintPath>
       <Private>True</Private>
     </Reference>
@@ -227,6 +227,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DbInstallerSitecore.cs" />
+    <Compile Include="MessageTemplateParser.cs" />
     <Compile Include="SitecoreDatabaseAvailabilityService.cs" />
     <Compile Include="SitecoreVersionChecker.cs" />
     <Compile Include="Steps\AddTitleToCommerceSpeakAppsSection.cs" />
