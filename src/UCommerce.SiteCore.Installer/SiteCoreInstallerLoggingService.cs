@@ -24,9 +24,10 @@ namespace Ucommerce.Sitecore.Installer
 		}
 
         public void Information<T>(string messageTemplate, params object[] propertyValues)
-        {
-	        // No-op
-        }
+		{
+			MessageTemplateParser.TryParse(messageTemplate, propertyValues, out var message);
+            _logger.Info(message);
+		}
 
         /// <summary>
 		/// Logs the specified exception.
@@ -56,7 +57,8 @@ namespace Ucommerce.Sitecore.Installer
 
         public void Error<T>(Exception exception, string messageTemplate, params object[] propertyValues)
 		{
-			// No-op
+            MessageTemplateParser.TryParse(messageTemplate, propertyValues, out var message);
+            _logger.Error(message);
 		}
     }
 }
