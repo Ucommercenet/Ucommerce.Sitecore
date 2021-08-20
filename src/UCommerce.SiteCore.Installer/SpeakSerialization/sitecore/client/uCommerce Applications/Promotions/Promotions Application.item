@@ -40,9 +40,9 @@ Promotions
 field: {21642748-88C1-4B64-BD78-9F0EC74B4EE7}
 name: FrameUrl
 key: frameurl
-content-length: 74
+content-length: 59
 
-/sitecore modules/Shell/uCommerce/shell/PromotionManager.aspx?IsSpeak=true
+/sitecore modules/Shell/uCommerce/Vue/index.html#/campaigns
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
