@@ -39,7 +39,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.SitecoreItems.Content
 			{
 				_frequencyCounter = 0;
 				var log = ObjectFactory.Instance.Resolve<ILoggingService>();
-				log.Log<CacheStatistics>(string.Format("'{0}' Hits:{1} Total:{2} Average: {3:00}%", Name, _hits, _hits + _misses, (_hits * 100) / (_hits + _misses)));
+				log.Debug<CacheStatistics>(string.Format("'{0}' Hits:{1} Total:{2} Average: {3:00}%", Name, _hits, _hits + _misses, (_hits * 100) / (_hits + _misses)));
 			}
 		}
 	}

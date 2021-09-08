@@ -118,7 +118,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.SitecoreItems
 				var versions = new VersionUriList();
 				foreach (var language in languages)
 				{
-					_log.Log<TemplateDataProvider>("Adding language to list of versions: " + language.CultureInfo.Name);
+					_log.Debug<TemplateDataProvider>("Adding language to list of versions: " + language.CultureInfo.Name);
 					versions.Add(language, Version.First);
 				}
 
@@ -185,7 +185,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.SitecoreItems
 			if (item != null)
 			{
 				item.Database.Engines.DataEngine.RaiseSavedItem(item, true);
-				_log.Log<TemplateDataProvider>("Raised the SavedItem event for : " + id);
+				_log.Debug<TemplateDataProvider>("Raised the SavedItem event for : " + id);
 			}
 		}
 
@@ -264,7 +264,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.SitecoreItems
 			var stopwatch = new Stopwatch();
 			stopwatch.Start();
 
-			_log.Log<TemplateDataProvider>("BuildTemplates() called.");
+			_log.Debug<TemplateDataProvider>("BuildTemplates() called.");
 			Clear();
 
 			var result = _templateProvider.GetTemplates();
@@ -274,7 +274,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.SitecoreItems
 			}
 
 			stopwatch.Stop();
-			_log.Log<TemplateDataProvider>(string.Format("TemplateDataProvider.BuildTemplates(). {0} ms", stopwatch.ElapsedMilliseconds));
+			_log.Debug<TemplateDataProvider>(string.Format("TemplateDataProvider.BuildTemplates(). {0} ms", stopwatch.ElapsedMilliseconds));
 		}
 
 		private void MakeSureWeAreReady()

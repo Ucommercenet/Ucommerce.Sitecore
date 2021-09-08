@@ -101,9 +101,9 @@ namespace Ucommerce.Sitecore.Installer
                 new DeleteDirectory($"{virtualAppsPath}/Widgets/CatalogSearch.disabled"));
 
             // Enable Sanitization app
-            _postInstallationSteps.Add(new MoveDirectory(
-                $"{virtualAppsPath}/Sanitization.disabled",
-                $"{virtualAppsPath}/Sanitization", true));
+            _postInstallationSteps.Add(new MoveDirectory($"{virtualAppsPath}/Sanitization.disabled", $"{virtualAppsPath}/Sanitization", true));
+            _postInstallationSteps.Add(new DeleteFile($"{virtualAppsPath}/Sanitization/bin/AngleSharp.dll"));
+            _postInstallationSteps.Add(new DeleteFile($"{virtualAppsPath}/Sanitization/bin/AngleSharp.dll"));
 
             //Clean up unused configuration since payment integration has move to apps
             _postInstallationSteps.Add(
@@ -143,7 +143,7 @@ namespace Ucommerce.Sitecore.Installer
             {
                 Directory.Delete(luceneIndexesFolderPath, true);
             }
-            
+
             if (Directory.Exists(luceneIndexesFolderPathDisabled))
             {
                 Directory.Delete(luceneIndexesFolderPathDisabled, true);
@@ -153,7 +153,7 @@ namespace Ucommerce.Sitecore.Installer
         private void ToggleActiveSearchProvider(string virtualAppsPath)
         {
             // If Elastic is enabled, replace the app, and make sure Lucene is then disabled.
-            if(Directory.Exists(HostingEnvironment.MapPath($"{virtualAppsPath}/Ucommerce.Search.ElasticSearch")))
+            if (Directory.Exists(HostingEnvironment.MapPath($"{virtualAppsPath}/Ucommerce.Search.ElasticSearch")))
             {
                 new DirectoryMoverIfTargetExist(
                         new DirectoryInfo(HostingEnvironment.MapPath($"{virtualAppsPath}/Ucommerce.Search.ElasticSearch.disabled")),
@@ -165,7 +165,7 @@ namespace Ucommerce.Sitecore.Installer
                         new DirectoryInfo(HostingEnvironment.MapPath($"{virtualAppsPath}/Ucommerce.Search.Lucene.disabled")), true)
                     .Move(null);
             }
-            
+
             new DirectoryMoverIfTargetExist(
                     new DirectoryInfo(HostingEnvironment.MapPath($"{virtualAppsPath}/Ucommerce.Search.Lucene")),
                     new DirectoryInfo(HostingEnvironment.MapPath($"{virtualAppsPath}/Ucommerce.Search.Lucene.disabled")))
@@ -497,11 +497,11 @@ namespace Ucommerce.Sitecore.Installer
                 try
                 {
                     step.Run(output, metaData);
-                    logging.Log<PostInstallationStep>($"Executed: {step.GetType().FullName}");
+                    logging.Information<PostInstallationStep>($"Executed: {step.GetType().FullName}");
                 }
                 catch (Exception ex)
                 {
-                    logging.Log<PostInstallationStep>(ex, step.GetType().FullName);
+                    logging.Error<PostInstallationStep>(ex, step.GetType().FullName);
 
                     throw;
                 }

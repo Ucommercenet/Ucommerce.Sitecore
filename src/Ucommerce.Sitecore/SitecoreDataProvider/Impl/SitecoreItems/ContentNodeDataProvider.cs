@@ -94,7 +94,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.SitecoreItems
 				var item = _sitecoreItems[id];
 				if (UseVerboseLogging)
 				{
-					_log.Log<ProductsDataProvider>(string.Format("ContentNodeDataProvider: GetItemDefinition() : {0} - {1} - {2}", id.Guid, item.GetType().Name, item.ItemDefinition.Name));
+					_log.Debug<ProductsDataProvider>(string.Format("ContentNodeDataProvider: GetItemDefinition() : {0} - {1} - {2}", id.Guid, item.GetType().Name, item.ItemDefinition.Name));
 				}
 				return item.ItemDefinition;
 			}
@@ -110,7 +110,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.SitecoreItems
 				var item = _sitecoreItems[id];
 				if (UseVerboseLogging)
 				{
-					_log.Log<ProductsDataProvider>(string.Format("ContentNodeDataProvider: HasChildren() : {0} - {1} - {2}", id.Guid, item.GetType().Name, item.ItemDefinition.Name));
+					_log.Debug<ProductsDataProvider>(string.Format("ContentNodeDataProvider: HasChildren() : {0} - {1} - {2}", id.Guid, item.GetType().Name, item.ItemDefinition.Name));
 				}
 				return item.HasChildren();
 			}
@@ -126,7 +126,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.SitecoreItems
 				var item = _sitecoreItems[id];
 				if (UseVerboseLogging)
 				{
-					_log.Log<ProductsDataProvider>(string.Format("ContentNodeDataProvider: GetParentId() : {0} - {1} - {2}", id.Guid, item.GetType().Name, item.ItemDefinition.Name));
+					_log.Debug<ProductsDataProvider>(string.Format("ContentNodeDataProvider: GetParentId() : {0} - {1} - {2}", id.Guid, item.GetType().Name, item.ItemDefinition.Name));
 				}
 				return item.ParentId;
 			}
@@ -145,7 +145,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.SitecoreItems
 
 				if (UseVerboseLogging)
 				{
-					_log.Log<ProductsDataProvider>(string.Format("ContentNodeDataProvider: GetChildIds() : {0} - {1} - {2}", id.Guid, item.GetType().Name, item.ItemDefinition.Name));
+					_log.Debug<ProductsDataProvider>(string.Format("ContentNodeDataProvider: GetChildIds() : {0} - {1} - {2}", id.Guid, item.GetType().Name, item.ItemDefinition.Name));
 				}
 
 				if (item is CategorySitecoreItem)
@@ -175,7 +175,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.SitecoreItems
 
 				if (UseVerboseLogging)
 				{
-					_log.Log<ProductsDataProvider>(string.Format("ContentNodeDataProvider: GetFieldList() : {0} - {1} - {2}", id.Guid, item.GetType().Name, item.ItemDefinition.Name));
+					_log.Debug<ProductsDataProvider>(string.Format("ContentNodeDataProvider: GetFieldList() : {0} - {1} - {2}", id.Guid, item.GetType().Name, item.ItemDefinition.Name));
 				}
 
 				if (item is CatalogSitecoreItem)
@@ -199,11 +199,11 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.SitecoreItems
 			var fields = Cache.Lookup(item.Id, version);
 			if (fields != null)
 			{
-				if (UseVerboseLogging) _log.Log<ContentNodeDataProvider>("cache hit");
+				if (UseVerboseLogging) _log.Debug<ContentNodeDataProvider>("cache hit");
 				Stats.Hit();
 				return fields;
 			}
-			if (UseVerboseLogging) _log.Log<ContentNodeDataProvider>("cache miss");
+			if (UseVerboseLogging) _log.Debug<ContentNodeDataProvider>("cache miss");
 			Stats.Miss();
 
 			PopulateCacheWithFieldListsForAllVersions(item);
@@ -222,11 +222,11 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.SitecoreItems
 			var fields = Cache.Lookup(item.Id, version);
 			if (fields != null)
 			{
-				if (UseVerboseLogging) _log.Log<ContentNodeDataProvider>("cache hit");
+				if (UseVerboseLogging) _log.Debug<ContentNodeDataProvider>("cache hit");
 				Stats.Hit();
 				return fields;
 			}
-			if (UseVerboseLogging) _log.Log<ContentNodeDataProvider>("cache hit");
+			if (UseVerboseLogging) _log.Debug<ContentNodeDataProvider>("cache hit");
 			Stats.Miss();
 
 			PopulateCacheWithFieldListsForAllVersions(item);
@@ -415,7 +415,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.SitecoreItems
 			HydrateNodeStructure(rootSiteCoreItem);
 
 			stopwatch.Stop();
-			_log.Log<ContentNodeDataProvider>(string.Format("ContentNodeDataProvider.Initialize(). {0} ms", stopwatch.ElapsedMilliseconds));
+			_log.Debug<ContentNodeDataProvider>(string.Format("ContentNodeDataProvider.Initialize(). {0} ms", stopwatch.ElapsedMilliseconds));
 		}
 
 		private void HydrateNodeStructure(ContentNodeSitecoreItem mainStoresNode)
@@ -507,7 +507,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.SitecoreItems
 			}
 
 			stopwatch.Stop();
-			_log.Log<ContentNodeDataProvider>(string.Format("Adding categories to cache took {0} ms.", stopwatch.ElapsedMilliseconds));
+			_log.Debug<ContentNodeDataProvider>(string.Format("Adding categories to cache took {0} ms.", stopwatch.ElapsedMilliseconds));
 		}
 
 		private void AddChildCategories(int categoryId, ContentNodeSitecoreItem categoryItem, Dictionary<int, List<CategoryTreeView>> lowerLevelCategories)
@@ -581,7 +581,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.SitecoreItems
 			if (item != null)
 			{
 				item.Database.Engines.DataEngine.RaiseSavedItem(item, true);
-				_log.Log<TemplateDataProvider>("Raised the SavedItem event for : " + id);
+				_log.Debug<TemplateDataProvider>("Raised the SavedItem event for : " + id);
 			}
 		}
 

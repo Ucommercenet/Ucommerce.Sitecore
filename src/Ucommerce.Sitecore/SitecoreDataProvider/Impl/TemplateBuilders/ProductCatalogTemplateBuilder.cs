@@ -41,7 +41,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.TemplateBuilders
 			if (catalog == null)
 			{
 				var message = string.Format("Product Catalog with id: {0} not found for ITreeNodeContent. ", node.ItemId);
-				_loggingService.Log<ProductCatalogTemplateBuilder>(message);
+				_loggingService.Debug<ProductCatalogTemplateBuilder>(message);
 				throw new InvalidDataException(message);
 			}
 
@@ -70,7 +70,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.TemplateBuilders
 			else if (fieldChange.Definition.Section.ID == FieldIds.Catalog.SectionAllowedPriceGroupsId)
 				UpdateAllowedPriceGroups(fieldChange, catalog);
 			else
-				_loggingService.Log<ProductCatalogTemplateBuilder>(
+				_loggingService.Debug<ProductCatalogTemplateBuilder>(
 					string.Format("Could not find property: {0} for product catalog: {1}.", fieldChange.Definition.Key, catalog.Name));
 		}
 
@@ -81,7 +81,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.TemplateBuilders
 			if (existingCatalog == null)
 				catalog.Name = fieldChange.Value;
 			else
-				_loggingService.Log<ProductCatalogTemplateBuilder>(string.Format("Catalog: {0} already exists, skipping update.", fieldChange.Value));
+				_loggingService.Debug<ProductCatalogTemplateBuilder>(string.Format("Catalog: {0} already exists, skipping update.", fieldChange.Value));
 		}
 
 		private void UpdateDisplayName(FieldChange fieldChange, ProductCatalog catalog)
@@ -101,7 +101,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.TemplateBuilders
 
 				if (priceGroup == null)
 				{
-					_loggingService.Log<ProductCatalogGroupTemplateBuilder>(
+					_loggingService.Debug<ProductCatalogGroupTemplateBuilder>(
 						string.Format("Failed to update price group for catalog. Could not find price group with guid: {0}.", id.Guid));
 					return;
 				}
@@ -109,7 +109,7 @@ namespace Ucommerce.Sitecore.SitecoreDataProvider.Impl.TemplateBuilders
 			}
 			else
 			{
-				_loggingService.Log<ProductCatalogGroupTemplateBuilder>(
+				_loggingService.Debug<ProductCatalogGroupTemplateBuilder>(
 					string.Format("Failed to update price group for catalog. Could not find Sitecore ID for price group with id: {0}.", fieldChange.Value));
 			}
 		}

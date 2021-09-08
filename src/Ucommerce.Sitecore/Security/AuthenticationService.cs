@@ -25,19 +25,19 @@ namespace Ucommerce.Sitecore.Security
 
 			if (user == null)
 			{
-				_loggingService.Log<AuthenticationService>("User is null, and can't be authenticated.");
+				_loggingService.Information<AuthenticationService>("User is null, and can't be authenticated.");
 				return false;
 			}
 
 			if (!user.IsAuthenticated)
 			{
-				_loggingService.Log<AuthenticationService>(string.Format("User with name: {0} is not authenticated.",user.GetLocalName()));
+				_loggingService.Information<AuthenticationService>(string.Format("User with name: {0} is not authenticated.",user.GetLocalName()));
 				return false;
 			}
 
 			if (user.IsAuthenticated && !DomainNameAllowed())
 			{
-				_loggingService.Log<AuthenticationService>(string.Format("User: {0} on domain: {1} does not match the configured domain for authentication to uCommerce: {2}", user.LocalName, user.GetDomainName(), _sitecoreContext.BackendDomainName));
+				_loggingService.Information<AuthenticationService>(string.Format("User: {0} on domain: {1} does not match the configured domain for authentication to uCommerce: {2}", user.LocalName, user.GetDomainName(), _sitecoreContext.BackendDomainName));
 				return false;
 			}
 

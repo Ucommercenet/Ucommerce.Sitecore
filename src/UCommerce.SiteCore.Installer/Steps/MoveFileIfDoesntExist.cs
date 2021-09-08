@@ -19,7 +19,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
 
 		public void Run(ITaskOutput output, NameValueCollection metaData)
 		{
-			_command.MoveIfDoesntExist(ex => new SitecoreInstallerLoggingService().Log<int>(ex));
+			_command.MoveIfDoesntExist(ex => new SitecoreInstallerLoggingService().Error<int>(ex));
 		}
 	}
 }
