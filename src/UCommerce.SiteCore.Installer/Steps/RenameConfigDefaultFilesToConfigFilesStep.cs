@@ -9,11 +9,13 @@ namespace Ucommerce.Sitecore.Installer.Steps
     public class RenameConfigDefaultFilesToConfigFilesStep : IPostStep
     {
         private readonly bool _backupTarget;
+        private readonly IInstallerLoggingService _installerLoggingService;
         private readonly ConfigFileRenamer _command;
 
-        public RenameConfigDefaultFilesToConfigFilesStep(string sourceVirtualPath, bool backupTarget)
+        public RenameConfigDefaultFilesToConfigFilesStep(string sourceVirtualPath, bool backupTarget, IInstallerLoggingService installerLoggingService)
         {
             _backupTarget = backupTarget;
+            _installerLoggingService = installerLoggingService;
 
             DirectoryInfo directoryInfo = new DirectoryInfo(HostingEnvironment.MapPath(sourceVirtualPath));
 
@@ -22,7 +24,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
 
         public void Run(ITaskOutput output, NameValueCollection metaData)
         {
-            _command.Rename(_backupTarget, ex => new SitecoreInstallerLoggingService().Error<int>(ex));
+            _command.Rename(_backupTarget, ex => _installerLoggingService.Error<RenameConfigDefaultFilesToConfigFilesStep>(ex));
         }
     }
 }

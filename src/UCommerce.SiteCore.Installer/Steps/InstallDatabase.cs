@@ -11,13 +11,11 @@ namespace Ucommerce.Sitecore.Installer.Steps
 	{
 		private readonly DbInstaller _command;
 
-		public InstallDatabase(string migrationsPath)
+		public InstallDatabase(string migrationsPath, IInstallerLoggingService logging)
 		{
 			var migrationsDirectory = new DirectoryInfo(HostingEnvironment.MapPath(migrationsPath));
 			IList<Migration> migrations = new MigrationLoader()
 				.GetDatabaseMigrations(migrationsDirectory);
-
-			IInstallerLoggingService logging = new SitecoreInstallerLoggingService();
 
 			InstallationConnectionStringLocator locator = new SitecoreInstallationConnectionStringLocator();
 

@@ -10,15 +10,21 @@ using Ucommerce.Installer;
 namespace Ucommerce.Sitecore.Installer.Steps
 {
 	public class AddTitleToCommerceSpeakAppsSection : IPostStep
-	{
-		public void Run(ITaskOutput output, NameValueCollection metaData)
+    {
+        private readonly IInstallerLoggingService _loggingService;
+
+        public AddTitleToCommerceSpeakAppsSection(IInstallerLoggingService loggingService)
+        {
+            _loggingService = loggingService;
+        }
+
+        public void Run(ITaskOutput output, NameValueCollection metaData)
 		{
-			IInstallerLoggingService logging = new SitecoreInstallerLoggingService();
-			logging.Information<CreateSpeakApplications>("AddTitleToCommerceSpeakAppsSection started.");
+            _loggingService.Information<CreateSpeakApplications>("AddTitleToCommerceSpeakAppsSection started.");
 
 			Parse(new DirectoryInfo(GetRootFolder()));
 
-			logging.Information<CreateSpeakApplications>("AddTitleToCommerceSpeakAppsSection finished.");
+            _loggingService.Information<CreateSpeakApplications>("AddTitleToCommerceSpeakAppsSection finished.");
 		}
 
 		private void Parse(DirectoryInfo directoryInfo)

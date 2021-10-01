@@ -14,13 +14,19 @@ namespace Ucommerce.Sitecore.Installer.Steps
     /// </summary>
     public class CreateSpeakApplications : IPostStep
     {
+        private readonly IInstallerLoggingService _loggingService;
+
+        public CreateSpeakApplications(IInstallerLoggingService loggingService)
+        {
+            _loggingService = loggingService;
+        }
+
         public void Run(ITaskOutput output, NameValueCollection metaData)
         {
-            IInstallerLoggingService logging = new SitecoreInstallerLoggingService();
-            logging.Information<CreateSpeakApplications>("CreateSpeakApplications started.");
+            _loggingService.Information<CreateSpeakApplications>("CreateSpeakApplications started.");
 
             var rootFolder = GetRootFolder();
-            logging.Information<CreateSpeakApplications>(string.Format("RootFolder: {0}", rootFolder));
+            _loggingService.Information<CreateSpeakApplications>($"RootFolder: {rootFolder}");
             var directoryOrder = new[]
                         {
                             "templates", "client", "layout"
@@ -30,7 +36,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
             {
                 Parse(new DirectoryInfo(Path.Combine(rootFolder, directory)));
             }
-            logging.Information<CreateSpeakApplications>("CreateSpeakApplications finished.");
+            _loggingService.Information<CreateSpeakApplications>("CreateSpeakApplications finished.");
         }
 
         private void Parse(DirectoryInfo directoryInfo)

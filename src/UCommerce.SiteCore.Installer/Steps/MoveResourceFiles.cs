@@ -1,14 +1,22 @@
 ﻿using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Linq;
 using Sitecore.Install.Framework;
+using Ucommerce.Installer;
 
 namespace Ucommerce.Sitecore.Installer.Steps
 {
     public class MoveResourceFiles : IPostStep
     {
+        private readonly IInstallerLoggingService _loggingService;
+
+        public MoveResourceFiles(IInstallerLoggingService loggingService)
+        {
+            _loggingService = loggingService;
+        }
+
         public void Run(ITaskOutput output, NameValueCollection metaData)
         {
-            var postInstallationSteps = new List<IPostStep>();
             var files = new string[]
             {
                 "Admin.da.resx",
@@ -44,10 +52,9 @@ namespace Ucommerce.Sitecore.Installer.Steps
                 "CatalogSearch.resx",
             };
 
-            foreach (var file in files)
-            {
-                postInstallationSteps.Add(new MoveFile(string.Format("~/bin/uCommerce/App_GlobalResources/{0}", file), string.Format("~/App_GlobalResources/{0}", file), false));
-            }
+            var postInstallationSteps = files.Select(file => new MoveFile($"~/bin/uCommerce/App_GlobalResources/{file}", $"~/App_GlobalResources/{file}", false, _loggingService))
+                                             .Cast<IPostStep>()
+                                             .ToList();
 
             foreach (var postInstallationStep in postInstallationSteps)
             {

@@ -7,11 +7,11 @@ namespace Ucommerce.Sitecore.Installer.Steps
 {
     public class SitecoreWebconfigMerger : IPostStep
     {
-        private readonly SitecoreVersionChecker _sitecoreVersionChecker;
+        private readonly IInstallerLoggingService _loggingService;
 
-        public SitecoreWebconfigMerger(SitecoreVersionChecker sitecoreVersionChecker)
+        public SitecoreWebconfigMerger(IInstallerLoggingService loggingService)
         {
-            _sitecoreVersionChecker = sitecoreVersionChecker;
+            _loggingService = loggingService;
         }
         public void Run(ITaskOutput output, NameValueCollection metaData)
         {
@@ -25,7 +25,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
                     new Transformation("~/sitecore modules/Shell/ucommerce/install/sitecore.config"),
                     new Transformation("~/sitecore modules/Shell/ucommerce/install/ClientDependency.config"),
                     new Transformation("~/sitecore modules/Shell/ucommerce/install/updateAssemblyBinding.config")
-                }
+                }, _loggingService
             );
 
             mergeConfig.Run(output, metaData);

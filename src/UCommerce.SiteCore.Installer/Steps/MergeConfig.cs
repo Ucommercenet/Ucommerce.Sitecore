@@ -9,12 +9,14 @@ namespace Ucommerce.Sitecore.Installer.Steps
 {
 	public class MergeConfig : MergeConfigKeepingConnectionStringValue, IPostStep
 	{
-		private readonly FileInfo _toBeTransformed;
+        private readonly IInstallerLoggingService _logging;
+        private readonly FileInfo _toBeTransformed;
 	    public IList<Transformation> Transformations { get; set; }
 
-        public MergeConfig(string configurationVirtualPath, IList<Transformation> transformations)
+        public MergeConfig(string configurationVirtualPath, IList<Transformation> transformations, IInstallerLoggingService logging)
 		{
-			InitializeTargetDocumentPath(configurationVirtualPath);
+            _logging = logging;
+            InitializeTargetDocumentPath(configurationVirtualPath);
 		    Transformations = transformations;
 			_toBeTransformed = new FileInfo(HostingEnvironment.MapPath(configurationVirtualPath));
 		}
@@ -31,7 +33,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
 					transformer.Transform(
 						new FileInfo(HostingEnvironment.MapPath(transformation.VirtualPath)),
 						transformation.OnlyIfIisIntegrated,
-						ex => new SitecoreInstallerLoggingService().Error<int>(ex));
+						ex => _logging.Error<MergeConfig>(ex));
 				}
 			}
 

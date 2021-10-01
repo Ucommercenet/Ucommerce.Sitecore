@@ -8,17 +8,19 @@ namespace Ucommerce.Sitecore.Installer.Steps
 {
 	public class DeleteFile : IPostStep
 	{
-		private readonly FileDeleter _command;
+        private readonly IInstallerLoggingService _logging;
+        private readonly FileDeleter _command;
 
-		public DeleteFile(string filePath)
+		public DeleteFile(string filePath, IInstallerLoggingService logging)
 		{
-			var filePathInfo = new FileInfo(HostingEnvironment.MapPath(filePath));
+            _logging = logging;
+            var filePathInfo = new FileInfo(HostingEnvironment.MapPath(filePath));
 			_command = new FileDeleter(filePathInfo);
 		}
 
 		public void Run(ITaskOutput output, NameValueCollection metaData)
 		{
-			_command.Delete(ex => new SitecoreInstallerLoggingService().Error<int>(ex));
+			_command.Delete(ex => _logging.Error<DeleteFile>(ex));
 		}
 	}
 }

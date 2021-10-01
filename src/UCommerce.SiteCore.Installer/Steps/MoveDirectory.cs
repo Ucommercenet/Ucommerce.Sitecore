@@ -14,13 +14,15 @@ namespace Ucommerce.Sitecore.Installer.Steps
 		private readonly string _sourceDirectory;
 		private readonly string _targetDirectory;
 		private readonly bool _overwriteTarget;
+        private readonly IInstallerLoggingService _loggingService;
 
-		public MoveDirectory(string sourceDirectory, string targetDirectory, bool overwriteTarget)
+        public MoveDirectory(string sourceDirectory, string targetDirectory, bool overwriteTarget, IInstallerLoggingService loggingService)
 		{
 			_sourceDirectory = sourceDirectory;
 			_targetDirectory = targetDirectory;
 			_overwriteTarget = overwriteTarget;
-		}
+            _loggingService = loggingService;
+        }
 
 		public void Run(ITaskOutput output, NameValueCollection metaData)
 		{
@@ -28,7 +30,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
 				new DirectoryInfo(HostingEnvironment.MapPath(_sourceDirectory)),
 				new DirectoryInfo(HostingEnvironment.MapPath(_targetDirectory)),
 				_overwriteTarget).Move(
-				ex => new SitecoreInstallerLoggingService().Error<int>(ex));
+				ex => _loggingService.Error<MoveDirectory>(ex));
 		}
 	}
 }

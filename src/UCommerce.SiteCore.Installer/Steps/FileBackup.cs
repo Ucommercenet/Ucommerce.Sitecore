@@ -2,23 +2,26 @@
 using System.IO;
 using System.Web.Hosting;
 using Sitecore.Install.Framework;
+using Ucommerce.Installer;
 
 namespace Ucommerce.Sitecore.Installer.Steps
 {
 	public class FileBackup : IPostStep
 	{
-		private Ucommerce.Installer.FileBackup _command;
+        private readonly IInstallerLoggingService _logging;
+        private Ucommerce.Installer.FileBackup _command;
 
-		public FileBackup(string sourceVirtualPath)
+		public FileBackup(string sourceVirtualPath, IInstallerLoggingService logging)
 		{
-			var source = new FileInfo(HostingEnvironment.MapPath(sourceVirtualPath));
+            _logging = logging;
+            var source = new FileInfo(HostingEnvironment.MapPath(sourceVirtualPath));
 
 			_command = new Ucommerce.Installer.FileBackup(source);
 		}
 
 		public void Run(ITaskOutput output, NameValueCollection metaData)
 		{
-			_command.Backup(ex => new SitecoreInstallerLoggingService().Error<int>(ex));
+			_command.Backup(ex => _logging.Error<FileBackup>(ex));
 		}
 	}
 }

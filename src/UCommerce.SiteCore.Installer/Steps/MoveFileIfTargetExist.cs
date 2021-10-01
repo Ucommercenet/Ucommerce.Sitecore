@@ -9,20 +9,22 @@ namespace Ucommerce.Sitecore.Installer.Steps
 	public class MoveFileIfTargetExist : IPostStep
 	{
 		private readonly bool _backupTarget;
-		private readonly FileMoverIfTargetExist _command;
+        private readonly IInstallerLoggingService _loggingService;
+        private readonly FileMoverIfTargetExist _command;
 
-		public MoveFileIfTargetExist(string sourceVirtualPath, string targetVirtualPath, bool backupTarget)
+		public MoveFileIfTargetExist(string sourceVirtualPath, string targetVirtualPath, bool backupTarget, IInstallerLoggingService loggingService)
 		{
 			_backupTarget = backupTarget;
-			FileInfo source = new FileInfo(HostingEnvironment.MapPath(sourceVirtualPath)),
-				target = new FileInfo(HostingEnvironment.MapPath(targetVirtualPath));
+            _loggingService = loggingService;
+            FileInfo source = new FileInfo(HostingEnvironment.MapPath(sourceVirtualPath)),
+                     target = new FileInfo(HostingEnvironment.MapPath(targetVirtualPath));
 
 			_command = new FileMoverIfTargetExist(source, target);
 		}
 
 		public void Run(ITaskOutput output, NameValueCollection metaData)
 		{
-			_command.MoveIfTargetExist(_backupTarget, ex => new SitecoreInstallerLoggingService().Error<int>(ex));
+			_command.MoveIfTargetExist(_backupTarget, ex => _loggingService.Error<MoveFileIfTargetExist>(ex));
 		}
 	}
 }
