@@ -122,8 +122,12 @@ namespace Ucommerce.Sitecore.Installer
             _postInstallationSteps.Add(new MoveDirectoryIfTargetExist(
                 $"{virtualAppsPath}/Acquire and Cancel Payments.disabled",
                 $"{virtualAppsPath}/Acquire and Cancel Payments"));
-            SearchProviderCleanup(virtualAppsPath);
+           // Set up search providers
             ToggleActiveSearchProvider(virtualAppsPath);
+
+            // Clean lucene from disk
+            SearchProviderCleanup("~/sitecore modules/Shell/uCommerce/Apps");
+
             //Create back up and remove old files
             RemovedRenamedPipelines();
 
@@ -152,24 +156,24 @@ namespace Ucommerce.Sitecore.Installer
 
         private void ToggleActiveSearchProvider(string virtualAppsPath)
         {
+            var luceneAppFolderPath = HostingEnvironment.MapPath($"{virtualAppsPath}/Ucommerce.Search.Lucene");
+            var luceneAppDisaledFolderPath = HostingEnvironment.MapPath($"{virtualAppsPath}/Ucommerce.Search.Lucene.disabled");
+            var elasticAppFolderPath = HostingEnvironment.MapPath($"{virtualAppsPath}/Ucommerce.Search.ElasticSearch");
+            var elasticAppDisabledFolderPath = HostingEnvironment.MapPath($"{virtualAppsPath}/Ucommerce.Search.ElasticSearch.disabled");
+
             // If Elastic is enabled, replace the app, and make sure Lucene is then disabled.
-            if (Directory.Exists(HostingEnvironment.MapPath($"{virtualAppsPath}/Ucommerce.Search.ElasticSearch")))
+            if (Directory.Exists(elasticAppFolderPath))
             {
                 new DirectoryMoverIfTargetExist(
-                        new DirectoryInfo(HostingEnvironment.MapPath($"{virtualAppsPath}/Ucommerce.Search.ElasticSearch.disabled")),
-                        new DirectoryInfo(HostingEnvironment.MapPath($"{virtualAppsPath}/Ucommerce.Search.ElasticSearch")))
+                        new DirectoryInfo(elasticAppDisabledFolderPath),
+                        new DirectoryInfo(elasticAppFolderPath))
                     .Move(null);
 
                 new DirectoryMover(
-                        new DirectoryInfo(HostingEnvironment.MapPath($"{virtualAppsPath}/Ucommerce.Search.Lucene")),
-                        new DirectoryInfo(HostingEnvironment.MapPath($"{virtualAppsPath}/Ucommerce.Search.Lucene.disabled")), true)
+                        new DirectoryInfo(luceneAppFolderPath),
+                        new DirectoryInfo(luceneAppDisaledFolderPath), true)
                     .Move(null);
             }
-
-            new DirectoryMoverIfTargetExist(
-                    new DirectoryInfo(HostingEnvironment.MapPath($"{virtualAppsPath}/Ucommerce.Search.Lucene")),
-                    new DirectoryInfo(HostingEnvironment.MapPath($"{virtualAppsPath}/Ucommerce.Search.Lucene.disabled")))
-                .Move(null);
         }
 
         private void ComposePipelineConfiguration()
