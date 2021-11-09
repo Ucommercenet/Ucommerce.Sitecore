@@ -67,7 +67,7 @@ partial class Build : NukeBuild
         .Executes(() =>
         {
             UcommerceNugetSource.GlobFiles("*").ForEach(path => Logger.Info(path));
-            NuGetTasks.NuGet($"update {Solution.Path} -Id Ucommerce.Core -Id Ucommerce -Id Ucommerce.Client.WebForms -source {UcommerceNugetSource} -source nuget.org");
+            NuGetTasks.NuGet($"update {Solution.Path} -Id Ucommerce.Core -Id Ucommerce -Id Ucommerce.Client.WebForms -source {UcommerceNugetSource} -source nuget.org -Prerelease");
         });
 
     // ReSharper disable once UnusedMember.Local
