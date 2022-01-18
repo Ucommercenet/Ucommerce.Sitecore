@@ -95,11 +95,6 @@ namespace Ucommerce.Sitecore.Installer.Steps
                 "~/bin/Ucommerce.SqlMultiReaderConnector.dll",
                 backupTarget: false));
             
-            _postInstallationSteps.Add(new MoveFile(
-                "~/bin/ucommerce/System.Runtime.CompilerServices.Unsafe.dll",
-                "~/bin/System.Runtime.CompilerServices.Unsafe.dll",
-                backupTarget: false));
-
             foreach (var postInstallationStep in _postInstallationSteps)
             {
                 postInstallationStep.Run(output, metaData);
