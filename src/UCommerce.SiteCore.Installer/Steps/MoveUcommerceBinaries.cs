@@ -94,7 +94,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
                 "~/bin/ucommerce/Ucommerce.SqlMultiReaderConnector.dll",
                 "~/bin/Ucommerce.SqlMultiReaderConnector.dll",
                 backupTarget: false));
-
+            
             foreach (var postInstallationStep in _postInstallationSteps)
             {
                 postInstallationStep.Run(output, metaData);

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.IO;
+using System.Linq;
 using System.Web.Hosting;
 using Sitecore.Install.Framework;
 using Ucommerce.Installer;
@@ -103,7 +104,7 @@ namespace Ucommerce.Sitecore.Installer
             // Enable Sanitization app
             _postInstallationSteps.Add(new MoveDirectory($"{virtualAppsPath}/Sanitization.disabled", $"{virtualAppsPath}/Sanitization", true));
             _postInstallationSteps.Add(new DeleteFile($"{virtualAppsPath}/Sanitization/bin/AngleSharp.dll"));
-            _postInstallationSteps.Add(new DeleteFile($"{virtualAppsPath}/Sanitization/bin/AngleSharp.dll"));
+            _postInstallationSteps.Add(new DeleteFile($"{virtualAppsPath}/Sanitization/bin/HtmlSanitizer.dll"));
 
             //Clean up unused configuration since payment integration has move to apps
             _postInstallationSteps.Add(
@@ -136,6 +137,10 @@ namespace Ucommerce.Sitecore.Installer
 
             // Move sitecore config includes into the right path
             ComposeMoveSitecoreConfigIncludes(sitecoreVersionChecker);
+            
+            // Clean up System.Collections.Immutable.dll in Lucene App since it is no longer used
+            _postInstallationSteps.Add(new DeleteFile($"{virtualAppsPath}/Ucommerce.Search.Lucene/bin/System.Collections.Immutable.dll"));
+            _postInstallationSteps.Add(new DeleteFile($"{virtualAppsPath}/Ucommerce.Search.Lucene.disabled/bin/System.Collections.Immutable.dll"));
         }
 
         private void SearchProviderCleanup(string virtualAppsPath)

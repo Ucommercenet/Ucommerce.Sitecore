@@ -37,3 +37,6 @@ lib/*SiteCore*
 lib/Sitecore*
 lib/9.2
 lib/9.3
+
+.nuke/temp/
+artifacts/

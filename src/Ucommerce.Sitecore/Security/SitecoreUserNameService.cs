@@ -9,7 +9,7 @@ namespace Ucommerce.Sitecore.Security
         {
             get
             {
-                return AuthenticationManager.GetActiveUser().LocalName;
+                return AuthenticationManager.GetActiveUser()?.LocalName;
             }
         }
     }
