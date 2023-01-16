@@ -495,11 +495,6 @@ namespace Ucommerce.Sitecore.Installer
                 "~/sitecore modules/Shell/ucommerce/install/configInclude/Sitecore.uCommerce.Log4net.config",
                 "~/App_Config/include/Sitecore.uCommerce.Log4net.config",
                 backupTarget: true));
-
-            _postInstallationSteps.Add(new MoveFile(
-                "~/sitecore modules/Shell/ucommerce/install/configInclude/Sitecore.uCommerce.IgnoreUrlPrefixes.config",
-                "~/App_Config/include/Sitecore.uCommerce.IgnoreUrlPrefixes.config",
-                backupTarget: true));
         }
 
         public void Run(ITaskOutput output, NameValueCollection metaData)
