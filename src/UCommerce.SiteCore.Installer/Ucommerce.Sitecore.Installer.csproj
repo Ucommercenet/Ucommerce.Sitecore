@@ -281,9 +281,6 @@
     </None>
     <None Include="ConfigurationTransformations\ConfigIncludes\Sitecore.uCommerce.Dataproviders.config" />
     <None Include="ConfigurationTransformations\ConfigIncludes\Sitecore.uCommerce.Events.config" />
-    <None Include="ConfigurationTransformations\ConfigIncludes\Sitecore.uCommerce.IgnoreUrlPrefixes.config">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="ConfigurationTransformations\ConfigIncludes\Sitecore.uCommerce.Pipelines.HttpRequestBegin.9.3.config" />
     <None Include="ConfigurationTransformations\ConfigIncludes\Sitecore.uCommerce.Pipelines.PreProcessRequest.9.1.config" />
     <None Include="ConfigurationTransformations\ConfigIncludes\Sitecore.uCommerce.WebApiConfiguration.config.disabled">
