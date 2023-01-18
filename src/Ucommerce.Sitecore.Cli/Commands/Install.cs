@@ -2,6 +2,7 @@
 using CliFx;
 using CliFx.Attributes;
 using CliFx.Infrastructure;
+using Ucommerce.Sitecore.Installer.Steps;
 
 namespace Ucommerce.Sitecore.Cli.Commands
 {
@@ -23,8 +24,9 @@ namespace Ucommerce.Sitecore.Cli.Commands
         public virtual ValueTask ExecuteAsync(IConsole console)
         {
             console.Output.WriteLine("Installing..");
-            if (BackupDatabase) console.Output.WriteLine("Backing up database..");
-            if (UpgradeDatabase) console.Output.WriteLine("Upgrading database..");
+
+            var installStep = new InstallStep(ConnectionString, SitecorePath, BackupDatabase, UpgradeDatabase);
+            installStep.Run();
 
             return default;
         }
