@@ -220,6 +220,7 @@
     <Compile Include="Steps\CreateSpeakApplicationIfSupported.cs" />
     <Compile Include="Steps\DeleteDirectory.cs" />
     <Compile Include="Steps\EnableSitecoreCompatibilityApp.cs" />
+    <Compile Include="Steps\InstallStep.cs" />
     <Compile Include="Steps\IStep.cs" />
     <Compile Include="Steps\MoveResourceFiles.cs" />
     <Compile Include="Steps\MoveUcommerceBinaries.cs" />
