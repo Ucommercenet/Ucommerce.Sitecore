@@ -11,7 +11,7 @@ namespace Ucommerce.Sitecore.Cli.Commands
         [CommandParameter(0, Description = "Connection string for the database.")]
         public string ConnectionString { get; set; }
 
-        [CommandParameter(1, Description = "Path to sitecore.")]
+        [CommandParameter(1, Description = "Path to Sitecore.")]
         public string SitecorePath { get; set; }
 
         [CommandOption("backupdb", 'b', Description = "Do a backup of the current database.")]
