@@ -2,15 +2,11 @@
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.IO;
-using System.Linq;
 using System.Web.Hosting;
 using Sitecore.Install.Framework;
 using Ucommerce.Installer;
 using Ucommerce.Sitecore.Installer.Steps;
-using DeleteFile = Ucommerce.Sitecore.Installer.Steps.DeleteFile;
 using FileBackup = Ucommerce.Sitecore.Installer.Steps.FileBackup;
-using UpdateUCommerceAssemblyVersionInDatabase =
-    Ucommerce.Sitecore.Installer.Steps.UpdateUCommerceAssemblyVersionInDatabase;
 
 namespace Ucommerce.Sitecore.Installer
 {
@@ -19,32 +15,27 @@ namespace Ucommerce.Sitecore.Installer
         private readonly IList<IPostStep> _postInstallationSteps;
 
         /// <summary>
-        /// The uCommerce post installation step.
+        ///     The uCommerce post installation step.
         /// </summary>
         /// <remarks>
-        /// There is a race condition between upgrading the database and upgrading the binaries. :-(
-        ///
-        /// Upgrade the database first, and the old binaries might not work with the new database.
-        /// Upgrade the binaries first, and the new binaries might not work with the old database.
-        ///
-        /// We have one observation indicating a failed installation because the new binaries was
-        /// activated before the database scripts were done, resulting in a broken system.
-        ///
-        /// The problem is probably going to grow, as more database migrations are added.
-        ///
-        /// We have chosen to upgrade the database first.
-        /// This is because the database upgrade takes a long time in the clean scenario, but is
-        /// relatively faster in upgrade scenarios.
-        ///
-        /// So for clean installs there are no old binaries, so the race condition is void.
-        /// - Jesper
+        ///     There is a race condition between upgrading the database and upgrading the binaries. :-(
+        ///     Upgrade the database first, and the old binaries might not work with the new database.
+        ///     Upgrade the binaries first, and the new binaries might not work with the old database.
+        ///     We have one observation indicating a failed installation because the new binaries was
+        ///     activated before the database scripts were done, resulting in a broken system.
+        ///     The problem is probably going to grow, as more database migrations are added.
+        ///     We have chosen to upgrade the database first.
+        ///     This is because the database upgrade takes a long time in the clean scenario, but is
+        ///     relatively faster in upgrade scenarios.
+        ///     So for clean installs there are no old binaries, so the race condition is void.
+        ///     - Jesper
         /// </remarks>
         public PostInstallationStep()
         {
             var sitecoreInstallerLoggingService = new SitecoreInstallerLoggingService();
             IDatabaseAvailabilityService sitefinityDatabaseAvailabilityService =
                 new SitecoreDatabaseAvailabilityService();
-            var installationConnectionStringLocator = new SitecoreInstallationConnectionStringLocator();
+            var installationConnectionStringLocator = new SitecoreInstallationConnectionStringLocator("");
             var runtimeVersionChecker =
                 new RuntimeVersionChecker(installationConnectionStringLocator, sitecoreInstallerLoggingService);
             var updateService = new UpdateService(installationConnectionStringLocator, runtimeVersionChecker,
@@ -61,13 +52,13 @@ namespace Ucommerce.Sitecore.Installer
             _postInstallationSteps.Add(new UpdateUCommerceAssemblyVersionInDatabase(updateService,
                 runtimeVersionChecker, sitecoreInstallerLoggingService));
 
-            _postInstallationSteps.Add(new CopyFile(sourceVirtualPath: "~/web.config",
-                targetVirtualPath: "~/web.config.{DateTime.Now.Ticks}.backup"));
+            _postInstallationSteps.Add(new CopyFile("~/web.config",
+                "~/web.config.{DateTime.Now.Ticks}.backup"));
             _postInstallationSteps.Add(new SitecoreWebconfigMerger(sitecoreVersionChecker));
             _postInstallationSteps.Add(new SeperateConfigSectionInNewFile("configuration/sitecore/settings",
                 "~/web.config", "~/App_Config/Include/.Sitecore.Settings.config"));
             _postInstallationSteps.Add(new MoveDirectory("~/sitecore modules/shell/ucommerce/install/binaries",
-                "~/bin/uCommerce", overwriteTarget: true));
+                "~/bin/uCommerce", true));
 
             _postInstallationSteps.Add(new DeleteFile("~/bin/ucommerce/Ucommerce.Installer.dll"));
 
@@ -102,7 +93,8 @@ namespace Ucommerce.Sitecore.Installer
                 new DeleteDirectory($"{virtualAppsPath}/Widgets/CatalogSearch.disabled"));
 
             // Enable Sanitization app
-            _postInstallationSteps.Add(new MoveDirectory($"{virtualAppsPath}/Sanitization.disabled", $"{virtualAppsPath}/Sanitization", true));
+            _postInstallationSteps.Add(new MoveDirectory($"{virtualAppsPath}/Sanitization.disabled",
+                $"{virtualAppsPath}/Sanitization", true));
             _postInstallationSteps.Add(new DeleteFile($"{virtualAppsPath}/Sanitization/bin/AngleSharp.dll"));
             _postInstallationSteps.Add(new DeleteFile($"{virtualAppsPath}/Sanitization/bin/HtmlSanitizer.dll"));
 
@@ -123,7 +115,7 @@ namespace Ucommerce.Sitecore.Installer
             _postInstallationSteps.Add(new MoveDirectoryIfTargetExist(
                 $"{virtualAppsPath}/Acquire and Cancel Payments.disabled",
                 $"{virtualAppsPath}/Acquire and Cancel Payments"));
-           // Set up search providers
+            // Set up search providers
             ToggleActiveSearchProvider(virtualAppsPath);
 
             // Clean lucene from disk
@@ -137,34 +129,55 @@ namespace Ucommerce.Sitecore.Installer
 
             // Move sitecore config includes into the right path
             ComposeMoveSitecoreConfigIncludes(sitecoreVersionChecker);
-            
+
             // Clean up System.Collections.Immutable.dll in Lucene App since it is no longer used
-            _postInstallationSteps.Add(new DeleteFile($"{virtualAppsPath}/Ucommerce.Search.Lucene/bin/System.Collections.Immutable.dll"));
-            _postInstallationSteps.Add(new DeleteFile($"{virtualAppsPath}/Ucommerce.Search.Lucene.disabled/bin/System.Collections.Immutable.dll"));
+            _postInstallationSteps.Add(
+                new DeleteFile($"{virtualAppsPath}/Ucommerce.Search.Lucene/bin/System.Collections.Immutable.dll"));
+            _postInstallationSteps.Add(new DeleteFile(
+                $"{virtualAppsPath}/Ucommerce.Search.Lucene.disabled/bin/System.Collections.Immutable.dll"));
+        }
+
+        public void Run(ITaskOutput output, NameValueCollection metaData)
+        {
+            foreach (var step in _postInstallationSteps)
+            {
+                IInstallerLoggingService logging = new SitecoreInstallerLoggingService();
+
+                try
+                {
+                    step.Run(output, metaData);
+                    logging.Information<PostInstallationStep>($"Executed: {step.GetType().FullName}");
+                }
+                catch (Exception ex)
+                {
+                    logging.Error<PostInstallationStep>(ex, step.GetType().FullName);
+
+                    throw;
+                }
+            }
         }
 
         private void SearchProviderCleanup(string virtualAppsPath)
         {
-            var luceneIndexesFolderPath = HostingEnvironment.MapPath($"{virtualAppsPath}/Ucommerce.Search.Lucene/Configuration/Indexes");
-            var luceneIndexesFolderPathDisabled = HostingEnvironment.MapPath($"{virtualAppsPath}/Ucommerce.Search.Lucene.disabled/Configuration/Indexes");
+            var luceneIndexesFolderPath =
+                HostingEnvironment.MapPath($"{virtualAppsPath}/Ucommerce.Search.Lucene/Configuration/Indexes");
+            var luceneIndexesFolderPathDisabled =
+                HostingEnvironment.MapPath($"{virtualAppsPath}/Ucommerce.Search.Lucene.disabled/Configuration/Indexes");
 
-            if (Directory.Exists(luceneIndexesFolderPath))
-            {
-                Directory.Delete(luceneIndexesFolderPath, true);
-            }
+            if (Directory.Exists(luceneIndexesFolderPath)) Directory.Delete(luceneIndexesFolderPath, true);
 
             if (Directory.Exists(luceneIndexesFolderPathDisabled))
-            {
                 Directory.Delete(luceneIndexesFolderPathDisabled, true);
-            }
         }
 
         private void ToggleActiveSearchProvider(string virtualAppsPath)
         {
             var luceneAppFolderPath = HostingEnvironment.MapPath($"{virtualAppsPath}/Ucommerce.Search.Lucene");
-            var luceneAppDisaledFolderPath = HostingEnvironment.MapPath($"{virtualAppsPath}/Ucommerce.Search.Lucene.disabled");
+            var luceneAppDisaledFolderPath =
+                HostingEnvironment.MapPath($"{virtualAppsPath}/Ucommerce.Search.Lucene.disabled");
             var elasticAppFolderPath = HostingEnvironment.MapPath($"{virtualAppsPath}/Ucommerce.Search.ElasticSearch");
-            var elasticAppDisabledFolderPath = HostingEnvironment.MapPath($"{virtualAppsPath}/Ucommerce.Search.ElasticSearch.disabled");
+            var elasticAppDisabledFolderPath =
+                HostingEnvironment.MapPath($"{virtualAppsPath}/Ucommerce.Search.ElasticSearch.disabled");
 
             // If Elastic is enabled, replace the app, and make sure Lucene is then disabled.
             if (Directory.Exists(elasticAppFolderPath))
@@ -411,110 +424,80 @@ namespace Ucommerce.Sitecore.Installer
             _postInstallationSteps.Add(new MoveFile(
                 "~/sitecore modules/Shell/ucommerce/install/configInclude/Sitecore.uCommerce.Databases.config",
                 "~/App_Config/include/Sitecore.uCommerce.Databases.config",
-                backupTarget: true));
+                true));
 
             _postInstallationSteps.Add(new MoveFile(
                 "~/sitecore modules/Shell/ucommerce/install/configInclude/Sitecore.uCommerce.Dataproviders.config",
                 "~/App_Config/include/Sitecore.uCommerce.Dataproviders.config",
-                backupTarget: true));
+                true));
 
             _postInstallationSteps.Add(new MoveFile(
                 "~/sitecore modules/Shell/ucommerce/install/configInclude/Sitecore.uCommerce.Events.config",
                 "~/App_Config/include/Sitecore.uCommerce.Events.config",
-                backupTarget: true));
+                true));
 
             _postInstallationSteps.Add(new MoveFile(
                 "~/sitecore modules/Shell/ucommerce/install/configInclude/Sitecore.uCommerce.Sites.config",
                 "~/App_Config/include/Sitecore.uCommerce.Sites.config",
-                backupTarget: true));
+                true));
 
             _postInstallationSteps.Add(new MoveFile(
                 "~/sitecore modules/Shell/ucommerce/install/configInclude/Sitecore.uCommerce.Pipelines.getItemPersonalizationVisibility.config",
                 "~/App_Config/include/Sitecore.uCommerce.Pipelines.getItemPersonalizationVisibility.config",
-                backupTarget: true));
+                true));
 
             if (versionChecker.IsEqualOrGreaterThan(new Version(9, 3)))
-            {
                 _postInstallationSteps.Add(new MoveFile(
                     "~/sitecore modules/Shell/ucommerce/install/configInclude/Sitecore.uCommerce.Pipelines.HttpRequestBegin.9.3.config",
                     "~/App_Config/include/Sitecore.uCommerce.Pipelines.HttpRequestBegin.config",
-                    backupTarget: true));
-            }
+                    true));
             else
-            {
                 _postInstallationSteps.Add(new MoveFile(
                     "~/sitecore modules/Shell/ucommerce/install/configInclude/Sitecore.uCommerce.Pipelines.HttpRequestBegin.config",
                     "~/App_Config/include/Sitecore.uCommerce.Pipelines.HttpRequestBegin.config",
-                    backupTarget: true));
-            }
+                    true));
 
             if (versionChecker.IsEqualOrGreaterThan(new Version(9, 1)))
-            {
                 _postInstallationSteps.Add(new MoveFile(
                     "~/sitecore modules/Shell/ucommerce/install/configInclude/Sitecore.uCommerce.Pipelines.PreProcessRequest.9.1.config",
                     "~/App_Config/include/Sitecore.uCommerce.Pipelines.PreProcessRequest.config",
-                    backupTarget: true));
-            }
+                    true));
             else
-            {
                 _postInstallationSteps.Add(new MoveFile(
                     "~/sitecore modules/Shell/ucommerce/install/configInclude/Sitecore.uCommerce.Pipelines.PreProcessRequest.config",
                     "~/App_Config/include/Sitecore.uCommerce.Pipelines.PreProcessRequest.config",
-                    backupTarget: true));
-            }
+                    true));
 
             _postInstallationSteps.Add(new MoveFile(
                 "~/sitecore modules/Shell/ucommerce/install/configInclude/Sitecore.uCommerce.Settings.config",
                 "~/App_Config/include/Sitecore.uCommerce.Settings.config",
-                backupTarget: true));
+                true));
 
             _postInstallationSteps.Add(new MoveFile(
                 "~/sitecore modules/Shell/ucommerce/install/configInclude/Sitecore.uCommerce.Pipelines.ModifyPipelines.config.disabled",
                 "~/App_Config/include/Sitecore.uCommerce.Pipelines.ModifyPipelines.config.disabled",
-                backupTarget: true));
+                true));
 
             _postInstallationSteps.Add(new MoveFileIfTargetExist(
                 "~/App_Config/include/Sitecore.uCommerce.Pipelines.ModifyPipelines.config.disabled",
                 "~/App_Config/include/Sitecore.uCommerce.Pipelines.ModifyPipelines.config",
-                backupTarget: true));
+                true));
 
             if (versionChecker.IsLowerThan(new Version(8, 2)))
-            {
                 _postInstallationSteps.Add(new MoveFile(
                     "~/sitecore modules/Shell/ucommerce/install/configInclude/Sitecore.uCommerce.WebApiConfiguration.config.disabled",
                     "~/App_Config/include/Sitecore.uCommerce.WebApiConfiguration.config",
-                    backupTarget: true));
-            }
+                    true));
 
             _postInstallationSteps.Add(new MoveFile(
                 "~/sitecore modules/Shell/ucommerce/install/configInclude/Sitecore.uCommerce.initialize.config",
                 "~/App_Config/include/Sitecore.uCommerce.initialize.config",
-                backupTarget: true));
+                true));
 
             _postInstallationSteps.Add(new MoveFile(
                 "~/sitecore modules/Shell/ucommerce/install/configInclude/Sitecore.uCommerce.Log4net.config",
                 "~/App_Config/include/Sitecore.uCommerce.Log4net.config",
-                backupTarget: true));
-        }
-
-        public void Run(ITaskOutput output, NameValueCollection metaData)
-        {
-            foreach (var step in _postInstallationSteps)
-            {
-                IInstallerLoggingService logging = new SitecoreInstallerLoggingService();
-
-                try
-                {
-                    step.Run(output, metaData);
-                    logging.Information<PostInstallationStep>($"Executed: {step.GetType().FullName}");
-                }
-                catch (Exception ex)
-                {
-                    logging.Error<PostInstallationStep>(ex, step.GetType().FullName);
-
-                    throw;
-                }
-            }
+                true));
         }
     }
 }

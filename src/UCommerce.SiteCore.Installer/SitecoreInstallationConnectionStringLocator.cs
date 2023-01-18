@@ -5,13 +5,20 @@ namespace Ucommerce.Sitecore.Installer
 {
     public class SitecoreInstallationConnectionStringLocator : InstallationConnectionStringLocator
     {
+        private readonly string _connectionString;
+
+        public SitecoreInstallationConnectionStringLocator(string connectionString)
+        {
+            _connectionString = connectionString;
+        }
+
         public override string LocateConnectionString()
         {
-            var connectionString = LocateConnectionStringInternal("web");
-            if (string.IsNullOrEmpty(connectionString))
-                throw new ConfigurationException("Unable to locate a connection string in connection strings element called 'uCommerce' or 'web' and connection string configured in CommerceConfiguration does not seem to be valid");
+            if (string.IsNullOrEmpty(_connectionString))
+                throw new ConfigurationErrorsException(
+                    "No connection string was given");
 
-            return connectionString;
+            return _connectionString;
         }
     }
 }
