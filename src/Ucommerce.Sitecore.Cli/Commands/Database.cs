@@ -41,4 +41,53 @@ namespace Ucommerce.Sitecore.Cli.Commands
             return default;
         }
     }
+    
+    [Command("db help")]
+    public class DbHelp : ICommand
+    {
+        public ValueTask ExecuteAsync(IConsole console)
+        {
+            console.Output.WriteLine("Commands for database:");
+            console.Output.WriteLine("install     installs Ucommerce database");
+            console.Output.WriteLine("upgrade     upgrades Ucommerce database");
+            console.Output.WriteLine("backup     backs up Ucommerce database");
+            console.Output.WriteLine();
+            console.Output.WriteLine("Flags for database:");
+            console.Output.WriteLine("--connection-string     connection string for your database, is required");
+            return default;
+        }
+    }
+    
+    [Command("db install help")]
+    public class DbInstallHelp : ICommand
+    {
+        public ValueTask ExecuteAsync(IConsole console)
+        {
+            console.Output.WriteLine("Flags for database installation:");
+            console.Output.WriteLine("--connection-string     connection string for your database, is required");
+            return default;
+        }
+    }
+    
+    [Command("db upgrade help")]
+    public class DbUpgradeHelp : ICommand
+    {
+        public ValueTask ExecuteAsync(IConsole console)
+        {
+            console.Output.WriteLine("Flags for database installation:");
+            console.Output.WriteLine("--connection-string     connection string for your database, is required");
+            return default;
+        }
+    }
+    
+    [Command("db backup help")]
+    public class DbBackupHelp : ICommand
+    {
+        public ValueTask ExecuteAsync(IConsole console)
+        {
+            console.Output.WriteLine("Flags for database installation:");
+            console.Output.WriteLine("--connection-string     connection string for your database, is required");
+            return default;
+        }
+    }
 }

@@ -29,4 +29,18 @@ namespace Ucommerce.Sitecore.Cli.Commands
             return default;
         }
     }
+
+    [Command("install help")]
+    public class InstallHelp : ICommand
+    {
+        public ValueTask ExecuteAsync(IConsole console)
+        {
+            console.Output.WriteLine("Flags for installing:");
+            console.Output.WriteLine("--db-upgrade     upgrades the database");
+            console.Output.WriteLine("--db-backup     backs up the database");
+            console.Output.WriteLine("--connection-string     connection string for your database, is required");
+            console.Output.WriteLine("--sitecore-path     path for sitecore installation, is required");
+            return default;
+        }
+    }
 }
