@@ -1,26 +1,23 @@
-﻿using System.Collections.Specialized;
-using Sitecore.Install.Framework;
+﻿using System.Threading.Tasks;
 using Ucommerce.Installer;
 
 namespace Ucommerce.Sitecore.Installer.Steps
 {
-    public class UpdateUCommerceAssemblyVersionInDatabase : IPostStep
+    public class UpdateUCommerceAssemblyVersionInDatabase : IStep
     {
-        private readonly UpdateService _updateService;
         private readonly RuntimeVersionChecker _runtimeVersion;
-        private readonly IInstallerLoggingService _installerLoggingService;
+        private readonly UpdateService _updateService;
 
-        public UpdateUCommerceAssemblyVersionInDatabase(UpdateService updateService, RuntimeVersionChecker runtimeVersion, IInstallerLoggingService installerLoggingService)
+        public UpdateUCommerceAssemblyVersionInDatabase(UpdateService updateService,
+            RuntimeVersionChecker runtimeVersion)
         {
             _updateService = updateService;
             _runtimeVersion = runtimeVersion;
-            _installerLoggingService = installerLoggingService;
         }
 
-        public void Run(ITaskOutput output, NameValueCollection metaData)
+        public async Task Run()
         {
             var assemblyVersion = _runtimeVersion.GetUcommerceRuntimeAssemblyVersion().ToString();
-            _installerLoggingService.Information<UpdateUCommerceAssemblyVersionInDatabase>("New uCommerce version: " + assemblyVersion);
             _updateService.UpdateAssemblyVersion(assemblyVersion);
         }
     }
