@@ -1,21 +1,29 @@
 using System.Collections.Generic;
+using System.IO;
 using System.Threading.Tasks;
+using Ucommerce.Installer;
 
 namespace Ucommerce.Sitecore.Installer.Steps
 {
     public class DatabaseStep : IStep
     {
+        private readonly IInstallerLoggingService _logging;
+        private readonly DirectoryInfo _baseDirectory;
         private readonly List<IStep> _steps;
 
-        public DatabaseStep(string connectionString, bool backupDb = false, bool upgradeDb = false)
+        public DatabaseStep(string connectionString, DirectoryInfo baseDirectory, IInstallerLoggingService logging, bool backupDb = false, bool upgradeDb = false)
         {
+            _logging = logging;
+            _baseDirectory = baseDirectory;
             _steps = AddSteps(connectionString, backupDb, upgradeDb);
         }
 
-        public Task Run()
+        public async Task Run()
         {
-            foreach (var step in _steps) step.Run();
-            return Task.CompletedTask;
+            foreach (var step in _steps)
+            {
+                await step.Run();
+            }
         }
 
         private List<IStep> AddSteps(string connectionString, bool backupDb, bool upgradeDb)
@@ -23,7 +31,8 @@ namespace Ucommerce.Sitecore.Installer.Steps
             var steps = new List<IStep>();
             if (upgradeDb)
             {
-                //  steps.Add(new InstallDatabase("~/sitecore modules/Shell/ucommerce/install"));
+                var connectionStringLocator = new SitecoreInstallationConnectionStringLocator(connectionString);
+                steps.Add(new InstallDatabase(_baseDirectory, _logging, connectionStringLocator));
                 //  steps.Add(new InstallDatabaseSitecore("~/sitecore modules/Shell/ucommerce/install"));
                 //  steps.Add(new UpdateUCommerceAssemblyVersionInDatabase(updateService,
                 //      runtimeVersionChecker, sitecoreInstallerLoggingService));
