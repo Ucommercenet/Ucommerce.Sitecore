@@ -23,7 +23,7 @@ namespace Ucommerce.Sitecore.Installer
         ///     Upgrade the binaries first, and the new binaries might not work with the old database.
         ///     We have one observation indicating a failed installation because the new binaries was
         ///     activated before the database scripts were done, resulting in a broken system.
-        ///     The problem is probably going to grow, as more database migrations are added.
+        ///     The problem is probably going to grow, as more database migrations are added. 
         ///     We have chosen to upgrade the database first.
         ///     This is because the database upgrade takes a long time in the clean scenario, but is
         ///     relatively faster in upgrade scenarios.
@@ -32,6 +32,7 @@ namespace Ucommerce.Sitecore.Installer
         /// </remarks>
         public PostInstallationStep()
         {
+            
             var sitecoreInstallerLoggingService = new SitecoreInstallerLoggingService();
             IDatabaseAvailabilityService sitefinityDatabaseAvailabilityService =
                 new SitecoreDatabaseAvailabilityService();
@@ -63,7 +64,9 @@ namespace Ucommerce.Sitecore.Installer
             //_postInstallationSteps.Add(new DeleteFile("~/bin/ucommerce/Ucommerce.Installer.dll"));
 
             // Remove old UCommerce.Transactions.Payment.dll from /bin since payment methods have been moved to Apps.
-            //postInstallationSteps.Add(new DeleteFile("~/bin/Ucommerce.Transactions.Payments.dll"));
+
+            //_postInstallationSteps.Add(new DeleteFile("~/bin/Ucommerce.Transactions.Payments.dll"));
+
             // Remove ServiceStack folder
             //_postInstallationSteps.Add(new DeleteDirectory($"{virtualAppsPath}/ServiceStack"));
 
@@ -132,7 +135,9 @@ namespace Ucommerce.Sitecore.Installer
 
             // Clean up System.Collections.Immutable.dll in Lucene App since it is no longer used
             //_postInstallationSteps.Add(
+
             //   new DeleteFile($"{virtualAppsPath}/Ucommerce.Search.Lucene/bin/System.Collections.Immutable.dll"));
+
             //_postInstallationSteps.Add(new DeleteFile(
             //    $"{virtualAppsPath}/Ucommerce.Search.Lucene.disabled/bin/System.Collections.Immutable.dll"));
         }
@@ -214,95 +219,96 @@ namespace Ucommerce.Sitecore.Installer
                 "~/sitecore modules/Shell/ucommerce/Pipelines/Basket.config"
             ));
 
+            /*
             _postInstallationSteps.Add(new DeleteFile(
                 "~/sitecore modules/Shell/ucommerce/Pipelines/Basket.config"
             ));
-
+*/
 
             _postInstallationSteps.Add(new FileBackup(
                 "~/sitecore modules/Shell/ucommerce/Pipelines/Checkout.config"
             ));
-
+/*
             _postInstallationSteps.Add(new DeleteFile(
                 "~/sitecore modules/Shell/ucommerce/Pipelines/Checkout.config"
             ));
-
+*/
             _postInstallationSteps.Add(new FileBackup(
                 "~/sitecore modules/Shell/ucommerce/Pipelines/DeleteCampaignItem.config"
             ));
-
+/*
             _postInstallationSteps.Add(new DeleteFile(
                 "~/sitecore modules/Shell/ucommerce/Pipelines/DeleteCampaignItem.config"
             ));
-
+*/
             _postInstallationSteps.Add(new FileBackup(
                 "~/sitecore modules/Shell/ucommerce/Pipelines/DeleteCategory.config"
             ));
-
+/*
             _postInstallationSteps.Add(new DeleteFile(
                 "~/sitecore modules/Shell/ucommerce/Pipelines/DeleteCategory.config"
             ));
-
+*/
             _postInstallationSteps.Add(new FileBackup(
                 "~/sitecore modules/Shell/ucommerce/Pipelines/DeleteDataType.config"
             ));
-
+/*
             _postInstallationSteps.Add(new DeleteFile(
                 "~/sitecore modules/Shell/ucommerce/Pipelines/DeleteDataType.config"
             ));
-
+*/
             _postInstallationSteps.Add(new FileBackup(
                 "~/sitecore modules/Shell/ucommerce/Pipelines/DeleteDefinition.config"
             ));
-
+/*
             _postInstallationSteps.Add(new DeleteFile(
                 "~/sitecore modules/Shell/ucommerce/Pipelines/DeleteDefinition.config"
             ));
-
+*/
             _postInstallationSteps.Add(new FileBackup(
                 "~/sitecore modules/Shell/ucommerce/Pipelines/DeleteLanguage.config"
             ));
-
+/*
             _postInstallationSteps.Add(new DeleteFile(
                 "~/sitecore modules/Shell/ucommerce/Pipelines/DeleteLanguage.config"
             ));
-
+*/
             _postInstallationSteps.Add(new FileBackup(
                 "~/sitecore modules/Shell/ucommerce/Pipelines/DeleteProduct.config"
             ));
-
+/*
             _postInstallationSteps.Add(new DeleteFile(
                 "~/sitecore modules/Shell/ucommerce/Pipelines/DeleteProduct.config"
             ));
-
+*/
             _postInstallationSteps.Add(new FileBackup(
                 "~/sitecore modules/Shell/ucommerce/Pipelines/DeleteProductCatalog.config"
             ));
-
+/*
             _postInstallationSteps.Add(new DeleteFile(
                 "~/sitecore modules/Shell/ucommerce/Pipelines/DeleteProductCatalog.config"
             ));
-
+*/
             _postInstallationSteps.Add(new FileBackup(
                 "~/sitecore modules/Shell/ucommerce/Pipelines/DeleteProductCatalogGroup.config"
             ));
-
+/*
             _postInstallationSteps.Add(new DeleteFile(
                 "~/sitecore modules/Shell/ucommerce/Pipelines/DeleteProductCatalogGroup.config"
             ));
-
+*/
             _postInstallationSteps.Add(new FileBackup(
                 "~/sitecore modules/Shell/ucommerce/Pipelines/DeleteProductDefinitionField.config"
             ));
-
+/*
             _postInstallationSteps.Add(new DeleteFile(
                 "~/sitecore modules/Shell/ucommerce/Pipelines/DeleteProductDefinitionField.config"
             ));
-
+*/
             _postInstallationSteps.Add(new FileBackup(
                 "~/sitecore modules/Shell/ucommerce/Pipelines/Processing.config"
             ));
-
+/*
             _postInstallationSteps.Add(new DeleteFile(
                 "~/sitecore modules/Shell/ucommerce/Pipelines/Processing.config"
             ));

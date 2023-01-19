@@ -13,6 +13,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
             // Move the Commerce Connect dependend files to the Commerce Connect app location.
             // Therefor any older version located in the bin folder needs to be removed.
             //_postInstallationSteps.Add(new DeleteFile("~/bin/Ucommerce.Sitecore.CommerceConnect.dll"));
+
 /*
             _postInstallationSteps.Add(new MoveFile(
                 "~/bin/ucommerce/Ucommerce.Infrastructure.dll",
