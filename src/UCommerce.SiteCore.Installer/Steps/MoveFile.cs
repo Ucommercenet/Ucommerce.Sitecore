@@ -24,7 +24,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
         public async Task Run()
         {
             _loggingService.Information<MoveFile>($"Moving file {_source} to {_target}");
-            _command.Move(_backupTarget, ex => new SitecoreInstallerLoggingService().Error<int>(ex));
+            _command.Move(_backupTarget, ex => _loggingService.Error<int>(ex));
         }
     }
 }
