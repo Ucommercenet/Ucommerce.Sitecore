@@ -1,25 +1,23 @@
-﻿using System.Collections.Specialized;
-using System.IO;
-using System.Web.Hosting;
-using Sitecore.Install.Framework;
+﻿using System.IO;
+using System.Threading.Tasks;
+using Ucommerce.Installer;
 
 namespace Ucommerce.Sitecore.Installer.Steps
 {
-	public class CopyFile : IPostStep
-	{
-		private readonly Ucommerce.Installer.FileCopier _command;
+    public class CopyFile : IStep
+    {
+        private readonly FileCopier _command;
+        private readonly IInstallerLoggingService _logging;
 
-		public CopyFile(string sourceVirtualPath, string targetVirtualPath)
-		{
-			var source = new FileInfo(HostingEnvironment.MapPath(sourceVirtualPath));
-			var target = new FileInfo(HostingEnvironment.MapPath(targetVirtualPath));
+        public CopyFile(FileInfo source, FileInfo target, IInstallerLoggingService logging)
+        {
+            _logging = logging;
+            _command = new FileCopier(source, target);
+        }
 
-			_command = new Ucommerce.Installer.FileCopier(source, target);
-		}
-
-		public void Run(ITaskOutput output, NameValueCollection metaData)
-		{
-			_command.Copy(ex => new SitecoreInstallerLoggingService().Error<int>(ex));
-		}
-	}
+        public async Task Run()
+        {
+            _command.Copy(ex => _logging.Error<int>(ex));
+        }
+    }
 }
