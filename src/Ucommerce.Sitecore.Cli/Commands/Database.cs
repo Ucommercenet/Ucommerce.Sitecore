@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.IO;
+using System.Threading.Tasks;
 using CliFx;
 using CliFx.Attributes;
 using CliFx.Infrastructure;
@@ -7,47 +9,58 @@ using Ucommerce.Sitecore.Installer.Steps;
 
 namespace Ucommerce.Sitecore.Cli.Commands
 {
-    [Command("db")]
-    public class Database : ICommand
+    /// <summary>
+    /// Base class for db commands exposing shared Options
+    /// </summary>
+    public abstract class Db
     {
-        [CommandParameter(0, Description = "Connection string for the database.")]
+        [CommandOption("ConnectionString",
+            'c',
+            Description = "Connection string for the database.",
+            IsRequired = true,
+            EnvironmentVariable = "UCOMMERCE_CONNECTION_STRING")]
         public string ConnectionString { get; set; }
-
-        public ValueTask ExecuteAsync(IConsole console)
-        {
-            return default;
-        }
     }
 
-    // Child of db command
-    [Command("db upgrade", Description = "")]
-    public class DbUpgrade : Database, ICommand
+    [Command("db upgrade", Description = "Upgrade the Ucommerce Database")]
+    public class DbUpgrade : Db, ICommand
     {
-        public ValueTask ExecuteAsync(IConsole console)
+        public async ValueTask ExecuteAsync(IConsole console)
         {
             var logging = new CliLogger(console);
-            logging.Information<DbUpgrade>("Upgrading database..");
+            logging.Information<DbUpgrade>("Upgrading database...");
 
-            var DatabaseStep = new DatabaseStep(ConnectionString, upgradeDb: true);
-            DatabaseStep.Run();
-
-            return default;
+            var baseDirectory = new DirectoryInfo(AppContext.BaseDirectory);
+            var databaseStep = new DatabaseStep(ConnectionString, baseDirectory, logging, upgradeDb: true);
+            await databaseStep.Run();
         }
     }
 
-    // Child of db command
+    [Command("db install", Description = "Install a fresh Ucommerce Database")]
+    public class DbInstall : Db, ICommand
+    {
+        public async ValueTask ExecuteAsync(IConsole console)
+        {
+            var logging = new CliLogger(console);
+            logging.Information<DbInstall>("Installing database...");
+
+            var baseDirectory = new DirectoryInfo(AppContext.BaseDirectory);
+            var databaseStep = new DatabaseStep(ConnectionString, baseDirectory, logging, upgradeDb: true);
+            await databaseStep.Run();
+        }
+    }
+
     [Command("db backup")]
-    public class DbBackup : Database, ICommand
+    public class DbBackup : Db, ICommand
     {
-        public ValueTask ExecuteAsync(IConsole console)
+        public async ValueTask ExecuteAsync(IConsole console)
         {
             var logging = new CliLogger(console);
-            logging.Information<DbUpgrade>("Backing up database..");
+            logging.Information<DbBackup>("Backing up database...");
 
-            var DatabaseStep = new DatabaseStep(ConnectionString, true);
-            DatabaseStep.Run();
-
-            return default;
+            var baseDirectory = new DirectoryInfo(AppContext.BaseDirectory);
+            var databaseStep = new DatabaseStep(ConnectionString, baseDirectory, logging, backupDb: true);
+            await databaseStep.Run();
         }
     }
 }
