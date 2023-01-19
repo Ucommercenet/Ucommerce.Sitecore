@@ -1,11 +1,12 @@
 ﻿using System.Collections.Specialized;
 using System.IO;
+using System.Threading.Tasks;
 using System.Web.Hosting;
-using Sitecore.Install.Framework;
+using AuthorizeNet.Api.Contracts.V1;
 
 namespace Ucommerce.Sitecore.Installer.Steps
 {
-	public class MoveFile : IPostStep
+	public class MoveFile : IStep
 	{
 		private readonly bool _backupTarget;
 		private readonly Ucommerce.Installer.FileMover _command;
@@ -20,9 +21,11 @@ namespace Ucommerce.Sitecore.Installer.Steps
 			_command = new Ucommerce.Installer.FileMover(source, target);
 		}
 
-		public void Run(ITaskOutput output, NameValueCollection metaData)
-		{
-			_command.Move(_backupTarget, ex => new SitecoreInstallerLoggingService().Error<int>(ex));
-		}
-	}
+        public Task Run()
+        {
+            _command.Move(_backupTarget, ex => new SitecoreInstallerLoggingService().Error<int>(ex));
+			return Task.CompletedTask;
+        }
+		
+    }
 }
