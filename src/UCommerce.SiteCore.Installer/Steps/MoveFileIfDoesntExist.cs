@@ -1,23 +1,20 @@
 ﻿using System.Collections.Specialized;
 using System.IO;
+using System.Threading.Tasks;
 using System.Web.Hosting;
-using Sitecore.Install.Framework;
 
 namespace Ucommerce.Sitecore.Installer.Steps
 {
-	public class MoveFileIfDoesntExist : IPostStep
+	public class MoveFileIfDoesntExist : IStep
 	{
 		private readonly Ucommerce.Installer.FileMover _command;
 
-		public MoveFileIfDoesntExist(string sourceVirtualPath, string targetVirtualPath)
+		public MoveFileIfDoesntExist(FileInfo sourceFile, FileInfo targetFile)
 		{
-			FileInfo source = new FileInfo(HostingEnvironment.MapPath(sourceVirtualPath)),
-				target = new FileInfo(HostingEnvironment.MapPath(targetVirtualPath));
-
-			_command = new Ucommerce.Installer.FileMover(source, target);
+			_command = new Ucommerce.Installer.FileMover(sourceFile, targetFile);
 		}
 
-		public void Run(ITaskOutput output, NameValueCollection metaData)
+		public async Task Run()
 		{
 			_command.MoveIfDoesntExist(ex => new SitecoreInstallerLoggingService().Error<int>(ex));
 		}
