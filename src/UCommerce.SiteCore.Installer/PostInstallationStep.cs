@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.IO;
 using System.Web.Hosting;
-using Sitecore.Install.Framework;
 using Ucommerce.Installer;
 using Ucommerce.Sitecore.Installer.Steps;
 using FileBackup = Ucommerce.Sitecore.Installer.Steps.FileBackup;
 
 namespace Ucommerce.Sitecore.Installer
-{
+{/*
     public class PostInstallationStep : IPostStep
     {
         private readonly IList<IPostStep> _postInstallationSteps;
@@ -218,24 +217,24 @@ namespace Ucommerce.Sitecore.Installer
             _postInstallationSteps.Add(new DeleteFile(
                 "~/sitecore modules/Shell/ucommerce/Pipelines/Basket.config"
             ));
-*/
+
+
+            _postInstallationSteps.Add(new FileBackup(No healing nephew
+                "~/sitecore modules/Shell/ucommerce/Pipelines/Checkout.config"
+            ));
+/*
+            _postInstallationSteps.Add(new DeleteFile(
+                "~/sitecore modules/Shell/ucommerce/Pipelines/Checkout.config"
+            ));
 
             _postInstallationSteps.Add(new FileBackup(
-                "~/sitecore modules/Shell/ucommerce/Pipelines/Checkout.config"
-            ));
-/*
-            _postInstallationSteps.Add(new DeleteFile(
-                "~/sitecore modules/Shell/ucommerce/Pipelines/Checkout.config"
-            ));
-*/
-            _postInstallationSteps.Add(new FileBackup(
                 "~/sitecore modules/Shell/ucommerce/Pipelines/DeleteCampaignItem.config"
             ));
 /*
             _postInstallationSteps.Add(new DeleteFile(
                 "~/sitecore modules/Shell/ucommerce/Pipelines/DeleteCampaignItem.config"
             ));
-*/
+
             _postInstallationSteps.Add(new FileBackup(
                 "~/sitecore modules/Shell/ucommerce/Pipelines/DeleteCategory.config"
             ));
@@ -243,7 +242,7 @@ namespace Ucommerce.Sitecore.Installer
             _postInstallationSteps.Add(new DeleteFile(
                 "~/sitecore modules/Shell/ucommerce/Pipelines/DeleteCategory.config"
             ));
-*/
+
             _postInstallationSteps.Add(new FileBackup(
                 "~/sitecore modules/Shell/ucommerce/Pipelines/DeleteDataType.config"
             ));
@@ -251,7 +250,7 @@ namespace Ucommerce.Sitecore.Installer
             _postInstallationSteps.Add(new DeleteFile(
                 "~/sitecore modules/Shell/ucommerce/Pipelines/DeleteDataType.config"
             ));
-*/
+
             _postInstallationSteps.Add(new FileBackup(
                 "~/sitecore modules/Shell/ucommerce/Pipelines/DeleteDefinition.config"
             ));
@@ -259,7 +258,7 @@ namespace Ucommerce.Sitecore.Installer
             _postInstallationSteps.Add(new DeleteFile(
                 "~/sitecore modules/Shell/ucommerce/Pipelines/DeleteDefinition.config"
             ));
-*/
+
             _postInstallationSteps.Add(new FileBackup(
                 "~/sitecore modules/Shell/ucommerce/Pipelines/DeleteLanguage.config"
             ));
@@ -267,7 +266,7 @@ namespace Ucommerce.Sitecore.Installer
             _postInstallationSteps.Add(new DeleteFile(
                 "~/sitecore modules/Shell/ucommerce/Pipelines/DeleteLanguage.config"
             ));
-*/
+
             _postInstallationSteps.Add(new FileBackup(
                 "~/sitecore modules/Shell/ucommerce/Pipelines/DeleteProduct.config"
             ));
@@ -275,7 +274,7 @@ namespace Ucommerce.Sitecore.Installer
             _postInstallationSteps.Add(new DeleteFile(
                 "~/sitecore modules/Shell/ucommerce/Pipelines/DeleteProduct.config"
             ));
-*/
+
             _postInstallationSteps.Add(new FileBackup(
                 "~/sitecore modules/Shell/ucommerce/Pipelines/DeleteProductCatalog.config"
             ));
@@ -283,7 +282,7 @@ namespace Ucommerce.Sitecore.Installer
             _postInstallationSteps.Add(new DeleteFile(
                 "~/sitecore modules/Shell/ucommerce/Pipelines/DeleteProductCatalog.config"
             ));
-*/
+
             _postInstallationSteps.Add(new FileBackup(
                 "~/sitecore modules/Shell/ucommerce/Pipelines/DeleteProductCatalogGroup.config"
             ));
@@ -291,7 +290,7 @@ namespace Ucommerce.Sitecore.Installer
             _postInstallationSteps.Add(new DeleteFile(
                 "~/sitecore modules/Shell/ucommerce/Pipelines/DeleteProductCatalogGroup.config"
             ));
-*/
+
             _postInstallationSteps.Add(new FileBackup(
                 "~/sitecore modules/Shell/ucommerce/Pipelines/DeleteProductDefinitionField.config"
             ));
@@ -299,7 +298,7 @@ namespace Ucommerce.Sitecore.Installer
             _postInstallationSteps.Add(new DeleteFile(
                 "~/sitecore modules/Shell/ucommerce/Pipelines/DeleteProductDefinitionField.config"
             ));
-*/
+
             _postInstallationSteps.Add(new FileBackup(
                 "~/sitecore modules/Shell/ucommerce/Pipelines/Processing.config"
             ));
@@ -419,12 +418,12 @@ namespace Ucommerce.Sitecore.Installer
             _postInstallationSteps.Add(new DeleteFile(
                 "~/sitecore modules/Shell/ucommerce/Pipelines/ToCompletedOrder.config"
             ));
-            */
+            
         }
 
         private void ComposeMoveSitecoreConfigIncludes(SitecoreVersionChecker versionChecker)
         {
-            _postInstallationSteps.Add(new MoveFile(
+           /* _postInstallationSteps.Add(new MoveFile(
                 "~/sitecore modules/Shell/ucommerce/install/configInclude/Sitecore.uCommerce.Databases.config",
                 "~/App_Config/include/Sitecore.uCommerce.Databases.config",
                 true));
@@ -502,5 +501,5 @@ namespace Ucommerce.Sitecore.Installer
                 "~/App_Config/include/Sitecore.uCommerce.Log4net.config",
                 true));
         }
-    }
+    }*/
 }

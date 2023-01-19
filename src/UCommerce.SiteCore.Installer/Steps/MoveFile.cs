@@ -11,20 +11,16 @@ namespace Ucommerce.Sitecore.Installer.Steps
 		private readonly bool _backupTarget;
 		private readonly Ucommerce.Installer.FileMover _command;
 
-		public MoveFile(string sourceVirtualPath, string targetVirtualPath, bool backupTarget)
+		public MoveFile(FileInfo source, FileInfo target, bool backupTarget)
 		{
 			_backupTarget = backupTarget;
-
-			FileInfo source = new FileInfo(HostingEnvironment.MapPath(sourceVirtualPath)),
-				target = new FileInfo(HostingEnvironment.MapPath(targetVirtualPath));
-
+	
 			_command = new Ucommerce.Installer.FileMover(source, target);
 		}
 
-        public Task Run()
+        public async Task Run()
         {
             _command.Move(_backupTarget, ex => new SitecoreInstallerLoggingService().Error<int>(ex));
-			return Task.CompletedTask;
         }
 		
     }
