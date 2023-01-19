@@ -1,27 +1,30 @@
-﻿using System.Collections.Specialized;
-using System.IO;
+﻿using System.IO;
 using System.Threading.Tasks;
-using System.Web.Hosting;
-using AuthorizeNet.Api.Contracts.V1;
+using Ucommerce.Installer;
 
 namespace Ucommerce.Sitecore.Installer.Steps
 {
-	public class MoveFile : IStep
-	{
-		private readonly bool _backupTarget;
-		private readonly Ucommerce.Installer.FileMover _command;
+    public class MoveFile : IStep
+    {
+        private readonly bool _backupTarget;
+        private readonly FileMover _command;
+        private readonly IInstallerLoggingService _loggingService;
+        private readonly FileInfo _source;
+        private readonly FileInfo _target;
 
-		public MoveFile(FileInfo source, FileInfo target, bool backupTarget)
-		{
-			_backupTarget = backupTarget;
-	
-			_command = new Ucommerce.Installer.FileMover(source, target);
-		}
+        public MoveFile(FileInfo source, FileInfo target, bool backupTarget, IInstallerLoggingService loggingService)
+        {
+            _loggingService = loggingService;
+            _backupTarget = backupTarget;
+            _source = source;
+            _target = target;
+            _command = new FileMover(source, target);
+        }
 
         public async Task Run()
         {
+            _loggingService.Information<MoveFile>($"Moving file {_source} to {_target}");
             _command.Move(_backupTarget, ex => new SitecoreInstallerLoggingService().Error<int>(ex));
         }
-		
     }
 }

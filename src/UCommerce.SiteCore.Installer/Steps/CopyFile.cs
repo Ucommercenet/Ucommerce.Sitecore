@@ -8,15 +8,20 @@ namespace Ucommerce.Sitecore.Installer.Steps
     {
         private readonly FileCopier _command;
         private readonly IInstallerLoggingService _logging;
+        private readonly FileInfo _source;
+        private readonly FileInfo _target;
 
         public CopyFile(FileInfo source, FileInfo target, IInstallerLoggingService logging)
         {
             _logging = logging;
+            _source = source;
+            _target = target;
             _command = new FileCopier(source, target);
         }
 
         public async Task Run()
         {
+            _logging.Information<CopyFile>($"Copying file {_source} to {_target}");
             _command.Copy(ex => _logging.Error<int>(ex));
         }
     }
