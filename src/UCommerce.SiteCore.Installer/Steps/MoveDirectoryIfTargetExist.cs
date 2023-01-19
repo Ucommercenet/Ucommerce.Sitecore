@@ -1,28 +1,31 @@
-﻿using System.Collections.Specialized;
+﻿using AuthorizeNet.Api.Contracts.V1;
+using System.Collections.Specialized;
 using System.IO;
+using System.Threading.Tasks;
 using System.Web.Hosting;
-using Sitecore.Install.Framework;
 using Ucommerce.Installer;
 
 namespace Ucommerce.Sitecore.Installer.Steps
 {
-	public class MoveDirectoryIfTargetExist : IPostStep
+	public class MoveDirectoryIfTargetExist : IStep
 	{
-		private readonly string _sourceDirectory;
-		private readonly string _targetDirectory;
+		private readonly DirectoryInfo _sourceDirectory;
+		private readonly DirectoryInfo _targetDirectory;
 
-		public MoveDirectoryIfTargetExist(string sourceDirectory, string targetDirectory)
+		public MoveDirectoryIfTargetExist(DirectoryInfo sourceDirectory, DirectoryInfo targetDirectory)
 		{
 			_sourceDirectory = sourceDirectory;
 			_targetDirectory = targetDirectory;
 		}
 
-		public void Run(ITaskOutput output, NameValueCollection metaData)
+		public async Task Run()
 		{
-			new DirectoryMoverIfTargetExist(
-				new DirectoryInfo(HostingEnvironment.MapPath(_sourceDirectory)),
-				new DirectoryInfo(HostingEnvironment.MapPath(_targetDirectory)))
+			new DirectoryMoverIfTargetExist( _sourceDirectory, _targetDirectory)
 				.Move(ex => new SitecoreInstallerLoggingService().Error<int>(ex));
-		}
-	}
+           
+
+        }
+		 
+       
+    }
 }
