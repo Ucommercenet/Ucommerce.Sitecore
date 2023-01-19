@@ -26,6 +26,8 @@ namespace Ucommerce.Sitecore.Installer.Steps
         private List<IStep> AddSteps(string connectionString, string sitecorePath, bool backupDb, bool upgradeDb, IInstallerLoggingService loggingService)
         {
             var steps = new List<IStep>();
+            steps.Add(new MergeConfig(new FileInfo("C:\\Users\\Maher\\Source\\Repos\\Ucommercenet\\Ucommerce.Sitecore\\src\\Ucommerce.Sitecore.Cli\\bin\\Debug\\package\\files\\App_Config\\Include\\Sitecore.uCommerce.Databases.config"),
+                new List<Transformation> { new Transformation("C:\\Users\\Maher\\Source\\Repos\\Ucommercenet\\Ucommerce.Sitecore\\src\\Ucommerce.Sitecore.Cli\\bin\\Debug\\package\\files\\App_Config\\Include\\Sitecore.uCommerce.Dataproviders.config", false) }));
             //  steps.Add(new SitecorePreRequisitesChecker());
             //  steps.Add(new InitializeObjectFactory());
             if (upgradeDb)

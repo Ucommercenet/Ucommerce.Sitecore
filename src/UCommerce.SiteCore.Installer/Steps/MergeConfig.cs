@@ -1,26 +1,26 @@
 ﻿using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.IO;
+using System.Threading.Tasks;
 using System.Web.Hosting;
-using Sitecore.Install.Framework;
 using Ucommerce.Installer;
 
 namespace Ucommerce.Sitecore.Installer.Steps
 {
-	public class MergeConfig : MergeConfigKeepingConnectionStringValue, IPostStep
+	public class MergeConfig : MergeConfigKeepingConnectionStringValue, IStep
 	{
 		private readonly FileInfo _toBeTransformed;
 	    public IList<Transformation> Transformations { get; set; }
 
-        public MergeConfig(string configurationVirtualPath, IList<Transformation> transformations)
+        public MergeConfig(FileInfo configurationVirtualPath, IList<Transformation> transformations)
 		{
-			InitializeTargetDocumentPath(configurationVirtualPath);
+			InitializeTargetDocumentPath(configurationVirtualPath.FullName);
 		    Transformations = transformations;
-			_toBeTransformed = new FileInfo(HostingEnvironment.MapPath(configurationVirtualPath));
+			_toBeTransformed = configurationVirtualPath;
 		}
 
 
-		public void Run(ITaskOutput output, NameValueCollection metaData)
+		public async Task Run()
 		{
 			ReadConnectionStringAttribute();
 
@@ -29,8 +29,8 @@ namespace Ucommerce.Sitecore.Installer.Steps
 				foreach (var transformation in Transformations)
 				{
 					transformer.Transform(
-						new FileInfo(HostingEnvironment.MapPath(transformation.VirtualPath)),
-						transformation.OnlyIfIisIntegrated,
+						new FileInfo(HostingEnvironment.MapPath(transformation.path)),
+						transformation.onlyIfIsIntegrated,
 						ex => new SitecoreInstallerLoggingService().Error<int>(ex));
 				}
 			}
