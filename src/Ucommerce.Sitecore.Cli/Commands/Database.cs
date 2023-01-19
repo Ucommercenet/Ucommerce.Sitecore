@@ -2,6 +2,7 @@
 using CliFx;
 using CliFx.Attributes;
 using CliFx.Infrastructure;
+using Ucommerce.Sitecore.Cli.Logging;
 using Ucommerce.Sitecore.Installer.Steps;
 
 namespace Ucommerce.Sitecore.Cli.Commands
@@ -11,7 +12,6 @@ namespace Ucommerce.Sitecore.Cli.Commands
     {
         [CommandParameter(0, Description = "Connection string for the database.")]
         public string ConnectionString { get; set; }
-
 
         public ValueTask ExecuteAsync(IConsole console)
         {
@@ -25,7 +25,8 @@ namespace Ucommerce.Sitecore.Cli.Commands
     {
         public ValueTask ExecuteAsync(IConsole console)
         {
-            console.Output.WriteLine("Upgrading database..");
+            var logging = new CliLogger(console);
+            logging.Information<DbUpgrade>("Upgrading database..");
 
             var DatabaseStep = new DatabaseStep(ConnectionString, upgradeDb: true);
             DatabaseStep.Run();
@@ -40,7 +41,8 @@ namespace Ucommerce.Sitecore.Cli.Commands
     {
         public ValueTask ExecuteAsync(IConsole console)
         {
-            console.Output.WriteLine("Backing up database..");
+            var logging = new CliLogger(console);
+            logging.Information<DbUpgrade>("Backing up database..");
 
             var DatabaseStep = new DatabaseStep(ConnectionString, true);
             DatabaseStep.Run();
