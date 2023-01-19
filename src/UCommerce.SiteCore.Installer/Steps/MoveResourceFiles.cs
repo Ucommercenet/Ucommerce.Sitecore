@@ -1,14 +1,26 @@
-﻿using System.Collections.Generic;
+﻿using Castle.DynamicProxy.Contributors;
+using System.Collections.Generic;
 using System.Collections.Specialized;
-using Sitecore.Install.Framework;
+using System.IO;
+using System.Threading.Tasks;
+using Ucommerce.Installer;
+using Ucommerce.Web.UI.Ucommerce.Resources.Sitecore8;
 
 namespace Ucommerce.Sitecore.Installer.Steps
 {
-    public class MoveResourceFiles : IPostStep
+    public class MoveResourceFiles : IStep
     {
-        public void Run(ITaskOutput output, NameValueCollection metaData)
+        public DirectoryInfo SourceDirctory { get; set; }
+        public DirectoryInfo TargetDirctory { get; set; }
+
+        public MoveResourceFiles(DirectoryInfo basePath, IInstallerLoggingService logging, InstallationConnectionStringLocator connectionStringLocator )
         {
-            var postInstallationSteps = new List<IPostStep>();
+            SourceDirctory = new DirectoryInfo( Path.Combine(basePath.FullName, "bin", "uCommerce", "App_GlobalResources") );
+            TargetDirctory = new DirectoryInfo( Path.Combine(basePath.FullName, "App_GlobalResources"));
+        }
+        public Task Run()
+        {
+            var postInstallationSteps = new List<IStep>();
             var files = new string[]
             {
                 "Admin.da.resx",
@@ -46,13 +58,14 @@ namespace Ucommerce.Sitecore.Installer.Steps
 
             foreach (var file in files)
             {
-                postInstallationSteps.Add(new MoveFile(string.Format("~/bin/uCommerce/App_GlobalResources/{0}", file), string.Format("~/App_GlobalResources/{0}", file), false));
+                postInstallationSteps.Add(new MoveFile(string.Format(SourceDirctory.FullName, file), string.Format(TargetDirctory.FullName, file), false));
             }
 
             foreach (var postInstallationStep in postInstallationSteps)
             {
-                postInstallationStep.Run(output, metaData);
+                postInstallationStep.Run();
             }
+            return Task.CompletedTask;
         }
     }
 }
