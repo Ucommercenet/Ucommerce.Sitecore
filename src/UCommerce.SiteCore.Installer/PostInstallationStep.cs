@@ -49,8 +49,8 @@ namespace Ucommerce.Sitecore.Installer
             _postInstallationSteps.Add(new InitializeObjectFactory());
             _postInstallationSteps.Add(new InstallDatabase("~/sitecore modules/Shell/ucommerce/install"));
             _postInstallationSteps.Add(new InstallDatabaseSitecore("~/sitecore modules/Shell/ucommerce/install"));
-            _postInstallationSteps.Add(new UpdateUCommerceAssemblyVersionInDatabase(updateService,
-                runtimeVersionChecker, sitecoreInstallerLoggingService));
+            //_postInstallationSteps.Add(new UpdateUCommerceAssemblyVersionInDatabase(updateService,
+            //    runtimeVersionChecker, sitecoreInstallerLoggingService));
 
             _postInstallationSteps.Add(new CopyFile("~/web.config",
                 "~/web.config.{DateTime.Now.Ticks}.backup"));
@@ -65,32 +65,32 @@ namespace Ucommerce.Sitecore.Installer
             // Remove old UCommerce.Transactions.Payment.dll from /bin since payment methods have been moved to Apps.
             _postInstallationSteps.Add(new DeleteFile("~/bin/Ucommerce.Transactions.Payments.dll"));
             // Remove ServiceStack folder
-            _postInstallationSteps.Add(new DeleteDirectory($"{virtualAppsPath}/ServiceStack"));
+            //_postInstallationSteps.Add(new DeleteDirectory($"{virtualAppsPath}/ServiceStack"));
 
             // Remove RavenDB apps (in V9 Raven has been replaced by Lucene)
-            _postInstallationSteps.Add(new DeleteDirectory($"{virtualAppsPath}/RavenDB25"));
-            _postInstallationSteps.Add(
-                new DeleteDirectory($"{virtualAppsPath}RavenDB25.disabled"));
-            _postInstallationSteps.Add(new DeleteDirectory($"{virtualAppsPath}/RavenDB30"));
-            _postInstallationSteps.Add(
-                new DeleteDirectory($"{virtualAppsPath}RavenDB30.disabled"));
+            //_postInstallationSteps.Add(new DeleteDirectory($"{virtualAppsPath}/RavenDB25"));
+            //_postInstallationSteps.Add(
+            //    new DeleteDirectory($"{virtualAppsPath}RavenDB25.disabled"));
+            //_postInstallationSteps.Add(new DeleteDirectory($"{virtualAppsPath}/RavenDB30"));
+            //_postInstallationSteps.Add(
+             //   new DeleteDirectory($"{virtualAppsPath}RavenDB30.disabled"));
             // Enable ExchangeRateAPICurrencyConversion app
             _postInstallationSteps.Add(new MoveDirectory(
                 $"{virtualAppsPath}/ExchangeRateAPICurrencyConversion.disabled",
                 $"{virtualAppsPath}/ExchangeRateAPICurrencyConversion", true));
 
             // Remove Catalogs app since it was moved into Core
-            _postInstallationSteps.Add(new DeleteDirectory($"{virtualAppsPath}/Catalogs"));
-            _postInstallationSteps.Add(
-                new DeleteDirectory($"{virtualAppsPath}/Catalogs.disabled"));
+            //_postInstallationSteps.Add(new DeleteDirectory($"{virtualAppsPath}/Catalogs"));
+            //_postInstallationSteps.Add(
+            //    new DeleteDirectory($"{virtualAppsPath}/Catalogs.disabled"));
             _postInstallationSteps.Add(
                 new EnableSitecoreCompatibilityApp(sitecoreVersionChecker, sitecoreInstallerLoggingService));
 
             // Remove CatalogSearch widget
-            _postInstallationSteps.Add(
-                new DeleteDirectory($"{virtualAppsPath}/Widgets/CatalogSearch"));
-            _postInstallationSteps.Add(
-                new DeleteDirectory($"{virtualAppsPath}/Widgets/CatalogSearch.disabled"));
+            //_postInstallationSteps.Add(
+            //    new DeleteDirectory($"{virtualAppsPath}/Widgets/CatalogSearch"));
+            //_postInstallationSteps.Add(
+            //    new DeleteDirectory($"{virtualAppsPath}/Widgets/CatalogSearch.disabled"));
 
             // Enable Sanitization app
             _postInstallationSteps.Add(new MoveDirectory($"{virtualAppsPath}/Sanitization.disabled",

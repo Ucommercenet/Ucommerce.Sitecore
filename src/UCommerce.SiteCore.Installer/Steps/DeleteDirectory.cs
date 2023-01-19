@@ -1,24 +1,23 @@
-﻿using System.Collections.Specialized;
-using System.IO;
-using System.Web.Hosting;
-using Sitecore.Install.Framework;
+﻿using System.IO;
+using System.Threading.Tasks;
 using Ucommerce.Installer;
 
 namespace Ucommerce.Sitecore.Installer.Steps
 {
-    public class DeleteDirectory : IPostStep
+    public class DeleteDirectory : IStep
     {
         private readonly DirectoryDeleter _command;
+        private readonly IInstallerLoggingService _loggingService;
 
-        public DeleteDirectory(string directoryPath)
+        public DeleteDirectory(DirectoryInfo directory, IInstallerLoggingService loggingService)
         {
-            var directoryPathInfo = new DirectoryInfo(HostingEnvironment.MapPath(directoryPath));
-            _command = new DirectoryDeleter(directoryPathInfo);
+            _loggingService = loggingService;
+            _command = new DirectoryDeleter(directory);
         }
 
-        public void Run(ITaskOutput output, NameValueCollection metaData)
+        public async Task Run()
         {
-            _command.Delete(ex => new SitecoreInstallerLoggingService().Error<int>(ex));
+            _command.Delete(ex => _loggingService.Error<int>(ex));
         }
     }
 }
