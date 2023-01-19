@@ -1,24 +1,26 @@
-﻿using System.Collections.Specialized;
-using System.IO;
-using System.Web.Hosting;
-using Sitecore.Install.Framework;
+﻿using System.IO;
+using System.Threading.Tasks;
+using Ucommerce.Installer;
 
 namespace Ucommerce.Sitecore.Installer.Steps
 {
-	public class FileBackup : IPostStep
-	{
-		private Ucommerce.Installer.FileBackup _command;
+    public class FileBackup : IStep
+    {
+        private readonly Ucommerce.Installer.FileBackup _command;
+        private readonly FileInfo _file;
+        private readonly IInstallerLoggingService _loggingService;
 
-		public FileBackup(string sourceVirtualPath)
-		{
-			var source = new FileInfo(HostingEnvironment.MapPath(sourceVirtualPath));
+        public FileBackup(FileInfo file, IInstallerLoggingService loggingService)
+        {
+            _loggingService = loggingService;
+            _command = new Ucommerce.Installer.FileBackup(file);
+            _file = file;
+        }
 
-			_command = new Ucommerce.Installer.FileBackup(source);
-		}
-
-		public void Run(ITaskOutput output, NameValueCollection metaData)
-		{
-			_command.Backup(ex => new SitecoreInstallerLoggingService().Error<int>(ex));
-		}
-	}
+        public async Task Run()
+        {
+            _loggingService.Information<FileBackup>($"Backing up file: {_file}");
+            _command.Backup(ex => _loggingService.Error<int>(ex));
+        }
+    }
 }
