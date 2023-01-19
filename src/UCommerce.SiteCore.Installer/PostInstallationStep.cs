@@ -103,7 +103,7 @@ namespace Ucommerce.Sitecore.Installer
                 new DeleteFile("~/sitecore modules/shell/ucommerce/Configuration/Payments.config"));
 
             _postInstallationSteps.Add(new MoveUcommerceBinaries());
-            _postInstallationSteps.Add(new MoveResourceFiles());
+           // _postInstallationSteps.Add(new MoveResourceFiles());
 
             ComposeConfiguration();
             ComposePipelineConfiguration();
