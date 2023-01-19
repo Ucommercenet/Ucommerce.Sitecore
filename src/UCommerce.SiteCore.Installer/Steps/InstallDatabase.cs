@@ -1,32 +1,25 @@
-﻿using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.IO;
-using System.Web.Hosting;
-using Sitecore.Install.Framework;
+﻿using System.IO;
+using System.Threading.Tasks;
 using Ucommerce.Installer;
 
 namespace Ucommerce.Sitecore.Installer.Steps
 {
-	public class InstallDatabase : IPostStep
-	{
-		private readonly DbInstaller _command;
+    public class InstallDatabase : IStep
+    {
+        private readonly DbInstaller _command;
 
-		public InstallDatabase(string migrationsPath)
-		{
-			var migrationsDirectory = new DirectoryInfo(HostingEnvironment.MapPath(migrationsPath));
-			IList<Migration> migrations = new MigrationLoader()
-				.GetDatabaseMigrations(migrationsDirectory);
+        public InstallDatabase(DirectoryInfo packageBasePath, IInstallerLoggingService logging, InstallationConnectionStringLocator connectionStringLocator)
+        {
+            var migrationsDirectory =
+                new DirectoryInfo(Path.Combine(packageBasePath.FullName, "package", "files", "sitecore modules", "Shell", "Ucommerce", "Install"));
+            var migrations = new MigrationLoader().GetDatabaseMigrations(migrationsDirectory);
 
-			IInstallerLoggingService logging = new SitecoreInstallerLoggingService();
+            _command = new DbInstallerCore(connectionStringLocator, migrations, logging);
+        }
 
-			InstallationConnectionStringLocator locator = new SitecoreInstallationConnectionStringLocator();
-
-			_command = new DbInstallerCore(locator, migrations, logging);
-		}
-
-		public void Run(ITaskOutput output, NameValueCollection metaData)
-		{
-			_command.InstallDatabase();
-		}
-	}
+        public async Task Run()
+        {
+            _command.InstallDatabase();
+        }
+    }
 }
