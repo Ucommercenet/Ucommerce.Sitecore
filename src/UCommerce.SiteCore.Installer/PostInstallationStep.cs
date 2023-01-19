@@ -60,10 +60,10 @@ namespace Ucommerce.Sitecore.Installer
             _postInstallationSteps.Add(new MoveDirectory("~/sitecore modules/shell/ucommerce/install/binaries",
                 "~/bin/uCommerce", true));
 
-            _postInstallationSteps.Add(new DeleteFile("~/bin/ucommerce/Ucommerce.Installer.dll"));
+            //_postInstallationSteps.Add(new DeleteFile("~/bin/ucommerce/Ucommerce.Installer.dll"));
 
             // Remove old UCommerce.Transactions.Payment.dll from /bin since payment methods have been moved to Apps.
-            _postInstallationSteps.Add(new DeleteFile("~/bin/Ucommerce.Transactions.Payments.dll"));
+            //postInstallationSteps.Add(new DeleteFile("~/bin/Ucommerce.Transactions.Payments.dll"));
             // Remove ServiceStack folder
             //_postInstallationSteps.Add(new DeleteDirectory($"{virtualAppsPath}/ServiceStack"));
 
@@ -95,12 +95,12 @@ namespace Ucommerce.Sitecore.Installer
             // Enable Sanitization app
             _postInstallationSteps.Add(new MoveDirectory($"{virtualAppsPath}/Sanitization.disabled",
                 $"{virtualAppsPath}/Sanitization", true));
-            _postInstallationSteps.Add(new DeleteFile($"{virtualAppsPath}/Sanitization/bin/AngleSharp.dll"));
-            _postInstallationSteps.Add(new DeleteFile($"{virtualAppsPath}/Sanitization/bin/HtmlSanitizer.dll"));
+            //_postInstallationSteps.Add(new DeleteFile($"{virtualAppsPath}/Sanitization/bin/AngleSharp.dll"));
+            //_postInstallationSteps.Add(new DeleteFile($"{virtualAppsPath}/Sanitization/bin/HtmlSanitizer.dll"));
 
             //Clean up unused configuration since payment integration has move to apps
-            _postInstallationSteps.Add(
-                new DeleteFile("~/sitecore modules/shell/ucommerce/Configuration/Payments.config"));
+            //_postInstallationSteps.Add(
+            //    new DeleteFile("~/sitecore modules/shell/ucommerce/Configuration/Payments.config"));
 
             _postInstallationSteps.Add(new MoveUcommerceBinaries());
            // _postInstallationSteps.Add(new MoveResourceFiles());
@@ -131,10 +131,10 @@ namespace Ucommerce.Sitecore.Installer
             ComposeMoveSitecoreConfigIncludes(sitecoreVersionChecker);
 
             // Clean up System.Collections.Immutable.dll in Lucene App since it is no longer used
-            _postInstallationSteps.Add(
-                new DeleteFile($"{virtualAppsPath}/Ucommerce.Search.Lucene/bin/System.Collections.Immutable.dll"));
-            _postInstallationSteps.Add(new DeleteFile(
-                $"{virtualAppsPath}/Ucommerce.Search.Lucene.disabled/bin/System.Collections.Immutable.dll"));
+            //_postInstallationSteps.Add(
+            //   new DeleteFile($"{virtualAppsPath}/Ucommerce.Search.Lucene/bin/System.Collections.Immutable.dll"));
+            //_postInstallationSteps.Add(new DeleteFile(
+            //    $"{virtualAppsPath}/Ucommerce.Search.Lucene.disabled/bin/System.Collections.Immutable.dll"));
         }
 
         public void Run(ITaskOutput output, NameValueCollection metaData)
@@ -209,6 +209,7 @@ namespace Ucommerce.Sitecore.Installer
 
         private void RemovedRenamedPipelines()
         {
+            /*
             _postInstallationSteps.Add(new FileBackup(
                 "~/sitecore modules/Shell/ucommerce/Pipelines/Basket.config"
             ));
@@ -417,10 +418,12 @@ namespace Ucommerce.Sitecore.Installer
             _postInstallationSteps.Add(new DeleteFile(
                 "~/sitecore modules/Shell/ucommerce/Pipelines/ToCompletedOrder.config"
             ));
+            */
         }
 
         private void ComposeMoveSitecoreConfigIncludes(SitecoreVersionChecker versionChecker)
         {
+            /*
             _postInstallationSteps.Add(new MoveFile(
                 "~/sitecore modules/Shell/ucommerce/install/configInclude/Sitecore.uCommerce.Databases.config",
                 "~/App_Config/include/Sitecore.uCommerce.Databases.config",
@@ -498,6 +501,7 @@ namespace Ucommerce.Sitecore.Installer
                 "~/sitecore modules/Shell/ucommerce/install/configInclude/Sitecore.uCommerce.Log4net.config",
                 "~/App_Config/include/Sitecore.uCommerce.Log4net.config",
                 true));
+                */
         }
     }
 }
