@@ -218,6 +218,7 @@
     <Compile Include="SitecoreVersionChecker.cs" />
     <Compile Include="Steps\AddTitleToCommerceSpeakAppsSection.cs" />
     <Compile Include="Steps\CreateSpeakApplicationIfSupported.cs" />
+    <Compile Include="Steps\DatabaseStep.cs" />
     <Compile Include="Steps\DeleteDirectory.cs" />
     <Compile Include="Steps\EnableSitecoreCompatibilityApp.cs" />
     <Compile Include="Steps\InstallStep.cs" />
