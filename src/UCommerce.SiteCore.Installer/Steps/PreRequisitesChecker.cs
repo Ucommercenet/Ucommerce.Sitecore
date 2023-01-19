@@ -12,7 +12,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
 	{
 		public void Run(ITaskOutput output, NameValueCollection metaData)
 		{
-			var connectionStringLocator = new SitecoreInstallationConnectionStringLocator();
+			var connectionStringLocator = new SitecoreInstallationConnectionStringLocator("");
 
 			var sitecoreInstallerLoggingService = new SitecoreInstallerLoggingService();
 
