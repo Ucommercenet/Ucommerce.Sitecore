@@ -21,7 +21,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
         {
             _loggingService.Information<MoveDirectoryIfTargetExist>($"Moving {_sourceDirectory} to {_targetDirectory} if it exists");
             new DirectoryMoverIfTargetExist(_sourceDirectory, _targetDirectory)
-                .Move(ex => new SitecoreInstallerLoggingService().Error<int>(ex));
+                .Move(ex => _loggingService.Error<int>(ex));
         }
     }
 }

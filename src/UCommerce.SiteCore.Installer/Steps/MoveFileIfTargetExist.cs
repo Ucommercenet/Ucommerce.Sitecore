@@ -24,7 +24,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
         public async Task Run()
         {
             _loggingService.Information<MoveFileIfTargetExist>($"Moving {_source} to {_target} if it exists");
-            _command.MoveIfTargetExist(_backupTarget, ex => new SitecoreInstallerLoggingService().Error<int>(ex));
+            _command.MoveIfTargetExist(_backupTarget, ex => _loggingService.Error<int>(ex));
         }
     }
 }
