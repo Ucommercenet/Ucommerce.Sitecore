@@ -58,7 +58,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
 
             foreach (var file in files)
             {
-                postInstallationSteps.Add(new MoveFile(string.Format(SourceDirctory.FullName, file), string.Format(TargetDirctory.FullName, file), false));
+                postInstallationSteps.Add(new MoveFile(new FileInfo(Path.Combine(SourceDirctory.FullName, file)), new FileInfo(Path.Combine(TargetDirctory.FullName, file)), false));
             }
 
             foreach (var postInstallationStep in postInstallationSteps)
