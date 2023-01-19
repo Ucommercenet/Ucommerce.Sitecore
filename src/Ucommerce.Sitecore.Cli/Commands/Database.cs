@@ -2,6 +2,7 @@
 using CliFx;
 using CliFx.Attributes;
 using CliFx.Infrastructure;
+using Ucommerce.Sitecore.Installer.Steps;
 
 namespace Ucommerce.Sitecore.Cli.Commands
 {
@@ -20,11 +21,14 @@ namespace Ucommerce.Sitecore.Cli.Commands
 
     // Child of db command
     [Command("db upgrade", Description = "")]
-    public class DbUpgrade : ICommand
+    public class DbUpgrade : Database, ICommand
     {
         public ValueTask ExecuteAsync(IConsole console)
         {
             console.Output.WriteLine("Upgrading database..");
+
+            var DatabaseStep = new DatabaseStep(ConnectionString, upgradeDb: true);
+            DatabaseStep.Run();
 
             return default;
         }
@@ -32,11 +36,14 @@ namespace Ucommerce.Sitecore.Cli.Commands
 
     // Child of db command
     [Command("db backup")]
-    public class DbBackup : ICommand
+    public class DbBackup : Database, ICommand
     {
         public ValueTask ExecuteAsync(IConsole console)
         {
             console.Output.WriteLine("Backing up database..");
+
+            var DatabaseStep = new DatabaseStep(ConnectionString, true);
+            DatabaseStep.Run();
 
             return default;
         }
