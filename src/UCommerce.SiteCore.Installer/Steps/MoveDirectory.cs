@@ -1,4 +1,3 @@
-using System;
 using System.IO;
 using System.Threading.Tasks;
 using Ucommerce.Installer;
@@ -28,7 +27,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
 
         public async Task Run()
         {
-            _loggingService.Information<MoveDirectory>($"Moving {_sourceDirectory} to {_targetDirectory}");
+            _loggingService.Information<MoveDirectory>($"Moving directory {_sourceDirectory} to {_targetDirectory}");
             new DirectoryMover(
                 _sourceDirectory,
                 _targetDirectory,

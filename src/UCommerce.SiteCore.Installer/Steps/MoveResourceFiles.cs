@@ -1,27 +1,27 @@
-﻿using Castle.DynamicProxy.Contributors;
-using System.Collections.Generic;
-using System.Collections.Specialized;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using Ucommerce.Installer;
-using Ucommerce.Web.UI.Ucommerce.Resources.Sitecore8;
 
 namespace Ucommerce.Sitecore.Installer.Steps
 {
     public class MoveResourceFiles : IStep
     {
-        public DirectoryInfo SourceDirctory { get; set; }
-        public DirectoryInfo TargetDirctory { get; set; }
+        private readonly IInstallerLoggingService _loggingService;
+        public DirectoryInfo SourceDirectory { get; set; }
+        public DirectoryInfo TargetDirectory { get; set; }
 
-        public MoveResourceFiles(DirectoryInfo basePath, IInstallerLoggingService logging, InstallationConnectionStringLocator connectionStringLocator )
+        public MoveResourceFiles(DirectoryInfo basePath, IInstallerLoggingService logging, InstallationConnectionStringLocator connectionStringLocator)
         {
-            SourceDirctory = new DirectoryInfo( Path.Combine(basePath.FullName, "bin", "uCommerce", "App_GlobalResources") );
-            TargetDirctory = new DirectoryInfo( Path.Combine(basePath.FullName, "App_GlobalResources"));
+            SourceDirectory = new DirectoryInfo(Path.Combine(basePath.FullName, "bin", "uCommerce", "App_GlobalResources"));
+            TargetDirectory = new DirectoryInfo(Path.Combine(basePath.FullName, "App_GlobalResources"));
+            _loggingService = logging;
         }
+
         public Task Run()
         {
             var postInstallationSteps = new List<IStep>();
-            var files = new string[]
+            var files = new[]
             {
                 "Admin.da.resx",
                 "Admin.de.resx",
@@ -58,13 +58,17 @@ namespace Ucommerce.Sitecore.Installer.Steps
 
             foreach (var file in files)
             {
-                postInstallationSteps.Add(new MoveFile(new FileInfo(Path.Combine(SourceDirctory.FullName, file)), new FileInfo(Path.Combine(TargetDirctory.FullName, file)), false));
+                postInstallationSteps.Add(new MoveFile(new FileInfo(Path.Combine(SourceDirectory.FullName, file)),
+                    new FileInfo(Path.Combine(TargetDirectory.FullName, file)),
+                    false,
+                    _loggingService));
             }
 
             foreach (var postInstallationStep in postInstallationSteps)
             {
                 postInstallationStep.Run();
             }
+
             return Task.CompletedTask;
         }
     }
