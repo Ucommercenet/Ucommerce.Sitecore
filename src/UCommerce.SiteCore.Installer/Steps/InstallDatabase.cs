@@ -8,7 +8,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
     {
         private readonly DbInstaller _command;
 
-        public InstallDatabase(DirectoryInfo packageBasePath, IInstallerLoggingService logging, InstallationConnectionStringLocator connectionStringLocator)
+        public InstallDatabase(DirectoryInfo packageBasePath, InstallationConnectionStringLocator connectionStringLocator, IInstallerLoggingService logging)
         {
             var migrationsDirectory =
                 new DirectoryInfo(Path.Combine(packageBasePath.FullName, "package", "files", "sitecore modules", "Shell", "Ucommerce", "Install"));
