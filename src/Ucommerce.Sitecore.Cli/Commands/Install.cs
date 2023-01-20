@@ -25,7 +25,7 @@ namespace Ucommerce.Sitecore.Cli.Commands
         public virtual ValueTask ExecuteAsync(IConsole console)
         {
             var logging = new CliLogger(console);
-            logging.Information<DbUpgrade>("Installing...");
+            logging.Information<Install>("Installing...");
             var installStep = new InstallStep(ConnectionString, SitecorePath, BackupDatabase, UpgradeDatabase, logging);
             installStep.Run();
 
