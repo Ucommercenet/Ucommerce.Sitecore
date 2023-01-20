@@ -85,7 +85,10 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="Commands\Database.cs" />
+        <Compile Include="Commands\db\DbBackup.cs" />
+        <Compile Include="Commands\db\Db.cs" />
+        <Compile Include="Commands\db\DbInstall.cs" />
+        <Compile Include="Commands\db\DbUpgrade.cs" />
         <Compile Include="Commands\Install.cs" />
         <Compile Include="Commands\Upgrade.cs" />
         <Compile Include="Logging\CliLogger.cs" />
