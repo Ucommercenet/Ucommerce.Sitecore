@@ -4,7 +4,9 @@ using System.Threading.Tasks;
 using CliFx;
 using CliFx.Attributes;
 using CliFx.Infrastructure;
+using Ucommerce.Installer;
 using Ucommerce.Sitecore.Cli.Logging;
+using Ucommerce.Sitecore.Installer;
 using Ucommerce.Sitecore.Installer.Steps;
 
 namespace Ucommerce.Sitecore.Cli.Commands.db
@@ -19,7 +21,17 @@ namespace Ucommerce.Sitecore.Cli.Commands.db
             logging.Information<DbInstall>("Installing database...");
 
             var baseDirectory = new DirectoryInfo(AppContext.BaseDirectory);
-            var databaseStep = new DatabaseStep(ConnectionString, baseDirectory, logging, upgradeDb: true);
+            var connectionStringLocator = new SitecoreInstallationConnectionStringLocator(ConnectionString);
+            var runtimeVersionChecker = new RuntimeVersionChecker(connectionStringLocator, logging);
+            var sitecoreDatabaseAvailabilityService = new SitecoreDatabaseAvailabilityService();
+            var updateService = new UpdateService(connectionStringLocator, runtimeVersionChecker, sitecoreDatabaseAvailabilityService);
+
+            var databaseStep = new DatabaseInstallStep(connectionStringLocator,
+                baseDirectory,
+                logging,
+                updateService,
+                runtimeVersionChecker);
+
             await databaseStep.Run();
         }
     }
