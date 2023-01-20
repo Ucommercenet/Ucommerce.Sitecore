@@ -32,8 +32,8 @@ namespace Ucommerce.Sitecore.Installer.Steps
             if (upgradeDb)
             {
                 var connectionStringLocator = new SitecoreInstallationConnectionStringLocator(connectionString);
-                steps.Add(new InstallDatabase(_baseDirectory, _logging, connectionStringLocator));
-                //  steps.Add(new InstallDatabaseSitecore("~/sitecore modules/Shell/ucommerce/install"));
+                steps.Add(new InstallDatabase(_baseDirectory, connectionStringLocator, _logging));
+                steps.Add(new InstallDatabaseSitecore(_baseDirectory, connectionStringLocator, _logging));
                 //  steps.Add(new UpdateUCommerceAssemblyVersionInDatabase(updateService,
                 //      runtimeVersionChecker, sitecoreInstallerLoggingService));
             }
