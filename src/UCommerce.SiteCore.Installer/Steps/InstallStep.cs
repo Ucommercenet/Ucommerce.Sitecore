@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using System.IO;
 using System.Threading.Tasks;
+using Ucommerce.Installer;
 
 namespace Ucommerce.Sitecore.Installer.Steps
 {
@@ -8,9 +8,9 @@ namespace Ucommerce.Sitecore.Installer.Steps
     {
         private readonly List<IStep> _steps;
 
-        public InstallStep(string connectionString, string sitecorePath, bool backupDb, bool upgradeDb)
+        public InstallStep(string connectionString, string sitecorePath, bool backupDb, bool upgradeDb, IInstallerLoggingService loggingService)
         {
-            _steps = AddSteps(connectionString, sitecorePath, backupDb, upgradeDb);
+            _steps = AddSteps(connectionString, sitecorePath, backupDb, upgradeDb, loggingService);
         }
 
         public Task Run()
@@ -23,7 +23,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
             return Task.CompletedTask;
         }
 
-        private List<IStep> AddSteps(string connectionString, string sitecorePath, bool backupDb, bool upgradeDb)
+        private List<IStep> AddSteps(string connectionString, string sitecorePath, bool backupDb, bool upgradeDb, IInstallerLoggingService loggingService)
         {
             var steps = new List<IStep>();
             //  steps.Add(new SitecorePreRequisitesChecker());

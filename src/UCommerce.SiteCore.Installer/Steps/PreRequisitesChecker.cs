@@ -1,34 +1,39 @@
 ﻿using System.Collections.Generic;
-using System.Collections.Specialized;
-using Sitecore.Install.Framework;
+using System.Threading.Tasks;
 using Sitecore.Install.Utils;
 using Sitecore.IO;
+using Ucommerce.Installer;
 using Ucommerce.Installer.Prerequisites;
 using Ucommerce.Installer.Prerequisites.impl;
 
 namespace Ucommerce.Sitecore.Installer.Steps
 {
-	public class SitecorePreRequisitesChecker : IPostStep
-	{
-		public void Run(ITaskOutput output, NameValueCollection metaData)
-		{
-			var connectionStringLocator = new SitecoreInstallationConnectionStringLocator("");
+    public class PreRequisitesChecker : IStep
+    {
+        private readonly string _connectionString;
+        private readonly IInstallerLoggingService _loggingService;
 
-			var sitecoreInstallerLoggingService = new SitecoreInstallerLoggingService();
+        public PreRequisitesChecker(string connectionString, IInstallerLoggingService loggingService)
+        {
+            _connectionString = connectionString;
+            _loggingService = loggingService;
+        }
 
-			var steps = new List<IPrerequisitStep>()
-				{
-					new CanCreateTables(connectionStringLocator.LocateConnectionString(), sitecoreInstallerLoggingService),
-					new CanModifyFiles(sitecoreInstallerLoggingService,FileUtil.MapPath("/")),
-				};
+        public async Task Run()
+        {
+            var connectionStringLocator = new SitecoreInstallationConnectionStringLocator(_connectionString);
 
-			var checker = new PrerequisitesChecker(steps,new SitecoreInstallerLoggingService());
+            var steps = new List<IPrerequisitStep>
+            {
+                new CanCreateTables(connectionStringLocator.LocateConnectionString(), _loggingService),
+                new CanModifyFiles(_loggingService, FileUtil.MapPath("/"))
+            };
 
-			string information;
+            var checker = new PrerequisitesChecker(steps, _loggingService);
 
-			var meetsRequirements = checker.MeetsRequirement(out information);
+            var meetsRequirements = checker.MeetsRequirement(out var information);
 
-			if (!meetsRequirements) throw new InstallationException(information);
-		}
-	}
+            if (!meetsRequirements) throw new InstallationException(information);
+        }
+    }
 }
