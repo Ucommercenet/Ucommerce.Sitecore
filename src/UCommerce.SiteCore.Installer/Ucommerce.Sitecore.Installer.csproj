@@ -218,7 +218,8 @@
     <Compile Include="SitecoreVersionChecker.cs" />
     <Compile Include="Steps\AddTitleToCommerceSpeakAppsSection.cs" />
     <Compile Include="Steps\CreateSpeakApplicationIfSupported.cs" />
-    <Compile Include="Steps\DatabaseStep.cs" />
+    <Compile Include="Steps\DatabaseInstallStep.cs" />
+    <Compile Include="Steps\DatabaseUpgradeStep.cs" />
     <Compile Include="Steps\DeleteDirectory.cs" />
     <Compile Include="Steps\EnableSitecoreCompatibilityApp.cs" />
     <Compile Include="Steps\InstallStep.cs" />
@@ -238,7 +239,7 @@
     <Compile Include="Steps\FileBackup.cs" />
     <Compile Include="Steps\GuidExtensions.cs" />
     <Compile Include="Steps\InitializeObjectFactory.cs" />
-    <Compile Include="Steps\InstallDatabase.cs" />
+    <Compile Include="Steps\InstallDatabaseUcommerce.cs" />
     <Compile Include="Steps\InstallDatabaseSitecore.cs" />
     <Compile Include="Steps\MergeConfig.cs" />
     <Compile Include="Steps\MoveDirectoryIfTargetExist.cs" />
