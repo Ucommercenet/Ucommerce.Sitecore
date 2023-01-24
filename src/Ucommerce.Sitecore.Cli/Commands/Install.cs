@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.IO;
+using System.Threading.Tasks;
 using CliFx;
 using CliFx.Attributes;
 using CliFx.Infrastructure;
@@ -26,7 +28,8 @@ namespace Ucommerce.Sitecore.Cli.Commands
         {
             var logging = new CliLogger(console);
             logging.Information<Install>("Installing...");
-            var installStep = new InstallStep(ConnectionString, SitecorePath, BackupDatabase, UpgradeDatabase, logging);
+            var baseDirectory = new DirectoryInfo(AppContext.BaseDirectory);
+            var installStep = new InstallStep(ConnectionString, SitecorePath,baseDirectory, BackupDatabase, UpgradeDatabase, logging);
             installStep.Run();
 
             return default;
