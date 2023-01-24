@@ -213,9 +213,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DbInstallerSitecore.cs" />
+    <Compile Include="ISitecoreVersionChecker.cs" />
     <Compile Include="MessageTemplateParser.cs" />
+    <Compile Include="SitecoreVersionCheckerOffline.cs" />
     <Compile Include="SitecoreDatabaseAvailabilityService.cs" />
-    <Compile Include="SitecoreVersionChecker.cs" />
+    <Compile Include="SitecoreVersionCheckerOnline.cs" />
     <Compile Include="Steps\AddTitleToCommerceSpeakAppsSection.cs" />
     <Compile Include="Steps\CreateSpeakApplicationIfSupported.cs" />
     <Compile Include="Steps\DatabaseInstallStep.cs" />
