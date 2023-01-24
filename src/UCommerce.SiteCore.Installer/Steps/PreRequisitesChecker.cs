@@ -10,22 +10,20 @@ namespace Ucommerce.Sitecore.Installer.Steps
 {
     public class PreRequisitesChecker : IStep
     {
-        private readonly string _connectionString;
+        private readonly InstallationConnectionStringLocator _connectionStringLocator;
         private readonly IInstallerLoggingService _loggingService;
 
-        public PreRequisitesChecker(string connectionString, IInstallerLoggingService loggingService)
+        public PreRequisitesChecker(InstallationConnectionStringLocator connectionStringLocator, IInstallerLoggingService loggingService)
         {
-            _connectionString = connectionString;
+            _connectionStringLocator = connectionStringLocator;
             _loggingService = loggingService;
         }
 
         public async Task Run()
         {
-            var connectionStringLocator = new SitecoreInstallationConnectionStringLocator(_connectionString);
-
             var steps = new List<IPrerequisitStep>
             {
-                new CanCreateTables(connectionStringLocator.LocateConnectionString(), _loggingService),
+                new CanCreateTables(_connectionStringLocator.LocateConnectionString(), _loggingService),
                 new CanModifyFiles(_loggingService, FileUtil.MapPath("/"))
             };
 
@@ -33,7 +31,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
 
             var meetsRequirements = checker.MeetsRequirement(out var information);
 
-            if (!meetsRequirements) throw new InstallationException(information);
+            if (!meetsRequirements) _loggingService.Error<PrerequisitesChecker>(new InstallationException(information));
         }
     }
 }
