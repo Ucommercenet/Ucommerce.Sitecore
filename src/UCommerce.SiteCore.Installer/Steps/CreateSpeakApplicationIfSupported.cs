@@ -7,12 +7,13 @@ namespace Ucommerce.Sitecore.Installer.Steps
 {
     public class CreateSpeakApplicationIfSupported : IPostStep
     {
-        private readonly SitecoreVersionChecker _sitecoreVersionChecker;
+        private readonly ISitecoreVersionChecker _sitecoreVersionChecker;
 
-        public CreateSpeakApplicationIfSupported(SitecoreVersionChecker sitecoreVersionChecker)
+        public CreateSpeakApplicationIfSupported(ISitecoreVersionChecker sitecoreVersionChecker)
         {
             _sitecoreVersionChecker = sitecoreVersionChecker;
         }
+
         public void Run(ITaskOutput output, NameValueCollection metaData)
         {
             var tasks = new List<IPostStep>();

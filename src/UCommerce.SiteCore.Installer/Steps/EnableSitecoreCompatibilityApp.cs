@@ -1,51 +1,52 @@
 using System;
-using System.Collections.Specialized;
 using System.IO;
 using System.Threading.Tasks;
-using System.Web.Hosting;
 using Ucommerce.Installer;
 
 namespace Ucommerce.Sitecore.Installer.Steps
 {
     public class EnableSitecoreCompatibilityApp : IStep
     {
-        private readonly SitecoreVersionChecker _sitecoreVersionChecker;
+        private readonly DirectoryInfo _sitecorePath;
         private readonly IInstallerLoggingService _sitecoreInstallerLoggingService;
-        private readonly DirectoryInfo _baseDirectory;
+        private readonly ISitecoreVersionChecker _sitecoreVersionChecker;
 
-        public EnableSitecoreCompatibilityApp(SitecoreVersionChecker sitecoreVersionChecker, DirectoryInfo baseDirectory,
+        public EnableSitecoreCompatibilityApp(ISitecoreVersionChecker sitecoreVersionChecker,
+            DirectoryInfo sitecorePath,
             IInstallerLoggingService sitecoreInstallerLoggingService)
         {
             _sitecoreVersionChecker = sitecoreVersionChecker;
             _sitecoreInstallerLoggingService = sitecoreInstallerLoggingService;
-            _baseDirectory = baseDirectory;
+            _sitecorePath = sitecorePath;
         }
 
-        public async Task Run()
+        public Task Run()
         {
-            _sitecoreInstallerLoggingService.Information<EnableSitecoreCompatibilityApp>("Enable sitecore compatibility app");
-            var _virtualPathToAppsFolder = new DirectoryInfo(Path.Combine(_baseDirectory.FullName, "sitecore modules", "shell", "ucommerce", "apps"));
+            _sitecoreInstallerLoggingService.Information<EnableSitecoreCompatibilityApp>("Enabling sitecore compatibility apps");
+            var pathToAppsFolder = new DirectoryInfo(Path.Combine(_sitecorePath.FullName, "sitecore modules", "shell", "ucommerce", "apps"));
             if (_sitecoreVersionChecker.IsEqualOrGreaterThan(new Version(9, 2)))
             {
+                _sitecoreInstallerLoggingService.Information<EnableSitecoreCompatibilityApp>("Enabling sitecore 9.2+ compatibility app");
                 new DirectoryMover(
-                    new DirectoryInfo(
-                        Path.Combine(_virtualPathToAppsFolder.FullName, "Sitecore92compatibility.disabled")),
-                    new DirectoryInfo(
-                       Path.Combine(_virtualPathToAppsFolder.FullName, "Sitecore92compatibility")),
-                    true).Move(ex => _sitecoreInstallerLoggingService.Error<Exception>(ex));
+                    new DirectoryInfo(Path.Combine(pathToAppsFolder.FullName, "Sitecore92compatibility.disabled")),
+                    new DirectoryInfo(Path.Combine(pathToAppsFolder.FullName, "Sitecore92compatibility")),
+                    true
+                    )
+                    .Move(ex => _sitecoreInstallerLoggingService.Error<Exception>(ex));
             }
-
 
             if (_sitecoreVersionChecker.IsEqualOrGreaterThan(new Version(9, 3)))
             {
-
+                _sitecoreInstallerLoggingService.Information<EnableSitecoreCompatibilityApp>("Enabling sitecore 9.3+ compatibility app");
                 new DirectoryMover(
-                    new DirectoryInfo(
-                        Path.Combine(_virtualPathToAppsFolder.FullName, "Sitecore93compatibility.disabled")),
-                    new DirectoryInfo(
-                      Path.Combine(_virtualPathToAppsFolder.FullName, "Sitecore93compatibility")),
-                    true).Move(ex => _sitecoreInstallerLoggingService.Error<Exception>(ex));
+                    new DirectoryInfo(Path.Combine(pathToAppsFolder.FullName, "Sitecore93compatibility.disabled")),
+                    new DirectoryInfo(Path.Combine(pathToAppsFolder.FullName, "Sitecore93compatibility")),
+                    true
+                    )
+                    .Move(ex => _sitecoreInstallerLoggingService.Error<Exception>(ex));
             }
+
+            return Task.CompletedTask;
         }
     }
 }
