@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
-using Castle.Core.Configuration;
-using Sitecore.Install.Framework;
 using Ucommerce.Installer;
 
 namespace Ucommerce.Sitecore.Installer.Steps
@@ -22,25 +20,26 @@ namespace Ucommerce.Sitecore.Installer.Steps
         {
             _loggingService.Information<SitecoreWebconfigMerger>("Merging sitecore and ucommerce config files");
             var ucommerceInstallPath = Path.Combine("sitecore modules", "Shell", "ucommerce", "install");
-            var mergeConfig = new MergeConfig(Path.Combine(_baseDirectory.FullName, "web.config"),
+            var mergeConfig = new MergeConfig(new FileInfo(Path.Combine(_baseDirectory.FullName, "web.config")),
                 new List<Transformation>
                 {
-                    new Transformation(Path.Combine(_baseDirectory.FullName, ucommerceInstallPath, "CleanConfig.config")),
-                    new Transformation(Path.Combine(_baseDirectory.FullName, ucommerceInstallPath, "uCommerce.config")),
-                    new Transformation(Path.Combine(_baseDirectory.FullName, ucommerceInstallPath, "uCommerce.IIS7.config"),
+                    new Transformation(new FileInfo(Path.Combine(_baseDirectory.FullName, ucommerceInstallPath, "CleanConfig.config"))),
+                    new Transformation(new FileInfo(Path.Combine(_baseDirectory.FullName, ucommerceInstallPath, "uCommerce.config"))),
+                    new Transformation(new FileInfo(Path.Combine(_baseDirectory.FullName, ucommerceInstallPath, "uCommerce.IIS7.config")),
                         isIntegrated: true),
-                    new Transformation(Path.Combine(_baseDirectory.FullName,
+                    new Transformation(new FileInfo(Path.Combine(_baseDirectory.FullName,
                         ucommerceInstallPath,
-                        "uCommerce.dependencies.sitecore.config")),
-                    new Transformation(Path.Combine(_baseDirectory.FullName, ucommerceInstallPath, "sitecore.config")),
-                    new Transformation(Path.Combine(_baseDirectory.FullName, ucommerceInstallPath, "ClientDependency.config")),
-                    new Transformation(Path.Combine(_baseDirectory.FullName,
+                        "uCommerce.dependencies.sitecore.config"))),
+                    new Transformation(new FileInfo(Path.Combine(_baseDirectory.FullName, ucommerceInstallPath, "sitecore.config"))),
+                    new Transformation(new FileInfo(Path.Combine(_baseDirectory.FullName, ucommerceInstallPath, "ClientDependency.config"))),
+                    new Transformation(new FileInfo(Path.Combine(_baseDirectory.FullName,
                         ucommerceInstallPath,
-                        "updateAssemblyBinding.config"))
-                }
+                        "updateAssemblyBinding.config")))
+                },
+                _loggingService
             );
 
-            mergeConfig.Run(new DefaultOutput(), new ConfigurationAttributeCollection());
+            await mergeConfig.Run();
         }
     }
 }
