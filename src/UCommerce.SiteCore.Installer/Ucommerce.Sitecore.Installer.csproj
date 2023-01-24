@@ -251,7 +251,7 @@
     <Compile Include="Steps\RenameConfigDefaultFilesToConfigFilesStep.cs" />
     <Compile Include="Steps\SeperateConfigSectionInNewFile.cs" />
     <Compile Include="Steps\SitecoreWebconfigMerger.cs" />
-    <Compile Include="Steps\AggregateStep.cs" />
+    <Compile Include="Steps\Transformation.cs" />
     <Compile Include="Steps\UpdateUCommerceAssemblyVersionInDatabase.cs" />
   </ItemGroup>
   <ItemGroup>
