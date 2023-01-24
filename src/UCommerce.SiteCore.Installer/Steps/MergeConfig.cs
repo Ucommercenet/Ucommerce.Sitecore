@@ -1,41 +1,67 @@
 ﻿using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.IO;
-using System.Web.Hosting;
-using Sitecore.Install.Framework;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Xml.Linq;
 using Ucommerce.Installer;
 
 namespace Ucommerce.Sitecore.Installer.Steps
 {
-	public class MergeConfig : MergeConfigKeepingConnectionStringValue, IPostStep
-	{
-		private readonly FileInfo _toBeTransformed;
-	    public IList<Transformation> Transformations { get; set; }
+    public class MergeConfig : IStep
+    {
+        private readonly IInstallerLoggingService _loggingService;
+        private readonly FileInfo _toBeTransformed;
+        public IList<Transformation> Transformations { get; set; }
 
-        public MergeConfig(string configurationVirtualPath, IList<Transformation> transformations)
-		{
-			InitializeTargetDocumentPath(configurationVirtualPath);
-		    Transformations = transformations;
-			_toBeTransformed = new FileInfo(HostingEnvironment.MapPath(configurationVirtualPath));
-		}
+        public MergeConfig(FileInfo configuration, IList<Transformation> transformations, IInstallerLoggingService loggingService)
+        {
+            _loggingService = loggingService;
+            Transformations = transformations;
+            _toBeTransformed = configuration;
+        }
 
+        public async Task Run()
+        {
+            _loggingService.Information<MergeConfig>("Merging configs");
 
-		public void Run(ITaskOutput output, NameValueCollection metaData)
-		{
-			ReadConnectionStringAttribute();
+            var connectionStringAttribute = GetUcommerceConnectionString(_toBeTransformed);
 
-			using (var transformer = new ConfigurationTransformer(_toBeTransformed))
-			{
-				foreach (var transformation in Transformations)
-				{
-					transformer.Transform(
-						new FileInfo(HostingEnvironment.MapPath(transformation.VirtualPath)),
-						transformation.OnlyIfIisIntegrated,
-						ex => new SitecoreInstallerLoggingService().Error<int>(ex));
-				}
-			}
+            using (var transformer = new ConfigurationTransformer(_toBeTransformed))
+            {
+                foreach (var transformation in Transformations)
+                {
+                    transformer.Transform(
+                        transformation.Path,
+                        transformation.OnlyIfIisIntegrated,
+                        ex => _loggingService.Error<int>(ex));
+                }
+            }
 
-			SetConnectionStringAttribute();
-		}
-	}
+            SetConnectionStringAttribute(connectionStringAttribute);
+        }
+
+        private XAttribute GetUcommerceConnectionString(FileInfo appConfig)
+        {
+            var xFile = XDocument.Load(appConfig.FullName);
+            var element = xFile.Descendants()
+                .FirstOrDefault(x => x.Name == "runtimeConfiguration" && x.Parent != null && x.Parent.Name == "commerce");
+            return element?.Attribute("connectionString");
+        }
+
+        private void SetConnectionStringAttribute(XAttribute connectionStringAttribute)
+        {
+            if (connectionStringAttribute == null) return;
+
+            var targetDocument = XDocument.Load(_toBeTransformed.FullName);
+
+            var newAttribute = GetUcommerceConnectionString(_toBeTransformed);
+            if (newAttribute == null)
+            {
+                return;
+            }
+
+            newAttribute.Value = connectionStringAttribute.Value;
+            targetDocument.Save(_toBeTransformed.FullName);
+        }
+    }
 }
