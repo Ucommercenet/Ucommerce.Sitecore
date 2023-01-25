@@ -14,6 +14,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
             RuntimeVersionChecker runtimeVersionChecker,
             IInstallerLoggingService loggingService)
         {
+            var appsPath = Path.Combine(sitecoreDirectory.FullName, "sitecore modules", "Shell", "uCommerce", "Apps");
             Steps.AddRange(new IStep[]
             {
                 new PreRequisitesChecker(connectionStringLocator, loggingService),
@@ -26,7 +27,8 @@ namespace Ucommerce.Sitecore.Installer.Steps
                 new SeperateConfigSectionInNewFile("configuration/sitecore/settings",new FileInfo(Path.Combine(sitecoreDirectory.FullName,"web.config")),new FileInfo(Path.Combine(sitecoreDirectory.FullName,"App_Config","Include",".Sitecore.Settings.config")),loggingService),
                 new MoveDirectory(new DirectoryInfo(Path.Combine(sitecoreDirectory.FullName,"sitecore modules","shell","ucommerce","install","binaries")),new DirectoryInfo(Path.Combine(sitecoreDirectory.FullName,"bin","uCommerce")),overwriteTarget:true,loggingService),
                 new DeleteFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName,"bin","ucommerce","Ucommerce.Installer.dll")),loggingService),
-                new DeleteFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName,"bin","Ucommerce.Transactions.Payments.dll")),loggingService)
+                new DeleteFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName,"bin","Ucommerce.Transactions.Payments.dll")),loggingService),
+                new DeleteDirectory(new DirectoryInfo(Path.Combine(appsPath,"ServiceStack")),loggingService)
             });
         }
 
