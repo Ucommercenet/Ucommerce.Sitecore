@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using CliFx;
 using CliFx.Attributes;
 using CliFx.Infrastructure;
+using Ucommerce.Installer;
 using Ucommerce.Sitecore.Cli.Logging;
 using Ucommerce.Sitecore.Installer;
 using Ucommerce.Sitecore.Installer.Steps;
@@ -38,8 +39,11 @@ namespace Ucommerce.Sitecore.Cli.Commands
             var baseDirectory = new DirectoryInfo(AppContext.BaseDirectory);
             var sitecoreDirectory = new DirectoryInfo(SitecorePath);
             var connectionStringLocater = new SitecoreInstallationConnectionStringLocator(ConnectionString);
+            var sitecoreDbAvailabilityService = new SitecoreDatabaseAvailabilityService();
+            var runtimeVersionChecker = new RuntimeVersionChecker(connectionStringLocater, logging);
+            var updateService = new UpdateService(connectionStringLocater, runtimeVersionChecker, sitecoreDbAvailabilityService);
             var versionChecker = new SitecoreVersionCheckerOffline(sitecoreDirectory, logging);
-            var installStep = new InstallStep(baseDirectory, sitecoreDirectory, versionChecker, connectionStringLocater, logging);
+            var installStep = new InstallStep(baseDirectory, sitecoreDirectory, versionChecker, connectionStringLocater, updateService, runtimeVersionChecker, logging);
 
             await installStep.Run();
         }
