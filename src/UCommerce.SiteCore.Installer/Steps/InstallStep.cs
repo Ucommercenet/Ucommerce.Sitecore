@@ -26,15 +26,15 @@ namespace Ucommerce.Sitecore.Installer.Steps
                 new SitecoreWebconfigMerger(sitecoreDirectory,loggingService),
                 new SeperateConfigSectionInNewFile("configuration/sitecore/settings",new FileInfo(Path.Combine(sitecoreDirectory.FullName,"web.config")),new FileInfo(Path.Combine(sitecoreDirectory.FullName,"App_Config","Include",".Sitecore.Settings.config")),loggingService),
                 new MoveDirectory(new DirectoryInfo(Path.Combine(sitecoreDirectory.FullName,"sitecore modules","shell","ucommerce","install","binaries")),new DirectoryInfo(Path.Combine(sitecoreDirectory.FullName,"bin","uCommerce")),overwriteTarget:true,loggingService),
-                new DeleteFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName,"bin","ucommerce","Ucommerce.Installer.dll")),loggingService),
-                new DeleteFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName,"bin","Ucommerce.Transactions.Payments.dll")),loggingService),
-                new DeleteDirectory(new DirectoryInfo(Path.Combine(appsPath,"ServiceStack")),loggingService),
-                new DeleteDirectory(new DirectoryInfo(Path.Combine(appsPath,"RavenDB25")),loggingService),
+                new DeleteFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName,"bin","ucommerce","Ucommerce.Installer.dll")), loggingService),
+                new DeleteFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName,"bin","Ucommerce.Transactions.Payments.dll")), loggingService),
+                new DeleteDirectory(new DirectoryInfo(Path.Combine(appsPath,"ServiceStack")), loggingService),
+                new DeleteDirectory(new DirectoryInfo(Path.Combine(appsPath,"RavenDB25")), loggingService),
                 new DeleteDirectory(new DirectoryInfo(Path.Combine(appsPath,"RavenDB25.disabled")), loggingService),
+                new DeleteDirectory(new DirectoryInfo(Path.Combine(appsPath, "RavenDB30")), loggingService),
             });
         }
         
-        //  steps.Add(new DeleteDirectory($"{virtualAppsPath}/RavenDB30"));
         //  steps.Add(
         //      new DeleteDirectory($"{virtualAppsPath}RavenDB30.disabled"));
         //  // Enable ExchangeRateAPICurrencyConversion app
