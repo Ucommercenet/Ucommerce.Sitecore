@@ -89,11 +89,12 @@ namespace Ucommerce.Sitecore.Installer.Steps
             Steps.AddRange(ToggleActiveSearchProviderSteps(appsPath, loggingService));
             Steps.AddRange(SearchProviderCleanupSteps(appsPath, loggingService));
             Steps.AddRange(RemoveRenamedPipelinesSteps(sitecoreDirectory, loggingService));
-            Steps.AddRange(ComposeMoveSitecoreConfigIncludes(sitecoreDirectory,versionChecker,loggingService));
-            Steps.AddRange(new List<IStep>()
+            Steps.AddRange(ComposeMoveSitecoreConfigIncludes(sitecoreDirectory, versionChecker, loggingService));
+            Steps.AddRange(new List<IStep>
             {
-                new DeleteFile(new FileInfo(Path.Combine(appsPath,"Ucommerce.Search.Lucene","bin","System.Collections.Immutable.dll")),loggingService),
-                new DeleteFile(new FileInfo(Path.Combine(appsPath,"Ucommerce.Search.Lucene.disabled","bin","System.Collections.Immutable.dll")),loggingService),
+                new DeleteFile(new FileInfo(Path.Combine(appsPath, "Ucommerce.Search.Lucene", "bin", "System.Collections.Immutable.dll")), loggingService),
+                new DeleteFile(new FileInfo(Path.Combine(appsPath, "Ucommerce.Search.Lucene.disabled", "bin", "System.Collections.Immutable.dll")),
+                    loggingService),
             });
         }
 
@@ -101,7 +102,9 @@ namespace Ucommerce.Sitecore.Installer.Steps
         //  steps.Add(new CreateApplicationShortcuts());
         //  steps.Add(new CreateSpeakApplicationIfSupported(sitecoreVersionChecker));
 
-        private List<IStep> ComposeMoveSitecoreConfigIncludes(DirectoryInfo sitecoreDirectory,ISitecoreVersionChecker versionChecker,IInstallerLoggingService loggingService)
+        private List<IStep> ComposeMoveSitecoreConfigIncludes(DirectoryInfo sitecoreDirectory,
+            ISitecoreVersionChecker versionChecker,
+            IInstallerLoggingService loggingService)
         {
             var configIncludePath = Path.Combine("sitecore modules", "Shell", "ucommerce", "install", "configInclude");
             var appIncludePath = Path.Combine("App_Config", "include");
