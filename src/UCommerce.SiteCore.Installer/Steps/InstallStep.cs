@@ -20,13 +20,11 @@ namespace Ucommerce.Sitecore.Installer.Steps
                 new InitializeObjectFactory(loggingService),
                 new InstallDatabaseUcommerce(baseDirectory, connectionStringLocator, loggingService),
                 new InstallDatabaseSitecore(baseDirectory, connectionStringLocator, loggingService),
-                new UpdateUCommerceAssemblyVersionInDatabase(updateService, runtimeVersionChecker, loggingService)
+                new UpdateUCommerceAssemblyVersionInDatabase(updateService, runtimeVersionChecker, loggingService),
+                new CopyFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName, "web.config")), new FileInfo(Path.Combine(sitecoreDirectory.FullName, "web.config.{DateTime.Now.Ticks}.backup")), loggingService),
+                
             });
         }
-        //  steps.Add(new UpdateUCommerceAssemblyVersionInDatabase(updateService,
-        //      runtimeVersionChecker, sitecoreInstallerLoggingService));
-
-        //
         //  steps.Add(new CopyFile(sourceVirtualPath: "~/web.config",
         //      targetVirtualPath: "~/web.config.{DateTime.Now.Ticks}.backup"));
         //  steps.Add(new SitecoreWebconfigMerger(sitecoreVersionChecker));
