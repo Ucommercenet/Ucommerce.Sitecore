@@ -44,13 +44,11 @@ namespace Ucommerce.Sitecore.Installer.Steps
                 new DeleteFile(new FileInfo(Path.Combine(appsPath, "Sanitization", "bin", "HtmlSanitizer.dll")), loggingService),
                 new DeleteFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName, "Sanitization", "bin", "HtmlSanitizer.dll")), loggingService),
                 new DeleteFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName, "sitecore modules", "shell","ucommerce","Configuration","Payments.config")), loggingService),
+                new MoveUcommerceBinaries(baseDirectory,sitecoreDirectory,loggingService),
                 
             });
         }
-        //  //Clean up unused configuration since payment integration has move to apps
-        //  steps.Add(
-        //      new DeleteFile("~/sitecore modules/shell/ucommerce/Configuration/Payments.config"));
-        //
+
         //  steps.Add(new MoveUcommerceBinaries());
         //  steps.Add(new MoveResourceFiles());
         //
