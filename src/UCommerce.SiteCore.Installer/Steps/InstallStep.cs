@@ -24,11 +24,11 @@ namespace Ucommerce.Sitecore.Installer.Steps
                 new CopyFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName, "web.config")), new FileInfo(Path.Combine(sitecoreDirectory.FullName, "web.config.{DateTime.Now.Ticks}.backup")), loggingService),
                 new SitecoreWebconfigMerger(sitecoreDirectory,loggingService),
                 new SeperateConfigSectionInNewFile("configuration/sitecore/settings",new FileInfo(Path.Combine(sitecoreDirectory.FullName,"web.config")),new FileInfo(Path.Combine(sitecoreDirectory.FullName,"App_Config","Include",".Sitecore.Settings.config")),loggingService),
-                new MoveDirectory(new DirectoryInfo(Path.Combine(sitecoreDirectory.FullName,"sitecore modules","shell","ucommerce","install","binaries")),new DirectoryInfo(Path.Combine(sitecoreDirectory.FullName,"bin","uCommerce")),overwriteTarget:true,loggingService)
+                new MoveDirectory(new DirectoryInfo(Path.Combine(sitecoreDirectory.FullName,"sitecore modules","shell","ucommerce","install","binaries")),new DirectoryInfo(Path.Combine(sitecoreDirectory.FullName,"bin","uCommerce")),overwriteTarget:true,loggingService),
+                new DeleteFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName,"bin","ucommerce","Ucommerce.Installer.dll")),loggingService)
             });
         }
-        //  steps.Add(new MoveDirectory("~/sitecore modules/shell/ucommerce/install/binaries",
-        //      "~/bin/uCommerce", overwriteTarget: true));
+
         //
         //  steps.Add(new DeleteFile("~/bin/ucommerce/Ucommerce.Installer.dll"));
         //
