@@ -39,11 +39,10 @@ namespace Ucommerce.Sitecore.Installer.Steps
                 new EnableSitecoreCompatibilityApp(versionChecker, sitecoreDirectory, loggingService),
                 new DeleteDirectory(new DirectoryInfo(Path.Combine(appsPath, "Widgets", "CatalogSearch")), loggingService),
                 new DeleteDirectory(new DirectoryInfo(Path.Combine(appsPath, "Widgets", "CatalogSearch.disabled")), loggingService),
-                new MoveDirectory(new DirectoryInfo(Path.Combine(appsPath, "Sanitization.disabled")),new DirectoryInfo(Path.Combine(appsPath, "Sanitization")), true, loggingService)
+                new MoveDirectory(new DirectoryInfo(Path.Combine(appsPath, "Sanitization.disabled")),new DirectoryInfo(Path.Combine(appsPath, "Sanitization")), true, loggingService),
+                new DeleteFile(new FileInfo(Path.Combine(appsPath, "Sanitization", "bin", "AngleSharp.dll")), loggingService)
             });
         }
-        //  // Enable Sanitization app
-        //  steps.Add(new MoveDirectory($"{virtualAppsPath}/Sanitization.disabled", $"{virtualAppsPath}/Sanitization", true));
         //  steps.Add(new DeleteFile($"{virtualAppsPath}/Sanitization/bin/AngleSharp.dll"));
         //  steps.Add(new DeleteFile($"{virtualAppsPath}/Sanitization/bin/HtmlSanitizer.dll"));
         //
