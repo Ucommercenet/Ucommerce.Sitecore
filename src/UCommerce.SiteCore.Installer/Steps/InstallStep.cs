@@ -29,12 +29,11 @@ namespace Ucommerce.Sitecore.Installer.Steps
                 new DeleteFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName,"bin","ucommerce","Ucommerce.Installer.dll")),loggingService),
                 new DeleteFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName,"bin","Ucommerce.Transactions.Payments.dll")),loggingService),
                 new DeleteDirectory(new DirectoryInfo(Path.Combine(appsPath,"ServiceStack")),loggingService),
-                new DeleteDirectory(new DirectoryInfo(Path.Combine(appsPath,"RavenDB25")),loggingService)
+                new DeleteDirectory(new DirectoryInfo(Path.Combine(appsPath,"RavenDB25")),loggingService),
+                new DeleteDirectory(new DirectoryInfo(Path.Combine(appsPath,"RavenDB25.disabled")), loggingService),
             });
         }
         
-        //  steps.Add(
-        //      new DeleteDirectory($"{virtualAppsPath}RavenDB25.disabled"));
         //  steps.Add(new DeleteDirectory($"{virtualAppsPath}/RavenDB30"));
         //  steps.Add(
         //      new DeleteDirectory($"{virtualAppsPath}RavenDB30.disabled"));
