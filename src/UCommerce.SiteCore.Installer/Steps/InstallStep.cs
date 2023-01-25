@@ -16,7 +16,8 @@ namespace Ucommerce.Sitecore.Installer.Steps
             {
                 new PreRequisitesChecker(connectionStringLocator, loggingService),
                 new InitializeObjectFactory(loggingService),
-                new InstallDatabaseUcommerce(baseDirectory, connectionStringLocator, loggingService)
+                new InstallDatabaseUcommerce(baseDirectory, connectionStringLocator, loggingService),
+                new InstallDatabaseSitecore(baseDirectory, connectionStringLocator, loggingService)
             });
         }
         //  steps.Add(new InstallDatabase("~/sitecore modules/Shell/ucommerce/install"));
