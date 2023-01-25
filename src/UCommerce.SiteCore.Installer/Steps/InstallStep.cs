@@ -22,11 +22,9 @@ namespace Ucommerce.Sitecore.Installer.Steps
                 new InstallDatabaseSitecore(baseDirectory, connectionStringLocator, loggingService),
                 new UpdateUCommerceAssemblyVersionInDatabase(updateService, runtimeVersionChecker, loggingService),
                 new CopyFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName, "web.config")), new FileInfo(Path.Combine(sitecoreDirectory.FullName, "web.config.{DateTime.Now.Ticks}.backup")), loggingService),
-                
+                new SitecoreWebconfigMerger(sitecoreDirectory,loggingService)
             });
         }
-        //  steps.Add(new CopyFile(sourceVirtualPath: "~/web.config",
-        //      targetVirtualPath: "~/web.config.{DateTime.Now.Ticks}.backup"));
         //  steps.Add(new SitecoreWebconfigMerger(sitecoreVersionChecker));
         //  steps.Add(new SeperateConfigSectionInNewFile("configuration/sitecore/settings",
         //      "~/web.config", "~/App_Config/Include/.Sitecore.Settings.config"));
