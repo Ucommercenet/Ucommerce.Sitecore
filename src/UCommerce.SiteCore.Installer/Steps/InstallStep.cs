@@ -38,7 +38,8 @@ namespace Ucommerce.Sitecore.Installer.Steps
                 new DeleteDirectory(new DirectoryInfo(Path.Combine(appsPath, "Catalogs.disabled")), loggingService),
                 new EnableSitecoreCompatibilityApp(versionChecker, sitecoreDirectory, loggingService),
                 new DeleteDirectory(new DirectoryInfo(Path.Combine(appsPath, "Widgets", "CatalogSearch")), loggingService),
-                new DeleteDirectory(new DirectoryInfo(Path.Combine(appsPath, "Widgets", "CatalogSearch.disabled")), loggingService)
+                new DeleteDirectory(new DirectoryInfo(Path.Combine(appsPath, "Widgets", "CatalogSearch.disabled")), loggingService),
+                new MoveDirectory(new DirectoryInfo(Path.Combine(appsPath, "Sanitization.disabled")),new DirectoryInfo(Path.Combine(appsPath, "Sanitization")), true, loggingService)
             });
         }
         //  // Enable Sanitization app
