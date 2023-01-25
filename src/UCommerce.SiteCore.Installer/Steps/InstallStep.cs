@@ -36,19 +36,11 @@ namespace Ucommerce.Sitecore.Installer.Steps
                 new MoveDirectory(new DirectoryInfo(Path.Combine(appsPath, "ExchangeRateAPICurrencyConversion.disabled")), new DirectoryInfo(Path.Combine(appsPath, "ExchangeRateAPICurrencyConversion")), true, loggingService),
                 new DeleteDirectory(new DirectoryInfo(Path.Combine(appsPath, "Catalogs")), loggingService),
                 new DeleteDirectory(new DirectoryInfo(Path.Combine(appsPath, "Catalogs.disabled")), loggingService),
-                new EnableSitecoreCompatibilityApp(versionChecker, sitecoreDirectory, loggingService)
+                new EnableSitecoreCompatibilityApp(versionChecker, sitecoreDirectory, loggingService),
+                new DeleteDirectory(new DirectoryInfo(Path.Combine(appsPath, "Widgets", "CatalogSearch")), loggingService),
+                new DeleteDirectory(new DirectoryInfo(Path.Combine(appsPath, "Widgets", "CatalogSearch.disabled")), loggingService)
             });
         }
-        
-        //  steps.Add(
-        //      new EnableSitecoreCompatibilityApp(sitecoreVersionChecker, sitecoreInstallerLoggingService));
-        //
-        //  // Remove CatalogSearch widget
-        //  steps.Add(
-        //      new DeleteDirectory($"{virtualAppsPath}/Widgets/CatalogSearch"));
-        //  steps.Add(
-        //      new DeleteDirectory($"{virtualAppsPath}/Widgets/CatalogSearch.disabled"));
-        //
         //  // Enable Sanitization app
         //  steps.Add(new MoveDirectory($"{virtualAppsPath}/Sanitization.disabled", $"{virtualAppsPath}/Sanitization", true));
         //  steps.Add(new DeleteFile($"{virtualAppsPath}/Sanitization/bin/AngleSharp.dll"));
