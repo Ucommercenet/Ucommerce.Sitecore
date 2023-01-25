@@ -93,19 +93,13 @@ namespace Ucommerce.Sitecore.Installer.Steps
             Steps.AddRange(new List<IStep>()
             {
                 new DeleteFile(new FileInfo(Path.Combine(appsPath,"Ucommerce.Search.Lucene","bin","System.Collections.Immutable.dll")),loggingService),
+                new DeleteFile(new FileInfo(Path.Combine(appsPath,"Ucommerce.Search.Lucene.disabled","bin","System.Collections.Immutable.dll")),loggingService),
             });
         }
 
         //Isnt added because they are for the sitecore package, right?
         //  steps.Add(new CreateApplicationShortcuts());
         //  steps.Add(new CreateSpeakApplicationIfSupported(sitecoreVersionChecker));
-        
-        //  // Clean up System.Collections.Immutable.dll in Lucene App since it is no longer used
-        //  steps.Add(new DeleteFile($"{virtualAppsPath}/Ucommerce.Search.Lucene/bin/System.Collections.Immutable.dll"));
-        //  steps.Add(new DeleteFile($"{virtualAppsPath}/Ucommerce.Search.Lucene.disabled/bin/System.Collections.Immutable.dll"));
-        //
-        //     return steps;
-        // }
 
         private List<IStep> ComposeMoveSitecoreConfigIncludes(DirectoryInfo sitecoreDirectory,ISitecoreVersionChecker versionChecker,IInstallerLoggingService loggingService)
         {
