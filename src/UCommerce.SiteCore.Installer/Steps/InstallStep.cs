@@ -90,7 +90,10 @@ namespace Ucommerce.Sitecore.Installer.Steps
             Steps.AddRange(SearchProviderCleanupSteps(appsPath, loggingService));
             Steps.AddRange(RemoveRenamedPipelinesSteps(sitecoreDirectory, loggingService));
             Steps.AddRange(ComposeMoveSitecoreConfigIncludes(sitecoreDirectory,versionChecker,loggingService));
-            
+            Steps.AddRange(new List<IStep>()
+            {
+                new DeleteFile(new FileInfo(Path.Combine(appsPath,"Ucommerce.Search.Lucene","bin","System.Collections.Immutable.dll")),loggingService),
+            });
         }
 
         //Isnt added because they are for the sitecore package, right?
