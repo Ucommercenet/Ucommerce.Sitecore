@@ -34,13 +34,12 @@ namespace Ucommerce.Sitecore.Installer.Steps
                 new DeleteDirectory(new DirectoryInfo(Path.Combine(appsPath, "RavenDB30")), loggingService),
                 new DeleteDirectory(new DirectoryInfo(Path.Combine(appsPath, "RavenDB30.disabled")), loggingService),
                 new MoveDirectory(new DirectoryInfo(Path.Combine(appsPath, "ExchangeRateAPICurrencyConversion.disabled")), new DirectoryInfo(Path.Combine(appsPath, "ExchangeRateAPICurrencyConversion")), true, loggingService),
-                new DeleteDirectory(new DirectoryInfo(Path.Combine(appsPath, "Catalog")), loggingService)
+                new DeleteDirectory(new DirectoryInfo(Path.Combine(appsPath, "Catalogs")), loggingService),
+                new DeleteDirectory(new DirectoryInfo(Path.Combine(appsPath, "Catalogs.disabled")), loggingService)
+                
             });
         }
         
-        
-        //  steps.Add(
-        //      new DeleteDirectory($"{virtualAppsPath}/Catalogs.disabled"));
         //  steps.Add(
         //      new EnableSitecoreCompatibilityApp(sitecoreVersionChecker, sitecoreInstallerLoggingService));
         //
