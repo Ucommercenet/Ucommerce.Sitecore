@@ -15,18 +15,14 @@ namespace Ucommerce.Sitecore.Installer.Steps
             Steps.AddRange(new IStep[]
             {
                 new PreRequisitesChecker(connectionStringLocator, loggingService),
-                new InitializeObjectFactory(loggingService)
+                new InitializeObjectFactory(loggingService),
+                new InstallDatabaseUcommerce(baseDirectory, connectionStringLocator, loggingService)
             });
         }
-
-        //  steps.Add(new InitializeObjectFactory());
-        // if (upgradeDb)
-        // {
         //  steps.Add(new InstallDatabase("~/sitecore modules/Shell/ucommerce/install"));
         //  steps.Add(new InstallDatabaseSitecore("~/sitecore modules/Shell/ucommerce/install"));
         //  steps.Add(new UpdateUCommerceAssemblyVersionInDatabase(updateService,
         //      runtimeVersionChecker, sitecoreInstallerLoggingService));
-        // }
 
         //
         //  steps.Add(new CopyFile(sourceVirtualPath: "~/web.config",
