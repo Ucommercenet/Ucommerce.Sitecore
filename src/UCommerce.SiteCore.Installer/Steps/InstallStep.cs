@@ -33,14 +33,10 @@ namespace Ucommerce.Sitecore.Installer.Steps
                 new DeleteDirectory(new DirectoryInfo(Path.Combine(appsPath,"RavenDB25.disabled")), loggingService),
                 new DeleteDirectory(new DirectoryInfo(Path.Combine(appsPath, "RavenDB30")), loggingService),
                 new DeleteDirectory(new DirectoryInfo(Path.Combine(appsPath, "RavenDB30.disabled")), loggingService),
+                new MoveDirectory(new DirectoryInfo(Path.Combine(appsPath, "ExchangeRateAPICurrencyConversion.disabled")), new DirectoryInfo(Path.Combine(appsPath, "ExchangeRateAPICurrencyConversion")), true, loggingService),
             });
         }
         
-        //  // Enable ExchangeRateAPICurrencyConversion app
-        //  steps.Add(new MoveDirectory(
-        //      $"{virtualAppsPath}/ExchangeRateAPICurrencyConversion.disabled",
-        //      $"{virtualAppsPath}/ExchangeRateAPICurrencyConversion", true));
-        //
         //  // Remove Catalogs app since it was moved into Core
         //  steps.Add(new DeleteDirectory($"{virtualAppsPath}/Catalogs"));
         //  steps.Add(
