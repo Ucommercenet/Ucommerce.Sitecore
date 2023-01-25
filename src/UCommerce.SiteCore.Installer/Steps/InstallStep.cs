@@ -1,5 +1,5 @@
+using System;
 using System.IO;
-using FluentNHibernate.Conventions.AcceptanceCriteria;
 using J2N.Collections.Generic;
 using Ucommerce.Installer;
 
@@ -89,21 +89,153 @@ namespace Ucommerce.Sitecore.Installer.Steps
             Steps.AddRange(ToggleActiveSearchProviderSteps(appsPath, loggingService));
             Steps.AddRange(SearchProviderCleanupSteps(appsPath, loggingService));
             Steps.AddRange(RemoveRenamedPipelinesSteps(sitecoreDirectory, loggingService));
+            Steps.AddRange(ComposeMoveSitecoreConfigIncludes(sitecoreDirectory,versionChecker,loggingService));
+            
         }
 
-        private List<IStep> ToggleActiveSearchProviderSteps(string appsPath, IInstallerLoggingService loggingService)
+        //Isnt added because they are for the sitecore package, right?
+        //  steps.Add(new CreateApplicationShortcuts());
+        //  steps.Add(new CreateSpeakApplicationIfSupported(sitecoreVersionChecker));
+        
+        //  // Clean up System.Collections.Immutable.dll in Lucene App since it is no longer used
+        //  steps.Add(new DeleteFile($"{virtualAppsPath}/Ucommerce.Search.Lucene/bin/System.Collections.Immutable.dll"));
+        //  steps.Add(new DeleteFile($"{virtualAppsPath}/Ucommerce.Search.Lucene.disabled/bin/System.Collections.Immutable.dll"));
+        //
+        //     return steps;
+        // }
+
+        private List<IStep> ComposeMoveSitecoreConfigIncludes(DirectoryInfo sitecoreDirectory,ISitecoreVersionChecker versionChecker,IInstallerLoggingService loggingService)
         {
-            var luceneAppFolderPath = new DirectoryInfo(Path.Combine(appsPath, "Ucommerce.Search.Lucene"));
-            var luceneAppDisabledFolderPath = new DirectoryInfo(Path.Combine(appsPath, "Ucommerce.Search.Lucene.disabled"));
-            var elasticAppFolderPath = new DirectoryInfo(Path.Combine(appsPath, "Ucommerce.Search.ElasticSearch"));
-            var elasticAppDisabledFolderPath = new DirectoryInfo(Path.Combine(appsPath, "Ucommerce.Search.ElasticSearch.disabled"));
-            var steps = new List<IStep> { };
-            if (Directory.Exists(elasticAppFolderPath.FullName))
+            var configIncludePath = Path.Combine("sitecore modules", "Shell", "ucommerce", "install", "configInclude");
+            var appIncludePath = Path.Combine("App_Config", "include");
+            var steps = new List<IStep>
             {
-                steps.Add(new MoveDirectoryIfTargetExist(elasticAppDisabledFolderPath, elasticAppFolderPath, loggingService));
-                steps.Add(new MoveDirectoryIfTargetExist(luceneAppFolderPath, luceneAppDisabledFolderPath, loggingService));
+                new MoveFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName, configIncludePath, "Sitecore.uCommerce.Databases.config")),
+                    new FileInfo(Path.Combine(sitecoreDirectory.FullName, appIncludePath, "Sitecore.uCommerce.Databases.config")),
+                    true,
+                    loggingService),
+                new MoveFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName, configIncludePath, "Sitecore.uCommerce.Dataproviders.config")),
+                    new FileInfo(Path.Combine(sitecoreDirectory.FullName, appIncludePath, "Sitecore.uCommerce.Dataproviders.config")),
+                    true,
+                    loggingService),
+                new MoveFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName, configIncludePath, "Sitecore.uCommerce.Events.config")),
+                    new FileInfo(Path.Combine(sitecoreDirectory.FullName, appIncludePath, "Sitecore.uCommerce.Events.config")),
+                    true,
+                    loggingService),
+                new MoveFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName, configIncludePath, "Sitecore.uCommerce.Sites.config")),
+                    new FileInfo(Path.Combine(sitecoreDirectory.FullName, appIncludePath, "Sitecore.uCommerce.Sites.config")),
+                    true,
+                    loggingService),
+                new MoveFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName,
+                        configIncludePath,
+                        "Sitecore.uCommerce.Pipelines.getItemPersonalizationVisibility.config")),
+                    new FileInfo(Path.Combine(sitecoreDirectory.FullName,
+                        appIncludePath,
+                        "Sitecore.uCommerce.Pipelines.getItemPersonalizationVisibility.config")),
+                    true,
+                    loggingService)
+            };
+
+            if (versionChecker.IsEqualOrGreaterThan(new Version(9, 3)))
+            {
+                steps.Add(
+                    new MoveFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName,
+                            configIncludePath,
+                            "Sitecore.uCommerce.Pipelines.HttpRequestBegin.9.3.config")),
+                        new FileInfo(Path.Combine(sitecoreDirectory.FullName, appIncludePath, "Sitecore.uCommerce.Pipelines.HttpRequestBegin.config")),
+                        true,
+                        loggingService)
+                );
+            }
+            else
+            {
+                steps.Add(
+                    new MoveFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName,
+                            configIncludePath,
+                            "Sitecore.uCommerce.Pipelines.HttpRequestBegin.config")),
+                        new FileInfo(Path.Combine(sitecoreDirectory.FullName, appIncludePath, "Sitecore.uCommerce.Pipelines.HttpRequestBegin.config")),
+                        true,
+                        loggingService)
+                );
             }
 
+            if (versionChecker.IsEqualOrGreaterThan(new Version(9, 1)))
+            {
+                steps.Add(
+                    new MoveFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName,
+                            configIncludePath,
+                            "Sitecore.uCommerce.Pipelines.PreProcessRequest.9.1.config")),
+                        new FileInfo(Path.Combine(sitecoreDirectory.FullName, appIncludePath, "Sitecore.uCommerce.Pipelines.PreProcessRequest.config")),
+                        true,
+                        loggingService)
+                );
+            }
+            else
+            {
+                steps.Add(
+                    new MoveFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName,
+                            configIncludePath,
+                            "Sitecore.uCommerce.Pipelines.PreProcessRequest.config")),
+                        new FileInfo(Path.Combine(sitecoreDirectory.FullName, appIncludePath, "Sitecore.uCommerce.Pipelines.PreProcessRequest.config")),
+                        true,
+                        loggingService)
+                );
+            }
+
+            steps.AddRange(new List<IStep>
+                {
+                    new MoveFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName, configIncludePath, "Sitecore.uCommerce.Settings.config")),
+                        new FileInfo(Path.Combine(sitecoreDirectory.FullName, appIncludePath, "Sitecore.uCommerce.Settings.config")),
+                        true,
+                        loggingService),
+                    new MoveFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName,
+                            configIncludePath,
+                            "Sitecore.uCommerce.Pipelines.ModifyPipelines.config.disabled")),
+                        new FileInfo(Path.Combine(sitecoreDirectory.FullName, appIncludePath, "Sitecore.uCommerce.Pipelines.ModifyPipelines.config.disabled")),
+                        true,
+                        loggingService),
+                    new MoveFileIfTargetExist(new FileInfo(Path.Combine(sitecoreDirectory.FullName,
+                            appIncludePath,
+                            "Sitecore.uCommerce.Pipelines.ModifyPipelines.config.disabled")),
+                        new FileInfo(Path.Combine(sitecoreDirectory.FullName, appIncludePath, "Sitecore.uCommerce.Pipelines.ModifyPipelines.config")),
+                        true,
+                        loggingService),
+                    new MoveFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName,
+                            configIncludePath,
+                            "Sitecore.uCommerce.Pipelines.ModifyPipelines.config.disabled")),
+                        new FileInfo(Path.Combine(sitecoreDirectory.FullName, appIncludePath, "Sitecore.uCommerce.Pipelines.ModifyPipelines.config.disabled")),
+                        true,
+                        loggingService),
+                }
+            );
+
+            if (versionChecker.IsEqualOrGreaterThan(new Version(8, 2)))
+            {
+                steps.Add(
+                    new MoveFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName,
+                            configIncludePath,
+                            "Sitecore.uCommerce.WebApiConfiguration.config.disabled")),
+                        new FileInfo(Path.Combine(sitecoreDirectory.FullName, appIncludePath, "Sitecore.uCommerce.WebApiConfiguration.config")),
+                        true,
+                        loggingService)
+                );
+            }
+
+            steps.AddRange(new List<IStep>
+            {
+                new MoveFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName,
+                        configIncludePath,
+                        "Sitecore.uCommerce.initialize.config")),
+                    new FileInfo(Path.Combine(sitecoreDirectory.FullName, appIncludePath, "Sitecore.uCommerce.initialize.config")),
+                    true,
+                    loggingService),
+                new MoveFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName,
+                        configIncludePath,
+                        "Sitecore.uCommerce.Log4net.config")),
+                    new FileInfo(Path.Combine(sitecoreDirectory.FullName, appIncludePath, "Sitecore.uCommerce.Log4net.config")),
+                    true,
+                    loggingService),
+            });
             return steps;
         }
 
@@ -212,23 +344,20 @@ namespace Ucommerce.Sitecore.Installer.Steps
             return steps;
         }
 
-        //  // Clean lucene from disk
-        //  SearchProviderCleanup("~/sitecore modules/Shell/uCommerce/Apps");
-        //
-        //  //Create back up and remove old files
-        //  RemovedRenamedPipelines();
-        //
-        //  steps.Add(new CreateApplicationShortcuts());
-        //  steps.Add(new CreateSpeakApplicationIfSupported(sitecoreVersionChecker));
-        //
-        //  // Move sitecore config includes into the right path
-        //  ComposeMoveSitecoreConfigIncludes(sitecoreVersionChecker);
-        //  
-        //  // Clean up System.Collections.Immutable.dll in Lucene App since it is no longer used
-        //  steps.Add(new DeleteFile($"{virtualAppsPath}/Ucommerce.Search.Lucene/bin/System.Collections.Immutable.dll"));
-        //  steps.Add(new DeleteFile($"{virtualAppsPath}/Ucommerce.Search.Lucene.disabled/bin/System.Collections.Immutable.dll"));
-        //
-        //     return steps;
-        // }
+        private List<IStep> ToggleActiveSearchProviderSteps(string appsPath, IInstallerLoggingService loggingService)
+        {
+            var luceneAppFolderPath = new DirectoryInfo(Path.Combine(appsPath, "Ucommerce.Search.Lucene"));
+            var luceneAppDisabledFolderPath = new DirectoryInfo(Path.Combine(appsPath, "Ucommerce.Search.Lucene.disabled"));
+            var elasticAppFolderPath = new DirectoryInfo(Path.Combine(appsPath, "Ucommerce.Search.ElasticSearch"));
+            var elasticAppDisabledFolderPath = new DirectoryInfo(Path.Combine(appsPath, "Ucommerce.Search.ElasticSearch.disabled"));
+            var steps = new List<IStep>();
+            if (Directory.Exists(elasticAppFolderPath.FullName))
+            {
+                steps.Add(new MoveDirectoryIfTargetExist(elasticAppDisabledFolderPath, elasticAppFolderPath, loggingService));
+                steps.Add(new MoveDirectoryIfTargetExist(luceneAppFolderPath, luceneAppDisabledFolderPath, loggingService));
+            }
+
+            return steps;
+        }
     }
 }
