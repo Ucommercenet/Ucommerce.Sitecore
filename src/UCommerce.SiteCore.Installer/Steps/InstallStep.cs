@@ -49,6 +49,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
                 new RenameConfigDefaultFilesToConfigFilesStep(new DirectoryInfo(Path.Combine(sitecoreDirectory.FullName,"sitecore modules","Shell","uCommerce","Configuration")),false,loggingService),
                 new RenameConfigDefaultFilesToConfigFilesStep(new DirectoryInfo(Path.Combine(sitecoreDirectory.FullName,"sitecore modules","Shell","uCommerce","Pipelines")),false,loggingService),
                 new RenameConfigDefaultFilesToConfigFilesStep(new DirectoryInfo(Path.Combine(sitecoreDirectory.FullName,"sitecore modules","Shell","uCommerce","Apps")),false,loggingService),
+                new MoveDirectoryIfTargetExist( new DirectoryInfo(Path.Combine(appsPath, "SimpleInventory.disabled")), new DirectoryInfo(Path.Combine(appsPath, "SimpleInventory")), loggingService),
             });
         }
         
