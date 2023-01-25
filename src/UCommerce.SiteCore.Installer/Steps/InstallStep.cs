@@ -88,6 +88,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
             });
             Steps.AddRange(ToggleActiveSearchProviderSteps(appsPath, loggingService));
             Steps.AddRange(SearchProviderCleanupSteps(appsPath, loggingService));
+            Steps.AddRange(RemoveRenamedPipelinesSteps(sitecoreDirectory, loggingService));
         }
 
         private List<IStep> ToggleActiveSearchProviderSteps(string appsPath, IInstallerLoggingService loggingService)
