@@ -50,15 +50,10 @@ namespace Ucommerce.Sitecore.Installer.Steps
                 new RenameConfigDefaultFilesToConfigFilesStep(new DirectoryInfo(Path.Combine(sitecoreDirectory.FullName,"sitecore modules","Shell","uCommerce","Pipelines")),false,loggingService),
                 new RenameConfigDefaultFilesToConfigFilesStep(new DirectoryInfo(Path.Combine(sitecoreDirectory.FullName,"sitecore modules","Shell","uCommerce","Apps")),false,loggingService),
                 new MoveDirectoryIfTargetExist( new DirectoryInfo(Path.Combine(appsPath, "SimpleInventory.disabled")), new DirectoryInfo(Path.Combine(appsPath, "SimpleInventory")), loggingService),
+                new MoveDirectoryIfTargetExist( new DirectoryInfo(Path.Combine(appsPath, "Acquire and Cancel Payments.disabled")), new DirectoryInfo(Path.Combine(appsPath, "Acquire and Cancel Payments")), loggingService),
             });
         }
         
-        //  steps.Add(new MoveDirectoryIfTargetExist(
-        //      $"{virtualAppsPath}/SimpleInventory.disabled",
-        //      $"{virtualAppsPath}/SimpleInventory"));
-        //  steps.Add(new MoveDirectoryIfTargetExist(
-        //      $"{virtualAppsPath}/Acquire and Cancel Payments.disabled",
-        //      $"{virtualAppsPath}/Acquire and Cancel Payments"));
         // // Set up search providers
         //  ToggleActiveSearchProvider(virtualAppsPath);
         //
