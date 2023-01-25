@@ -14,17 +14,11 @@ namespace Ucommerce.Sitecore.Installer.Steps
         {
             Steps.AddRange(new IStep[]
             {
-                new PreRequisitesChecker(connectionStringLocator, loggingService)
+                new PreRequisitesChecker(connectionStringLocator, loggingService),
+                new InitializeObjectFactory(loggingService)
             });
         }
 
-        // private List<IStep> AddSteps(string connectionString, string sitecorePath, IInstallerLoggingService loggingService)
-        // {
-        //     var steps = new List<IStep>()
-        //     {
-        //         
-        //     };
-        //  steps.Add(new SitecorePreRequisitesChecker());
         //  steps.Add(new InitializeObjectFactory());
         // if (upgradeDb)
         // {
