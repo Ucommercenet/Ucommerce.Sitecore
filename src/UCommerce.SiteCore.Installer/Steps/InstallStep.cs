@@ -45,11 +45,10 @@ namespace Ucommerce.Sitecore.Installer.Steps
                 new DeleteFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName, "Sanitization", "bin", "HtmlSanitizer.dll")), loggingService),
                 new DeleteFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName, "sitecore modules", "shell","ucommerce","Configuration","Payments.config")), loggingService),
                 new MoveUcommerceBinaries(baseDirectory,sitecoreDirectory,loggingService),
-                
+                new MoveResourceFiles(baseDirectory,connectionStringLocator,loggingService)
             });
         }
-
-        //  steps.Add(new MoveUcommerceBinaries());
+        
         //  steps.Add(new MoveResourceFiles());
         //
         //  ComposeConfiguration();
