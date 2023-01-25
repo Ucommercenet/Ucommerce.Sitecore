@@ -25,15 +25,11 @@ namespace Ucommerce.Sitecore.Installer.Steps
                 new SitecoreWebconfigMerger(sitecoreDirectory,loggingService),
                 new SeperateConfigSectionInNewFile("configuration/sitecore/settings",new FileInfo(Path.Combine(sitecoreDirectory.FullName,"web.config")),new FileInfo(Path.Combine(sitecoreDirectory.FullName,"App_Config","Include",".Sitecore.Settings.config")),loggingService),
                 new MoveDirectory(new DirectoryInfo(Path.Combine(sitecoreDirectory.FullName,"sitecore modules","shell","ucommerce","install","binaries")),new DirectoryInfo(Path.Combine(sitecoreDirectory.FullName,"bin","uCommerce")),overwriteTarget:true,loggingService),
-                new DeleteFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName,"bin","ucommerce","Ucommerce.Installer.dll")),loggingService)
+                new DeleteFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName,"bin","ucommerce","Ucommerce.Installer.dll")),loggingService),
+                new DeleteFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName,"bin","Ucommerce.Transactions.Payments.dll")),loggingService)
             });
         }
 
-        //
-        //  steps.Add(new DeleteFile("~/bin/ucommerce/Ucommerce.Installer.dll"));
-        //
-        //  // Remove old UCommerce.Transactions.Payment.dll from /bin since payment methods have been moved to Apps.
-        //  steps.Add(new DeleteFile("~/bin/Ucommerce.Transactions.Payments.dll"));
         //  // Remove ServiceStack folder
         //  steps.Add(new DeleteDirectory($"{virtualAppsPath}/ServiceStack"));
         //
