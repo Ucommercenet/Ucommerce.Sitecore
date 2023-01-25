@@ -28,15 +28,11 @@ namespace Ucommerce.Sitecore.Installer.Steps
                 new MoveDirectory(new DirectoryInfo(Path.Combine(sitecoreDirectory.FullName,"sitecore modules","shell","ucommerce","install","binaries")),new DirectoryInfo(Path.Combine(sitecoreDirectory.FullName,"bin","uCommerce")),overwriteTarget:true,loggingService),
                 new DeleteFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName,"bin","ucommerce","Ucommerce.Installer.dll")),loggingService),
                 new DeleteFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName,"bin","Ucommerce.Transactions.Payments.dll")),loggingService),
-                new DeleteDirectory(new DirectoryInfo(Path.Combine(appsPath,"ServiceStack")),loggingService)
+                new DeleteDirectory(new DirectoryInfo(Path.Combine(appsPath,"ServiceStack")),loggingService),
+                new DeleteDirectory(new DirectoryInfo(Path.Combine(appsPath,"RavenDB25")),loggingService)
             });
         }
-
-        //  // Remove ServiceStack folder
-        //  steps.Add(new DeleteDirectory($"{virtualAppsPath}/ServiceStack"));
-        //
-        //  // Remove RavenDB apps (in V9 Raven has been replaced by Lucene)
-        //  steps.Add(new DeleteDirectory($"{virtualAppsPath}/RavenDB25"));
+        
         //  steps.Add(
         //      new DeleteDirectory($"{virtualAppsPath}RavenDB25.disabled"));
         //  steps.Add(new DeleteDirectory($"{virtualAppsPath}/RavenDB30"));
