@@ -37,8 +37,9 @@ namespace Ucommerce.Sitecore.Cli.Commands
 
             var baseDirectory = new DirectoryInfo(AppContext.BaseDirectory);
             var sitecoreDirectory = new DirectoryInfo(SitecorePath);
+            var connectionStringLocater = new SitecoreInstallationConnectionStringLocator(ConnectionString);
             var versionChecker = new SitecoreVersionCheckerOffline(sitecoreDirectory, logging);
-            var installStep = new InstallStep(baseDirectory, sitecoreDirectory, versionChecker, logging);
+            var installStep = new InstallStep(baseDirectory, sitecoreDirectory, versionChecker, connectionStringLocater, logging);
 
             await installStep.Run();
         }

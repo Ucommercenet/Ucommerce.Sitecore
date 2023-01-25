@@ -1,4 +1,5 @@
 using System.IO;
+using Ucommerce.Infrastructure.Configuration;
 using Ucommerce.Installer;
 
 namespace Ucommerce.Sitecore.Installer.Steps
@@ -8,9 +9,13 @@ namespace Ucommerce.Sitecore.Installer.Steps
         public InstallStep(DirectoryInfo baseDirectory,
             DirectoryInfo sitecoreDirectory,
             ISitecoreVersionChecker versionChecker,
+            InstallationConnectionStringLocator connectionStringLocator,
             IInstallerLoggingService loggingService)
         {
-            Steps.AddRange(new IStep[] { });
+            Steps.AddRange(new IStep[]
+            {
+                new PreRequisitesChecker(connectionStringLocator, loggingService)
+            });
         }
 
         // private List<IStep> AddSteps(string connectionString, string sitecorePath, IInstallerLoggingService loggingService)
