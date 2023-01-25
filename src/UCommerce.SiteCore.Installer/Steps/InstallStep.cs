@@ -87,6 +87,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
                     loggingService),
             });
             Steps.AddRange(ToggleActiveSearchProviderSteps(appsPath, loggingService));
+            Steps.AddRange(SearchProviderCleanupSteps(appsPath, loggingService));
         }
 
         private List<IStep> ToggleActiveSearchProviderSteps(string appsPath, IInstallerLoggingService loggingService)
@@ -192,9 +193,24 @@ namespace Ucommerce.Sitecore.Installer.Steps
             return steps;
         }
 
-        // // Set up search providers
-        //  ToggleActiveSearchProvider(virtualAppsPath);
-        //
+        private List<IStep> SearchProviderCleanupSteps(string appsPath, IInstallerLoggingService loggingService)
+        {
+            var steps = new List<IStep>();
+            var luceneIndexesFolderPath = new DirectoryInfo(Path.Combine(appsPath, "Ucommerce.Search.Lucene", "Configuration", "Indexes"));
+            var luceneIndexesFolderPathDisabled = new DirectoryInfo(Path.Combine(appsPath, "Ucommerce.Search.Lucene.disabled", "Configuration", "Indexes"));
+            if (Directory.Exists(luceneIndexesFolderPath.FullName))
+            {
+                steps.Add(new DeleteDirectory(luceneIndexesFolderPath, loggingService));
+            }
+
+            if (Directory.Exists(luceneIndexesFolderPathDisabled.FullName))
+            {
+                steps.Add(new DeleteDirectory(luceneIndexesFolderPathDisabled, loggingService));
+            }
+
+            return steps;
+        }
+
         //  // Clean lucene from disk
         //  SearchProviderCleanup("~/sitecore modules/Shell/uCommerce/Apps");
         //
