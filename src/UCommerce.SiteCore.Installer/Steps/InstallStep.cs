@@ -41,7 +41,10 @@ namespace Ucommerce.Sitecore.Installer.Steps
                 new DeleteDirectory(new DirectoryInfo(Path.Combine(appsPath, "Widgets", "CatalogSearch.disabled")), loggingService),
                 new MoveDirectory(new DirectoryInfo(Path.Combine(appsPath, "Sanitization.disabled")),new DirectoryInfo(Path.Combine(appsPath, "Sanitization")), true, loggingService),
                 new DeleteFile(new FileInfo(Path.Combine(appsPath, "Sanitization", "bin", "AngleSharp.dll")), loggingService),
-                new DeleteFile(new FileInfo(Path.Combine(appsPath, "Sanitization", "bin", "HtmlSanitizer.dll")), loggingService)
+                new DeleteFile(new FileInfo(Path.Combine(appsPath, "Sanitization", "bin", "HtmlSanitizer.dll")), loggingService),
+                new DeleteFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName, "Sanitization", "bin", "HtmlSanitizer.dll")), loggingService),
+                new DeleteFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName, "sitecore modules", "shell","ucommerce","Configuration","Payments.config")), loggingService),
+                
             });
         }
         //  //Clean up unused configuration since payment integration has move to apps
