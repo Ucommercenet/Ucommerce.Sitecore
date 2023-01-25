@@ -27,7 +27,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
 
         public async Task Run()
         {
-            _loggingService.Information<MoveDirectory>($"Moving directory {_sourceDirectory.FullName} to {_targetDirectory.FullName}{(_overwriteTarget == false ? "" :" and overwriting")}...");
+            _loggingService.Information<MoveDirectory>($"Moving directory {_sourceDirectory.FullName} to {_targetDirectory.FullName}{(_overwriteTarget == false ? "" : " and overwriting")}...");
             new DirectoryMover(
                 _sourceDirectory,
                 _targetDirectory,
