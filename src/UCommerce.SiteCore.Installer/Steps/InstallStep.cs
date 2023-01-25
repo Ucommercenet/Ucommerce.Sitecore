@@ -10,6 +10,8 @@ namespace Ucommerce.Sitecore.Installer.Steps
             DirectoryInfo sitecoreDirectory,
             ISitecoreVersionChecker versionChecker,
             InstallationConnectionStringLocator connectionStringLocator,
+            UpdateService updateService,
+            RuntimeVersionChecker runtimeVersionChecker,
             IInstallerLoggingService loggingService)
         {
             Steps.AddRange(new IStep[]
@@ -17,11 +19,10 @@ namespace Ucommerce.Sitecore.Installer.Steps
                 new PreRequisitesChecker(connectionStringLocator, loggingService),
                 new InitializeObjectFactory(loggingService),
                 new InstallDatabaseUcommerce(baseDirectory, connectionStringLocator, loggingService),
-                new InstallDatabaseSitecore(baseDirectory, connectionStringLocator, loggingService)
+                new InstallDatabaseSitecore(baseDirectory, connectionStringLocator, loggingService),
+                new UpdateUCommerceAssemblyVersionInDatabase(updateService, runtimeVersionChecker, loggingService)
             });
         }
-        //  steps.Add(new InstallDatabase("~/sitecore modules/Shell/ucommerce/install"));
-        //  steps.Add(new InstallDatabaseSitecore("~/sitecore modules/Shell/ucommerce/install"));
         //  steps.Add(new UpdateUCommerceAssemblyVersionInDatabase(updateService,
         //      runtimeVersionChecker, sitecoreInstallerLoggingService));
 
