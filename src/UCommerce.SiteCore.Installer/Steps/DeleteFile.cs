@@ -19,7 +19,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
 
         public async Task Run()
         {
-            _loggingService.Information<DeleteFile>($"Deleting file {_file}");
+            _loggingService.Information<DeleteFile>($"Deleting file {_file.FullName}");
             _command.Delete(ex => _loggingService.Error<int>(ex));
         }
     }

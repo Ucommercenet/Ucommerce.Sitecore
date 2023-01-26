@@ -1,7 +1,5 @@
-﻿using System.Collections.Specialized;
-using System.IO;
+﻿using System.IO;
 using System.Threading.Tasks;
-using System.Web.Hosting;
 using Ucommerce.Installer;
 
 namespace Ucommerce.Sitecore.Installer.Steps
@@ -10,17 +8,21 @@ namespace Ucommerce.Sitecore.Installer.Steps
     {
         private readonly bool _backupTarget;
         private readonly ConfigFileRenamer _command;
+        private readonly IInstallerLoggingService _loggingService;
+        private readonly DirectoryInfo _sourceDirectory;
 
-        public RenameConfigDefaultFilesToConfigFilesStep(DirectoryInfo sourceVDirectory, bool backupTarget)
+        public RenameConfigDefaultFilesToConfigFilesStep(DirectoryInfo sourceDirectory, bool backupTarget, IInstallerLoggingService loggingService)
         {
             _backupTarget = backupTarget;
-
-            _command = new ConfigFileRenamer(sourceVDirectory);
+            _loggingService = loggingService;
+            _command = new ConfigFileRenamer(sourceDirectory);
+            _sourceDirectory = sourceDirectory;
         }
 
         public async Task Run()
         {
-            _command.Rename(_backupTarget, ex => new SitecoreInstallerLoggingService().Error<int>(ex));
+            _loggingService.Information<RenameConfigDefaultFilesToConfigFilesStep>($"Renaming config.default files to config in {_sourceDirectory.FullName}...");
+            _command.Rename(_backupTarget, ex => _loggingService.Error<int>(ex));
         }
     }
 }

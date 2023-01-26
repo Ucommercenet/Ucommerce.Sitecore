@@ -247,7 +247,7 @@
     <Compile Include="Steps\MoveFileIfDoesntExist.cs" />
     <Compile Include="Steps\MoveDirectory.cs" />
     <Compile Include="Steps\MoveFileIfTargetExist.cs" />
-    <Compile Include="Steps\PreRequisitesChecker.cs" />
+    <Compile Include="Steps\SitecorePreRequisitesChecker.cs" />
     <Compile Include="Steps\RenameConfigDefaultFilesToConfigFilesStep.cs" />
     <Compile Include="Steps\SeperateConfigSectionInNewFile.cs" />
     <Compile Include="Steps\SitecoreWebconfigMerger.cs" />
