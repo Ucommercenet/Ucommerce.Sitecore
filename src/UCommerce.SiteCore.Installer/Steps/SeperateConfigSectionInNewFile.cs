@@ -26,7 +26,8 @@ namespace Ucommerce.Sitecore.Installer.Steps
 
         public async Task Run()
         {
-            _loggingService.Information<SeperateConfigSectionInNewFile>($"Seperating {_section} of {_source} to new file {_target}");
+            _loggingService.Information<SeperateConfigSectionInNewFile>(
+                $"Seperating section {_section} of {_source.FullName} into new file {_target.FullName}");
             _command.Move(ex => _loggingService.Error<int>(ex));
         }
     }

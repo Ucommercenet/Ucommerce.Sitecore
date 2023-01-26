@@ -22,7 +22,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
 
         public async Task Run()
         {
-            _loggingService.Information<MergeConfig>("Merging configs");
+            _loggingService.Information<MergeConfig>($"Merging Ucommerce configs into {_toBeTransformed.FullName}");
 
             var connectionStringAttribute = GetUcommerceConnectionString(_toBeTransformed);
 

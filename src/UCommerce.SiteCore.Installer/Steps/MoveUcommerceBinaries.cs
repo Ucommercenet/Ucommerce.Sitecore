@@ -119,9 +119,9 @@ namespace Ucommerce.Sitecore.Installer.Steps
                 backupTarget: false,
                 _logging));
 
-            foreach (var postInstallationStep in installationSteps)
+            foreach (var step in installationSteps)
             {
-                postInstallationStep.Run();
+                await step.Run();
             }
         }
     }

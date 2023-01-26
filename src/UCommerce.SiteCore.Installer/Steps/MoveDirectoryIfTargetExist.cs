@@ -19,7 +19,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
 
         public async Task Run()
         {
-            _loggingService.Information<MoveDirectoryIfTargetExist>($"Moving {_sourceDirectory} to {_targetDirectory} if it exists");
+            _loggingService.Information<MoveDirectoryIfTargetExist>($"Moving {_sourceDirectory.FullName} to {_targetDirectory.FullName} if it exists");
             new DirectoryMoverIfTargetExist(_sourceDirectory, _targetDirectory)
                 .Move(ex => _loggingService.Error<int>(ex));
         }

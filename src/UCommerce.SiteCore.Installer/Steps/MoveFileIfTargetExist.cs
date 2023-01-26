@@ -23,7 +23,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
 
         public async Task Run()
         {
-            _loggingService.Information<MoveFileIfTargetExist>($"Moving {_source} to {_target} if it exists");
+            _loggingService.Information<MoveFileIfTargetExist>($"Moving {_source.FullName} to {_target.FullName} if it exists");
             _command.MoveIfTargetExist(_backupTarget, ex => _loggingService.Error<int>(ex));
         }
     }

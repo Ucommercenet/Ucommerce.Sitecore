@@ -21,7 +21,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
 
         public async Task Run()
         {
-            _logging.Information<CopyFile>($"Copying file {_source} to {_target}");
+            _logging.Information<CopyFile>($"Copying file {_source.FullName} to {_target.FullName}");
             _command.Copy(ex => _logging.Error<int>(ex));
         }
     }
