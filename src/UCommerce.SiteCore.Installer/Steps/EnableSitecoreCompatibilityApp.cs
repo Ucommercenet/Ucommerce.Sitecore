@@ -20,33 +20,18 @@ namespace Ucommerce.Sitecore.Installer.Steps
             _sitecorePath = sitecorePath;
         }
 
-        public Task Run()
+        public async Task Run()
         {
             _sitecoreInstallerLoggingService.Information<EnableSitecoreCompatibilityApp>("Enabling sitecore compatibility apps");
-            var pathToAppsFolder = new DirectoryInfo(Path.Combine(_sitecorePath.FullName, "sitecore modules", "shell", "ucommerce", "apps"));
             if (_sitecoreVersionChecker.IsEqualOrGreaterThan(new Version(9, 2)))
             {
-                _sitecoreInstallerLoggingService.Information<EnableSitecoreCompatibilityApp>("Enabling sitecore 9.2+ compatibility app");
-                new DirectoryMover(
-                    new DirectoryInfo(Path.Combine(pathToAppsFolder.FullName, "Sitecore92compatibility.disabled")),
-                    new DirectoryInfo(Path.Combine(pathToAppsFolder.FullName, "Sitecore92compatibility")),
-                    true
-                    )
-                    .Move(ex => _sitecoreInstallerLoggingService.Error<Exception>(ex));
+                await new EnableApp("Sitecore92compatibility", _sitecorePath, _sitecoreInstallerLoggingService).Run();
             }
 
             if (_sitecoreVersionChecker.IsEqualOrGreaterThan(new Version(9, 3)))
             {
-                _sitecoreInstallerLoggingService.Information<EnableSitecoreCompatibilityApp>("Enabling sitecore 9.3+ compatibility app");
-                new DirectoryMover(
-                    new DirectoryInfo(Path.Combine(pathToAppsFolder.FullName, "Sitecore93compatibility.disabled")),
-                    new DirectoryInfo(Path.Combine(pathToAppsFolder.FullName, "Sitecore93compatibility")),
-                    true
-                    )
-                    .Move(ex => _sitecoreInstallerLoggingService.Error<Exception>(ex));
+                await new EnableApp("Sitecore93compatibility", _sitecorePath, _sitecoreInstallerLoggingService).Run();
             }
-
-            return Task.CompletedTask;
         }
     }
 }

@@ -223,6 +223,8 @@
     <Compile Include="Steps\DatabaseInstallStep.cs" />
     <Compile Include="Steps\DatabaseUpgradeStep.cs" />
     <Compile Include="Steps\DeleteDirectory.cs" />
+    <Compile Include="Steps\EnableApp.cs" />
+    <Compile Include="Steps\UpgradeAppIfEnabled.cs" />
     <Compile Include="Steps\EnableSitecoreCompatibilityApp.cs" />
     <Compile Include="Steps\InstallStep.cs" />
     <Compile Include="Steps\IStep.cs" />
