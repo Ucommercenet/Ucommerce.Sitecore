@@ -20,7 +20,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
 
         public async Task Run()
         {
-            _loggingService.Information<SitecoreWebconfigMerger>("Merging sitecore and ucommerce config files");
+            _loggingService.Information<SitecoreWebconfigMerger>("Merging Sitecore and Ucommerce config files...");
             var ucommerceInstallPath = Path.Combine("sitecore modules", "Shell", "ucommerce", "install");
             var mergeConfig = new MergeConfig(new FileInfo(Path.Combine(_sitecoreDirectory.FullName, "web.config")),
                 new List<Transformation>

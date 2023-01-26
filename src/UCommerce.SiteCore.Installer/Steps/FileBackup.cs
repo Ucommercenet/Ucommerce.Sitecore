@@ -19,7 +19,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
 
         public async Task Run()
         {
-            _loggingService.Information<FileBackup>($"Backing up file: {_file}");
+            _loggingService.Information<FileBackup>($"Backing up file: {_file.FullName}");
             _command.Backup(ex => _loggingService.Error<int>(ex));
         }
     }

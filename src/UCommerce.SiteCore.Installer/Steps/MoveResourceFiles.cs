@@ -18,9 +18,10 @@ namespace Ucommerce.Sitecore.Installer.Steps
             _loggingService = logging;
         }
 
-        public Task Run()
+        public async Task Run()
         {
-            var postInstallationSteps = new List<IStep>();
+            _loggingService.Information<MoveResourceFiles>($"Moving resource files from {SourceDirectory.FullName}...");
+            var steps = new List<IStep>();
             var files = new[]
             {
                 "Admin.da.resx",
@@ -58,18 +59,16 @@ namespace Ucommerce.Sitecore.Installer.Steps
 
             foreach (var file in files)
             {
-                postInstallationSteps.Add(new MoveFile(new FileInfo(Path.Combine(SourceDirectory.FullName, file)),
+                steps.Add(new MoveFile(new FileInfo(Path.Combine(SourceDirectory.FullName, file)),
                     new FileInfo(Path.Combine(TargetDirectory.FullName, file)),
                     false,
                     _loggingService));
             }
 
-            foreach (var postInstallationStep in postInstallationSteps)
+            foreach (var step in steps)
             {
-                postInstallationStep.Run();
+                await step.Run();
             }
-
-            return Task.CompletedTask;
         }
     }
 }
