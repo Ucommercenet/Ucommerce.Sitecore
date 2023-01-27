@@ -256,6 +256,7 @@
     <Compile Include="Steps\SeperateConfigSectionInNewFile.cs" />
     <Compile Include="Steps\SitecoreWebconfigMerger.cs" />
     <Compile Include="Steps\AggregateStep.cs" />
+    <Compile Include="Steps\UpgradeSearchProviders.cs" />
     <Compile Include="Steps\Transformation.cs" />
     <Compile Include="Steps\UpdateUCommerceAssemblyVersionInDatabase.cs" />
   </ItemGroup>
