@@ -49,10 +49,10 @@ namespace Ucommerce.Sitecore.Cli.Logging
             var originalColor = Console.ForegroundColor;
 
             _console.ForegroundColor = color;
-            _console.Output.WriteLine($"[{logLevel}]");
+            _console.Output.Write($"[{logLevel}]");
 
             _console.ForegroundColor = originalColor;
-            _console.Output.Write($"     {type.Name} - ");
+            _console.Output.Write($" {type.Name} - ");
 
             _console.ForegroundColor = color;
 
