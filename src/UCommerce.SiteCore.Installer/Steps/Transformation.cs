@@ -7,10 +7,10 @@ namespace Ucommerce.Sitecore.Installer.Steps
         public Transformation(FileInfo path, bool isIntegrated = false)
         {
             Path = path;
-            OnlyIfIisIntegrated = isIntegrated;
+            OnlyIfIsIntegrated = isIntegrated;
         }
 
-        public bool OnlyIfIisIntegrated { get; set; }
+        public bool OnlyIfIsIntegrated { get; set; }
         public FileInfo Path { get; set; }
     }
 }
