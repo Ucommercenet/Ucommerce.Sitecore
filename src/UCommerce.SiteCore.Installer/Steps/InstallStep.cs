@@ -18,7 +18,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
             var appsPath = Path.Combine(sitecoreDirectory.FullName, "sitecore modules", "Shell", "uCommerce", "Apps");
             Steps.AddRange(new IStep[]
             {
-                new PreRequisitesChecker(connectionStringLocator, loggingService),
+                new SitecorePreRequisitesChecker(connectionStringLocator, loggingService),
                 new InitializeObjectFactory(loggingService),
                 new InstallDatabaseUcommerce(baseDirectory, connectionStringLocator, loggingService),
                 new InstallDatabaseSitecore(baseDirectory, connectionStringLocator, loggingService),
@@ -85,8 +85,8 @@ namespace Ucommerce.Sitecore.Installer.Steps
                 new MoveDirectoryIfTargetExist(new DirectoryInfo(Path.Combine(appsPath, "Acquire and Cancel Payments.disabled")),
                     new DirectoryInfo(Path.Combine(appsPath, "Acquire and Cancel Payments")),
                     loggingService),
+                new UpgradeSearchProviders(sitecoreDirectory, loggingService)
             });
-            Steps.AddRange(ToggleActiveSearchProviderSteps(appsPath, loggingService));
             Steps.AddRange(SearchProviderCleanupSteps(appsPath, loggingService));
             Steps.AddRange(RemoveRenamedPipelinesSteps(sitecoreDirectory, loggingService));
             Steps.AddRange(ComposeMoveSitecoreConfigIncludes(sitecoreDirectory, versionChecker, loggingService));
