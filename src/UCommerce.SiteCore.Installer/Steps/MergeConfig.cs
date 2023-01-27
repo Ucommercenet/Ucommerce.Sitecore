@@ -32,8 +32,12 @@ namespace Ucommerce.Sitecore.Installer.Steps
                 {
                     transformer.Transform(
                         transformation.Path,
-                        transformation.OnlyIfIisIntegrated,
-                        ex => _loggingService.Error<int>(ex));
+                        transformation.OnlyIfIsIntegrated,
+                        ex =>
+                        {
+                            _loggingService.Error<int>(ex);
+                            throw ex;
+                        });
                 }
             }
 
