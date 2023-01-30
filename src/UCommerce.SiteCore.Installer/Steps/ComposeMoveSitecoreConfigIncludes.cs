@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using Ucommerce.Installer;
 
@@ -14,134 +13,101 @@ namespace Ucommerce.Sitecore.Installer.Steps
             IInstallerLoggingService loggingService)
         {
             _loggingService = loggingService;
-            var configIncludePath = Path.Combine("sitecore modules", "Shell", "ucommerce", "install", "configInclude");
-            var appIncludePath = Path.Combine("App_Config", "include");
+            var configIncludeDirectory =
+                new DirectoryInfo(Path.Combine(sitecoreDirectory.FullName, "sitecore modules", "Shell", "ucommerce", "install", "configInclude"));
+            var appIncludeDirectory = new DirectoryInfo(Path.Combine(sitecoreDirectory.FullName, "App_Config", "include"));
 
             Steps.AddRange(new IStep[]
             {
-                new MoveFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName, configIncludePath, "Sitecore.uCommerce.Databases.config")),
-                    new FileInfo(Path.Combine(sitecoreDirectory.FullName, appIncludePath, "Sitecore.uCommerce.Databases.config")),
+                new MoveFile(new FileInfo(Path.Combine(configIncludeDirectory.FullName, "Sitecore.uCommerce.Databases.config")),
+                    new FileInfo(Path.Combine(appIncludeDirectory.FullName, "Sitecore.uCommerce.Databases.config")),
                     true,
                     _loggingService),
-                new MoveFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName, configIncludePath, "Sitecore.uCommerce.Dataproviders.config")),
-                    new FileInfo(Path.Combine(sitecoreDirectory.FullName, appIncludePath, "Sitecore.uCommerce.Dataproviders.config")),
+                new MoveFile(new FileInfo(Path.Combine(configIncludeDirectory.FullName, "Sitecore.uCommerce.Dataproviders.config")),
+                    new FileInfo(Path.Combine(appIncludeDirectory.FullName, "Sitecore.uCommerce.Dataproviders.config")),
                     true,
                     _loggingService),
-                new MoveFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName, configIncludePath, "Sitecore.uCommerce.Events.config")),
-                    new FileInfo(Path.Combine(sitecoreDirectory.FullName, appIncludePath, "Sitecore.uCommerce.Events.config")),
+                new MoveFile(new FileInfo(Path.Combine(configIncludeDirectory.FullName, "Sitecore.uCommerce.Events.config")),
+                    new FileInfo(Path.Combine(appIncludeDirectory.FullName, "Sitecore.uCommerce.Events.config")),
                     true,
                     _loggingService),
-                new MoveFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName, configIncludePath, "Sitecore.uCommerce.Sites.config")),
-                    new FileInfo(Path.Combine(sitecoreDirectory.FullName, appIncludePath, "Sitecore.uCommerce.Sites.config")),
+                new MoveFile(new FileInfo(Path.Combine(configIncludeDirectory.FullName, "Sitecore.uCommerce.Sites.config")),
+                    new FileInfo(Path.Combine(appIncludeDirectory.FullName, "Sitecore.uCommerce.Sites.config")),
                     true,
                     _loggingService),
-                new MoveFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName,
-                        configIncludePath,
+                new MoveFile(new FileInfo(Path.Combine(
+                        configIncludeDirectory.FullName,
                         "Sitecore.uCommerce.Pipelines.getItemPersonalizationVisibility.config")),
-                    new FileInfo(Path.Combine(sitecoreDirectory.FullName,
-                        appIncludePath,
+                    new FileInfo(Path.Combine(
+                        appIncludeDirectory.FullName,
                         "Sitecore.uCommerce.Pipelines.getItemPersonalizationVisibility.config")),
                     true,
-                    _loggingService)
-            });
-
-            if (versionChecker.IsEqualOrGreaterThan(new Version(9, 3)))
-            {
-                Steps.Add(
-                    new MoveFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName,
-                            configIncludePath,
-                            "Sitecore.uCommerce.Pipelines.HttpRequestBegin.9.3.config")),
-                        new FileInfo(Path.Combine(sitecoreDirectory.FullName, appIncludePath, "Sitecore.uCommerce.Pipelines.HttpRequestBegin.config")),
-                        true,
-                        _loggingService)
-                );
-            }
-            else
-            {
-                Steps.Add(
-                    new MoveFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName,
-                            configIncludePath,
-                            "Sitecore.uCommerce.Pipelines.HttpRequestBegin.config")),
-                        new FileInfo(Path.Combine(sitecoreDirectory.FullName, appIncludePath, "Sitecore.uCommerce.Pipelines.HttpRequestBegin.config")),
-                        true,
-                        _loggingService)
-                );
-            }
-
-            if (versionChecker.IsEqualOrGreaterThan(new Version(9, 1)))
-            {
-                Steps.Add(
-                    new MoveFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName,
-                            configIncludePath,
-                            "Sitecore.uCommerce.Pipelines.PreProcessRequest.9.1.config")),
-                        new FileInfo(Path.Combine(sitecoreDirectory.FullName, appIncludePath, "Sitecore.uCommerce.Pipelines.PreProcessRequest.config")),
-                        true,
-                        _loggingService)
-                );
-            }
-            else
-            {
-                Steps.Add(
-                    new MoveFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName,
-                            configIncludePath,
-                            "Sitecore.uCommerce.Pipelines.PreProcessRequest.config")),
-                        new FileInfo(Path.Combine(sitecoreDirectory.FullName, appIncludePath, "Sitecore.uCommerce.Pipelines.PreProcessRequest.config")),
-                        true,
-                        _loggingService)
-                );
-            }
-
-            Steps.AddRange(new List<IStep>
-                {
-                    new MoveFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName, configIncludePath, "Sitecore.uCommerce.Settings.config")),
-                        new FileInfo(Path.Combine(sitecoreDirectory.FullName, appIncludePath, "Sitecore.uCommerce.Settings.config")),
-                        true,
-                        _loggingService),
-                    new MoveFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName,
-                            configIncludePath,
-                            "Sitecore.uCommerce.Pipelines.ModifyPipelines.config.disabled")),
-                        new FileInfo(Path.Combine(sitecoreDirectory.FullName, appIncludePath, "Sitecore.uCommerce.Pipelines.ModifyPipelines.config.disabled")),
-                        true,
-                        _loggingService),
-                    new MoveFileIfTargetExist(new FileInfo(Path.Combine(sitecoreDirectory.FullName,
-                            appIncludePath,
-                            "Sitecore.uCommerce.Pipelines.ModifyPipelines.config.disabled")),
-                        new FileInfo(Path.Combine(sitecoreDirectory.FullName, appIncludePath, "Sitecore.uCommerce.Pipelines.ModifyPipelines.config")),
-                        true,
-                        _loggingService),
-                    new MoveFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName,
-                            configIncludePath,
-                            "Sitecore.uCommerce.Pipelines.ModifyPipelines.config.disabled")),
-                        new FileInfo(Path.Combine(sitecoreDirectory.FullName, appIncludePath, "Sitecore.uCommerce.Pipelines.ModifyPipelines.config.disabled")),
-                        true,
-                        _loggingService),
-                }
-            );
-
-            if (versionChecker.IsEqualOrGreaterThan(new Version(8, 2)))
-            {
-                Steps.Add(
-                    new MoveFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName,
-                            configIncludePath,
-                            "Sitecore.uCommerce.WebApiConfiguration.config.disabled")),
-                        new FileInfo(Path.Combine(sitecoreDirectory.FullName, appIncludePath, "Sitecore.uCommerce.WebApiConfiguration.config")),
-                        true,
-                        _loggingService)
-                );
-            }
-
-            Steps.AddRange(new List<IStep>
-            {
-                new MoveFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName,
-                        configIncludePath,
+                    _loggingService),
+                new MoveFile(new FileInfo(Path.Combine(
+                        configIncludeDirectory.FullName,
+                        "Sitecore.uCommerce.Pipelines.HttpRequestBegin.config")),
+                    new FileInfo(Path.Combine(appIncludeDirectory.FullName, "Sitecore.uCommerce.Pipelines.HttpRequestBegin.config")),
+                    true,
+                    _loggingService),
+                new MoveFileIf(new FileInfo(Path.Combine(
+                        configIncludeDirectory.FullName,
+                        "Sitecore.uCommerce.Pipelines.HttpRequestBegin.9.3.config")),
+                    new FileInfo(Path.Combine(appIncludeDirectory.FullName, "Sitecore.uCommerce.Pipelines.HttpRequestBegin.config")),
+                    true,
+                    () => versionChecker.IsEqualOrGreaterThan(new Version(9, 3)),
+                    _loggingService),
+                new MoveFile(new FileInfo(Path.Combine(
+                        configIncludeDirectory.FullName,
+                        "Sitecore.uCommerce.Pipelines.PreProcessRequest.config")),
+                    new FileInfo(Path.Combine(appIncludeDirectory.FullName, "Sitecore.uCommerce.Pipelines.PreProcessRequest.config")),
+                    true,
+                    _loggingService),
+                new MoveFileIf(new FileInfo(Path.Combine(
+                        configIncludeDirectory.FullName,
+                        "Sitecore.uCommerce.Pipelines.PreProcessRequest.9.1.config")),
+                    new FileInfo(Path.Combine(appIncludeDirectory.FullName, "Sitecore.uCommerce.Pipelines.PreProcessRequest.config")),
+                    true,
+                    () => versionChecker.IsEqualOrGreaterThan(new Version(9, 1)),
+                    _loggingService),
+                new MoveFile(new FileInfo(Path.Combine(configIncludeDirectory.FullName, "Sitecore.uCommerce.Settings.config")),
+                    new FileInfo(Path.Combine(appIncludeDirectory.FullName, "Sitecore.uCommerce.Settings.config")),
+                    true,
+                    _loggingService),
+                new MoveFile(new FileInfo(Path.Combine(
+                        configIncludeDirectory.FullName,
+                        "Sitecore.uCommerce.Pipelines.ModifyPipelines.config.disabled")),
+                    new FileInfo(Path.Combine(appIncludeDirectory.FullName, "Sitecore.uCommerce.Pipelines.ModifyPipelines.config.disabled")),
+                    true,
+                    _loggingService),
+                new MoveFileIfTargetExist(new FileInfo(Path.Combine(
+                        appIncludeDirectory.FullName,
+                        "Sitecore.uCommerce.Pipelines.ModifyPipelines.config.disabled")),
+                    new FileInfo(Path.Combine(appIncludeDirectory.FullName, "Sitecore.uCommerce.Pipelines.ModifyPipelines.config")),
+                    true,
+                    _loggingService),
+                new MoveFile(new FileInfo(Path.Combine(
+                        configIncludeDirectory.FullName,
+                        "Sitecore.uCommerce.Pipelines.ModifyPipelines.config.disabled")),
+                    new FileInfo(Path.Combine(appIncludeDirectory.FullName, "Sitecore.uCommerce.Pipelines.ModifyPipelines.config.disabled")),
+                    true,
+                    _loggingService),
+                new MoveFileIf(new FileInfo(Path.Combine(
+                        configIncludeDirectory.FullName,
+                        "Sitecore.uCommerce.WebApiConfiguration.config.disabled")),
+                    new FileInfo(Path.Combine(appIncludeDirectory.FullName, "Sitecore.uCommerce.WebApiConfiguration.config")),
+                    true,
+                    () => versionChecker.IsEqualOrGreaterThan(new Version(8, 2)),
+                    _loggingService),
+                new MoveFile(new FileInfo(Path.Combine(
+                        configIncludeDirectory.FullName,
                         "Sitecore.uCommerce.initialize.config")),
-                    new FileInfo(Path.Combine(sitecoreDirectory.FullName, appIncludePath, "Sitecore.uCommerce.initialize.config")),
+                    new FileInfo(Path.Combine(appIncludeDirectory.FullName, "Sitecore.uCommerce.initialize.config")),
                     true,
                     _loggingService),
-                new MoveFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName,
-                        configIncludePath,
+                new MoveFile(new FileInfo(Path.Combine(
+                        configIncludeDirectory.FullName,
                         "Sitecore.uCommerce.Log4net.config")),
-                    new FileInfo(Path.Combine(sitecoreDirectory.FullName, appIncludePath, "Sitecore.uCommerce.Log4net.config")),
+                    new FileInfo(Path.Combine(appIncludeDirectory.FullName, "Sitecore.uCommerce.Log4net.config")),
                     true,
                     _loggingService),
             });
