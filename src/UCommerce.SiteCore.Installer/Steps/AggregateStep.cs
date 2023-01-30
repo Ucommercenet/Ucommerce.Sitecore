@@ -14,10 +14,16 @@ namespace Ucommerce.Sitecore.Installer.Steps
 
         public async Task Run()
         {
+            LogStart();
             foreach (var step in Steps)
             {
                 await step.Run();
             }
+
+            LogEnd();
         }
+
+        protected virtual void LogEnd() { }
+        protected virtual void LogStart() { }
     }
 }
