@@ -219,11 +219,17 @@
     <Compile Include="SitecoreDatabaseAvailabilityService.cs" />
     <Compile Include="SitecoreVersionCheckerOnline.cs" />
     <Compile Include="Steps\AddTitleToCommerceSpeakAppsSection.cs" />
+    <Compile Include="Steps\ComposeMoveSitecoreConfigIncludes.cs" />
     <Compile Include="Steps\CreateSpeakApplicationIfSupported.cs" />
     <Compile Include="Steps\DatabaseInstallStep.cs" />
     <Compile Include="Steps\DatabaseUpgradeStep.cs" />
     <Compile Include="Steps\DeleteDirectory.cs" />
+    <Compile Include="Steps\DeleteFileWithBackup.cs" />
+    <Compile Include="Steps\DeleteRavenDB.cs" />
     <Compile Include="Steps\EnableApp.cs" />
+    <Compile Include="Steps\RemoveRenamedPipelines.cs" />
+    <Compile Include="Steps\RenameConfigDefaultFilesToConfigFiles.cs" />
+    <Compile Include="Steps\SearchProviderCleanup.cs" />
     <Compile Include="Steps\UpgradeAppIfEnabled.cs" />
     <Compile Include="Steps\EnableSitecoreCompatibilityApp.cs" />
     <Compile Include="Steps\InstallStep.cs" />
@@ -240,7 +246,7 @@
     <Compile Include="Steps\CreateApplicationShortcuts.cs" />
     <Compile Include="Steps\CreateSpeakApplications.cs" />
     <Compile Include="Steps\DeleteFile.cs" />
-    <Compile Include="Steps\FileBackup.cs" />
+    <Compile Include="Steps\BackupFile.cs" />
     <Compile Include="Steps\GuidExtensions.cs" />
     <Compile Include="Steps\InitializeObjectFactory.cs" />
     <Compile Include="Steps\InstallDatabaseUcommerce.cs" />

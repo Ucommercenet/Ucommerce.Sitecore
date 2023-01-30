@@ -5,7 +5,6 @@ using System.IO;
 using System.Web.Hosting;
 using Ucommerce.Installer;
 using Ucommerce.Sitecore.Installer.Steps;
-using FileBackup = Ucommerce.Sitecore.Installer.Steps.FileBackup;
 
 namespace Ucommerce.Sitecore.Installer
 {/*
