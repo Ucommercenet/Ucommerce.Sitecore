@@ -227,6 +227,7 @@
     <Compile Include="Steps\DeleteFileWithBackup.cs" />
     <Compile Include="Steps\DeleteRavenDB.cs" />
     <Compile Include="Steps\EnableApp.cs" />
+    <Compile Include="Steps\MoveFileIf.cs" />
     <Compile Include="Steps\RemoveRenamedPipelines.cs" />
     <Compile Include="Steps\RenameConfigDefaultFilesToConfigFiles.cs" />
     <Compile Include="Steps\SearchProviderCleanup.cs" />
