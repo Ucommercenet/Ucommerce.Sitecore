@@ -220,6 +220,7 @@
     <Compile Include="SitecoreVersionCheckerOnline.cs" />
     <Compile Include="Steps\AddTitleToCommerceSpeakAppsSection.cs" />
     <Compile Include="Steps\ComposeMoveSitecoreConfigIncludes.cs" />
+    <Compile Include="Steps\CopyDirectory.cs" />
     <Compile Include="Steps\CreateSpeakApplicationIfSupported.cs" />
     <Compile Include="Steps\DatabaseInstallStep.cs" />
     <Compile Include="Steps\DatabaseUpgradeStep.cs" />
