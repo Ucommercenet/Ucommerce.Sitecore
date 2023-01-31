@@ -11,10 +11,10 @@ namespace Ucommerce.Sitecore.Installer.Steps
         public DirectoryInfo SourceDirectory { get; set; }
         public DirectoryInfo TargetDirectory { get; set; }
 
-        public MoveResourceFiles(DirectoryInfo basePath, InstallationConnectionStringLocator connectionStringLocator, IInstallerLoggingService logging)
+        public MoveResourceFiles(DirectoryInfo sitecoreDirectory, InstallationConnectionStringLocator connectionStringLocator, IInstallerLoggingService logging)
         {
-            SourceDirectory = new DirectoryInfo(Path.Combine(basePath.FullName, "bin", "uCommerce", "App_GlobalResources"));
-            TargetDirectory = new DirectoryInfo(Path.Combine(basePath.FullName, "App_GlobalResources"));
+            SourceDirectory = new DirectoryInfo(Path.Combine(sitecoreDirectory.FullName, "bin", "uCommerce", "App_GlobalResources"));
+            TargetDirectory = new DirectoryInfo(Path.Combine(sitecoreDirectory.FullName, "App_GlobalResources"));
             _loggingService = logging;
         }
 
