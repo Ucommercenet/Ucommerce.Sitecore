@@ -1,6 +1,5 @@
 ﻿using System.Collections.Specialized;
 using Sitecore.Configuration;
-using Sitecore.Data.Items;
 using Sitecore.Install.Framework;
 
 namespace Ucommerce.Sitecore.Installer.Steps
@@ -12,7 +11,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
     {
         public void Run(ITaskOutput output, NameValueCollection metaData)
         {
-            Item item = Factory.GetDatabase("core")
+            var item = Factory.GetDatabase("core")
                 .GetItem("/sitecore/client/Applications/Launchpad/PageSettings/Buttons/ContentEditing/uCommerce");
 
             if (item != null)
