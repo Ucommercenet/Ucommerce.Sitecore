@@ -19,7 +19,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
             _loggingService = loggingService;
         }
 
-        public async Task Run()
+        public Task Run()
         {
             _loggingService.Information<SitecorePreRequisitesChecker>("Checking if prerequisites are met.");
 
@@ -34,6 +34,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
             var meetsRequirements = checker.MeetsRequirement(out var information);
 
             if (!meetsRequirements) _loggingService.Error<PrerequisitesChecker>(new InstallationException(information));
+            return Task.CompletedTask;
         }
     }
 }

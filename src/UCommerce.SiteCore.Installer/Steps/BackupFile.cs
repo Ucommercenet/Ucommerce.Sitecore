@@ -17,10 +17,11 @@ namespace Ucommerce.Sitecore.Installer.Steps
             _file = file;
         }
 
-        public async Task Run()
+        public Task Run()
         {
             _loggingService.Information<FileBackup>($"Backing up file: {_file.FullName}");
             _command.Backup(ex => _loggingService.Error<int>(ex));
+            return Task.CompletedTask;
         }
     }
 }

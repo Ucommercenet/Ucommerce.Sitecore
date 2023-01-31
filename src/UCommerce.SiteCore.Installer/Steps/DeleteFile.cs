@@ -17,10 +17,11 @@ namespace Ucommerce.Sitecore.Installer.Steps
             _loggingService = loggingService;
         }
 
-        public async Task Run()
+        public Task Run()
         {
             _loggingService.Information<DeleteFile>($"Deleting file {_file.FullName}");
             _command.Delete(ex => _loggingService.Error<int>(ex));
+            return Task.CompletedTask;
         }
     }
 }
