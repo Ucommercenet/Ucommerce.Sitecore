@@ -62,7 +62,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
                         "Configuration",
                         "Payments.config")),
                     loggingService),
-                new MoveUcommerceBinaries(baseDirectory, sitecoreDirectory, loggingService),
+                new MoveUcommerceBinaries(sitecoreDirectory, loggingService),
                 new MoveResourceFiles(sitecoreDirectory, connectionStringLocator, loggingService),
                 new RenameConfigDefaultFilesToConfigFiles(sitecoreDirectory, loggingService),
                 new MoveDirectoryIfTargetExist(new DirectoryInfo(Path.Combine(appsPath.FullName, "SimpleInventory.disabled")),
