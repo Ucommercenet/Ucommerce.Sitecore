@@ -22,7 +22,10 @@ namespace Ucommerce.Sitecore.Installer.Steps
                 new InstallDatabaseUcommerce(baseDirectory, connectionStringLocator, loggingService),
                 new InstallDatabaseSitecore(baseDirectory, connectionStringLocator, loggingService),
                 new UpdateUCommerceAssemblyVersionInDatabase(updateService, runtimeVersionChecker, loggingService),
-                new CopyDirectory(new DirectoryInfo(Path.Combine(baseDirectory.FullName, "package", "files")), new DirectoryInfo(Path.Combine(sitecoreDirectory.FullName, "sitecore modules", "Shell", "Ucommerce")), true, loggingService),
+                new CopyDirectory(new DirectoryInfo(Path.Combine(baseDirectory.FullName, "package", "files")),
+                    new DirectoryInfo(Path.Combine(sitecoreDirectory.FullName, "sitecore modules", "Shell", "Ucommerce")),
+                    true,
+                    loggingService),
                 new CopyFile(new FileInfo(Path.Combine(sitecoreDirectory.FullName, "web.config")),
                     new FileInfo(Path.Combine(sitecoreDirectory.FullName, $"web.config.{DateTime.Now.Ticks}.backup")),
                     loggingService),
@@ -75,9 +78,11 @@ namespace Ucommerce.Sitecore.Installer.Steps
                 new SearchProviderCleanup(appsPath.FullName, loggingService),
                 new RemoveRenamedPipelines(sitecoreDirectory, loggingService),
                 new ComposeMoveSitecoreConfigIncludes(sitecoreDirectory, versionChecker, loggingService),
-                new DeleteFile(new FileInfo(Path.Combine(appsPath.FullName, "Ucommerce.Search.Lucene", "bin", "System.Collections.Immutable.dll")), loggingService),
+                new DeleteFile(new FileInfo(Path.Combine(appsPath.FullName, "Ucommerce.Search.Lucene", "bin", "System.Collections.Immutable.dll")),
+                    loggingService),
                 new DeleteFile(new FileInfo(Path.Combine(appsPath.FullName, "Ucommerce.Search.Lucene.disabled", "bin", "System.Collections.Immutable.dll")),
                     loggingService),
+                new AddClientDependencyBundlesToIgnoreUrlPrefixes(sitecoreDirectory, loggingService)
             });
         }
     }
