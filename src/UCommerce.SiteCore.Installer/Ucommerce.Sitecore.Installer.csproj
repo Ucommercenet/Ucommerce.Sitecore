@@ -218,6 +218,7 @@
     <Compile Include="SitecoreVersionCheckerOffline.cs" />
     <Compile Include="SitecoreDatabaseAvailabilityService.cs" />
     <Compile Include="SitecoreVersionCheckerOnline.cs" />
+    <Compile Include="Steps\AddClientDependencyBundlesToIgnoreUrlPrefixes.cs" />
     <Compile Include="Steps\AddTitleToCommerceSpeakAppsSection.cs" />
     <Compile Include="Steps\ComposeMoveSitecoreConfigIncludes.cs" />
     <Compile Include="Steps\CopyDirectory.cs" />
