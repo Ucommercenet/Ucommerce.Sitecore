@@ -82,7 +82,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
                     loggingService),
                 new DeleteFile(new FileInfo(Path.Combine(appsPath.FullName, "Ucommerce.Search.Lucene.disabled", "bin", "System.Collections.Immutable.dll")),
                     loggingService),
-                new AddClientDependencyBundlesToIgnoreUrlPrefixes(sitecoreDirectory, loggingService)
+                new AddHeadlessToIgnoreUrlPrefixes(sitecoreDirectory, loggingService)
             });
         }
     }
