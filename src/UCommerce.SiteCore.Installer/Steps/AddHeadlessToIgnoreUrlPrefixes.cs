@@ -7,12 +7,12 @@ using Ucommerce.Installer;
 
 namespace Ucommerce.Sitecore.Installer.Steps
 {
-    public class AddClientDependencyBundlesToIgnoreUrlPrefixes : IStep
+    public class AddHeadlessToIgnoreUrlPrefixes : IStep
     {
         private readonly IInstallerLoggingService _loggingService;
         private readonly DirectoryInfo _sitecoreDirectory;
 
-        public AddClientDependencyBundlesToIgnoreUrlPrefixes(DirectoryInfo sitecoreDirectory, IInstallerLoggingService loggingService)
+        public AddHeadlessToIgnoreUrlPrefixes(DirectoryInfo sitecoreDirectory, IInstallerLoggingService loggingService)
         {
             _sitecoreDirectory = sitecoreDirectory;
             _loggingService = loggingService;
@@ -20,7 +20,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
 
         public Task Run()
         {
-            _loggingService.Information<AddClientDependencyBundlesToIgnoreUrlPrefixes>("Adding client dependencies to sitecore.config");
+            _loggingService.Information<AddHeadlessToIgnoreUrlPrefixes>("Adding client dependencies to sitecore.config");
 
             var sitecoreConfig = new XmlDocument();
 
