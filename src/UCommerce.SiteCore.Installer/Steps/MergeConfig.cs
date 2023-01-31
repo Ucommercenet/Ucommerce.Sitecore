@@ -20,7 +20,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
             _toBeTransformed = configuration;
         }
 
-        public async Task Run()
+        public Task Run()
         {
             _loggingService.Information<MergeConfig>($"Merging Ucommerce configs into {_toBeTransformed.FullName}");
 
@@ -42,6 +42,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
             }
 
             SetConnectionStringAttribute(connectionStringAttribute);
+            return Task.CompletedTask;
         }
 
         private XAttribute GetUcommerceConnectionString(FileInfo appConfig)

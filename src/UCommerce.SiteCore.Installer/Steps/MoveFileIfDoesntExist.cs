@@ -19,10 +19,11 @@ namespace Ucommerce.Sitecore.Installer.Steps
             _loggingService = loggingService;
         }
 
-        public async Task Run()
+        public Task Run()
         {
             _loggingService.Information<MoveFileIfDoesntExist>($"Moving {_source.FullName} to {_target.FullName} if it does not already exist");
             _command.MoveIfDoesntExist(ex => _loggingService.Error<int>(ex));
+            return Task.CompletedTask;
         }
     }
 }

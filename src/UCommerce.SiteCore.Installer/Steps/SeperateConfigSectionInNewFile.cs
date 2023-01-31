@@ -24,11 +24,12 @@ namespace Ucommerce.Sitecore.Installer.Steps
             _command = new ExtractSection(section, source, target);
         }
 
-        public async Task Run()
+        public Task Run()
         {
             _loggingService.Information<SeperateConfigSectionInNewFile>(
                 $"Seperating section {_section} of {_source.FullName} into new file {_target.FullName}");
             _command.Move(ex => _loggingService.Error<int>(ex));
+            return Task.CompletedTask;
         }
     }
 }

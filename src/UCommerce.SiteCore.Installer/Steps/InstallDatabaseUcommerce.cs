@@ -17,9 +17,10 @@ namespace Ucommerce.Sitecore.Installer.Steps
             _command = new DbInstallerCore(connectionStringLocator, migrations, logging);
         }
 
-        public async Task Run()
+        public Task Run()
         {
             _command.InstallDatabase();
+            return Task.CompletedTask;
         }
     }
 }

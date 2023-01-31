@@ -13,11 +13,12 @@ namespace Ucommerce.Sitecore.Installer.Steps
             _loggingService = loggingService;
         }
 
-        public async Task Run()
+        public Task Run()
         {
             _loggingService.Information<InitializeObjectFactory>("Initializing object factory...");
             var initializer = new ObjectFactoryInitializer();
             initializer.InitializeObjectFactory();
+            return Task.CompletedTask;
         }
     }
 }
