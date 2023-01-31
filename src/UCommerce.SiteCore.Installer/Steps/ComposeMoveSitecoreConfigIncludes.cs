@@ -96,7 +96,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
                         "Sitecore.uCommerce.WebApiConfiguration.config.disabled")),
                     new FileInfo(Path.Combine(appIncludeDirectory.FullName, "Sitecore.uCommerce.WebApiConfiguration.config")),
                     true,
-                    () => versionChecker.IsEqualOrGreaterThan(new Version(8, 2)),
+                    () => versionChecker.IsLowerThan(new Version(8, 2)),
                     _loggingService),
                 new MoveFile(new FileInfo(Path.Combine(
                         configIncludeDirectory.FullName,
