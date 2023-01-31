@@ -22,15 +22,28 @@ namespace Ucommerce.Sitecore.Installer.Steps
             var rootFolder = GetRootFolder();
             logging.Information<CreateSpeakApplications>(string.Format("RootFolder: {0}", rootFolder));
             var directoryOrder = new[]
-                        {
-                            "templates", "client", "layout"
-                        };
+            {
+                "templates", "client", "layout"
+            };
 
             foreach (var directory in directoryOrder)
             {
                 Parse(new DirectoryInfo(Path.Combine(rootFolder, directory)));
             }
+
             logging.Information<CreateSpeakApplications>("CreateSpeakApplications finished.");
+        }
+
+        private string GetRootFolder()
+        {
+            var serializationFolder = "/Sitecore Modules/Shell/ucommerce/install/SpeakSerialization/sitecore";
+            var str = Path.GetFullPath(SafeMapPath(serializationFolder));
+            if (str[str.Length - 1] != Path.DirectorySeparatorChar)
+            {
+                str = str + Path.DirectorySeparatorChar;
+            }
+
+            return str;
         }
 
         private void Parse(DirectoryInfo directoryInfo)
@@ -52,22 +65,6 @@ namespace Ucommerce.Sitecore.Installer.Steps
             }
         }
 
-        private string GetRootFolder()
-        {
-            string serializationFolder = "/Sitecore Modules/Shell/ucommerce/install/SpeakSerialization/sitecore";
-            string str = Path.GetFullPath(SafeMapPath(serializationFolder));
-            if (str[str.Length - 1] != Path.DirectorySeparatorChar)
-                str = str + Path.DirectorySeparatorChar;
-            return str;
-        }
-
-        private static string SafeMapPath(string path)
-        {
-            while (!string.IsNullOrEmpty(path) && path[0] == '/')
-                path = path.Substring(1);
-            return Path.Combine(GetSafeAppRoot(), path ?? string.Empty);
-        }
-
         private static string GetSafeAppRoot()
         {
             try
@@ -78,6 +75,16 @@ namespace Ucommerce.Sitecore.Installer.Steps
             {
                 return AppDomain.CurrentDomain.BaseDirectory;
             }
+        }
+
+        private static string SafeMapPath(string path)
+        {
+            while (!string.IsNullOrEmpty(path) && path[0] == '/')
+            {
+                path = path.Substring(1);
+            }
+
+            return Path.Combine(GetSafeAppRoot(), path ?? string.Empty);
         }
     }
 }
