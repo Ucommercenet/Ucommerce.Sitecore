@@ -19,10 +19,11 @@ namespace Ucommerce.Sitecore.Installer.Steps
             _command = new FileCopier(source, target);
         }
 
-        public async Task Run()
+        public Task Run()
         {
             _logging.Information<CopyFile>($"Copying file {_source.FullName} to {_target.FullName}");
             _command.Copy(ex => _logging.Error<int>(ex));
+            return Task.CompletedTask;
         }
     }
 }

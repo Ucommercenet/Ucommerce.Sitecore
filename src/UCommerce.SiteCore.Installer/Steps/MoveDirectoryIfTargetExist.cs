@@ -17,11 +17,12 @@ namespace Ucommerce.Sitecore.Installer.Steps
             _loggingService = loggingService;
         }
 
-        public async Task Run()
+        public Task Run()
         {
             _loggingService.Information<MoveDirectoryIfTargetExist>($"Moving {_sourceDirectory.FullName} to {_targetDirectory.FullName} if it exists");
             new DirectoryMoverIfTargetExist(_sourceDirectory, _targetDirectory)
                 .Move(ex => _loggingService.Error<int>(ex));
+            return Task.CompletedTask;
         }
     }
 }

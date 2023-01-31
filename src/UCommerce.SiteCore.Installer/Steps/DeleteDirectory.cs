@@ -17,10 +17,11 @@ namespace Ucommerce.Sitecore.Installer.Steps
             _command = new DirectoryDeleter(directory);
         }
 
-        public async Task Run()
+        public Task Run()
         {
             _loggingService.Information<DeleteDirectory>($"Deleting directory {_directory.FullName}");
             _command.Delete(ex => _loggingService.Error<int>(ex));
+            return Task.CompletedTask;
         }
     }
 }

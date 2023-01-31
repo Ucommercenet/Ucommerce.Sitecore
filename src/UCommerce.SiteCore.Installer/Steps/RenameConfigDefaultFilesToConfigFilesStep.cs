@@ -19,10 +19,11 @@ namespace Ucommerce.Sitecore.Installer.Steps
             _sourceDirectory = sourceDirectory;
         }
 
-        public async Task Run()
+        public Task Run()
         {
             _loggingService.Information<RenameConfigDefaultFilesToConfigFilesStep>($"Renaming config.default files to config in {_sourceDirectory.FullName}...");
             _command.Rename(_backupTarget, ex => _loggingService.Error<int>(ex));
+            return Task.CompletedTask;
         }
     }
 }
