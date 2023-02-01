@@ -50,7 +50,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
                 new MoveFileIf(configIncludeDirectory.CombineFile(
                         "Sitecore.uCommerce.Pipelines.HttpRequestBegin.9.3.config"),
                     appIncludeDirectory.CombineFile("Sitecore.uCommerce.Pipelines.HttpRequestBegin.config"),
-                    true,
+                    false,
                     () => versionChecker.IsEqualOrGreaterThan(new Version(9, 3)),
                     _loggingService),
                 new MoveFile(configIncludeDirectory.CombineFile(
@@ -61,7 +61,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
                 new MoveFileIf(configIncludeDirectory.CombineFile(
                         "Sitecore.uCommerce.Pipelines.PreProcessRequest.9.1.config"),
                     appIncludeDirectory.CombineFile("Sitecore.uCommerce.Pipelines.PreProcessRequest.config"),
-                    true,
+                    false,
                     () => versionChecker.IsEqualOrGreaterThan(new Version(9, 1)),
                     _loggingService),
                 new MoveFile(configIncludeDirectory.CombineFile("Sitecore.uCommerce.Settings.config"),
