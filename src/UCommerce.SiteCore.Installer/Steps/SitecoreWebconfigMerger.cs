@@ -20,17 +20,17 @@ namespace Ucommerce.Sitecore.Installer.Steps
         public async Task Run()
         {
             _loggingService.Information<SitecoreWebconfigMerger>("Merging Sitecore and Ucommerce config files...");
-            var ucommerceInstallPath = _sitecoreDirectory.CombineDirectory("sitecore modules", "Shell", "ucommerce", "install");
+            var ucommerceInstallDirectory = _sitecoreDirectory.CombineDirectory("sitecore modules", "Shell", "ucommerce", "install");
             var mergeConfig = new MergeConfig(_sitecoreDirectory.CombineFile("web.config"),
                 new List<Transformation>
                 {
-                    new Transformation(ucommerceInstallPath.CombineFile("CleanConfig.config")),
-                    new Transformation(ucommerceInstallPath.CombineFile("uCommerce.config")),
-                    new Transformation(ucommerceInstallPath.CombineFile("uCommerce.IIS7.config"), true),
-                    new Transformation(ucommerceInstallPath.CombineFile("uCommerce.dependencies.sitecore.config")),
-                    new Transformation(ucommerceInstallPath.CombineFile("sitecore.config")),
-                    new Transformation(ucommerceInstallPath.CombineFile("ClientDependency.config")),
-                    new Transformation(ucommerceInstallPath.CombineFile("updateAssemblyBinding.config")),
+                    new Transformation(ucommerceInstallDirectory.CombineFile("CleanConfig.config")),
+                    new Transformation(ucommerceInstallDirectory.CombineFile("uCommerce.config")),
+                    new Transformation(ucommerceInstallDirectory.CombineFile("uCommerce.IIS7.config"), true),
+                    new Transformation(ucommerceInstallDirectory.CombineFile("uCommerce.dependencies.sitecore.config")),
+                    new Transformation(ucommerceInstallDirectory.CombineFile("sitecore.config")),
+                    new Transformation(ucommerceInstallDirectory.CombineFile("ClientDependency.config")),
+                    new Transformation(ucommerceInstallDirectory.CombineFile("updateAssemblyBinding.config")),
                 },
                 _loggingService
             );

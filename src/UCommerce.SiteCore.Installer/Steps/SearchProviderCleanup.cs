@@ -8,11 +8,11 @@ namespace Ucommerce.Sitecore.Installer.Steps
     {
         private readonly IInstallerLoggingService _loggingService;
 
-        public SearchProviderCleanup(DirectoryInfo appsPath, IInstallerLoggingService loggingService)
+        public SearchProviderCleanup(DirectoryInfo appsDirectory, IInstallerLoggingService loggingService)
         {
             _loggingService = loggingService;
-            var luceneIndexesFolderPath = appsPath.CombineDirectory("Ucommerce.Search.Lucene", "Configuration", "Indexes");
-            var luceneIndexesFolderPathDisabled = appsPath.CombineDirectory("Ucommerce.Search.Lucene.disabled", "Configuration", "Indexes");
+            var luceneIndexesFolderPath = appsDirectory.CombineDirectory("Ucommerce.Search.Lucene", "Configuration", "Indexes");
+            var luceneIndexesFolderPathDisabled = appsDirectory.CombineDirectory("Ucommerce.Search.Lucene.disabled", "Configuration", "Indexes");
             if (Directory.Exists(luceneIndexesFolderPath.FullName))
             {
                 Steps.Add(new DeleteDirectory(luceneIndexesFolderPath, _loggingService));
