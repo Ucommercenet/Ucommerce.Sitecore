@@ -1,6 +1,7 @@
 using System.IO;
 using System.Threading.Tasks;
 using Ucommerce.Installer;
+using Ucommerce.Sitecore.Installer.FileExtensions;
 
 namespace Ucommerce.Sitecore.Installer.Steps
 {
@@ -39,7 +40,8 @@ namespace Ucommerce.Sitecore.Installer.Steps
 
             foreach (var file in sourceDir.GetFiles())
             {
-                var targetFilePath = Path.Combine(destinationDir.FullName, file.Name);
+                var targetFilePath = destinationDir.CombineFile(file.Name)
+                    .FullName;
                 file.CopyTo(targetFilePath, true);
 
                 var fs = file.GetAccessControl();
@@ -50,8 +52,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
             if (!recursive) return;
             foreach (var subDir in subDirs)
             {
-                var newDestinationDir = Path.Combine(destinationDir.FullName, subDir.Name);
-                CopyDir(subDir, new DirectoryInfo(Path.Combine(destinationDir.FullName, subDir.Name)), true, loggingService);
+                CopyDir(subDir, destinationDir.CombineDirectory(subDir.Name), true, loggingService);
             }
         }
     }

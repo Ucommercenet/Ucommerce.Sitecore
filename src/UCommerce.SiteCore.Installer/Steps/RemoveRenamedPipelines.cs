@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using Ucommerce.Installer;
+using Ucommerce.Sitecore.Installer.FileExtensions;
 
 namespace Ucommerce.Sitecore.Installer.Steps
 {
@@ -13,37 +14,37 @@ namespace Ucommerce.Sitecore.Installer.Steps
             var pipelinesPath = new DirectoryInfo(Path.Combine(sitecoreDirectory.FullName, "sitecore modules", "Shell", "ucommerce", "Pipelines"));
             Steps.AddRange(new IStep[]
             {
-                new DeleteFileWithBackup(new FileInfo(Path.Combine(pipelinesPath.FullName, "Basket.config")), _loggingService),
-                new DeleteFileWithBackup(new FileInfo(Path.Combine(pipelinesPath.FullName, "Checkout.config")), _loggingService),
-                new DeleteFileWithBackup(new FileInfo(Path.Combine(pipelinesPath.FullName, "DeleteCampaignItem.config")), _loggingService),
-                new DeleteFileWithBackup(new FileInfo(Path.Combine(pipelinesPath.FullName, "DeleteCategory.config")), _loggingService),
-                new DeleteFileWithBackup(new FileInfo(Path.Combine(pipelinesPath.FullName, "DeleteDataType.config")), _loggingService),
-                new DeleteFileWithBackup(new FileInfo(Path.Combine(pipelinesPath.FullName, "DeleteDefinition.config")), _loggingService),
-                new DeleteFileWithBackup(new FileInfo(Path.Combine(pipelinesPath.FullName, "DeleteLanguage.config")), _loggingService),
-                new DeleteFileWithBackup(new FileInfo(Path.Combine(pipelinesPath.FullName, "DeleteProduct.config")), _loggingService),
-                new DeleteFileWithBackup(new FileInfo(Path.Combine(pipelinesPath.FullName, "DeleteProductCatalog.config")), _loggingService),
-                new DeleteFileWithBackup(new FileInfo(Path.Combine(pipelinesPath.FullName, "DeleteProductCatalogGroup.config")),
+                new DeleteFileWithBackup(pipelinesPath.CombineFile("Basket.config"), _loggingService),
+                new DeleteFileWithBackup(pipelinesPath.CombineFile("Checkout.config"), _loggingService),
+                new DeleteFileWithBackup(pipelinesPath.CombineFile("DeleteCampaignItem.config"), _loggingService),
+                new DeleteFileWithBackup(pipelinesPath.CombineFile("DeleteCategory.config"), _loggingService),
+                new DeleteFileWithBackup(pipelinesPath.CombineFile("DeleteDataType.config"), _loggingService),
+                new DeleteFileWithBackup(pipelinesPath.CombineFile("DeleteDefinition.config"), _loggingService),
+                new DeleteFileWithBackup(pipelinesPath.CombineFile("DeleteLanguage.config"), _loggingService),
+                new DeleteFileWithBackup(pipelinesPath.CombineFile("DeleteProduct.config"), _loggingService),
+                new DeleteFileWithBackup(pipelinesPath.CombineFile("DeleteProductCatalog.config"), _loggingService),
+                new DeleteFileWithBackup(pipelinesPath.CombineFile("DeleteProductCatalogGroup.config"),
                     _loggingService),
-                new DeleteFileWithBackup(new FileInfo(Path.Combine(pipelinesPath.FullName, "DeleteProductDefinitionField.config")),
+                new DeleteFileWithBackup(pipelinesPath.CombineFile("DeleteProductDefinitionField.config"),
                     _loggingService),
-                new DeleteFileWithBackup(new FileInfo(Path.Combine(pipelinesPath.FullName, "Processing.config")), _loggingService),
-                new DeleteFileWithBackup(new FileInfo(Path.Combine(pipelinesPath.FullName, "ProductReview.config")), _loggingService),
-                new DeleteFileWithBackup(new FileInfo(Path.Combine(pipelinesPath.FullName, "ProductReview.config")), _loggingService),
-                new DeleteFileWithBackup(new FileInfo(Path.Combine(pipelinesPath.FullName, "ProductReviewComment.config")), _loggingService),
-                new DeleteFileWithBackup(new FileInfo(Path.Combine(pipelinesPath.FullName, "SaveCategory.config")), _loggingService),
-                new DeleteFileWithBackup(new FileInfo(Path.Combine(pipelinesPath.FullName, "SaveDataType.config")), _loggingService),
-                new DeleteFileWithBackup(new FileInfo(Path.Combine(pipelinesPath.FullName, "SaveDefinition.config")), _loggingService),
-                new DeleteFileWithBackup(new FileInfo(Path.Combine(pipelinesPath.FullName, "SaveDefinitionField.config")), _loggingService),
-                new DeleteFileWithBackup(new FileInfo(Path.Combine(pipelinesPath.FullName, "SaveLanguage.config")), _loggingService),
-                new DeleteFileWithBackup(new FileInfo(Path.Combine(pipelinesPath.FullName, "SaveOrder.config")), _loggingService),
-                new DeleteFileWithBackup(new FileInfo(Path.Combine(pipelinesPath.FullName, "SaveProduct.config")), _loggingService),
-                new DeleteFileWithBackup(new FileInfo(Path.Combine(pipelinesPath.FullName, "SaveProductCatalog.config")), _loggingService),
-                new DeleteFileWithBackup(new FileInfo(Path.Combine(pipelinesPath.FullName, "SaveProductCatalogGroup.config")),
+                new DeleteFileWithBackup(pipelinesPath.CombineFile("Processing.config"), _loggingService),
+                new DeleteFileWithBackup(pipelinesPath.CombineFile("ProductReview.config"), _loggingService),
+                new DeleteFileWithBackup(pipelinesPath.CombineFile("ProductReview.config"), _loggingService),
+                new DeleteFileWithBackup(pipelinesPath.CombineFile("ProductReviewComment.config"), _loggingService),
+                new DeleteFileWithBackup(pipelinesPath.CombineFile("SaveCategory.config"), _loggingService),
+                new DeleteFileWithBackup(pipelinesPath.CombineFile("SaveDataType.config"), _loggingService),
+                new DeleteFileWithBackup(pipelinesPath.CombineFile("SaveDefinition.config"), _loggingService),
+                new DeleteFileWithBackup(pipelinesPath.CombineFile("SaveDefinitionField.config"), _loggingService),
+                new DeleteFileWithBackup(pipelinesPath.CombineFile("SaveLanguage.config"), _loggingService),
+                new DeleteFileWithBackup(pipelinesPath.CombineFile("SaveOrder.config"), _loggingService),
+                new DeleteFileWithBackup(pipelinesPath.CombineFile("SaveProduct.config"), _loggingService),
+                new DeleteFileWithBackup(pipelinesPath.CombineFile("SaveProductCatalog.config"), _loggingService),
+                new DeleteFileWithBackup(pipelinesPath.CombineFile("SaveProductCatalogGroup.config"),
                     _loggingService),
-                new DeleteFileWithBackup(new FileInfo(Path.Combine(pipelinesPath.FullName, "SaveProductDefinitionField.config")),
+                new DeleteFileWithBackup(pipelinesPath.CombineFile("SaveProductDefinitionField.config"),
                     _loggingService),
-                new DeleteFileWithBackup(new FileInfo(Path.Combine(pipelinesPath.FullName, "ToCancelled.config")), _loggingService),
-                new DeleteFileWithBackup(new FileInfo(Path.Combine(pipelinesPath.FullName, "ToCompletedOrder.config")), _loggingService)
+                new DeleteFileWithBackup(pipelinesPath.CombineFile("ToCancelled.config"), _loggingService),
+                new DeleteFileWithBackup(pipelinesPath.CombineFile("ToCompletedOrder.config"), _loggingService)
             });
         }
 

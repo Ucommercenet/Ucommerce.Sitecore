@@ -1,5 +1,4 @@
-﻿using System.Collections.Specialized;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Ucommerce.Installer;
 
 namespace Ucommerce.Sitecore.Installer.Steps

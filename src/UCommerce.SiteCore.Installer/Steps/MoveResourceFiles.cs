@@ -2,6 +2,7 @@
 using System.IO;
 using System.Threading.Tasks;
 using Ucommerce.Installer;
+using Ucommerce.Sitecore.Installer.FileExtensions;
 
 namespace Ucommerce.Sitecore.Installer.Steps
 {
@@ -13,8 +14,8 @@ namespace Ucommerce.Sitecore.Installer.Steps
 
         public MoveResourceFiles(DirectoryInfo sitecoreDirectory, InstallationConnectionStringLocator connectionStringLocator, IInstallerLoggingService logging)
         {
-            SourceDirectory = new DirectoryInfo(Path.Combine(sitecoreDirectory.FullName, "bin", "uCommerce", "App_GlobalResources"));
-            TargetDirectory = new DirectoryInfo(Path.Combine(sitecoreDirectory.FullName, "App_GlobalResources"));
+            SourceDirectory = sitecoreDirectory.CombineDirectory("bin", "uCommerce", "App_GlobalResources");
+            TargetDirectory = sitecoreDirectory.CombineDirectory("App_GlobalResources");
             _loggingService = logging;
         }
 
@@ -59,8 +60,8 @@ namespace Ucommerce.Sitecore.Installer.Steps
 
             foreach (var file in files)
             {
-                steps.Add(new MoveFile(new FileInfo(Path.Combine(SourceDirectory.FullName, file)),
-                    new FileInfo(Path.Combine(TargetDirectory.FullName, file)),
+                steps.Add(new MoveFile(SourceDirectory.CombineFile(file),
+                    TargetDirectory.CombineFile(file),
                     false,
                     _loggingService));
             }
