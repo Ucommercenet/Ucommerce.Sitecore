@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using Ucommerce.Installer;
+using Ucommerce.Sitecore.Installer.FileExtensions;
 
 namespace Ucommerce.Sitecore.Installer.Steps
 {
@@ -12,10 +13,10 @@ namespace Ucommerce.Sitecore.Installer.Steps
             _loggingService = loggingService;
             Steps.AddRange(new IStep[]
             {
-                new DeleteDirectory(new DirectoryInfo(Path.Combine(appsPath.FullName, "RavenDB25")), _loggingService),
-                new DeleteDirectory(new DirectoryInfo(Path.Combine(appsPath.FullName, "RavenDB25.disabled")), _loggingService),
-                new DeleteDirectory(new DirectoryInfo(Path.Combine(appsPath.FullName, "RavenDB30")), _loggingService),
-                new DeleteDirectory(new DirectoryInfo(Path.Combine(appsPath.FullName, "RavenDB30.disabled")), _loggingService)
+                new DeleteDirectory(appsPath.CombineDirectory("RavenDB25"), _loggingService),
+                new DeleteDirectory(appsPath.CombineDirectory("RavenDB25.disabled"), _loggingService),
+                new DeleteDirectory(appsPath.CombineDirectory("RavenDB30"), _loggingService),
+                new DeleteDirectory(appsPath.CombineDirectory("RavenDB30.disabled"), _loggingService),
             });
         }
 
