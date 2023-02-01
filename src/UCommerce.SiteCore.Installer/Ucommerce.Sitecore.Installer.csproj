@@ -213,6 +213,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DbInstallerSitecore.cs" />
+    <Compile Include="FileExtensions\DirectoryExtensions.cs" />
     <Compile Include="ISitecoreVersionChecker.cs" />
     <Compile Include="MessageTemplateParser.cs" />
     <Compile Include="SitecoreVersionCheckerOffline.cs" />

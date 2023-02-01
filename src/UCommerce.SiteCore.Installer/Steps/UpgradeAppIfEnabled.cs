@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using System.Threading.Tasks;
 using Ucommerce.Installer;
+using Ucommerce.Sitecore.Installer.FileExtensions;
 
 namespace Ucommerce.Sitecore.Installer.Steps
 {
@@ -15,9 +16,9 @@ namespace Ucommerce.Sitecore.Installer.Steps
         {
             _appName = appName;
             _logging = logging;
-            var appsDirectory = new DirectoryInfo(Path.Combine(sitecoreDirectory.FullName, "sitecore modules", "shell", "ucommerce", "apps"));
-            _disabledDirectory = new DirectoryInfo(Path.Combine(appsDirectory.FullName, $"{appName}.disabled"));
-            _enabledDirectory = new DirectoryInfo(Path.Combine(appsDirectory.FullName, appName));
+            var appsDirectory = sitecoreDirectory.CombineDirectory("sitecore modules", "shell", "ucommerce", "apps");
+            _disabledDirectory = appsDirectory.CombineDirectory($"{appName}.disabled");
+            _enabledDirectory = appsDirectory.CombineDirectory(appName);
         }
 
         public async Task Run()

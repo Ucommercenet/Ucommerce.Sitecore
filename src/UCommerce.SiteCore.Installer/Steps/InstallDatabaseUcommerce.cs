@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using System.Threading.Tasks;
 using Ucommerce.Installer;
+using Ucommerce.Sitecore.Installer.FileExtensions;
 
 namespace Ucommerce.Sitecore.Installer.Steps
 {
@@ -8,10 +9,11 @@ namespace Ucommerce.Sitecore.Installer.Steps
     {
         private readonly DbInstaller _command;
 
-        public InstallDatabaseUcommerce(DirectoryInfo packageBasePath, InstallationConnectionStringLocator connectionStringLocator, IInstallerLoggingService logging)
+        public InstallDatabaseUcommerce(DirectoryInfo packageBasePath,
+            InstallationConnectionStringLocator connectionStringLocator,
+            IInstallerLoggingService logging)
         {
-            var migrationsDirectory =
-                new DirectoryInfo(Path.Combine(packageBasePath.FullName, "package", "files", "sitecore modules", "Shell", "Ucommerce", "Install"));
+            var migrationsDirectory = packageBasePath.CombineDirectory("package", "files", "sitecore modules", "Shell", "Ucommerce", "Install");
             var migrations = new MigrationLoader().GetDatabaseMigrations(migrationsDirectory);
 
             _command = new DbInstallerCore(connectionStringLocator, migrations, logging);

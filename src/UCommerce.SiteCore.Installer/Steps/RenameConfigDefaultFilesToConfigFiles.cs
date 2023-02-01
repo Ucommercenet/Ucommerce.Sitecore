@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using Ucommerce.Installer;
+using Ucommerce.Sitecore.Installer.FileExtensions;
 
 namespace Ucommerce.Sitecore.Installer.Steps
 {
@@ -11,19 +12,16 @@ namespace Ucommerce.Sitecore.Installer.Steps
             IInstallerLoggingService loggingService)
         {
             _loggingService = loggingService;
-
+            var ucommerceDirectory = sitecoreDirectory.CombineDirectory("sitecore modules", "Shell", "uCommerce");
             Steps.AddRange(new IStep[]
             {
-                new RenameConfigDefaultFilesToConfigFilesStep(
-                    new DirectoryInfo(Path.Combine(sitecoreDirectory.FullName, "sitecore modules", "Shell", "uCommerce", "Configuration")),
+                new RenameConfigDefaultFilesToConfigFilesStep(ucommerceDirectory.CombineDirectory("Configuration"),
                     false,
                     _loggingService),
-                new RenameConfigDefaultFilesToConfigFilesStep(
-                    new DirectoryInfo(Path.Combine(sitecoreDirectory.FullName, "sitecore modules", "Shell", "uCommerce", "Pipelines")),
+                new RenameConfigDefaultFilesToConfigFilesStep(ucommerceDirectory.CombineDirectory("Pipelines"),
                     false,
                     _loggingService),
-                new RenameConfigDefaultFilesToConfigFilesStep(
-                    new DirectoryInfo(Path.Combine(sitecoreDirectory.FullName, "sitecore modules", "Shell", "uCommerce", "Apps")),
+                new RenameConfigDefaultFilesToConfigFilesStep(ucommerceDirectory.CombineDirectory("Apps"),
                     false,
                     _loggingService)
             });

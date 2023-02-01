@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.XPath;
 using Ucommerce.Installer;
+using Ucommerce.Sitecore.Installer.FileExtensions;
 
 namespace Ucommerce.Sitecore.Installer.Steps
 {
@@ -49,7 +50,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
 
         private FileInfo GetSitecoreConfigFilePath()
         {
-            var webConfigFilePath = new FileInfo(Path.Combine(_sitecoreDirectory.FullName, "web.config"));
+            var webConfigFilePath = _sitecoreDirectory.CombineFile("web.config");
             if (!webConfigFilePath.Exists)
             {
                 throw new FileNotFoundException($"Could not find web.config: {webConfigFilePath.FullName}", webConfigFilePath.FullName);
@@ -64,7 +65,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
                 throw new Exception("Could not locate 'configuration/sitecore' in web.config");
             }
 
-            return new FileInfo(Path.Combine(_sitecoreDirectory.FullName, sitecoreConfig));
+            return _sitecoreDirectory.CombineFile(sitecoreConfig);
         }
     }
 }

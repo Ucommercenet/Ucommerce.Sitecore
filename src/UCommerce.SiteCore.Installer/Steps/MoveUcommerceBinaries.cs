@@ -2,17 +2,18 @@
 using System.IO;
 using System.Threading.Tasks;
 using Ucommerce.Installer;
+using Ucommerce.Sitecore.Installer.FileExtensions;
 
 namespace Ucommerce.Sitecore.Installer.Steps
 {
     public class MoveUcommerceBinaries : IStep
     {
         private readonly IInstallerLoggingService _logging;
-        private readonly DirectoryInfo _sitecoreBasePath;
+        private readonly DirectoryInfo _sitecoreDirectory;
 
-        public MoveUcommerceBinaries(DirectoryInfo sitecoreBasePath, IInstallerLoggingService logging)
+        public MoveUcommerceBinaries(DirectoryInfo sitecoreDirectory, IInstallerLoggingService logging)
         {
-            _sitecoreBasePath = sitecoreBasePath;
+            _sitecoreDirectory = sitecoreDirectory;
             _logging = logging;
         }
 
@@ -25,95 +26,94 @@ namespace Ucommerce.Sitecore.Installer.Steps
             // Therefor any older version located in the bin folder needs to be removed.
             //_postInstallationSteps.Add(new DeleteFile("~/bin/Ucommerce.Sitecore.CommerceConnect.dll"));
 
-            installationSteps.Add(new MoveFile(new FileInfo(Path.Combine(_sitecoreBasePath.FullName, "bin", "ucommerce", "Ucommerce.Infrastructure.dll")),
-                new FileInfo(Path.Combine(_sitecoreBasePath.FullName, "bin", "Ucommerce.Infrastructure.dll")),
+            installationSteps.Add(new MoveFile(_sitecoreDirectory.CombineFile("bin", "ucommerce", "Ucommerce.Infrastructure.dll"),
+                _sitecoreDirectory.CombineFile("bin", "Ucommerce.Infrastructure.dll"),
                 backupTarget: false,
                 _logging));
 
-            installationSteps.Add(new MoveFile(new FileInfo(Path.Combine(_sitecoreBasePath.FullName, "bin", "ucommerce", "Ucommerce.Sitecore.dll")),
-                new FileInfo(Path.Combine(_sitecoreBasePath.FullName, "bin", "Ucommerce.Sitecore.dll")),
+            installationSteps.Add(new MoveFile(_sitecoreDirectory.CombineFile("bin", "ucommerce", "Ucommerce.Sitecore.dll"),
+                _sitecoreDirectory.CombineFile("bin", "Ucommerce.Sitecore.dll"),
                 backupTarget: false,
                 _logging));
 
             // Move the Commerce Connect dependend files to the Commerce Connect app location.
-            installationSteps.Add(new MoveFile(new FileInfo(Path.Combine(_sitecoreBasePath.FullName, "bin", "ucommerce", "Ucommerce.Sitecore.CommerceConnect.dll")),
-                new FileInfo(Path.Combine(_sitecoreBasePath.FullName,
-                    "sitecore modules",
+            installationSteps.Add(new MoveFile(_sitecoreDirectory.CombineFile("bin", "ucommerce", "Ucommerce.Sitecore.CommerceConnect.dll"),
+                _sitecoreDirectory.CombineFile("sitecore modules",
                     "Shell",
                     "uCommerce",
                     "Apps",
                     "Sitecore Connect.disabled",
-                    "Ucommerce.Sitecore.CommerceConnect.dll")),
+                    "Ucommerce.Sitecore.CommerceConnect.dll"),
                 backupTarget: false,
                 _logging));
 
-            installationSteps.Add(new MoveFile(new FileInfo(Path.Combine(_sitecoreBasePath.FullName, "bin", "ucommerce", "Ucommerce.Web.Api.dll")),
-                new FileInfo(Path.Combine(_sitecoreBasePath.FullName, "bin", "Ucommerce.Web.Api.dll")),
+            installationSteps.Add(new MoveFile(_sitecoreDirectory.CombineFile("bin", "ucommerce", "Ucommerce.Web.Api.dll"),
+                _sitecoreDirectory.CombineFile("bin", "Ucommerce.Web.Api.dll"),
                 backupTarget: false,
                 _logging));
 
-            installationSteps.Add(new MoveFile(new FileInfo(Path.Combine(_sitecoreBasePath.FullName, "bin", "ucommerce", "Ucommerce.SystemHttp.dll")),
-                new FileInfo(Path.Combine(_sitecoreBasePath.FullName, "bin", "Ucommerce.SystemHttp.dll")),
+            installationSteps.Add(new MoveFile(_sitecoreDirectory.CombineFile("bin", "ucommerce", "Ucommerce.SystemHttp.dll"),
+                _sitecoreDirectory.CombineFile("bin", "Ucommerce.SystemHttp.dll"),
                 backupTarget: false,
                 _logging));
 
-            installationSteps.Add(new MoveFile(new FileInfo(Path.Combine(_sitecoreBasePath.FullName, "bin", "ucommerce", "Ucommerce.SystemWeb.dll")),
-                new FileInfo(Path.Combine(_sitecoreBasePath.FullName, "bin", "Ucommerce.SystemWeb.dll")),
+            installationSteps.Add(new MoveFile(_sitecoreDirectory.CombineFile("bin", "ucommerce", "Ucommerce.SystemWeb.dll"),
+                _sitecoreDirectory.CombineFile("bin", "Ucommerce.SystemWeb.dll"),
                 backupTarget: false,
                 _logging));
 
-            installationSteps.Add(new MoveFile(new FileInfo(Path.Combine(_sitecoreBasePath.FullName, "bin", "ucommerce", "Ucommerce.Web.Shell.dll")),
-                new FileInfo(Path.Combine(_sitecoreBasePath.FullName, "bin", "Ucommerce.Web.Shell.dll")),
+            installationSteps.Add(new MoveFile(_sitecoreDirectory.CombineFile("bin", "ucommerce", "Ucommerce.Web.Shell.dll"),
+                _sitecoreDirectory.CombineFile("bin", "Ucommerce.Web.Shell.dll"),
                 backupTarget: false,
                 _logging));
 
-            installationSteps.Add(new MoveFile(new FileInfo(Path.Combine(_sitecoreBasePath.FullName, "bin", "ucommerce", "Ucommerce.dll")),
-                new FileInfo(Path.Combine(_sitecoreBasePath.FullName, "bin", "Ucommerce.dll")),
+            installationSteps.Add(new MoveFile(_sitecoreDirectory.CombineFile("bin", "ucommerce", "Ucommerce.dll"),
+                _sitecoreDirectory.CombineFile("bin", "Ucommerce.dll"),
                 backupTarget: false,
                 _logging));
 
-            installationSteps.Add(new MoveFile(new FileInfo(Path.Combine(_sitecoreBasePath.FullName, "bin", "ucommerce", "Ucommerce.Admin.dll")),
-                new FileInfo(Path.Combine(_sitecoreBasePath.FullName, "bin", "Ucommerce.Admin.dll")),
+            installationSteps.Add(new MoveFile(_sitecoreDirectory.CombineFile("bin", "ucommerce", "Ucommerce.Admin.dll"),
+                _sitecoreDirectory.CombineFile("bin", "Ucommerce.Admin.dll"),
                 backupTarget: false,
                 _logging));
 
-            installationSteps.Add(new MoveFile(new FileInfo(Path.Combine(_sitecoreBasePath.FullName, "bin", "ucommerce", "Ucommerce.Pipelines.dll")),
-                new FileInfo(Path.Combine(_sitecoreBasePath.FullName, "bin", "Ucommerce.Pipelines.dll")),
+            installationSteps.Add(new MoveFile(_sitecoreDirectory.CombineFile("bin", "ucommerce", "Ucommerce.Pipelines.dll"),
+                _sitecoreDirectory.CombineFile("bin", "Ucommerce.Pipelines.dll"),
                 backupTarget: false,
                 _logging));
 
-            installationSteps.Add(new MoveFile(new FileInfo(Path.Combine(_sitecoreBasePath.FullName, "bin", "ucommerce", "Ucommerce.Presentation.dll")),
-                new FileInfo(Path.Combine(_sitecoreBasePath.FullName, "bin", "Ucommerce.Presentation.dll")),
+            installationSteps.Add(new MoveFile(_sitecoreDirectory.CombineFile("bin", "ucommerce", "Ucommerce.Presentation.dll"),
+                _sitecoreDirectory.CombineFile("bin", "Ucommerce.Presentation.dll"),
                 backupTarget: false,
                 _logging));
 
-            installationSteps.Add(new MoveFile(new FileInfo(Path.Combine(_sitecoreBasePath.FullName, "bin", "ucommerce", "Ucommerce.NHibernate.dll")),
-                new FileInfo(Path.Combine(_sitecoreBasePath.FullName, "bin", "Ucommerce.NHibernate.dll")),
+            installationSteps.Add(new MoveFile(_sitecoreDirectory.CombineFile("bin", "ucommerce", "Ucommerce.NHibernate.dll"),
+                _sitecoreDirectory.CombineFile("bin", "Ucommerce.NHibernate.dll"),
                 backupTarget: false,
                 _logging));
 
-            installationSteps.Add(new MoveFile(new FileInfo(Path.Combine(_sitecoreBasePath.FullName, "bin", "ucommerce", "Ucommerce.Pipelines.dll")),
-                new FileInfo(Path.Combine(_sitecoreBasePath.FullName, "bin", "Ucommerce.Pipelines.dll")),
+            installationSteps.Add(new MoveFile(_sitecoreDirectory.CombineFile("bin", "ucommerce", "Ucommerce.Pipelines.dll"),
+                _sitecoreDirectory.CombineFile("bin", "Ucommerce.Pipelines.dll"),
                 backupTarget: false,
                 _logging));
 
-            installationSteps.Add(new MoveFile(new FileInfo(Path.Combine(_sitecoreBasePath.FullName, "bin", "ucommerce", "Ucommerce.Sitecore.Web.dll")),
-                new FileInfo(Path.Combine(_sitecoreBasePath.FullName, "bin", "Ucommerce.Sitecore.Web.dll")),
+            installationSteps.Add(new MoveFile(_sitecoreDirectory.CombineFile("bin", "ucommerce", "Ucommerce.Sitecore.Web.dll"),
+                _sitecoreDirectory.CombineFile("bin", "Ucommerce.Sitecore.Web.dll"),
                 backupTarget: false,
                 _logging));
 
-            installationSteps.Add(new MoveFile(new FileInfo(Path.Combine(_sitecoreBasePath.FullName, "bin", "ucommerce", "Ucommerce.Api.dll")),
-                new FileInfo(Path.Combine(_sitecoreBasePath.FullName, "bin", "Ucommerce.Api.dll")),
+            installationSteps.Add(new MoveFile(_sitecoreDirectory.CombineFile("bin", "ucommerce", "Ucommerce.Api.dll"),
+                _sitecoreDirectory.CombineFile("bin", "Ucommerce.Api.dll"),
                 backupTarget: false,
                 _logging));
 
-            installationSteps.Add(new MoveFile(new FileInfo(Path.Combine(_sitecoreBasePath.FullName, "bin", "ucommerce", "Ucommerce.Search.dll")),
-                new FileInfo(Path.Combine(_sitecoreBasePath.FullName, "bin", "Ucommerce.Search.dll")),
+            installationSteps.Add(new MoveFile(_sitecoreDirectory.CombineFile("bin", "ucommerce", "Ucommerce.Search.dll"),
+                _sitecoreDirectory.CombineFile("bin", "Ucommerce.Search.dll"),
                 backupTarget: false,
                 _logging));
 
-            installationSteps.Add(new MoveFile(new FileInfo(Path.Combine(_sitecoreBasePath.FullName, "bin", "ucommerce", "Ucommerce.SqlMultiReaderConnector.dll")),
-                new FileInfo(Path.Combine(_sitecoreBasePath.FullName, "bin", "Ucommerce.SqlMultiReaderConnector.dll")),
+            installationSteps.Add(new MoveFile(_sitecoreDirectory.CombineFile("bin", "ucommerce", "Ucommerce.SqlMultiReaderConnector.dll"),
+                _sitecoreDirectory.CombineFile("bin", "Ucommerce.SqlMultiReaderConnector.dll"),
                 backupTarget: false,
                 _logging));
 
