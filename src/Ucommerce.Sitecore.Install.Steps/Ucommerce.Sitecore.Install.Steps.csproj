@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <ProjectGuid>{A9888102-45A9-4BC0-A38F-1996AFB098AE}</ProjectGuid>
+        <OutputType>Library</OutputType>
+        <AppDesignerFolder>Properties</AppDesignerFolder>
+        <RootNamespace>Ucommerce.Sitecore.Install.Steps</RootNamespace>
+        <AssemblyName>Ucommerce.Sitecore.Install.Steps</AssemblyName>
+        <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+        <FileAlignment>512</FileAlignment>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>bin\Debug\</OutputPath>
+        <DefineConstants>DEBUG;TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugType>pdbonly</DebugType>
+        <Optimize>true</Optimize>
+        <OutputPath>bin\Release\</OutputPath>
+        <DefineConstants>TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="System" />
+        <Reference Include="System.Core" />
+        <Reference Include="System.Data" />
+        <Reference Include="System.Xml" />
+        <Reference Include="System.Xml.Linq" />
+        <Reference Include="Ucommerce, Version=9.5.1.21265, Culture=neutral, processorArchitecture=MSIL">
+          <HintPath>..\packages\uCommerce.Core.9.5.1.21265\lib\net45\Ucommerce.dll</HintPath>
+        </Reference>
+        <Reference Include="Ucommerce.Admin, Version=9.5.1.21265, Culture=neutral, processorArchitecture=MSIL">
+          <HintPath>..\packages\uCommerce.Core.9.5.1.21265\lib\net45\Ucommerce.Admin.dll</HintPath>
+        </Reference>
+        <Reference Include="Ucommerce.Api, Version=9.5.1.21265, Culture=neutral, processorArchitecture=MSIL">
+          <HintPath>..\packages\uCommerce.Core.9.5.1.21265\lib\net45\Ucommerce.Api.dll</HintPath>
+        </Reference>
+        <Reference Include="Ucommerce.Infrastructure, Version=9.5.1.21265, Culture=neutral, processorArchitecture=MSIL">
+          <HintPath>..\packages\uCommerce.Core.9.5.1.21265\lib\net45\Ucommerce.Infrastructure.dll</HintPath>
+        </Reference>
+        <Reference Include="Ucommerce.Installer, Version=9.5.1.21265, Culture=neutral, processorArchitecture=MSIL">
+          <HintPath>..\packages\uCommerce.Core.9.5.1.21265\lib\net45\Ucommerce.Installer.dll</HintPath>
+        </Reference>
+        <Reference Include="Ucommerce.NHibernate, Version=9.5.1.21265, Culture=neutral, processorArchitecture=MSIL">
+          <HintPath>..\packages\uCommerce.Core.9.5.1.21265\lib\net45\Ucommerce.NHibernate.dll</HintPath>
+        </Reference>
+        <Reference Include="Ucommerce.Pipelines, Version=9.5.1.21265, Culture=neutral, processorArchitecture=MSIL">
+          <HintPath>..\packages\uCommerce.Core.9.5.1.21265\lib\net45\Ucommerce.Pipelines.dll</HintPath>
+        </Reference>
+        <Reference Include="Ucommerce.Presentation, Version=9.5.1.21265, Culture=neutral, processorArchitecture=MSIL">
+          <HintPath>..\packages\uCommerce.Core.9.5.1.21265\lib\net45\Ucommerce.Presentation.dll</HintPath>
+        </Reference>
+        <Reference Include="Ucommerce.Search, Version=9.5.1.21265, Culture=neutral, processorArchitecture=MSIL">
+          <HintPath>..\packages\uCommerce.Core.9.5.1.21265\lib\net45\Ucommerce.Search.dll</HintPath>
+        </Reference>
+        <Reference Include="Ucommerce.SqlMultiReaderConnector, Version=9.5.1.21265, Culture=neutral, processorArchitecture=MSIL">
+          <HintPath>..\packages\uCommerce.Core.9.5.1.21265\lib\net45\Ucommerce.SqlMultiReaderConnector.dll</HintPath>
+        </Reference>
+        <Reference Include="Ucommerce.SystemHttp, Version=9.5.1.21265, Culture=neutral, processorArchitecture=MSIL">
+          <HintPath>..\packages\uCommerce.Core.9.5.1.21265\lib\net45\Ucommerce.SystemHttp.dll</HintPath>
+        </Reference>
+        <Reference Include="Ucommerce.SystemWeb, Version=9.5.1.21265, Culture=neutral, processorArchitecture=MSIL">
+          <HintPath>..\packages\uCommerce.Core.9.5.1.21265\lib\net45\Ucommerce.SystemWeb.dll</HintPath>
+        </Reference>
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="AddHeadlessToIgnoreUrlPrefixes.cs" />
+        <Compile Include="AggregateStep.cs" />
+        <Compile Include="BackupFile.cs" />
+        <Compile Include="ComposeMoveSitecoreConfigIncludes.cs" />
+        <Compile Include="CopyDirectory.cs" />
+        <Compile Include="CopyFile.cs" />
+        <Compile Include="DatabaseInstallStep.cs" />
+        <Compile Include="DatabaseUpgradeStep.cs" />
+        <Compile Include="DeleteDirectory.cs" />
+        <Compile Include="DeleteFile.cs" />
+        <Compile Include="DeleteFileWithBackup.cs" />
+        <Compile Include="DeleteRavenDB.cs" />
+        <Compile Include="EnableApp.cs" />
+        <Compile Include="EnableSitecoreCompatibilityApp.cs" />
+        <Compile Include="FileExtensions\DirectoryExtensions.cs" />
+        <Compile Include="InitializeObjectFactory.cs" />
+        <Compile Include="InstallDatabaseSitecore.cs" />
+        <Compile Include="InstallDatabaseUcommerce.cs" />
+        <Compile Include="InstallStep.cs" />
+        <Compile Include="MergeConfig.cs" />
+        <Compile Include="MoveDirectory.cs" />
+        <Compile Include="MoveDirectoryIfTargetExist.cs" />
+        <Compile Include="MoveFile.cs" />
+        <Compile Include="MoveFileIf.cs" />
+        <Compile Include="MoveFileIfDoesntExist.cs" />
+        <Compile Include="MoveFileIfTargetExist.cs" />
+        <Compile Include="MoveResourceFiles.cs" />
+        <Compile Include="MoveUcommerceBinaries.cs" />
+        <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="RemoveRenamedPipelines.cs" />
+        <Compile Include="RenameConfigDefaultFilesToConfigFiles.cs" />
+        <Compile Include="RenameConfigDefaultFilesToConfigFilesStep.cs" />
+        <Compile Include="SearchProviderCleanup.cs" />
+        <Compile Include="SeperateConfigSectionInNewFile.cs" />
+        <Compile Include="SitecoreWebconfigMerger.cs" />
+        <Compile Include="UpdateUCommerceAssemblyVersionInDatabase.cs" />
+        <Compile Include="UpgradeAppIfEnabled.cs" />
+        <Compile Include="UpgradeSearchProviders.cs" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\Ucommerce.SiteCore.Installer\Ucommerce.Sitecore.Installer.csproj">
+        <Project>{1a45a6dd-d898-48e8-869c-7c72891921a8}</Project>
+        <Name>Ucommerce.Sitecore.Installer</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\Ucommerce.Sitecore.Install\Ucommerce.Sitecore.Install.csproj">
+        <Project>{f7611973-816e-4dcd-b26b-7b2bbcd90f26}</Project>
+        <Name>Ucommerce.Sitecore.Install</Name>
+      </ProjectReference>
+    </ItemGroup>
+    <ItemGroup>
+      <None Include="packages.config" />
+    </ItemGroup>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+    <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+         Other similar extension points exist, see Microsoft.Common.targets.
+    <Target Name="BeforeBuild">
+    </Target>
+    <Target Name="AfterBuild">
+    </Target>
+    -->
+
+</Project>

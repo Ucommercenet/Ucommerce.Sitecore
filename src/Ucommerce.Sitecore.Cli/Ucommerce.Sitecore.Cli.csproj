@@ -95,15 +95,24 @@
     <Compile Include="Logging\CliLogger.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SitecoreVersionCheckerOffline.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Ucommerce.Sitecore.Install.Steps\Ucommerce.Sitecore.Install.Steps.csproj">
+      <Project>{a9888102-45a9-4bc0-a38f-1996afb098ae}</Project>
+      <Name>Ucommerce.Sitecore.Install.Steps</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Ucommerce.SiteCore.Installer\Ucommerce.Sitecore.Installer.csproj">
       <Project>{1a45a6dd-d898-48e8-869c-7c72891921a8}</Project>
       <Name>Ucommerce.Sitecore.Installer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ucommerce.Sitecore.Install\Ucommerce.Sitecore.Install.csproj">
+      <Project>{f7611973-816e-4dcd-b26b-7b2bbcd90f26}</Project>
+      <Name>Ucommerce.Sitecore.Install</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
