@@ -1,5 +1,6 @@
 ﻿using System;
 using Sitecore.Configuration;
+using Ucommerce.Sitecore.Install;
 
 namespace Ucommerce.Sitecore.Installer
 {
