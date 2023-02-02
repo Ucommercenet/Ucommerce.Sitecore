@@ -213,62 +213,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DbInstallerSitecore.cs" />
-    <Compile Include="FileExtensions\DirectoryExtensions.cs" />
-    <Compile Include="ISitecoreVersionChecker.cs" />
     <Compile Include="MessageTemplateParser.cs" />
-    <Compile Include="SitecoreVersionCheckerOffline.cs" />
     <Compile Include="SitecoreDatabaseAvailabilityService.cs" />
     <Compile Include="SitecoreVersionCheckerOnline.cs" />
-    <Compile Include="Steps\AddHeadlessToIgnoreUrlPrefixes.cs" />
     <Compile Include="Steps\AddTitleToCommerceSpeakAppsSection.cs" />
-    <Compile Include="Steps\ComposeMoveSitecoreConfigIncludes.cs" />
-    <Compile Include="Steps\CopyDirectory.cs" />
     <Compile Include="Steps\CreateSpeakApplicationIfSupported.cs" />
-    <Compile Include="Steps\DatabaseInstallStep.cs" />
-    <Compile Include="Steps\DatabaseUpgradeStep.cs" />
-    <Compile Include="Steps\DeleteDirectory.cs" />
-    <Compile Include="Steps\DeleteFileWithBackup.cs" />
-    <Compile Include="Steps\DeleteRavenDB.cs" />
-    <Compile Include="Steps\EnableApp.cs" />
-    <Compile Include="Steps\MoveFileIf.cs" />
-    <Compile Include="Steps\RemoveRenamedPipelines.cs" />
-    <Compile Include="Steps\RenameConfigDefaultFilesToConfigFiles.cs" />
-    <Compile Include="Steps\SearchProviderCleanup.cs" />
-    <Compile Include="Steps\UpgradeAppIfEnabled.cs" />
-    <Compile Include="Steps\EnableSitecoreCompatibilityApp.cs" />
-    <Compile Include="Steps\InstallStep.cs" />
-    <Compile Include="Steps\IStep.cs" />
-    <Compile Include="Steps\MoveResourceFiles.cs" />
-    <Compile Include="Steps\MoveUcommerceBinaries.cs" />
     <Compile Include="Steps\RemoveUCommerceApplicationLaunchButton.cs" />
     <Compile Include="SitecoreInstallationConnectionStringLocator.cs" />
     <Compile Include="PostInstallationStep.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SitecoreInstallerLoggingService.cs" />
-    <Compile Include="Steps\CopyFile.cs" />
     <Compile Include="Steps\CreateApplicationLaunchButton.cs" />
     <Compile Include="Steps\CreateApplicationShortcuts.cs" />
     <Compile Include="Steps\CreateSpeakApplications.cs" />
-    <Compile Include="Steps\DeleteFile.cs" />
-    <Compile Include="Steps\BackupFile.cs" />
     <Compile Include="Steps\GuidExtensions.cs" />
-    <Compile Include="Steps\InitializeObjectFactory.cs" />
-    <Compile Include="Steps\InstallDatabaseUcommerce.cs" />
-    <Compile Include="Steps\InstallDatabaseSitecore.cs" />
-    <Compile Include="Steps\MergeConfig.cs" />
-    <Compile Include="Steps\MoveDirectoryIfTargetExist.cs" />
-    <Compile Include="Steps\MoveFile.cs" />
-    <Compile Include="Steps\MoveFileIfDoesntExist.cs" />
-    <Compile Include="Steps\MoveDirectory.cs" />
-    <Compile Include="Steps\MoveFileIfTargetExist.cs" />
     <Compile Include="Steps\SitecorePreRequisitesChecker.cs" />
-    <Compile Include="Steps\RenameConfigDefaultFilesToConfigFilesStep.cs" />
-    <Compile Include="Steps\SeperateConfigSectionInNewFile.cs" />
-    <Compile Include="Steps\SitecoreWebconfigMerger.cs" />
-    <Compile Include="Steps\AggregateStep.cs" />
-    <Compile Include="Steps\UpgradeSearchProviders.cs" />
     <Compile Include="Steps\Transformation.cs" />
-    <Compile Include="Steps\UpdateUCommerceAssemblyVersionInDatabase.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ConfigurationTransformations\log4net.config">
@@ -360,6 +320,12 @@
     <None Include="SpeakSerialization\sitecore\templates\uCommerce\uCommerce Speak Application.item" />
     <None Include="SpeakSerialization\sitecore\templates\uCommerce\uCommerce Speak Application\Content.item" />
     <None Include="SpeakSerialization\sitecore\templates\uCommerce\uCommerce Speak Application\Content\FrameUrl.item" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ucommerce.Sitecore.Install\Ucommerce.Sitecore.Install.csproj">
+      <Project>{f7611973-816e-4dcd-b26b-7b2bbcd90f26}</Project>
+      <Name>Ucommerce.Sitecore.Install</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

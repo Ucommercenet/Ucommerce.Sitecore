@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using Sitecore.Install.Framework;
+using Ucommerce.Sitecore.Install;
 
 namespace Ucommerce.Sitecore.Installer.Steps
 {
