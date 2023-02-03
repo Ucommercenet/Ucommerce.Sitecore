@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using Ucommerce.Installer;
-using Transformation = Ucommerce.Sitecore.Installer.Steps.Transformation;
 
 namespace Ucommerce.Sitecore.Install.Steps
 {
