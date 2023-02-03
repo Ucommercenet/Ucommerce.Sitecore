@@ -111,17 +111,13 @@
         <Compile Include="RenameConfigDefaultFilesToConfigFilesStep.cs" />
         <Compile Include="SearchProviderCleanup.cs" />
         <Compile Include="SeperateConfigSectionInNewFile.cs" />
-        <Compile Include="SitecoreInstallationConnectionStringLocator.cs" />
+        <Compile Include="SitecorePreRequisitesChecker.cs" />
         <Compile Include="SitecoreWebconfigMerger.cs" />
         <Compile Include="UpdateUCommerceAssemblyVersionInDatabase.cs" />
         <Compile Include="UpgradeAppIfEnabled.cs" />
         <Compile Include="UpgradeSearchProviders.cs" />
     </ItemGroup>
     <ItemGroup>
-      <ProjectReference Include="..\Ucommerce.SiteCore.Installer\Ucommerce.Sitecore.Installer.csproj">
-        <Project>{1a45a6dd-d898-48e8-869c-7c72891921a8}</Project>
-        <Name>Ucommerce.Sitecore.Installer</Name>
-      </ProjectReference>
       <ProjectReference Include="..\Ucommerce.Sitecore.Install\Ucommerce.Sitecore.Install.csproj">
         <Project>{f7611973-816e-4dcd-b26b-7b2bbcd90f26}</Project>
         <Name>Ucommerce.Sitecore.Install</Name>

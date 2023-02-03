@@ -3,7 +3,6 @@ using System.IO;
 using System.Threading.Tasks;
 using Ucommerce.Installer;
 using Ucommerce.Sitecore.Install.Steps.FileExtensions;
-using Transformation = Ucommerce.Sitecore.Installer.Steps.Transformation;
 
 namespace Ucommerce.Sitecore.Install.Steps
 {

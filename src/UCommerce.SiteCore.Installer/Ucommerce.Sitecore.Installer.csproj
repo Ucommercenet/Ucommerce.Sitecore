@@ -213,7 +213,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MessageTemplateParser.cs" />
-    <Compile Include="SitecoreDatabaseAvailabilityService.cs" />
     <Compile Include="SitecoreVersionCheckerOnline.cs" />
     <Compile Include="Steps\AddTitleToCommerceSpeakAppsSection.cs" />
     <Compile Include="Steps\CreateSpeakApplicationIfSupported.cs" />
@@ -225,8 +224,6 @@
     <Compile Include="Steps\CreateApplicationShortcuts.cs" />
     <Compile Include="Steps\CreateSpeakApplications.cs" />
     <Compile Include="Steps\GuidExtensions.cs" />
-    <Compile Include="Steps\SitecorePreRequisitesChecker.cs" />
-    <Compile Include="Steps\Transformation.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ConfigurationTransformations\log4net.config">

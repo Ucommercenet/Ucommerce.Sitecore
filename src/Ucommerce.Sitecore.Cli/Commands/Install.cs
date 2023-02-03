@@ -6,8 +6,8 @@ using CliFx.Attributes;
 using CliFx.Infrastructure;
 using Ucommerce.Installer;
 using Ucommerce.Sitecore.Cli.Logging;
+using Ucommerce.Sitecore.Install;
 using Ucommerce.Sitecore.Install.Steps;
-using Ucommerce.Sitecore.Installer;
 
 namespace Ucommerce.Sitecore.Cli.Commands
 {
