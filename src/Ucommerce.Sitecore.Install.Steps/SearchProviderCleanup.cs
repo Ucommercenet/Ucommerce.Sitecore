@@ -1,8 +1,8 @@
 ﻿using System.IO;
 using Ucommerce.Installer;
-using Ucommerce.Sitecore.Installer.FileExtensions;
+using Ucommerce.Sitecore.Install.Steps.FileExtensions;
 
-namespace Ucommerce.Sitecore.Installer.Steps
+namespace Ucommerce.Sitecore.Install.Steps
 {
     public class SearchProviderCleanup : AggregateStep
     {

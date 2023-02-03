@@ -1,9 +1,8 @@
 ﻿using System.IO;
 using System.Threading.Tasks;
 using Ucommerce.Installer;
-using Ucommerce.Sitecore.Install;
 
-namespace Ucommerce.Sitecore.Installer.Steps
+namespace Ucommerce.Sitecore.Install.Steps
 {
     /// <summary>
     /// Extract section by a given section path from file to an seperated file.

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using Ucommerce.Installer;
-using Ucommerce.Sitecore.Install;
+using Transformation = Ucommerce.Sitecore.Installer.Steps.Transformation;
 
-namespace Ucommerce.Sitecore.Installer.Steps
+namespace Ucommerce.Sitecore.Install.Steps
 {
     public class MergeConfig : IStep
     {

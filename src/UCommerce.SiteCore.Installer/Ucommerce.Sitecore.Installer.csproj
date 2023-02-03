@@ -212,14 +212,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DbInstallerSitecore.cs" />
     <Compile Include="MessageTemplateParser.cs" />
     <Compile Include="SitecoreDatabaseAvailabilityService.cs" />
     <Compile Include="SitecoreVersionCheckerOnline.cs" />
     <Compile Include="Steps\AddTitleToCommerceSpeakAppsSection.cs" />
     <Compile Include="Steps\CreateSpeakApplicationIfSupported.cs" />
     <Compile Include="Steps\RemoveUCommerceApplicationLaunchButton.cs" />
-    <Compile Include="SitecoreInstallationConnectionStringLocator.cs" />
     <Compile Include="PostInstallationStep.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SitecoreInstallerLoggingService.cs" />

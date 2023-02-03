@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace Ucommerce.Sitecore.Installer.FileExtensions
+namespace Ucommerce.Sitecore.Install.Steps.FileExtensions
 {
     /// <summary>
     /// Extension methods used for the DirectoryInfo object

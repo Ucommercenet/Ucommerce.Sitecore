@@ -2,10 +2,10 @@
 using System.IO;
 using System.Threading.Tasks;
 using Ucommerce.Installer;
-using Ucommerce.Sitecore.Install;
-using Ucommerce.Sitecore.Installer.FileExtensions;
+using Ucommerce.Sitecore.Install.Steps.FileExtensions;
+using Transformation = Ucommerce.Sitecore.Installer.Steps.Transformation;
 
-namespace Ucommerce.Sitecore.Installer.Steps
+namespace Ucommerce.Sitecore.Install.Steps
 {
     public class SitecoreWebconfigMerger : IStep
     {
