@@ -33,6 +33,7 @@
     </PropertyGroup>
     <ItemGroup>
         <Reference Include="System" />
+        <Reference Include="System.Configuration" />
         <Reference Include="System.Core" />
         <Reference Include="System.Data" />
         <Reference Include="System.Xml" />
@@ -83,6 +84,7 @@
         <Compile Include="CopyFile.cs" />
         <Compile Include="DatabaseInstallStep.cs" />
         <Compile Include="DatabaseUpgradeStep.cs" />
+        <Compile Include="DbInstallerSitecore.cs" />
         <Compile Include="DeleteDirectory.cs" />
         <Compile Include="DeleteFile.cs" />
         <Compile Include="DeleteFileWithBackup.cs" />
@@ -109,6 +111,7 @@
         <Compile Include="RenameConfigDefaultFilesToConfigFilesStep.cs" />
         <Compile Include="SearchProviderCleanup.cs" />
         <Compile Include="SeperateConfigSectionInNewFile.cs" />
+        <Compile Include="SitecoreInstallationConnectionStringLocator.cs" />
         <Compile Include="SitecoreWebconfigMerger.cs" />
         <Compile Include="UpdateUCommerceAssemblyVersionInDatabase.cs" />
         <Compile Include="UpgradeAppIfEnabled.cs" />

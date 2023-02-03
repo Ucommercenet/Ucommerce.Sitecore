@@ -1,10 +1,10 @@
 using System;
 using System.IO;
 using Ucommerce.Installer;
-using Ucommerce.Sitecore.Install;
-using Ucommerce.Sitecore.Installer.FileExtensions;
+using Ucommerce.Sitecore.Install.Steps.FileExtensions;
+using Ucommerce.Sitecore.Installer.Steps;
 
-namespace Ucommerce.Sitecore.Installer.Steps
+namespace Ucommerce.Sitecore.Install.Steps
 {
     public class InstallStep : AggregateStep
     {
