@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace Ucommerce.Sitecore.Installer.Steps
+namespace Ucommerce.Sitecore.Install
 {
     public class Transformation
     {
