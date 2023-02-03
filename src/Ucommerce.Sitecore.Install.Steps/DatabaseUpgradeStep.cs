@@ -1,8 +1,7 @@
 using System.IO;
 using Ucommerce.Installer;
-using Ucommerce.Sitecore.Install;
 
-namespace Ucommerce.Sitecore.Installer.Steps
+namespace Ucommerce.Sitecore.Install.Steps
 {
     public class DatabaseUpgradeStep : AggregateStep
     {

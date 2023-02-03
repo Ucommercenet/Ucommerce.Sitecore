@@ -1,10 +1,9 @@
 using System.IO;
 using System.Threading.Tasks;
 using Ucommerce.Installer;
-using Ucommerce.Sitecore.Install;
-using Ucommerce.Sitecore.Installer.FileExtensions;
+using Ucommerce.Sitecore.Install.Steps.FileExtensions;
 
-namespace Ucommerce.Sitecore.Installer.Steps
+namespace Ucommerce.Sitecore.Install.Steps
 {
     public class CopyDirectory : IStep
     {
@@ -32,7 +31,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
         {
             if (!sourceDir.Exists)
                 throw new DirectoryNotFoundException($"Source directory not found: {sourceDir.FullName}");
-            loggingService.Information<MoveDirectory>(
+            loggingService.Information<CopyDirectory>(
                 $"Copying directory {sourceDir.FullName} to {destinationDir.FullName}{(recursive == false ? "" : " and overwriting")}...");
 
             var subDirs = sourceDir.GetDirectories();

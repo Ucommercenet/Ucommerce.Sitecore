@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Ucommerce.Sitecore.Install;
 
-namespace Ucommerce.Sitecore.Installer.Steps
+namespace Ucommerce.Sitecore.Install.Steps
 {
     public abstract class AggregateStep : IStep
     {

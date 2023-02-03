@@ -1,9 +1,8 @@
 ﻿using System.IO;
 using System.Threading.Tasks;
 using Ucommerce.Installer;
-using Ucommerce.Sitecore.Install;
 
-namespace Ucommerce.Sitecore.Installer.Steps
+namespace Ucommerce.Sitecore.Install.Steps
 {
     public class DeleteFile : IStep
     {
