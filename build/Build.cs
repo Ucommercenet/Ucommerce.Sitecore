@@ -3,17 +3,16 @@ using System.IO;
 using System.Linq;
 using Helpers;
 using Nuke.Common;
-using Nuke.Common.Execution;
 using Nuke.Common.IO;
 using Nuke.Common.ProjectModel;
 using Nuke.Common.Tooling;
 using Nuke.Common.Tools.MSBuild;
 using Nuke.Common.Tools.NuGet;
 using Nuke.Common.Utilities.Collections;
+using Serilog;
 using static Nuke.Common.IO.FileSystemTasks;
 using static Nuke.Common.Tools.MSBuild.MSBuildTasks;
 
-[CheckBuildProjectConfigurations]
 partial class Build : NukeBuild
 {
     /// Support plugins are available for:
@@ -71,7 +70,7 @@ partial class Build : NukeBuild
         {
             UcommerceNugetSource
                 .GlobFiles("*")
-                .ForEach(path => Logger.Info(path));
+                .ForEach(path => Log.Information(path));
             NuGetTasks.NuGet($"update {Solution.Path} -Id Ucommerce.Core -Id Ucommerce -Id Ucommerce.Client.WebForms -source {UcommerceNugetSource} -source nuget.org -Prerelease");
         });
 
