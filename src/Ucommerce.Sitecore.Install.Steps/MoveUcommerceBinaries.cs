@@ -6,6 +6,9 @@ using Ucommerce.Sitecore.Install.Steps.FileExtensions;
 
 namespace Ucommerce.Sitecore.Install.Steps
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class MoveUcommerceBinaries : IStep
     {
         private readonly IInstallerLoggingService _logging;
