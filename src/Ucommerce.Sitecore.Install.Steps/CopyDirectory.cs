@@ -23,7 +23,7 @@ namespace Ucommerce.Sitecore.Install.Steps
         public Task Run()
         {
             Directory.CreateDirectory(_targetDirectory.FullName);
-            CopyDir(_sourceDirectory, _targetDirectory, true, _loggingService);
+            CopyDir(_sourceDirectory, _targetDirectory, _recursive, _loggingService);
             return Task.CompletedTask;
         }
 
