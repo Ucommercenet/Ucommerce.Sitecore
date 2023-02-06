@@ -1,28 +1,23 @@
-﻿using System.Collections.Generic;
-using System.IO;
-using System.Threading.Tasks;
+﻿using System.IO;
 using Ucommerce.Installer;
 using Ucommerce.Sitecore.Install.Steps.FileExtensions;
 
 namespace Ucommerce.Sitecore.Install.Steps
 {
-    public class MoveResourceFiles : IStep
+    /// <summary>
+    /// Aggregate step that moves resx files from the Ucommerce/App_GlobalResources to App_GlobalResources
+    /// </summary>
+    public class MoveResourceFiles : AggregateStep
     {
         private readonly IInstallerLoggingService _loggingService;
-        public DirectoryInfo SourceDirectory { get; set; }
-        public DirectoryInfo TargetDirectory { get; set; }
+        private DirectoryInfo SourceDirectory { get; }
+        private DirectoryInfo TargetDirectory { get; }
 
-        public MoveResourceFiles(DirectoryInfo sitecoreDirectory, InstallationConnectionStringLocator connectionStringLocator, IInstallerLoggingService logging)
+        public MoveResourceFiles(DirectoryInfo sitecoreDirectory, IInstallerLoggingService logging)
         {
             SourceDirectory = sitecoreDirectory.CombineDirectory("bin", "uCommerce", "App_GlobalResources");
             TargetDirectory = sitecoreDirectory.CombineDirectory("App_GlobalResources");
             _loggingService = logging;
-        }
-
-        public async Task Run()
-        {
-            _loggingService.Information<MoveResourceFiles>($"Moving resource files from {SourceDirectory.FullName}...");
-            var steps = new List<IStep>();
             var files = new[]
             {
                 "Admin.da.resx",
@@ -60,16 +55,16 @@ namespace Ucommerce.Sitecore.Install.Steps
 
             foreach (var file in files)
             {
-                steps.Add(new MoveFile(SourceDirectory.CombineFile(file),
+                Steps.Add(new MoveFile(SourceDirectory.CombineFile(file),
                     TargetDirectory.CombineFile(file),
                     false,
                     _loggingService));
             }
+        }
 
-            foreach (var step in steps)
-            {
-                await step.Run();
-            }
+        protected override void LogStart()
+        {
+            _loggingService.Information<MoveResourceFiles>($"Moving resource files from {SourceDirectory.FullName}...");
         }
     }
 }
