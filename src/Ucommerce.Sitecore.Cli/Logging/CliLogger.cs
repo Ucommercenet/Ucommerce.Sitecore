@@ -14,7 +14,7 @@ namespace Ucommerce.Sitecore.Cli.Logging
             _console = console;
         }
 
-        public void Error<T>(Exception exception)
+        public void Error<T>(Exception ex)
         {
             Log("Error", ConsoleColor.Red, "Exception occured.", typeof(T), exception);
         }
