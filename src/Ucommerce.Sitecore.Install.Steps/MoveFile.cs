@@ -4,6 +4,9 @@ using Ucommerce.Installer;
 
 namespace Ucommerce.Sitecore.Install.Steps
 {
+    /// <summary>
+    /// Installation step that moves a given file into a target location
+    /// </summary>
     public class MoveFile : IStep
     {
         private readonly bool _backupTarget;

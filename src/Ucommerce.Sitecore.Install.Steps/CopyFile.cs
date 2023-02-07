@@ -4,6 +4,9 @@ using Ucommerce.Installer;
 
 namespace Ucommerce.Sitecore.Install.Steps
 {
+    /// <summary>
+    /// Installation step that copies a given file into the target location
+    /// </summary>
     public class CopyFile : IStep
     {
         private readonly FileCopier _command;

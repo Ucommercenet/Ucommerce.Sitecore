@@ -4,6 +4,9 @@ using Ucommerce.Installer;
 
 namespace Ucommerce.Sitecore.Install.Steps
 {
+    /// <summary>
+    /// Installation step that deletes a given file
+    /// </summary>
     public class DeleteFile : IStep
     {
         private readonly FileDeleter _command;

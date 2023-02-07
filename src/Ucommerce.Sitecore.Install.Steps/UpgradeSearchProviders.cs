@@ -5,6 +5,9 @@ using Ucommerce.Sitecore.Install.Steps.FileExtensions;
 
 namespace Ucommerce.Sitecore.Install.Steps
 {
+    /// <summary>
+    /// Installation step that enables ElasticSearch and disables Lucene, if possible
+    /// </summary>
     public class UpgradeSearchProviders : IStep
     {
         private readonly DirectoryInfo _appsDirectory;

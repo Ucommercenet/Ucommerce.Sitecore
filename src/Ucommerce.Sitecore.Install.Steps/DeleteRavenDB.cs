@@ -4,6 +4,9 @@ using Ucommerce.Sitecore.Install.Steps.FileExtensions;
 
 namespace Ucommerce.Sitecore.Install.Steps
 {
+    /// <summary>
+    /// Aggregate step that deletes RavenDB files, which are no longer used
+    /// </summary>
     public class DeleteRavenDB : AggregateStep
     {
         private readonly IInstallerLoggingService _loggingService;

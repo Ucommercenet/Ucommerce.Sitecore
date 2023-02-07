@@ -5,7 +5,7 @@ using Ucommerce.Installer;
 namespace Ucommerce.Sitecore.Install.Steps
 {
     /// <summary>
-    ///     Moves a folder.
+    /// Installation step that moves a given directory into a target location
     /// </summary>
     public class MoveDirectory : IStep
     {

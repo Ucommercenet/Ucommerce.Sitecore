@@ -3,6 +3,9 @@ using System.Threading.Tasks;
 
 namespace Ucommerce.Sitecore.Install.Steps
 {
+    /// <summary>
+    /// Aggregate step base - used for grouping installation steps into one big step
+    /// </summary>
     public abstract class AggregateStep : IStep
     {
         protected readonly List<IStep> Steps;
