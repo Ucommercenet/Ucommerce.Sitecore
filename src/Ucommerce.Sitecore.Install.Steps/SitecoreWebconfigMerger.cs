@@ -1,27 +1,22 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using System.Threading.Tasks;
 using Ucommerce.Installer;
 using Ucommerce.Sitecore.Install.Steps.FileExtensions;
 
 namespace Ucommerce.Sitecore.Install.Steps
 {
-    public class SitecoreWebconfigMerger : IStep
+    /// <summary>
+    /// Aggregate steps that merges Ucommerce config files into Sitecores web.config
+    /// </summary>
+    public class SitecoreWebconfigMerger : AggregateStep
     {
         private readonly IInstallerLoggingService _loggingService;
-        private readonly DirectoryInfo _sitecoreDirectory;
 
         public SitecoreWebconfigMerger(DirectoryInfo sitecoreDirectory, IInstallerLoggingService loggingService)
         {
             _loggingService = loggingService;
-            _sitecoreDirectory = sitecoreDirectory;
-        }
-
-        public async Task Run()
-        {
-            _loggingService.Information<SitecoreWebconfigMerger>("Merging Sitecore and Ucommerce config files...");
-            var ucommerceInstallDirectory = _sitecoreDirectory.CombineDirectory("sitecore modules", "Shell", "ucommerce", "install");
-            var mergeConfig = new MergeConfig(_sitecoreDirectory.CombineFile("web.config"),
+            var ucommerceInstallDirectory = sitecoreDirectory.CombineDirectory("sitecore modules", "Shell", "ucommerce", "install");
+            var mergeConfig = new MergeConfig(sitecoreDirectory.CombineFile("web.config"),
                 new List<Transformation>
                 {
                     new Transformation(ucommerceInstallDirectory.CombineFile("CleanConfig.config")),
@@ -34,8 +29,12 @@ namespace Ucommerce.Sitecore.Install.Steps
                 },
                 _loggingService
             );
+            Steps.Add(mergeConfig);
+        }
 
-            await mergeConfig.Run();
+        protected override void LogStart()
+        {
+            _loggingService.Information<SitecoreWebconfigMerger>("Merging Sitecore and Ucommerce config files...");
         }
     }
 }
