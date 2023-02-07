@@ -5,6 +5,9 @@ using Ucommerce.Sitecore.Install.Steps.FileExtensions;
 
 namespace Ucommerce.Sitecore.Install.Steps
 {
+    /// <summary>
+    /// Aggregate step that moves config files into the App_Config/Include folder
+    /// </summary>
     public class ComposeMoveSitecoreConfigIncludes : AggregateStep
     {
         private readonly IInstallerLoggingService _loggingService;

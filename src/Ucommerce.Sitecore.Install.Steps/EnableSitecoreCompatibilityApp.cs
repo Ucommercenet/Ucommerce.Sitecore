@@ -5,6 +5,9 @@ using Ucommerce.Installer;
 
 namespace Ucommerce.Sitecore.Install.Steps
 {
+    /// <summary>
+    /// Installation step that enables Sitecore apps, based on the Sitecore version
+    /// </summary>
     public class EnableSitecoreCompatibilityApp : IStep
     {
         private readonly DirectoryInfo _sitecorePath;

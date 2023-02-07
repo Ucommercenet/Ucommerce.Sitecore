@@ -5,6 +5,9 @@ using Ucommerce.Sitecore.Install.Steps.FileExtensions;
 
 namespace Ucommerce.Sitecore.Install.Steps
 {
+    /// <summary>
+    /// Installation step that enables and app, if it exists
+    /// </summary>
     public class UpgradeAppIfEnabled : IStep
     {
         private readonly string _appName;

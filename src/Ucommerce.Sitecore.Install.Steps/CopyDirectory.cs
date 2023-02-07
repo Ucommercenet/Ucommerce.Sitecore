@@ -5,6 +5,9 @@ using Ucommerce.Sitecore.Install.Steps.FileExtensions;
 
 namespace Ucommerce.Sitecore.Install.Steps
 {
+    /// <summary>
+    /// Installation step that copies a folder and all of its files into a target location, can be called recursively to copy ALL folders and files contained within
+    /// </summary>
     public class CopyDirectory : IStep
     {
         private readonly IInstallerLoggingService _loggingService;

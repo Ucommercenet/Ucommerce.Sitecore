@@ -3,6 +3,9 @@ using Ucommerce.Installer;
 
 namespace Ucommerce.Sitecore.Install.Steps
 {
+    /// <summary>
+    /// Installation step that initializes an object factory
+    /// </summary>
     public class InitializeObjectFactory : IStep
     {
         private readonly IInstallerLoggingService _loggingService;

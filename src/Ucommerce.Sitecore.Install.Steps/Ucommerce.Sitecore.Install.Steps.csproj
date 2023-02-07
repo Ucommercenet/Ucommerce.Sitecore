@@ -83,7 +83,6 @@
         <Compile Include="CopyDirectory.cs" />
         <Compile Include="CopyFile.cs" />
         <Compile Include="DatabaseInstallStep.cs" />
-        <Compile Include="DatabaseUpgradeStep.cs" />
         <Compile Include="DbInstallerSitecore.cs" />
         <Compile Include="DeleteDirectory.cs" />
         <Compile Include="DeleteFile.cs" />

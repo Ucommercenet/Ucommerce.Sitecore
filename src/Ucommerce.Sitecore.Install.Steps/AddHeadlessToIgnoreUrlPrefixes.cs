@@ -8,6 +8,9 @@ using Ucommerce.Sitecore.Install.Steps.FileExtensions;
 
 namespace Ucommerce.Sitecore.Install.Steps
 {
+    /// <summary>
+    /// Installation step that inserts a value into the Sitecore config file to allow headless api
+    /// </summary>
     public class AddHeadlessToIgnoreUrlPrefixes : IStep
     {
         private readonly IInstallerLoggingService _loggingService;

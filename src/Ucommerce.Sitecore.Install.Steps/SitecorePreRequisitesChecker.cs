@@ -7,6 +7,9 @@ using Ucommerce.Installer.Prerequisites.impl;
 
 namespace Ucommerce.Sitecore.Install.Steps
 {
+    /// <summary>
+    /// Installation step that checks if this program has access to database and files manipulation
+    /// </summary>
     public class SitecorePreRequisitesChecker : IStep
     {
         private readonly InstallationConnectionStringLocator _connectionStringLocator;

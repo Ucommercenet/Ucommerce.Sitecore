@@ -4,6 +4,9 @@ using Ucommerce.Installer;
 
 namespace Ucommerce.Sitecore.Install.Steps
 {
+    /// <summary>
+    /// Installation step that moves a given directory, if the target location exists
+    /// </summary>
     public class MoveDirectoryIfTargetExist : IStep
     {
         private readonly IInstallerLoggingService _loggingService;

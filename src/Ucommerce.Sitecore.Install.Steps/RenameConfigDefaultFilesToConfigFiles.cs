@@ -4,6 +4,9 @@ using Ucommerce.Sitecore.Install.Steps.FileExtensions;
 
 namespace Ucommerce.Sitecore.Install.Steps
 {
+    /// <summary>
+    /// Aggregate step that renames files in specific directory, from suffix "config.default" to just "config"
+    /// </summary>
     public class RenameConfigDefaultFilesToConfigFiles : AggregateStep
     {
         private readonly IInstallerLoggingService _loggingService;
