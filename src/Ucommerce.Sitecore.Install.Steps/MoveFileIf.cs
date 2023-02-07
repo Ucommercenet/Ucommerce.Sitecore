@@ -5,6 +5,9 @@ using Ucommerce.Installer;
 
 namespace Ucommerce.Sitecore.Install.Steps
 {
+    /// <summary>
+    /// Installation step that moves a file, if the given function returns true
+    /// </summary>
     public class MoveFileIf : IStep
     {
         private readonly Func<bool> _condition;

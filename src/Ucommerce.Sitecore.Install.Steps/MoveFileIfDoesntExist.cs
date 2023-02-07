@@ -4,6 +4,9 @@ using Ucommerce.Installer;
 
 namespace Ucommerce.Sitecore.Install.Steps
 {
+    /// <summary>
+    /// Installation step that moves a file, if the target does not already exist
+    /// </summary>
     public class MoveFileIfDoesntExist : IStep
     {
         private readonly FileMover _command;

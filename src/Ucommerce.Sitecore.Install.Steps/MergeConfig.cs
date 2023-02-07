@@ -7,11 +7,14 @@ using Ucommerce.Installer;
 
 namespace Ucommerce.Sitecore.Install.Steps
 {
+    /// <summary>
+    /// Installation step that merges a given config file into another
+    /// </summary>
     public class MergeConfig : IStep
     {
         private readonly IInstallerLoggingService _loggingService;
         private readonly FileInfo _toBeTransformed;
-        public IList<Transformation> Transformations { get; set; }
+        private IList<Transformation> Transformations { get; set; }
 
         public MergeConfig(FileInfo configuration, IList<Transformation> transformations, IInstallerLoggingService loggingService)
         {

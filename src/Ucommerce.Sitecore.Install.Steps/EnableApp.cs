@@ -5,6 +5,9 @@ using Ucommerce.Sitecore.Install.Steps.FileExtensions;
 
 namespace Ucommerce.Sitecore.Install.Steps
 {
+    /// <summary>
+    /// Installation step that enables a given Sitecore app, by moving directories
+    /// </summary>
     public class EnableApp : IStep
     {
         private readonly string _appName;

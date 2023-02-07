@@ -5,6 +5,9 @@ using Ucommerce.Sitecore.Install.Steps.FileExtensions;
 
 namespace Ucommerce.Sitecore.Install.Steps
 {
+    /// <summary>
+    /// The main step for installing Ucommerce - this aggregate steps groups most of the other steps, in order to install Ucommerce in Sitecore
+    /// </summary>
     public class InstallStep : AggregateStep
     {
         public InstallStep(DirectoryInfo baseDirectory,
@@ -63,7 +66,7 @@ namespace Ucommerce.Sitecore.Install.Steps
                         "Payments.config"),
                     loggingService),
                 new MoveUcommerceBinaries(sitecoreDirectory, loggingService),
-                new MoveResourceFiles(sitecoreDirectory, connectionStringLocator, loggingService),
+                new MoveResourceFiles(sitecoreDirectory, loggingService),
                 new RenameConfigDefaultFilesToConfigFiles(sitecoreDirectory, loggingService),
                 new MoveDirectoryIfTargetExist(appsDirectory.CombineDirectory("SimpleInventory.disabled"),
                     appsDirectory.CombineDirectory("SimpleInventory"),

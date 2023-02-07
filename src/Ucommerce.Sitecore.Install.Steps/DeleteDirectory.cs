@@ -4,6 +4,9 @@ using Ucommerce.Installer;
 
 namespace Ucommerce.Sitecore.Install.Steps
 {
+    /// <summary>
+    /// Installation step that deletes a given directory and all of its content
+    /// </summary>
     public class DeleteDirectory : IStep
     {
         private readonly DirectoryDeleter _command;

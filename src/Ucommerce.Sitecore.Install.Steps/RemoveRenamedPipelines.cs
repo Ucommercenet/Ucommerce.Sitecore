@@ -5,6 +5,9 @@ using Ucommerce.Sitecore.Install.Steps.FileExtensions;
 
 namespace Ucommerce.Sitecore.Install.Steps
 {
+    /// <summary>
+    /// Aggregate step that removes config files, for pipelines that now have another name
+    /// </summary>
     public class RemoveRenamedPipelines : AggregateStep
     {
         private readonly IInstallerLoggingService _loggingService;
