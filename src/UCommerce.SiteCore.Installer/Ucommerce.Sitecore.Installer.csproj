@@ -213,7 +213,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MessageTemplateParser.cs" />
-    <Compile Include="SitecoreVersionCheckerOnline.cs" />
+    <Compile Include="SitecoreInstallationConnectionStringLocator.cs" />
+    <Compile Include="SitecoreVersionChecker.cs" />
     <Compile Include="Steps\AddTitleToCommerceSpeakAppsSection.cs" />
     <Compile Include="Steps\CreateSpeakApplicationIfSupported.cs" />
     <Compile Include="Steps\MoveFileWeb.cs" />
@@ -278,7 +279,6 @@
     <None Include="ConfigurationTransformations\ConfigIncludes\Sitecore.uCommerce.Sites.config" />
     <None Include="ConfigurationTransformations\updateAssemblyBinding.config">
       <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
     <None Include="package\Files\App_Config\Include\Sitecore.uCommerce.Databases.config" />
@@ -317,12 +317,6 @@
     <None Include="SpeakSerialization\sitecore\templates\uCommerce\uCommerce Speak Application.item" />
     <None Include="SpeakSerialization\sitecore\templates\uCommerce\uCommerce Speak Application\Content.item" />
     <None Include="SpeakSerialization\sitecore\templates\uCommerce\uCommerce Speak Application\Content\FrameUrl.item" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Ucommerce.Sitecore.Install\Ucommerce.Sitecore.Install.csproj">
-      <Project>{f7611973-816e-4dcd-b26b-7b2bbcd90f26}</Project>
-      <Name>Ucommerce.Sitecore.Install</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

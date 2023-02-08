@@ -2,15 +2,14 @@
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using Sitecore.Install.Framework;
-using Ucommerce.Sitecore.Install;
 
 namespace Ucommerce.Sitecore.Installer.Steps
 {
     public class CreateSpeakApplicationIfSupported : IPostStep
     {
-        private readonly ISitecoreVersionChecker _sitecoreVersionChecker;
+        private readonly SitecoreVersionChecker _sitecoreVersionChecker;
 
-        public CreateSpeakApplicationIfSupported(ISitecoreVersionChecker sitecoreVersionChecker)
+        public CreateSpeakApplicationIfSupported(SitecoreVersionChecker sitecoreVersionChecker)
         {
             _sitecoreVersionChecker = sitecoreVersionChecker;
         }

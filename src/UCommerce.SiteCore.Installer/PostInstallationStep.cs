@@ -29,13 +29,13 @@ namespace Ucommerce.Sitecore.Installer
         /// </remarks>
         public PostInstallationStep()
         {
-            var sitecoreVersionChecker = new SitecoreVersionCheckerOnline();
+            var sitecoreVersionChecker = new SitecoreVersionChecker();
 
             _postInstallationSteps = new List<IPostStep>();
 
             _postInstallationSteps.Add(new CreateApplicationShortcuts());
             _postInstallationSteps.Add(new CreateSpeakApplicationIfSupported(sitecoreVersionChecker));
-            _postInstallationSteps.Add(new MoveSitecoreConfigIncludes());
+            _postInstallationSteps.Add(new MoveSitecoreConfigIncludes(sitecoreVersionChecker));
         }
 
         public void Run(ITaskOutput output, NameValueCollection metaData)
