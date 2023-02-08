@@ -13,7 +13,7 @@ namespace Ucommerce.Sitecore.Install.Steps
             InstallationConnectionStringLocator connectionStringLocator,
             IInstallerLoggingService logging)
         {
-            var migrationsDirectory = basePath.CombineDirectory("package", "files", "sitecore modules", "Shell", "Ucommerce", "Install");
+            var migrationsDirectory = basePath.CombineDirectory("files", "sitecore modules", "Shell", "Ucommerce", "Install");
             var migrations = new MigrationLoader().GetDatabaseMigrations(migrationsDirectory);
 
             _command = new DbInstallerCore(connectionStringLocator, migrations, logging);

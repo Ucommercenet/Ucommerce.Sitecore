@@ -7,9 +7,9 @@ namespace Ucommerce.Sitecore.Installer.Steps
 {
     public class MoveSitecoreConfigIncludes : IPostStep
     {
-        private readonly SitecoreVersionCheckerOnline _versionChecker;
+        private readonly SitecoreVersionChecker _versionChecker;
 
-        public MoveSitecoreConfigIncludes(SitecoreVersionCheckerOnline versionChecker)
+        public MoveSitecoreConfigIncludes(SitecoreVersionChecker versionChecker)
         {
             _versionChecker = versionChecker;
         }

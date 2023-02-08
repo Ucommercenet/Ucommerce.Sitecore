@@ -1,10 +1,9 @@
 ﻿using System;
 using Sitecore.Configuration;
-using Ucommerce.Sitecore.Install;
 
 namespace Ucommerce.Sitecore.Installer
 {
-    public class SitecoreVersionCheckerOnline : ISitecoreVersionChecker
+    public class SitecoreVersionChecker
     {
         public bool IsLowerThan(Version version)
         {

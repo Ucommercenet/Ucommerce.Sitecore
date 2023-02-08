@@ -39,6 +39,7 @@ partial class Build : NukeBuild
     AbsolutePath UcommerceNugetSourceField;
     readonly AbsolutePath SitecoreLibsZip = TemporaryDirectory / "sitecore.lib.zip";
     [Parameter] string SitecoreLibsUrl;
+    readonly AbsolutePath WorkDir = TemporaryDirectory / "sitecore";
 
     // ReSharper disable once UnusedMember.Local
     // ReSharper disable once MissingLinebreak
@@ -47,9 +48,10 @@ partial class Build : NukeBuild
         .Executes(() =>
         {
             SourceDirectory
-                .GlobDirectories("**/bin", "**/obj")
+                .GlobDirectories("Ucommerce*/bin", "Ucommerce*/obj")
                 .ForEach(DeleteDirectory);
             EnsureCleanDirectory(ArtifactsDirectory);
+            EnsureCleanDirectory(WorkDir);
         });
 
     // ReSharper disable once MissingLinebreak
@@ -112,18 +114,55 @@ partial class Build : NukeBuild
                 .SetNodeReuse(IsLocalBuild));
         });
 
+    Target CreatePostInstallPackage =>
+        _ => _
+            .DependsOn(Clean)
+            .Executes(() =>
+            {
+                var rootDir = WorkDir / "PostInstallPackage";
+                var installerDir = rootDir / "installer";
+                var metadataDir = rootDir / "metadata";
+                var installerProject = Solution.GetProject("Ucommerce.Sitecore.Installer");
+                // ReSharper disable once PossibleNullReferenceException
+                var installerProjectDir = installerProject.Directory;
+                var installerPackageDir = installerProjectDir / "package";
+
+                CopyDirectoryRecursively(installerPackageDir / "installer", installerDir);
+                CopyDirectoryRecursively(installerPackageDir / "metadata", metadataDir);
+                //Update the sitecore package info with the version we are building.
+                TextTasks.WriteAllText(metadataDir / "sc_version.txt", FullVersion);
+                TextTasks.WriteAllText(metadataDir / "sc_name.txt", $"Ucommerce {FullVersion}");
+
+                // The internal package.zip file
+                CompressionTasks.CompressZip(rootDir, WorkDir / "package.zip", fileMode: FileMode.Create);
+
+                // The versioned PostInstall Sitecore package.
+                });
+
+    Target CreateVersionedPostInstallPackage =>
+        _ => _
+            .DependsOn(CreatePostInstallPackage)
+            .Executes(() =>
+            {
+                var rootDir = WorkDir / "VersionedPostInstallPackage";
+
+                CopyFileToDirectory(WorkDir / "package.zip", rootDir);
+                CompressionTasks.CompressZip(
+                    rootDir,
+                    WorkDir / $"Ucommerce-PostInstall-{FullVersion}.zip",
+                    fileMode: FileMode.Create);
+            });
+
     // ReSharper disable once MissingLinebreak
     // ReSharper disable once UnusedMember.Local
-    Target Package => _ => _
+    Target CreateUcommerceInstaller => _ => _
         .DependsOn(Compile)
+        .DependsOn(CreateVersionedPostInstallPackage)
         .Description("Packages the files as a Sitecore package")
         .Executes(() =>
         {
-            var workDir = TemporaryDirectory / "sitecore";
-            EnsureCleanDirectory(workDir);
-            var filesDir = workDir / "files";
-            var installerDir = workDir / "installer";
-            var metadataDir = workDir / "metadata";
+            var rootDir = WorkDir / "Installer";
+            var filesDir = rootDir / "files";
 
             var shellDir = filesDir / "sitecore modules" / "Shell";
             var ucommerceDir = shellDir / "Ucommerce";
@@ -133,14 +172,6 @@ partial class Build : NukeBuild
             // ReSharper disable once PossibleNullReferenceException
             var installerProjectDir = installerProject.Directory;
             var installerPackageDir = installerProjectDir / "package";
-
-            var webProject = Solution.GetProject("Ucommerce.Sitecore.Web");
-
-            CopyDirectoryRecursively(installerPackageDir / "installer", installerDir);
-            CopyDirectoryRecursively(installerPackageDir / "metadata", metadataDir);
-            //Update the sitecore package info with the version we are building.
-            TextTasks.WriteAllText(metadataDir / "sc_version.txt", FullVersion);
-            TextTasks.WriteAllText(metadataDir / "sc_name.txt", $"Ucommerce {FullVersion}");
 
             CopyDirectoryRecursively(installerPackageDir / "Files", filesDir);
 
@@ -185,6 +216,7 @@ partial class Build : NukeBuild
                            fileInfo.Name.Contains("kentico", StringComparison.InvariantCultureIgnoreCase);
                 });
 
+            var webProject = Solution.GetProject("Ucommerce.Sitecore.Web");
             // ReSharper disable once PossibleNullReferenceException
             var webShellDir = webProject.Directory / "Shell";
             webShellDir
@@ -292,9 +324,20 @@ partial class Build : NukeBuild
                             .GetOutputDir(Configuration) / "Ucommerce.Sitecore93.dll",
                 ucommerceDir / "apps" / "Sitecore93compatibility.disabled" / "bin");
 
-            // The internal package.zip file
-            CompressionTasks.CompressZip(workDir, TemporaryDirectory / "package" / "package.zip", fileMode: FileMode.Create);
-            // The versioned Sitecore package.
-            CompressionTasks.CompressZip(TemporaryDirectory / "package", ArtifactsDirectory / $"Ucommerce-for-Sitecore-{FullVersion}.zip", fileMode: FileMode.Create);
+            // The download zip with cli and package
+            CopyFileToDirectory(
+                WorkDir / $"Ucommerce-PostInstall-{FullVersion}.zip",
+                rootDir / "files" / "App_Data" / "packages");
+
+            var cliBinDir = Solution
+                                        .GetProject("Ucommerce.Sitecore.Cli")
+                                        .GetOutputDir(Configuration);
+
+            CopyDirectoryRecursively(cliBinDir, rootDir, DirectoryExistsPolicy.Merge);
+
+            CompressionTasks.CompressZip(
+                rootDir,
+                ArtifactsDirectory / $"Ucommerce-Sitecore-{FullVersion}.zip",
+                fileMode: FileMode.Create);
         });
 }
