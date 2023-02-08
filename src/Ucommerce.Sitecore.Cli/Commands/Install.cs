@@ -22,6 +22,9 @@ namespace Ucommerce.Sitecore.Cli.Commands
         // ReSharper disable once MemberCanBeProtected.Global
         public string ConnectionString { get; set; }
 
+        [CommandOption("noDB", 'n', Description = "Install Ucommerce without upgrading the database. Mainly used for debug purposes.")]
+        public bool IgnoreDatabase { get; set; } = false;
+
         [CommandOption("SitecorePath",
             's',
             Description = "Path to Sitecore.",
@@ -38,13 +41,29 @@ namespace Ucommerce.Sitecore.Cli.Commands
 
             var baseDirectory = new DirectoryInfo(AppContext.BaseDirectory);
             var sitecoreDirectory = new DirectoryInfo(SitecorePath);
-            var connectionStringLocater = new SitecoreInstallationConnectionStringLocator(ConnectionString);
+            var connectionStringLocator = new SitecoreInstallationConnectionStringLocator(ConnectionString);
             var sitecoreDbAvailabilityService = new SitecoreDatabaseAvailabilityService();
-            var runtimeVersionChecker = new RuntimeVersionChecker(connectionStringLocater, logging);
-            var updateService = new UpdateService(connectionStringLocater, runtimeVersionChecker, sitecoreDbAvailabilityService);
+            var runtimeVersionChecker = new RuntimeVersionChecker(connectionStringLocator, logging);
+            var updateService = new UpdateService(connectionStringLocator, runtimeVersionChecker, sitecoreDbAvailabilityService);
             var versionChecker = new SitecoreVersionCheckerOffline(sitecoreDirectory, logging);
-            var installStep = new InstallStep(baseDirectory, sitecoreDirectory, versionChecker, connectionStringLocater, updateService, runtimeVersionChecker, logging);
 
+            if (IgnoreDatabase is false)
+            {
+                var databaseStep = new DatabaseInstallStep(connectionStringLocator,
+                    baseDirectory,
+                    logging,
+                    updateService,
+                    runtimeVersionChecker);
+                await databaseStep.Run();
+            }
+
+            var installStep = new InstallStep(baseDirectory,
+                sitecoreDirectory,
+                versionChecker,
+                connectionStringLocator,
+                updateService,
+                runtimeVersionChecker,
+                logging);
             await installStep.Run();
         }
     }

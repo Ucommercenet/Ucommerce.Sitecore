@@ -16,6 +16,7 @@ namespace Ucommerce.Sitecore.Install.Steps
         {
             Steps.AddRange(new IStep[]
             {
+                new SitecorePreRequisitesChecker(connectionStringLocator, logging),
                 new InstallDatabaseUcommerce(baseDirectory, connectionStringLocator, logging),
                 new InstallDatabaseSitecore(baseDirectory, connectionStringLocator, logging),
                 new UpdateUCommerceAssemblyVersionInDatabase(updateService, runtimeVersionChecker, logging)

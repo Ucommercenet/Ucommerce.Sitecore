@@ -23,9 +23,6 @@ namespace Ucommerce.Sitecore.Install.Steps
             {
                 new SitecorePreRequisitesChecker(connectionStringLocator, loggingService),
                 new InitializeObjectFactory(loggingService),
-                new InstallDatabaseUcommerce(baseDirectory, connectionStringLocator, loggingService),
-                new InstallDatabaseSitecore(baseDirectory, connectionStringLocator, loggingService),
-                new UpdateUCommerceAssemblyVersionInDatabase(updateService, runtimeVersionChecker, loggingService),
                 new CopyDirectory(baseDirectory.CombineDirectory("package", "files"), sitecoreDirectory, true, loggingService),
                 new CopyFile(sitecoreDirectory.CombineFile("web.config"),
                     sitecoreDirectory.CombineFile($"web.config.{DateTime.Now.Ticks}.backup"),
