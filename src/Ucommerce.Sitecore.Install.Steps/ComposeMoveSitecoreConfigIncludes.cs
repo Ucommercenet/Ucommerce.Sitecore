@@ -37,12 +37,6 @@ namespace Ucommerce.Sitecore.Install.Steps
                         "Sitecore.uCommerce.Pipelines.getItemPersonalizationVisibility.config"),
                     true,
                     _loggingService),
-                new MoveFileIf(configIncludeDirectory.CombineFile(
-                        "Sitecore.uCommerce.Pipelines.HttpRequestBegin.9.3.config"),
-                    appIncludeDirectory.CombineFile("Sitecore.uCommerce.Pipelines.HttpRequestBegin.config"),
-                    false,
-                    () => versionChecker.IsEqualOrGreaterThan(new Version(9, 3)),
-                    _loggingService),
                 new MoveFile(configIncludeDirectory.CombineFile(
                         "Sitecore.uCommerce.Pipelines.PreProcessRequest.config"),
                     appIncludeDirectory.CombineFile("Sitecore.uCommerce.Pipelines.PreProcessRequest.config"),
