@@ -60,9 +60,6 @@ namespace Ucommerce.Sitecore.Cli.Commands
             var installStep = new InstallStep(baseDirectory,
                 sitecoreDirectory,
                 versionChecker,
-                connectionStringLocator,
-                updateService,
-                runtimeVersionChecker,
                 logging);
             await installStep.Run();
         }
