@@ -11,7 +11,7 @@ using Ucommerce.Sitecore.Install.Steps;
 
 namespace Ucommerce.Sitecore.Cli.Commands
 {
-    [Command("install")]
+    [Command("install", Description = "Install Ucommerce for Sitecore.")]
     public class Install : ICommand
     {
         [CommandOption("ConnectionString",
