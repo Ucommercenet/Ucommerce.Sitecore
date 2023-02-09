@@ -216,6 +216,8 @@
     <Compile Include="SitecoreVersionCheckerOnline.cs" />
     <Compile Include="Steps\AddTitleToCommerceSpeakAppsSection.cs" />
     <Compile Include="Steps\CreateSpeakApplicationIfSupported.cs" />
+    <Compile Include="Steps\MoveFileWeb.cs" />
+    <Compile Include="Steps\MoveSitecoreConfigIncludes.cs" />
     <Compile Include="Steps\RemoveUCommerceApplicationLaunchButton.cs" />
     <Compile Include="PostInstallationStep.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -23,14 +23,6 @@ namespace Ucommerce.Sitecore.Install.Steps
 
             Steps.AddRange(new IStep[]
             {
-                new MoveFile(configIncludeDirectory.CombineFile("Sitecore.uCommerce.Databases.config"),
-                    appIncludeDirectory.CombineFile("Sitecore.uCommerce.Databases.config"),
-                    true,
-                    _loggingService),
-                new MoveFile(configIncludeDirectory.CombineFile("Sitecore.uCommerce.Dataproviders.config"),
-                    appIncludeDirectory.CombineFile("Sitecore.uCommerce.Dataproviders.config"),
-                    true,
-                    _loggingService),
                 new MoveFile(configIncludeDirectory.CombineFile("Sitecore.uCommerce.Events.config"),
                     appIncludeDirectory.CombineFile("Sitecore.uCommerce.Events.config"),
                     true,
@@ -43,11 +35,6 @@ namespace Ucommerce.Sitecore.Install.Steps
                         "Sitecore.uCommerce.Pipelines.getItemPersonalizationVisibility.config"),
                     appIncludeDirectory.CombineFile(
                         "Sitecore.uCommerce.Pipelines.getItemPersonalizationVisibility.config"),
-                    true,
-                    _loggingService),
-                new MoveFile(configIncludeDirectory.CombineFile(
-                        "Sitecore.uCommerce.Pipelines.HttpRequestBegin.config"),
-                    appIncludeDirectory.CombineFile("Sitecore.uCommerce.Pipelines.HttpRequestBegin.config"),
                     true,
                     _loggingService),
                 new MoveFileIf(configIncludeDirectory.CombineFile(
@@ -91,11 +78,6 @@ namespace Ucommerce.Sitecore.Install.Steps
                     appIncludeDirectory.CombineFile("Sitecore.uCommerce.WebApiConfiguration.config"),
                     true,
                     () => versionChecker.IsLowerThan(new Version(8, 2)),
-                    _loggingService),
-                new MoveFile(configIncludeDirectory.CombineFile(
-                        "Sitecore.uCommerce.initialize.config"),
-                    appIncludeDirectory.CombineFile("Sitecore.uCommerce.initialize.config"),
-                    true,
                     _loggingService),
                 new MoveFile(configIncludeDirectory.CombineFile(
                         "Sitecore.uCommerce.Log4net.config"),
