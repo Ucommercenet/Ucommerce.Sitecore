@@ -333,7 +333,14 @@ partial class Build : NukeBuild
                                         .GetProject("Ucommerce.Sitecore.Cli")
                                         .GetOutputDir(Configuration);
 
-            CopyDirectoryRecursively(cliBinDir, rootDir, DirectoryExistsPolicy.Merge);
+            CopyDirectoryRecursively(
+                cliBinDir,
+                rootDir,
+                DirectoryExistsPolicy.Merge,
+                excludeFile: info =>
+                    info.Name.Contains(".pdb") |
+                    info.Name.Contains(".xml")
+            );
 
             CompressionTasks.CompressZip(
                 rootDir,
