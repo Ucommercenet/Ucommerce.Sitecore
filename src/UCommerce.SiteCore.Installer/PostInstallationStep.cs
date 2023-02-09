@@ -35,6 +35,7 @@ namespace Ucommerce.Sitecore.Installer
 
             _postInstallationSteps.Add(new CreateApplicationShortcuts());
             _postInstallationSteps.Add(new CreateSpeakApplicationIfSupported(sitecoreVersionChecker));
+            _postInstallationSteps.Add(new MoveSitecoreConfigIncludes());
         }
 
         public void Run(ITaskOutput output, NameValueCollection metaData)

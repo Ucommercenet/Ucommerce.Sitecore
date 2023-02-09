@@ -23,6 +23,10 @@ namespace Ucommerce.Sitecore.Install.Steps
             {
                 new SitecorePreRequisitesChecker(connectionStringLocator, loggingService),
                 new InitializeObjectFactory(loggingService),
+                new BackupFile(sitecoreDirectory.CombineFile("App_Config", "include", "Sitecore.uCommerce.Databases.config"), loggingService),
+                new BackupFile(sitecoreDirectory.CombineFile("App_Config", "include", "Sitecore.uCommerce.Dataproviders.config"), loggingService),
+                new BackupFile(sitecoreDirectory.CombineFile("App_Config", "include", "Sitecore.uCommerce.initialize.config"), loggingService),
+                new BackupFile(sitecoreDirectory.CombineFile("App_Config", "include", "Sitecore.uCommerce.Pipelines.HttpRequestBegin.config"), loggingService),
                 new CopyDirectory(baseDirectory.CombineDirectory("package", "files"), sitecoreDirectory, true, loggingService),
                 new CopyFile(sitecoreDirectory.CombineFile("web.config"),
                     sitecoreDirectory.CombineFile($"web.config.{DateTime.Now.Ticks}.backup"),
