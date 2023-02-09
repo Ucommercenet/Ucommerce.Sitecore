@@ -110,7 +110,8 @@
         <Compile Include="RenameConfigDefaultFilesToConfigFilesStep.cs" />
         <Compile Include="SearchProviderCleanup.cs" />
         <Compile Include="SeperateConfigSectionInNewFile.cs" />
-        <Compile Include="SitecorePreRequisitesChecker.cs" />
+        <Compile Include="SitecoreDatabasePreRequisitesChecker.cs" />
+        <Compile Include="SitecoreInstallPreRequisitesChecker.cs" />
         <Compile Include="SitecoreWebconfigMerger.cs" />
         <Compile Include="UpdateUCommerceAssemblyVersionInDatabase.cs" />
         <Compile Include="UpgradeAppIfEnabled.cs" />

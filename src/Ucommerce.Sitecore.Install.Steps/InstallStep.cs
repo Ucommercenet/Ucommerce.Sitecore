@@ -13,15 +13,12 @@ namespace Ucommerce.Sitecore.Install.Steps
         public InstallStep(DirectoryInfo baseDirectory,
             DirectoryInfo sitecoreDirectory,
             ISitecoreVersionChecker versionChecker,
-            InstallationConnectionStringLocator connectionStringLocator,
-            UpdateService updateService,
-            RuntimeVersionChecker runtimeVersionChecker,
             IInstallerLoggingService loggingService)
         {
             var appsDirectory = sitecoreDirectory.CombineDirectory("sitecore modules", "Shell", "uCommerce", "Apps");
             Steps.AddRange(new IStep[]
             {
-                new SitecorePreRequisitesChecker(connectionStringLocator, loggingService),
+                new SitecoreInstallPreRequisitesChecker(loggingService),
                 new InitializeObjectFactory(loggingService),
 
                 new BackupFile(sitecoreDirectory.CombineFile("App_Config", "include", "Sitecore.uCommerce.Databases.config"), loggingService),
@@ -29,7 +26,7 @@ namespace Ucommerce.Sitecore.Install.Steps
                 new BackupFile(sitecoreDirectory.CombineFile("App_Config", "include", "Sitecore.uCommerce.initialize.config"), loggingService),
                 new BackupFile(sitecoreDirectory.CombineFile("App_Config", "include", "Sitecore.uCommerce.Pipelines.HttpRequestBegin.config"), loggingService),
                 new CopyDirectory(baseDirectory.CombineDirectory("files"), sitecoreDirectory, true, loggingService),
-                
+
                 new CopyFile(sitecoreDirectory.CombineFile("web.config"),
                     sitecoreDirectory.CombineFile($"web.config.{DateTime.Now.Ticks}.backup"),
                     loggingService),
