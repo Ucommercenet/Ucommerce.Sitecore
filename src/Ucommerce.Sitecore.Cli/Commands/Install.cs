@@ -37,7 +37,10 @@ namespace Ucommerce.Sitecore.Cli.Commands
         public virtual async ValueTask ExecuteAsync(IConsole console)
         {
             var logging = new CliLogger(console);
-            logging.Information<Install>("Installing...");
+            console.BackgroundColor = ConsoleColor.Black;
+            console.ForegroundColor = ConsoleColor.White;
+            await console.Output.WriteLineAsync("Installing Ucommerce for Sitecore...");
+            console.ResetColor();
 
             var baseDirectory = new DirectoryInfo(AppContext.BaseDirectory);
             var sitecoreDirectory = new DirectoryInfo(SitecorePath);
@@ -62,6 +65,16 @@ namespace Ucommerce.Sitecore.Cli.Commands
                 versionChecker,
                 logging);
             await installStep.Run();
+
+            console.BackgroundColor = ConsoleColor.Black;
+            console.ForegroundColor = ConsoleColor.White;
+            await console.Output.WriteLineAsync("File installation completed! Next, you will have to install a package in Sitecore."
+                + "\n1. Login to Sitecore"
+                + "\n2. Go to Sitecore desktop"
+                + "\n3. In the bottom left menu, go to 'Development Tools' -> 'Installation Wizard'"
+                + "\n4. Click 'Choose package' and go through the installation process"
+                + "\nAfter that, the Ucommerce tab should be visible, and good to go!");
+            console.ResetColor();
         }
     }
 }
