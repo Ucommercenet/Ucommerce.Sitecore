@@ -64,7 +64,7 @@ namespace Ucommerce.Sitecore.Cli.Commands
                 sitecoreDirectory,
                 versionChecker,
                 logging);
-            //await installStep.Run();
+            await installStep.Run();
 
             console.BackgroundColor = ConsoleColor.Black;
             console.ForegroundColor = ConsoleColor.White;
