@@ -22,12 +22,10 @@ Just follow these few simple steps below:
 	- Sitecore.Services.Core.dll
 	- Sitecore.Services.Infrastructure.dll
 2. Open a Powershell tool.
-3. Navigate the path to the root of the repository.
-	Further navigate to "\tools\deploy"
-4. Execute the Powershell command: ".\Deploy.To.Package.ps1"
-	To generate release packages update version number in `version.txt` and `name.txt`	
-	The package will be generated under "c:\tmp"
-5. Install the package through the Sitecore package installer.
+3. Navigate to the Ucommerce.Sitecore root.
+4. Excecute the script by entering `./build.ps1 CreateUcommerceInstaller`, it is recommended to set the package version name by using the `--version` flag
+4. Navigate to the `Artifacts` folder to find a zip folder containing the CLI tool and all of the needed files, unzip this if you wish to use it now.
+5. Use the CLI tool to install. You can get started by using the Powershell tool to navigate to the folder and running `./uccli --help`.
 
 ### Deploying local changes for debug ###
 
