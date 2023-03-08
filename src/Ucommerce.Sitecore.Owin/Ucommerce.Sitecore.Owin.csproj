@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net48</TargetFramework>
+        <ImplicitUsings>disable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <LangVersion>latest</LangVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Reference Include="Sitecore.Kernel">
+        <HintPath>..\Ucommerce.Sitecore93\bin\Debug\Sitecore.Kernel.dll</HintPath>
+      </Reference>
+      <Reference Include="Sitecore.Owin">
+        <HintPath>..\..\lib\Sitecore\Sitecore.Owin.dll</HintPath>
+      </Reference>
+      <Reference Include="Sitecore.Owin.Authentication">
+        <HintPath>..\..\lib\Sitecore\Sitecore.Owin.Authentication.dll</HintPath>
+      </Reference>
+      <Reference Include="Sitecore.Owin.Authentication.IdentityServer">
+        <HintPath>..\..\lib\Sitecore\Sitecore.Owin.Authentication.IdentityServer.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Web" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.Owin.Security.Jwt" Version="[4.1.0, )" />
+      <PackageReference Include="Owin" Version="[1.0.0, )" />
+    </ItemGroup>
+
+</Project>

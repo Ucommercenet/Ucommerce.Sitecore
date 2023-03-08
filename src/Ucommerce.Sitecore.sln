@@ -30,6 +30,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ucommerce.Sitecore.Install"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ucommerce.Sitecore.Install.Steps", "Ucommerce.Sitecore.Install.Steps\Ucommerce.Sitecore.Install.Steps.csproj", "{A9888102-45A9-4BC0-A38F-1996AFB098AE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ucommerce.Sitecore.Owin", "Ucommerce.Sitecore.Owin\Ucommerce.Sitecore.Owin.csproj", "{FFD1261A-4AE7-4685-9325-A767ADCAE72F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -88,6 +90,12 @@ Global
 		{A9888102-45A9-4BC0-A38F-1996AFB098AE}.Release Pro|Any CPU.Build.0 = Debug|Any CPU
 		{A9888102-45A9-4BC0-A38F-1996AFB098AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9888102-45A9-4BC0-A38F-1996AFB098AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFD1261A-4AE7-4685-9325-A767ADCAE72F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFD1261A-4AE7-4685-9325-A767ADCAE72F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFD1261A-4AE7-4685-9325-A767ADCAE72F}.Release Pro|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFD1261A-4AE7-4685-9325-A767ADCAE72F}.Release Pro|Any CPU.Build.0 = Debug|Any CPU
+		{FFD1261A-4AE7-4685-9325-A767ADCAE72F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFD1261A-4AE7-4685-9325-A767ADCAE72F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
