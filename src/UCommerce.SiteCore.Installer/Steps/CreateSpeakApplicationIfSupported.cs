@@ -13,6 +13,7 @@ namespace Ucommerce.Sitecore.Installer.Steps
         {
             _sitecoreVersionChecker = sitecoreVersionChecker;
         }
+
         public void Run(ITaskOutput output, NameValueCollection metaData)
         {
             var tasks = new List<IPostStep>();

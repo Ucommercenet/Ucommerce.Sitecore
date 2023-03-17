@@ -18,8 +18,7 @@ namespace Ucommerce.Sitecore.Installer
 
         public bool IsEqualOrGreaterThan(Version version)
         {
-            Version actualVersion;
-            if (Version.TryParse(About.Version, out actualVersion))
+            if (Version.TryParse(About.Version, out var actualVersion))
             {
                 return actualVersion >= version;
             }
